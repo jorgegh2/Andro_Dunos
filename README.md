@@ -1,10 +1,13 @@
-# Project Name
-TODO: Write a project description
+# Group 8 Goosebump Games: AndroDunos
+Shoter chungo.
 ## Installation
 TODO: Describe the installation process
 ## Usage
 TODO: Write usage instructions
 ## Contributing
+
+Nadine Gutiérrez (@Nadine044), Martí Torras (@martitorras), Gerard Marcos (vsRushy), Jorge Gemas (jorgegh2)
+
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-newfeature`
 3. Commit your changes: `git commit -am 'Add some
