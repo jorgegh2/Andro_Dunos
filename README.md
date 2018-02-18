@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # Group 8 Goosebump Games: Andro Dunos
 Andro Dunos is a sci-fi horizontally-scrolling shoot 'em up developed by Visco and released by SNK for arcades (running Neo Geo MVS hardware) on June 15, 1992
 <iframe width="420" height="345" src="https://www.youtube.com/watch?v=iQOrXlf34es">
 </iframe>
+=======
+# Group 8 - Goosebump Games: Andro Dunos
+Andro Dunos is a sci-fi horizontally-scrolling shoot 'em up developed by Visco and released by SNK for arcades (running Neo Geo MVS hardware) on June 15, 1992.
+>>>>>>> b3b7453d93eaf7ac510d253ebb6d95b4feecfe83
 ## Installation
 TODO: Describe the installation process
 ## Usage
