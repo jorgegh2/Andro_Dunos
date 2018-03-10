@@ -13,4 +13,5 @@ Management: Jorge Gemas (@jorgegh2)
 
 ## Additional information
 GitHub wiki: https://github.com/jorgegh2/Project1/wiki
+
 Trello: https://trello.com/b/Kh1DxzsN/project-1-andro-dunos-goosebump-games
