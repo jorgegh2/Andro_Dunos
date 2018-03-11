@@ -9,7 +9,7 @@ In a not too distant future, the humans have been able to develop the necessary 
 
 Please, click this image to see a full long-play of the videogame:
 
-[![Andro Dunos video](https://github.com/jorgegh2/Project1/blob/master/docs/User_Interface/0005.png)](https://www.youtube.com/embed/iQOrXlf34es)
+[![Andro Dunos video](https://edgeemu.net/screenshots/mame/Named_Titles/androdun.png)](https://www.youtube.com/embed/iQOrXlf34es)
 
 ## History
 
@@ -23,25 +23,25 @@ Jorge Gemas' Github account and responsability:
 
  - Management
 
- - Github: https://github.com/jorgegh2
+ - [**GitHub**](https://github.com/jorgegh2)
 
 Nadine Gutierrez's Github account and responsability:
 
  - Art & Design
 
- - Github: https://github.com/Nadine044
+ - [**GitHub**](https://github.com/Nadine044)
 
 Gerard Marcos' Github account and responsability:
 
  - Q/A
 
- - Github: https://github.com/vsRushy
+ - [**GitHub**](https://github.com/vsRushy)
 
 Marti Torras' Github account and responsability:
 
  - Code
 
- - Github: https://github.com/martitorras
+ - [**GitHub**](https://github.com/martitorras)
 
 ## Credits
 [**GitHub wiki**](https://github.com/jorgegh2/Andro_Dunos/wiki)
