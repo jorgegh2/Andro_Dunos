@@ -9,7 +9,7 @@ Please, click this image to see a full long-play of the videogame:
 **Art/Design:** Nadine Gutierrez (@Nadine044)    
 **Code:** Marti Torras (@martitorras)    
 **Q/A:** Gerard Marcos (@vsRushy)    
-**Management:** Jorge Gemas (@jorgegh2)
+**Management:** Jorge Gemas [(@jorgegh2)](https://github.com/jorgegh2)
 
 ## Additional information
 **GitHub wiki:** https://github.com/jorgegh2/Andro_Dunos/wiki
