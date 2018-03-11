@@ -9,7 +9,7 @@ In a not too distant future, the humans have been able to develop the necessary 
 
 Please, click this image to see a full long-play of the videogame:
 
-![Andro Dunos video](https://github.com/jorgegh2/Project1/blob/master/docs/User_Interface/0005.png)](https://www.youtube.com/embed/iQOrXlf34es)
+[![Andro Dunos video](https://github.com/jorgegh2/Project1/blob/master/docs/User_Interface/0005.png)](https://www.youtube.com/embed/iQOrXlf34es)
 
 ## History
 
