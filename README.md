@@ -13,6 +13,30 @@ In process
 ## History
 TODO: Write history
 ## Credits
-TODO: Write credits
-## License
+Github project page: https://github.com/jorgegh2/Andro_Dunos
+
+Jorge Gemas' Github account and responsability:
+
+ - Management
+
+ - Github: https://github.com/jorgegh2
+
+Nadine Gutiérrez's Github account and responsability:
+
+ - Art & Design
+
+ - Github: https://github.com/Nadine044
+
+ Gerard Marcos' Github account and responsability:
+
+ - Q/A
+
+ - Github: https://github.com/vsRushy
+
+ Martí Torras' Github account and responsability:
+
+ - Code
+
+ - Github: https://github.com/martitorras
+
 TODO: Write license
