@@ -6,8 +6,8 @@ We are Goosebump games, a team of four students of CITM in terrassa (Catalonia/S
 
 In a not too distant future, the humans have been able to develop the necessary technology for the space conquest. However, after years of authentic scientific furor and great advences in that field, the planet Earth has been attacked by a mysterious alien race, which has endangered the future of humanity. Thereupon, humans have build two spaceships called Space Attack: the most powerful weapons ever created, hoping to defeat the alien army and their force its final withdrawal.    
 
-
-Please, click this image to see a full long-play of the videogame:
+         
+**Click this image to see a full long-play of the videogame:**
 
 [![Andro Dunos video](https://edgeemu.net/screenshots/mame/Named_Titles/androdun.png)](https://www.youtube.com/embed/iQOrXlf34es)
 
