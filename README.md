@@ -1,19 +1,18 @@
-# Group 8 Goosebump Games: Andro Dunos
-**Andro Dunos** is a **sci-fi horizontally-scrolling shoot 'em up** developed by **Visco Corporation** and released by **SNK** for arcades (running **Neo Geo MVS** hardware) on June 15, 1992.
-
-Please, click this image to see a full long-play of the videogame:
-
-[![Andro Dunos video](https://github.com/jorgegh2/Project1/blob/master/docs/User_Interface/0005.png)](https://www.youtube.com/embed/iQOrXlf34es)
-
-## Team responsabilities
-**Art/Design:** Nadine Gutierrez (@Nadine044)    
-**Code:** Marti Torras (@martitorras)    
-**Q/A:** Gerard Marcos (@vsRushy)    
-**Management:** Jorge Gemas (@jorgegh2)
-
-## Additional information
-**GitHub wiki:** https://github.com/jorgegh2/Project1/wiki
-
-**Trello:** https://trello.com/b/Kh1DxzsN/project-1-andro-dunos-goosebump-games
-
-**Webpage:** https://github.com/jorgegh2/Andro_Dunos/wiki
+# ${1:Project Name}
+TODO: Write a project description
+## Installation
+TODO: Describe the installation process
+## Usage
+TODO: Write usage instructions
+## Contributing
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+## History
+TODO: Write history
+## Credits
+TODO: Write credits
+## License
+TODO: Write license
