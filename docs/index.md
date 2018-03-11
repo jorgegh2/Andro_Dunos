@@ -25,7 +25,7 @@ Jorge Gemas' Github account and responsability:
 
  - Github: https://github.com/jorgegh2
 
-Nadine Gutiérrez's Github account and responsability:
+Nadine Gutierrez's Github account and responsability:
 
  - Art & Design
 
@@ -37,7 +37,7 @@ Gerard Marcos' Github account and responsability:
 
  - Github: https://github.com/vsRushy
 
-Martí Torras' Github account and responsability:
+Marti Torras' Github account and responsability:
 
  - Code
 
