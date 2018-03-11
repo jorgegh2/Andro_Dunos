@@ -49,7 +49,3 @@ Nadine Gutiérrez's Github account and responsability:
  - Github: https://github.com/martitorras
 
 CITM Terrassa 2018. Degree in videogame design and developement.
-
-TODO: Write license
-
-## License
