@@ -10,7 +10,7 @@ In a not too distant future, the humans have been able to develop the necessary 
 Download the project and execute the .exe file to play.
 ## Usage
 
-In process. Controls still to be determined.
+In process. Controls are still to be determined.
 
  
 ## History
