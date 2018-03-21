@@ -66,13 +66,13 @@ update_status ModuleRender::PreUpdate()
 	// TODO 10: Blit our test texture to check functionality
 	for (int i = 0; i < 16; ++i) {
 		if (i >= 8) {
-			if (!Blit(tex[i], mov + i*TILE_WITH - 5, 0, nullptr)) return update_status::UPDATE_ERROR;
+			if (!Blit(tex[i], mov + i*TILE_WITH - 5, SCREEN_HEIGHT/2, nullptr)) return update_status::UPDATE_ERROR;
 		}
 		else{
-			if (!Blit(tex[i], mov + i*TILE_WITH, 0, nullptr)) return update_status::UPDATE_ERROR;
+			if (!Blit(tex[i], mov + i*TILE_WITH, SCREEN_HEIGHT/2, nullptr)) return update_status::UPDATE_ERROR;
 		}
 	}
-	++mov;
+	--mov;
 	return update_status::UPDATE_CONTINUE;
 }
 
