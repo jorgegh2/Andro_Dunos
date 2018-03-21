@@ -40,7 +40,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\martiti\Desktop\Andro_Dunos\Andro dunos 0.1\SDL_mixer\include;C:\Users\martiti\Desktop\Andro_Dunos\Andro dunos 0.1\SDL_image\include;C:\Users\martiti\Desktop\Andro_Dunos\Andro dunos 0.1\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\martiti\Desktop\Andro_Dunos\Andro dunos 0.1\SDL_mixer\libx86;C:\Users\martiti\Desktop\Andro_Dunos\Andro dunos 0.1\SDL_image\libx86;C:\Users\martiti\Desktop\Andro_Dunos\Andro dunos 0.1\SDL\libx86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
