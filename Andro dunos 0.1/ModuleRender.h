@@ -29,6 +29,7 @@ public:
 	float movy;
 	int position[2];
 	SDL_Rect camera;
+	bool stop = false;
 };
 
 #endif //__ModuleRenderer_H__
