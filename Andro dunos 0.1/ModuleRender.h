@@ -22,8 +22,9 @@ public:
 
 public:
 	SDL_Renderer* renderer = nullptr;
-	SDL_Texture* tex[16];
+	SDL_Texture* tex;
 	int mov;
+	int position[2];
 };
 
 #endif //__ModuleRenderer_H__

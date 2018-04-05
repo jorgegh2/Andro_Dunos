@@ -34,24 +34,10 @@ bool ModuleRender::Init()
 	}
 
 	// TODO 9: load a texture "test.png" to test is everything works well
-	tex[0] = App->textures->Load("1.png");
-	tex[1] = App->textures->Load("2.png");
-	tex[2] = App->textures->Load("3.png");
-	tex[3] = App->textures->Load("4.png");
-	tex[4] = App->textures->Load("5.png");
-	tex[5] = App->textures->Load("6.png");
-	tex[6] = App->textures->Load("7.png");
-	tex[7] = App->textures->Load("8.png");
-	tex[8] = App->textures->Load("9.png");
-	tex[9] = App->textures->Load("10.png");
-	tex[10] = App->textures->Load("11.png");
-	tex[11] = App->textures->Load("12.png");
-	tex[12] = App->textures->Load("13.png");
-	tex[13] = App->textures->Load("14.png");
-	tex[14] = App->textures->Load("15.png");
-	tex[15] = App->textures->Load("16.png");
+	tex = App->textures->Load("Background1.png");
 
 	mov = 0;
+	position[0] = position[1] = position[2] = 0;
 	return ret;
 }
 
@@ -64,12 +50,18 @@ update_status ModuleRender::PreUpdate()
 
 	SDL_RenderClear(renderer);
 	// TODO 10: Blit our test texture to check functionality
-	for (int i = 0; i < 16; ++i) {
-		if (i >= 8) {
-			if (!Blit(tex[i], mov + i*TILE_WITH - 5, SCREEN_HEIGHT/2, nullptr)) return update_status::UPDATE_ERROR;
+	for (int i = 0; i < 3; ++i) {
+		if (i == 0) {
+			if (mov + position[0] < 0 - TILE_WIDTH) position[0] += TILE_WIDTH*3;
+			if (!Blit(tex, mov + position[0], 115, nullptr)) return update_status::UPDATE_ERROR;
 		}
-		else{
-			if (!Blit(tex[i], mov + i*TILE_WITH, SCREEN_HEIGHT/2, nullptr)) return update_status::UPDATE_ERROR;
+		else if (i == 1){
+			if (mov + position[1] + TILE_WIDTH < 0 - TILE_WIDTH) position[1] += TILE_WIDTH*3;
+			if(!Blit(tex, mov + TILE_WIDTH + position[1], 115, nullptr)) return update_status::UPDATE_ERROR;
+		}
+		else {
+			if (mov + position[2] + TILE_WIDTH*2 < 0 - TILE_WIDTH) position[2] += TILE_WIDTH * 3;
+			if (!Blit(tex, mov + TILE_WIDTH*2 + position[2], 115, nullptr)) return update_status::UPDATE_ERROR;
 		}
 	}
 	--mov;
