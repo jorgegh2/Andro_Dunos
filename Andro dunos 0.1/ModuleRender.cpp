@@ -37,7 +37,7 @@ bool ModuleRender::Init()
 	tex = App->textures->Load("Background1.png");
 	layout = App->textures->Load("Background_all.png");
 	
-	mov = 0;
+	mov = -1550;
 	position[0] = position[1] = position[2] = 0;
 	return ret;
 }
@@ -54,19 +54,23 @@ update_status ModuleRender::PreUpdate()
 	for (int i = 0; i < 3; ++i) {
 		if (i == 0) {
 			if (mov + position[0] < 0 - TILE_WIDTH) position[0] += TILE_WIDTH*3;
-			if (!Blit(tex, mov + position[0], 120, nullptr)) return update_status::UPDATE_ERROR;
+			if (!Blit(tex, mov + position[0], 120+movy, nullptr)) return update_status::UPDATE_ERROR;
 		}
 		else if (i == 1){
 			if (mov + position[1] + TILE_WIDTH < 0 - TILE_WIDTH) position[1] += TILE_WIDTH*3;
-			if(!Blit (tex, mov + TILE_WIDTH + position[1], 120, nullptr)) return update_status::UPDATE_ERROR;
+			if(!Blit (tex, mov + TILE_WIDTH + position[1], 120+movy, nullptr)) return update_status::UPDATE_ERROR;
 		}
 		else {
 			if (mov + position[2] + TILE_WIDTH*2 < 0 - TILE_WIDTH) position[2] += TILE_WIDTH * 3;
-			if (!Blit(tex, mov + TILE_WIDTH*2 + position[2], 120, nullptr)) return update_status::UPDATE_ERROR;
+			if (!Blit(tex, mov + TILE_WIDTH*2 + position[2], 120+movy, nullptr)) return update_status::UPDATE_ERROR;
 		}
 	}
-	if (!Blit(layout, mov * 1.75, -607, nullptr)) return update_status::UPDATE_ERROR;
-	mov -= 0.5;
+	if (!Blit(layout, mov * 1.75, -607 +movy, nullptr)) return update_status::UPDATE_ERROR;
+	
+	if(mov > -1683) mov -= 0.45;
+	else if(mov <= -1683) {
+		movy -= 0.45;
+	}
 	return update_status::UPDATE_CONTINUE;
 }
 

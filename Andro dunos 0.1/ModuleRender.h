@@ -26,6 +26,7 @@ public:
 	SDL_Texture* tex;
 	SDL_Texture* layout;
 	float mov;
+	float movy;
 	int position[2];
 	SDL_Rect camera;
 };
