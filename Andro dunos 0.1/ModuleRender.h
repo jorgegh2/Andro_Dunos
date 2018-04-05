@@ -1,6 +1,7 @@
 #ifndef __ModuleRenderer_H__
 #define __ModuleRenderer_H__
 
+#include "SDL\include\SDL_rect.h"
 #include "Module.h"
 
 struct SDL_Renderer;
@@ -18,13 +19,15 @@ public:
 	update_status PreUpdate();
 	bool CleanUp();
 
-	bool Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section = nullptr);
+	bool Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section);
 
 public:
 	SDL_Renderer* renderer = nullptr;
 	SDL_Texture* tex;
-	int mov;
+	SDL_Texture* layout;
+	float mov;
 	int position[2];
+	SDL_Rect camera;
 };
 
 #endif //__ModuleRenderer_H__
