@@ -57,25 +57,28 @@ bool ModuleTextures::CleanUp()
 // Load new texture from file path
 SDL_Texture* const ModuleTextures::Load(const char* path)
 {
-	SDL_Surface* image = IMG_Load(path);
-	if (!image) {
-		LOG("IMG_Load: %s\n", IMG_GetError());
-		return nullptr;
+	SDL_Texture* texture = NULL;
+	SDL_Surface* surface = IMG_Load(path);
+
+	if (surface == NULL)
+	{
+		LOG("Could not load surface with path: %s. IMG_Load: %s", path, IMG_GetError());
 	}
-	for (int i = 0; i < MAX_TEXTURES; ++i) {
-		if (textures[i] == nullptr) {
-			textures[i] = SDL_CreateTextureFromSurface(App->render->renderer, image);
-			return textures[i];
+	else
+	{
+		texture = SDL_CreateTextureFromSurface(App->render->renderer, surface);
+
+		if (texture == NULL)
+		{
+			LOG("Unable to create texture from surface! SDL Error: %s\n", SDL_GetError());
 		}
+		else
+		{
+			textures[last_texture++] = texture;
+		}
+
+		SDL_FreeSurface(surface);
 	}
-	// TODO 2: Load and image from a path (must be a png)
-	// and check for errors
 
-	// TODO 3: Once your have the SDL_surface*, you need to create
-	// a texture from it to return it (check for errors again)
-
-	// TODO 4: Before leaving, remember to free the surface and
-	// add the texture to our own array so we can properly free them
-	SDL_FreeSurface(image);
-	return nullptr;
+	return texture;
 }
