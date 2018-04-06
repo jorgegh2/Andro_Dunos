@@ -41,7 +41,8 @@ bool ModuleRender::Init()
 	layout[4] = App->textures->Load("layout5.png");
 	layout[5] = App->textures->Load("layout6.png");
 
-	mov = 0;
+	mov = -2900;
+	movy = -128;
 	xstop = false;
 	position[0] = position[1] = position[2] = 0;
 	return ret;
@@ -72,24 +73,24 @@ update_status ModuleRender::PreUpdate()
 		}
 	}
 
-	if (mov > -1683 || movy <= -128/* xstop == false*/) {
+	if (/*mov > -1683 || movy <= -128*/ xstop == false) {
 		mov -= 0.45;
 	}
 
-	else if (mov <= -1683 && movy >= -128 && stop == false) {
+	if (mov <= -1683 && movy == 0) xstop = true;
+	else if (mov <= -1683 && movy <= -128) xstop = false;
+	if ((mov <= -1683 && mov >= -1684 && movy >= -128)||(mov <= -2590 && mov >= -2661)||(mov <= -3468 && mov >= -3600)) {
 		movy -= 0.45;
 	}
-
-	if (mov < -1900) {
-		if (movy == 127) stop = true;
+	if ((mov <= -2297 && mov >= -2368) || (mov <= -2918 && mov >= -3048)) {
 		movy += 0.45;
-
 	}
+
 	if (!Blit(layout[0], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 	if (!Blit(layout[1], mov * 1.75 + 1640, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 	if (!Blit(layout[2], mov * 1.75 + 3281, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	//if (!Blit(layout[3], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	//if (!Blit(layout[4], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (!Blit(layout[3], mov * 1.75 + 4938, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (!Blit(layout[4], mov * 1.75+ 6697, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 	//if (!Blit(layout[5], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 	return update_status::UPDATE_CONTINUE;
 }
