@@ -34,9 +34,15 @@ bool ModuleRender::Init()
 
 	// TODO 9: load a texture "test.png" to test is everything works well
 	tex = App->textures->Load("Background1.png");
-	layout = App->textures->Load("Background_all.png");
+	layout[0] = App->textures->Load("layout1.png");
+	layout[1] = App->textures->Load("layout2.png");
+	layout[2] = App->textures->Load("layout3.png");
+	layout[3] = App->textures->Load("layout4.png");
+	layout[4] = App->textures->Load("layout5.png");
+	layout[5] = App->textures->Load("layout6.png");
 
-	mov = -1680;
+	mov = 0;
+	xstop = false;
 	position[0] = position[1] = position[2] = 0;
 	return ret;
 }
@@ -66,7 +72,7 @@ update_status ModuleRender::PreUpdate()
 		}
 	}
 
-	if (mov > -1683 || movy <= -128) {
+	if (mov > -1683 || movy <= -128/* xstop == false*/) {
 		mov -= 0.45;
 	}
 
@@ -79,8 +85,12 @@ update_status ModuleRender::PreUpdate()
 		movy += 0.45;
 
 	}
-
-	if (!Blit(layout, mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (!Blit(layout[0], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (!Blit(layout[1], mov * 1.75 + 1640, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (!Blit(layout[2], mov * 1.75 + 3281, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	//if (!Blit(layout[3], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	//if (!Blit(layout[4], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	//if (!Blit(layout[5], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -125,7 +135,6 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
 	if (SDL_RenderCopy(renderer, texture, section, &rect) != 0)
 	{
 		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
-		system("pause");
 		ret = false;
 	}
 

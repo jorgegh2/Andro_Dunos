@@ -24,12 +24,13 @@ public:
 public:
 	SDL_Renderer* renderer = nullptr;
 	SDL_Texture* tex;
-	SDL_Texture* layout;
+	SDL_Texture* layout[6];
 	float mov;
 	float movy;
 	int position[2];
 	SDL_Rect camera;
 	bool stop = false;
+	bool xstop;
 };
 
 #endif //__ModuleRenderer_H__

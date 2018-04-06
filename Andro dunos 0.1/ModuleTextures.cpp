@@ -71,6 +71,7 @@ SDL_Texture* const ModuleTextures::Load(const char* path)
 		if (texture == NULL)
 		{
 			LOG("Unable to create texture from surface! SDL Error: %s\n", SDL_GetError());
+			system("pause");
 		}
 		else
 		{
