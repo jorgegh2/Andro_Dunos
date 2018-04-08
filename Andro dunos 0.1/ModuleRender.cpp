@@ -41,7 +41,7 @@ bool ModuleRender::Init()
 	layout[4] = App->textures->Load("layout5.png");
 	layout[5] = App->textures->Load("layout6.png");
 
-	mov = -1600;
+	mov = 0;
 	movy = 0;
 	xstop = false;
 	position[0] = position[1] = position[2] = 0;
