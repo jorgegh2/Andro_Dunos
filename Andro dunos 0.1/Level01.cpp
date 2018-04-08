@@ -25,6 +25,9 @@ bool Level01::Start()
 	LOG("Loading background assets");	
 	bool ret = true;					
 
+	if (App->player->IsEnabled() == false)
+		App->player->Enable();
+
 	tex = App->textures->Load("Background1.png");
 	layout[0] = App->textures->Load("layout1.png");
 	layout[1] = App->textures->Load("layout2.png");
@@ -38,7 +41,7 @@ bool Level01::Start()
 	xstop = false;
 	position[0] = position[1] = position[2] = 0;
 
-	App->player->Enable();
+	
 
 	return ret;
 }
@@ -46,7 +49,8 @@ bool Level01::Start()
 // Unload assets
 bool Level01::CleanUp()
 {
-	App->player->Disable();
+	if(App->player->IsEnabled() == true)
+		App->player->Disable();
 
 	LOG("Unload Level01");
 	App->textures->Unload(tex);

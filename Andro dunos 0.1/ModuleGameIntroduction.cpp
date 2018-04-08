@@ -26,10 +26,12 @@ bool ModuleGameIntroduction::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	graphics = App->textures->Load("Title.png");
 
 	// We don't want the player in the screen
-	App->player->Disable();
+	if (App->player->IsEnabled() == true)
+		App->player->Disable();
+	
+	graphics = App->textures->Load("Title.png");
 
 	return ret;
 }
@@ -39,7 +41,8 @@ bool ModuleGameIntroduction::CleanUp()
 {
 	LOG("Unloading ken scene");
 
-	App->game_intro->Disable();
+	if(App->game_intro->IsEnabled() == true)
+		App->game_intro->Disable();
 
 	App->textures->Unload(graphics);
 
