@@ -33,6 +33,9 @@ public:
 	SDL_Rect camera;
 	bool stop = false;
 	bool xstop;
+<<<<<<< HEAD
+>>>>>>> d8c47a110134f4ce4f67aadca56dbeffb8ce3230
+=======
 >>>>>>> d8c47a110134f4ce4f67aadca56dbeffb8ce3230
 };
 

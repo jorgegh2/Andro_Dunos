@@ -98,6 +98,9 @@ update_status ModuleRender::PreUpdate()
 	if (mov <= -2250 && mov >= -3950) if (!Blit(layout[3], mov * 1.75 + 4938, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 	if (mov <= -3000 && mov >= -4950) if (!Blit(layout[4], mov * 1.75 + 6595, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 	if (mov <= -3750) if (!Blit(layout[5], mov * 1.75 + 8235, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+<<<<<<< HEAD
+>>>>>>> d8c47a110134f4ce4f67aadca56dbeffb8ce3230
+=======
 >>>>>>> d8c47a110134f4ce4f67aadca56dbeffb8ce3230
 	return update_status::UPDATE_CONTINUE;
 }
