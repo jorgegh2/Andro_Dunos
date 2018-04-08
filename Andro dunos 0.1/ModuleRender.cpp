@@ -31,77 +31,13 @@ bool ModuleRender::Init()
 		LOG("Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
-<<<<<<< HEAD
 	
-=======
-
-	// TODO 9: load a texture "test.png" to test is everything works well
-	tex = App->textures->Load("Background1.png");
-	layout[0] = App->textures->Load("layout1.png");
-	layout[1] = App->textures->Load("layout2.png");
-	layout[2] = App->textures->Load("layout3.png");
-	layout[3] = App->textures->Load("layout4.png");
-	layout[4] = App->textures->Load("layout5.png");
-	layout[5] = App->textures->Load("layout6.png");
-
-	mov = 0;
-	movy = 0;
-	xstop = false;
-	position[0] = position[1] = position[2] = 0;
->>>>>>> d8c47a110134f4ce4f67aadca56dbeffb8ce3230
 	return ret;
 }
 
 // Called every draw update
 update_status ModuleRender::PreUpdate()
 {
-<<<<<<< HEAD
-=======
-
-	// TODO 7: Clear the screen to black before starting every frame
-	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-
-	SDL_RenderClear(renderer);
-	// TODO 10: Blit our test texture to check functionality
-
-	for (int i = 0; i < 3; ++i) {
-		if (i == 0) {
-			if (mov + position[0] < 0 - TILE_WIDTH) position[0] += TILE_WIDTH * 3;
-			if (!Blit(tex, mov + position[0], 120 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
-		}
-		else if (i == 1) {
-			if (mov + position[1] + TILE_WIDTH < 0 - TILE_WIDTH) position[1] += TILE_WIDTH * 3;
-			if (!Blit(tex, mov + TILE_WIDTH + position[1], 120 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
-		}
-		else {
-			if (mov + position[2] + TILE_WIDTH * 2 < 0 - TILE_WIDTH) position[2] += TILE_WIDTH * 3;
-			if (!Blit(tex, mov + TILE_WIDTH * 2 + position[2], 120 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
-		}
-	}
-
-	if (xstop == false && mov >= -5149) {
-		mov -= 0.45;
-	}
-
-	if ((mov <= -1684 && movy == 0) || (mov <= -4091 && movy <= -128)) xstop = true;
-	else if ((mov <= -1684 && movy <= -128) || (mov <= -4091 && movy >= 0)) xstop = false;
-	if ((mov <= -1684 && mov >= -1685 && movy >= -128)||(mov <= -2590 && mov >= -2660)||(mov <= -3468 && mov >= -3596)) {
-		movy -= 0.45;
-	}
-	else if ((mov <= -2297 && mov >= -2368) || (mov <= -2918 && mov >= -3044) || (mov <= -4091 && mov >= -4092)) {
-		movy += 0.45;
-	}
-
-	if (mov >= -950) if (!Blit(layout[0], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	if (mov <= -750 && mov >= -1950) if (!Blit(layout[1], mov * 1.75 + 1640, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	if (mov <= -1500 && mov >= -2950) if (!Blit(layout[2], mov * 1.75 + 3281, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	if (mov <= -2250 && mov >= -3950) if (!Blit(layout[3], mov * 1.75 + 4938, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	if (mov <= -3000 && mov >= -4950) if (!Blit(layout[4], mov * 1.75 + 6595, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	if (mov <= -3750) if (!Blit(layout[5], mov * 1.75 + 8235, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-<<<<<<< HEAD
->>>>>>> d8c47a110134f4ce4f67aadca56dbeffb8ce3230
-=======
->>>>>>> d8c47a110134f4ce4f67aadca56dbeffb8ce3230
 	return update_status::UPDATE_CONTINUE;
 }
 

@@ -16,8 +16,8 @@ Application::Application()
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = player = new ModulePlayer();
 	modules[5] = fade = new ModuleFadeToBlack();
-	modules[6] = game_intro = new ModuleGameIntroduction();
-	modules[7] = level01 = new Level01();
+	modules[6] = level01 = new Level01();
+	modules[7] = game_intro = new ModuleGameIntroduction();
 }	
 
 Application::~Application()

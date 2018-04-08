@@ -5,7 +5,8 @@
 #include "ModuleRender.h"
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_timer.h"
-
+#include "Level01.h"
+#include "ModuleGameIntroduction.h"
 
 ModuleFadeToBlack::ModuleFadeToBlack()
 {
@@ -38,24 +39,24 @@ update_status ModuleFadeToBlack::Update()
 	{
 		if (now >= total_time)
 		{
-			/*
+			
 			// TODO 3: enable / disable the modules received when FadeToBlacks() gets called
-			if (App->scene_ken->IsEnabled() == true) {
-
-				App->scene_ken->Disable();
-				App->scene_honda->Enable();
+			if (App->game_intro->IsEnabled() == true) {
+				
+				App->game_intro->Disable();
+				App->level01->Enable();
 			}
-			else if (App->scene_honda->IsEnabled() == true) {
+			else if (App->level01->IsEnabled() == true) {
 
-				App->scene_honda->Disable();
-				App->scene_ken->Enable();
+				App->level01->Disable();
+				App->game_intro->Enable();
 			}
 
 			// ---
 			total_time += total_time;
 			start_time = SDL_GetTicks();
 			current_step = fade_step::fade_from_black;
-			*/
+			
 		}
 	} break;
 

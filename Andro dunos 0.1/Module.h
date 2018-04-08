@@ -29,7 +29,6 @@ public:
 		}
 	}
 
-
 	void Disable()
 	{
 		if (enabled == true) {
