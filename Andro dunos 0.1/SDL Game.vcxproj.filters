@@ -12,6 +12,9 @@
     <Filter Include="Containers">
       <UniqueIdentifier>{05541efc-7411-43d6-8724-d3591c0523fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Levels">
+      <UniqueIdentifier>{2cabc8d5-d143-42e7-89f9-c14533888b1c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -47,6 +50,15 @@
     <ClInclude Include="ModulePlayer.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleFadeToBlack.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleGameIntroduction.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Level01.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -72,6 +84,15 @@
     </ClCompile>
     <ClCompile Include="ModulePlayer.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFadeToBlack.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleGameIntroduction.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Level01.cpp">
+      <Filter>Levels</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

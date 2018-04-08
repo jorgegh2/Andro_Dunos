@@ -4,6 +4,9 @@
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
 #include "ModulePlayer.h"
+#include "ModuleFadeToBlack.h"
+#include "Level01.h"
+#include "ModuleGameIntroduction.h"
 
 Application::Application()
 {
@@ -12,6 +15,9 @@ Application::Application()
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = player = new ModulePlayer();
+	modules[5] = fade = new ModuleFadeToBlack();
+	modules[6] = game_intro = new ModuleGameIntroduction();
+	modules[7] = level01 = new Level01();
 }	
 
 Application::~Application()

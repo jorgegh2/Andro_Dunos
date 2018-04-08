@@ -14,11 +14,14 @@ enum update_status
 	UPDATE_ERROR
 };
 
+#define MIN( a, b ) ( ((a) < (b)) ? (a) : (b) )
+#define MAX( a, b ) ( ((a) > (b)) ? (a) : (b) )
+
 // Useful typedefs ---------
 typedef unsigned int uint;
 
 // Configuration -----------
-#define SCREEN_SIZE 1
+#define SCREEN_SIZE 3
 #define SCREEN_WIDTH 304
 #define SCREEN_HEIGHT 224
 #define WIN_FULLSCREEN 0
