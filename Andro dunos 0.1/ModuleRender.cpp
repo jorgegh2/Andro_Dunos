@@ -41,8 +41,8 @@ bool ModuleRender::Init()
 	layout[4] = App->textures->Load("layout5.png");
 	layout[5] = App->textures->Load("layout6.png");
 
-	mov = -2900;
-	movy = -128;
+	mov = -1600;
+	movy = 0;
 	xstop = false;
 	position[0] = position[1] = position[2] = 0;
 	return ret;
@@ -73,25 +73,25 @@ update_status ModuleRender::PreUpdate()
 		}
 	}
 
-	if (/*mov > -1683 || movy <= -128*/ xstop == false) {
+	if (xstop == false && mov >= -5149) {
 		mov -= 0.45;
 	}
 
-	if (mov <= -1683 && movy == 0) xstop = true;
-	else if (mov <= -1683 && movy <= -128) xstop = false;
-	if ((mov <= -1683 && mov >= -1684 && movy >= -128)||(mov <= -2590 && mov >= -2661)||(mov <= -3468 && mov >= -3600)) {
+	if ((mov <= -1684 && movy == 0) || (mov <= -4091 && movy <= -128)) xstop = true;
+	else if ((mov <= -1684 && movy <= -128) || (mov <= -4091 && movy >= 0)) xstop = false;
+	if ((mov <= -1684 && mov >= -1685 && movy >= -128)||(mov <= -2590 && mov >= -2660)||(mov <= -3468 && mov >= -3596)) {
 		movy -= 0.45;
 	}
-	if ((mov <= -2297 && mov >= -2368) || (mov <= -2918 && mov >= -3048)) {
+	else if ((mov <= -2297 && mov >= -2368) || (mov <= -2918 && mov >= -3044) || (mov <= -4091 && mov >= -4092)) {
 		movy += 0.45;
 	}
 
-	if (!Blit(layout[0], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	if (!Blit(layout[1], mov * 1.75 + 1640, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	if (!Blit(layout[2], mov * 1.75 + 3281, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	if (!Blit(layout[3], mov * 1.75 + 4938, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	if (!Blit(layout[4], mov * 1.75+ 6697, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-	//if (!Blit(layout[5], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (mov >= -950) if (!Blit(layout[0], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (mov <= -750 && mov >= -1950) if (!Blit(layout[1], mov * 1.75 + 1640, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (mov <= -1500 && mov >= -2950) if (!Blit(layout[2], mov * 1.75 + 3281, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (mov <= -2250 && mov >= -3950) if (!Blit(layout[3], mov * 1.75 + 4938, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (mov <= -3000 && mov >= -4950) if (!Blit(layout[4], mov * 1.75 + 6595, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
+	if (mov <= -3750) if (!Blit(layout[5], mov * 1.75 + 8235, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -119,8 +119,8 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
 {
 	bool ret = true;
 	SDL_Rect rect;
-	rect.x = x;
-	rect.y = y;
+	rect.x = x * SCREEN_SIZE;
+	rect.y = y * SCREEN_SIZE;
 
 	if (section != nullptr)
 	{
@@ -132,6 +132,8 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
 		SDL_QueryTexture(texture, nullptr, nullptr, &rect.w, &rect.h);
 	}
 
+	rect.w *= SCREEN_SIZE;
+	rect.h *= SCREEN_SIZE;
 
 	if (SDL_RenderCopy(renderer, texture, section, &rect) != 0)
 	{
