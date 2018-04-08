@@ -45,58 +45,58 @@ update_status ModulePlayer::Update()
 	Animation* current_animation = &idle;
 	
 	int speed = 1;
-
-	if (App->input->keyboard[SDL_SCANCODE_UP] == 1)
-	{
-		current_animation = &up;
-		position.y -= speed;
-	}
-	
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == 1)
-	{
-		current_animation = &down;
-		position.y += speed;
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == 1)
-	{
-		if (App->input->keyboard[SDL_SCANCODE_UP] == 1) {
+	if (App->player->IsEnabled() == true) {
+		if (App->input->keyboard[SDL_SCANCODE_UP] == 1)
+		{
 			current_animation = &up;
-			position.x += speed;
+			position.y -= speed;
 		}
-		else if (App->input->keyboard[SDL_SCANCODE_DOWN] == 1) {
+
+		if (App->input->keyboard[SDL_SCANCODE_DOWN] == 1)
+		{
 			current_animation = &down;
-			position.x += speed;
+			position.y += speed;
 		}
-		else {
-			current_animation = &idle;
-			position.x += speed;
+
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == 1)
+		{
+			if (App->input->keyboard[SDL_SCANCODE_UP] == 1) {
+				current_animation = &up;
+				position.x += speed;
+			}
+			else if (App->input->keyboard[SDL_SCANCODE_DOWN] == 1) {
+				current_animation = &down;
+				position.x += speed;
+			}
+			else {
+				current_animation = &idle;
+				position.x += speed;
+			}
 		}
+
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == 1)
+		{
+			if (App->input->keyboard[SDL_SCANCODE_UP] == 1) {
+				current_animation = &up;
+				position.x -= speed;
+			}
+			else if (App->input->keyboard[SDL_SCANCODE_DOWN] == 1) {
+				current_animation = &down;
+				position.x -= speed;
+			}
+			else {
+				current_animation = &idle;
+				position.x -= speed;
+			}
+		}
+
+		// TODO: Control the ship doesn't get out of the screen
+
+
+		// Draw everything --------------------------------------
+		SDL_Rect r = current_animation->GetCurrentFrame();
+
+		App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	}
-
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == 1)
-	{
-		if (App->input->keyboard[SDL_SCANCODE_UP] == 1) {
-			current_animation = &up;
-			position.x -= speed;
-		}
-		else if (App->input->keyboard[SDL_SCANCODE_DOWN] == 1) {
-			current_animation = &down;
-			position.x -= speed;
-		}
-		else {
-			current_animation = &idle;
-			position.x -= speed;
-		}
-	}
-
-	// TODO: Control the ship doesn't get out of the screen
-	
-
-	// Draw everything --------------------------------------
-	SDL_Rect r = current_animation->GetCurrentFrame();
-
-	App->render->Blit(graphics, position.x, position.y - r.h, &r);
-
 	return UPDATE_CONTINUE;
 }

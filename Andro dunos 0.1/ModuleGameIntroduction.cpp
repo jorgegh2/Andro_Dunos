@@ -30,6 +30,7 @@ bool ModuleGameIntroduction::Start()
 	// We don't want the player in the screen
 	if (App->player->IsEnabled() == true)
 		App->player->Disable();
+	App->level01->Disable();
 	
 	graphics = App->textures->Load("Title.png");
 
