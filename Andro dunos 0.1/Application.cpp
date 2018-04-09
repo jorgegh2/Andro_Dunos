@@ -7,6 +7,7 @@
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
+#include "ModuleAudio.h"
 
 Application::Application()
 {
@@ -14,10 +15,13 @@ Application::Application()
 	modules[1] = render = new ModuleRender();
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
-	modules[4] = fade = new ModuleFadeToBlack();
+	modules[4] = audio = new ModuleAudio();
 	modules[5] = level01 = new Level01();
-	modules[6] = game_intro = new ModuleGameIntroduction();
-	modules[7] = player = new ModulePlayer();
+	modules[6] = player = new ModulePlayer();
+	modules[7] = game_intro = new ModuleGameIntroduction();
+	modules[8] = fade = new ModuleFadeToBlack();
+	
+	
 }	
 
 Application::~Application()
@@ -29,6 +33,8 @@ Application::~Application()
 bool Application::Init()
 {
 	bool ret = true;
+
+	App->player->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

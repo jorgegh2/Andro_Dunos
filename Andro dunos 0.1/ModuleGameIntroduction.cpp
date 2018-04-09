@@ -8,6 +8,7 @@
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
 #include "SDL\include\SDL.h"
+#include "ModuleAudio.h"
 
 ModuleGameIntroduction::ModuleGameIntroduction()
 {
@@ -16,6 +17,8 @@ ModuleGameIntroduction::ModuleGameIntroduction()
 	title.y = 0;
 	title.w = 304;
 	title.h = 224;
+
+
 }
 
 ModuleGameIntroduction::~ModuleGameIntroduction()
@@ -31,7 +34,11 @@ bool ModuleGameIntroduction::Start()
 	if (App->player->IsEnabled() == true)
 		App->player->Disable();
 	App->level01->Disable();
-	
+
+	music_intro = App->audio->LoadMusic("01_Neo_Geo_Logo.ogg");
+
+	App->audio->PlayMusic(music_intro);
+
 	graphics = App->textures->Load("Title.png");
 
 	return ret;
