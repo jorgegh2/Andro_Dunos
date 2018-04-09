@@ -47,14 +47,15 @@ bool ModuleGameIntroduction::Start()
 // UnLoad assets
 bool ModuleGameIntroduction::CleanUp()
 {
-	LOG("Unloading ken scene");
 
 	if(App->game_intro->IsEnabled() == true)
 		App->game_intro->Disable();
 
 	App->textures->Unload(graphics);
 
-	App->audio->StopMusic();
+	//no cal
+	//App->audio->StopMusic();
+	
 
 
 	return true;

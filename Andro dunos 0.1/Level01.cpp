@@ -26,7 +26,7 @@ bool Level01::Start()
 	LOG("Loading background assets");	
 	bool ret = true;					
 
-	//if (App->player->IsEnabled() == false)
+	if (App->player->IsEnabled() == false)
 		App->player->Enable();
 
 	tex = App->textures->Load("Background1.png");
@@ -42,7 +42,7 @@ bool Level01::Start()
 	xstop = false;
 	position[0] = position[1] = position[2] = 0;
 
-	music_level01 = App->audio->LoadMusic("Music/04_Stage_1 -The Moon-Loop");
+	music_level01 = App->audio->LoadMusic("Music/04_Stage_1 -The Moon-Loop.ogg");
 
 	App->audio->PlayMusic(music_level01);
 
@@ -59,6 +59,8 @@ bool Level01::CleanUp()
 	App->textures->Unload(tex);
 	App->textures->Unload(layout[0]);
 	App->textures->Unload(layout[1]);
+
+
 
 	return true;
 }
