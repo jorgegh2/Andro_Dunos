@@ -53,14 +53,14 @@
     <ClInclude Include="ModuleFadeToBlack.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleGameIntroduction.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="Level01.h">
       <Filter>Levels</Filter>
     </ClInclude>
     <ClInclude Include="ModuleAudio.h">
       <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleGameIntroduction.h">
+      <Filter>Levels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -91,14 +91,14 @@
     <ClCompile Include="ModuleFadeToBlack.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleGameIntroduction.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
     <ClCompile Include="Level01.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
     <ClCompile Include="ModuleAudio.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleGameIntroduction.cpp">
+      <Filter>Levels</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

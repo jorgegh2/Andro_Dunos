@@ -20,8 +20,11 @@ public:
 
 	bool CleanUp();
 
-	void PlayMusic(Mix_Music* music_to_play, int repetitions = -1);
+	//void PlayMusic(Mix_Music* music_to_play, int repetitions = -1);
+	void PlayMusic(Mix_Music* music_to_play, int milisec = -1, int repetitions = -1);
 	void PlaySoundEffect(Mix_Chunk* effect_to_play);
+	void StopMusic(int milisec = -1);
+	void StopSoundEffect(int channel_stopped = -1);
 
 	Mix_Music* LoadMusic(char* path);
 	Mix_Chunk* LoadSoundEffect(char* path);

@@ -126,12 +126,21 @@ void ModuleAudio::UnloadSoundEffect(Mix_Chunk* effect)
 	}
 }
 
-void ModuleAudio::PlayMusic(Mix_Music* music_to_play, int repetitions) {
-	Mix_PlayMusic(music_to_play, repetitions);
+
+void ModuleAudio::PlayMusic(Mix_Music* music_to_play, int milisec, int  repetitions) {
+	Mix_FadeInMusic(music_to_play, repetitions, milisec);
 	Mix_VolumeMusic(MIX_MAX_VOLUME / 3);
 }
 
 void ModuleAudio::PlaySoundEffect(Mix_Chunk* effect_to_play)
 {
 	Mix_PlayChannel(-1, effect_to_play, 0);
+}
+
+void ModuleAudio::StopMusic(int  milisec) {
+	Mix_FadeOutMusic(milisec);
+}
+
+void ModuleAudio::StopSoundEffect(int channel_stopped) {
+	Mix_HaltChannel(channel_stopped);
 }

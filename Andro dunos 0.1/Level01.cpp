@@ -8,6 +8,7 @@
 #include "ModulePlayer.h"
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
+#include "ModuleAudio.h"
 
 Level01::Level01()
 {
@@ -41,7 +42,9 @@ bool Level01::Start()
 	xstop = false;
 	position[0] = position[1] = position[2] = 0;
 
-	
+	music_level01 = App->audio->LoadMusic("Music/04_Stage_1 -The Moon-Loop");
+
+	App->audio->PlayMusic(music_level01);
 
 	return ret;
 }

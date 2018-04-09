@@ -35,7 +35,7 @@ bool ModuleGameIntroduction::Start()
 		App->player->Disable();
 	App->level01->Disable();
 
-	music_intro = App->audio->LoadMusic("01_Neo_Geo_Logo.ogg");
+	music_intro = App->audio->LoadMusic("Music/01_Neo_Geo_Logo.ogg");
 
 	App->audio->PlayMusic(music_intro);
 
@@ -53,6 +53,9 @@ bool ModuleGameIntroduction::CleanUp()
 		App->game_intro->Disable();
 
 	App->textures->Unload(graphics);
+
+	App->audio->StopMusic();
+
 
 	return true;
 }
