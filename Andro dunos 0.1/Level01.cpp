@@ -36,8 +36,11 @@ bool Level01::Start()
 	layout[3] = App->textures->Load("layout4.png");
 	layout[4] = App->textures->Load("layout5.png");
 	layout[5] = App->textures->Load("layout6.png");
+	underground_tile = App->textures->Load("under_tile.png");
+	start_under = App->textures->Load("start_under.png");
+	end_under = App->textures->Load("end_under.png");
 
-	mov = 0;
+	mov = -1600;
 	movy = 0;
 	xstop = false;
 	position[0] = position[1] = position[2] = 0;
@@ -74,6 +77,7 @@ update_status Level01::Update()
 	SDL_RenderClear(App->render->renderer);
 	// TODO 10: Blit our test texture to check functionality
 	if (App->level01->IsEnabled() == true) {
+
 		for (int i = 0; i < 3; ++i) {
 			if (i == 0) {
 				if (mov + position[0] < 0 - TILE_WIDTH) position[0] += TILE_WIDTH * 3;
@@ -89,26 +93,35 @@ update_status Level01::Update()
 			}
 		}
 
+		if (movy <= -50) if (!App->render->Blit(start_under, mov * 0.9  /*1680*/ + 1510, 65 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
+			if (!App->render->Blit(underground_tile, mov * 0.9 + 2091, -128 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
+			if (!App->render->Blit(underground_tile, mov * 0.9 + 2091 + UNDER_TILE_WIDTH, -128 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
+			if (!App->render->Blit(underground_tile, mov * 0.9 + 2091 + UNDER_TILE_WIDTH * 2, -128 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
+			if (!App->render->Blit(underground_tile, mov * 0.9 + 2091 + UNDER_TILE_WIDTH * 3, -128 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
+
+		if (movy <= -50) if (!App->render->Blit(end_under, mov * 0.9  /*1680*/ + 2091 + UNDER_TILE_WIDTH * 4 - 64, 65 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;//64 is the mesure of 1/6th of the under_tile_width
 		if (xstop == false && mov >= -5149) {
 			mov -= 0.45;
 		}
 
 		if ((mov <= -1684 && movy == 0) || (mov <= -4091 && movy <= -128)) xstop = true;
 		else if ((mov <= -1684 && movy <= -128) || (mov <= -4091 && movy >= 0)) xstop = false;
-		if ((mov <= -1684 && mov >= -1685 && movy >= -128) || (mov <= -2590 && mov >= -2660) || (mov <= -3468 && mov >= -3596)) {
+		if ((mov <= -1684 && mov >= -1685 && movy >= -128) || (mov <= -2590 && mov >= -2660) || (mov <= -3468 && mov >= -3594)) {
 			movy -= 0.45;
 		}
 		else if ((mov <= -2297 && mov >= -2368) || (mov <= -2918 && mov >= -3044) || (mov <= -4091 && mov >= -4092)) {
 			movy += 0.45;
 		}
 
+		
+		
 		if (mov >= -950) if (!App->render->Blit(layout[0], mov * 1.75, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 		if (mov <= -750 && mov >= -1950) if (!App->render->Blit(layout[1], mov * 1.75 + 1640, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 		if (mov <= -1500 && mov >= -2950) if (!App->render->Blit(layout[2], mov * 1.75 + 3281, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 		if (mov <= -2250 && mov >= -3950) if (!App->render->Blit(layout[3], mov * 1.75 + 4938, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 		if (mov <= -3000 && mov >= -4950) if (!App->render->Blit(layout[4], mov * 1.75 + 6595, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
 		if (mov <= -3750) if (!App->render->Blit(layout[5], mov * 1.75 + 8235, -607 + movy * 1.75, nullptr)) return update_status::UPDATE_ERROR;
-
+		
 
 		//make so pressing SPACE the other stage is loaded
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
