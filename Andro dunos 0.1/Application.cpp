@@ -7,6 +7,7 @@
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
+#include "ModuleParticles.h"
 #include "ModuleStageClear.h"
 #include "ModuleAudio.h"
 
@@ -22,6 +23,7 @@ Application::Application()
 	modules[7] = player = new ModulePlayer();
 	modules[8] = game_intro = new ModuleGameIntroduction();
 	modules[9] = fade = new ModuleFadeToBlack();
+	modules[10] = particles = new ModuleParticles();
 	
 }	
 
