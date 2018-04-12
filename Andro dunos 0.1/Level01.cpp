@@ -40,7 +40,7 @@ bool Level01::Start()
 	start_under = App->textures->Load("start_under.png");
 	end_under = App->textures->Load("end_under.png");
 
-	mov = -1600;
+	mov = 0;
 	movy = 0;
 	xstop = false;
 	position[0] = position[1] = position[2] = 0;
