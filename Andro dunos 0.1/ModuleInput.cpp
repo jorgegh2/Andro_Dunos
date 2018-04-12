@@ -2,9 +2,13 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "SDL/include/SDL.h"
+#include<iostream>
 
 ModuleInput::ModuleInput() : Module()
-{}
+{
+	for (uint i = 0; i < MAX_KEYS; ++i)
+		keyboard[i] = KEY_IDLE;
+}
 
 // Destructor
 ModuleInput::~ModuleInput()
@@ -17,7 +21,7 @@ bool ModuleInput::Init()
 	bool ret = true;
 	SDL_Init(0);
 
-	if(SDL_InitSubSystem(SDL_INIT_EVENTS) < 0)
+	if (SDL_InitSubSystem(SDL_INIT_EVENTS) < 0)
 	{
 		LOG("SDL_EVENTS could not initialize! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
@@ -26,13 +30,32 @@ bool ModuleInput::Init()
 }
 
 // Called every draw update
-update_status ModuleInput::Update()
+update_status ModuleInput::PreUpdate()
 {
 	SDL_Event e;
 	SDL_PumpEvents();
 	SDL_PollEvent(&e);
 
-	keyboard = SDL_GetKeyboardState(NULL);
+	const Uint8* keys = SDL_GetKeyboardState(NULL);
+
+	for (int i = 0; i < MAX_KEYS; ++i)
+	{
+		if (keys[i] == 1)
+		{
+			if (keyboard[i] == KEY_IDLE)
+				keyboard[i] = KEY_DOWN;
+			else
+				keyboard[i] = KEY_REPEAT;
+		}
+		else
+		{
+			if (keyboard[i] == KEY_REPEAT || keyboard[i] == KEY_DOWN)
+				keyboard[i] = KEY_UP;
+			else
+				keyboard[i] = KEY_IDLE;
+		}
+	}
+
 
 	// TODO 1: find out how to detect if the ESC key was pressed
 	// and quit the game
