@@ -33,7 +33,6 @@ bool ModuleGameIntroduction::Start()
 	// We don't want the player in the screen
 	if (App->player->IsEnabled() == true)
 		App->player->Disable();
-	App->level01->Disable();
 
 	music_intro = App->audio->LoadMusic("Music/01_Neo_Geo_Logo.ogg");
 

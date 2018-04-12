@@ -7,6 +7,7 @@
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
+#include "ModuleStageClear.h"
 #include "ModuleAudio.h"
 
 Application::Application()
@@ -16,11 +17,11 @@ Application::Application()
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = audio = new ModuleAudio();
-	modules[5] = level01 = new Level01();
-	modules[6] = player = new ModulePlayer();
-	modules[7] = game_intro = new ModuleGameIntroduction();
-	modules[8] = fade = new ModuleFadeToBlack();
-	
+	modules[5] = stage_clear = new ModuleStageClear();
+	modules[6] = level01 = new Level01();
+	modules[7] = player = new ModulePlayer();
+	modules[8] = game_intro = new ModuleGameIntroduction();
+	modules[9] = fade = new ModuleFadeToBlack();
 	
 }	
 

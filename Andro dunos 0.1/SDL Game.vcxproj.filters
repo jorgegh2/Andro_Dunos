@@ -62,6 +62,9 @@
     <ClInclude Include="ModuleGameIntroduction.h">
       <Filter>Levels</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleStageClear.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -98,6 +101,9 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleGameIntroduction.cpp">
+      <Filter>Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleStageClear.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
   </ItemGroup>

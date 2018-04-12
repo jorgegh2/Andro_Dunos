@@ -21,11 +21,8 @@ public:
 
 public:
 	
-	SDL_Texture* tex;
+	SDL_Texture * tex;
 	SDL_Texture* layout[6];
-	SDL_Texture* underground_tile;
-	SDL_Texture* start_under;
-	SDL_Texture* end_under;
 	float mov;
 	float movy;
 	int position[2];
