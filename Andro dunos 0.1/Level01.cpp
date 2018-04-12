@@ -93,7 +93,7 @@ update_status Level01::Update()
 			}
 		}
 
-		if (movy <= -50) if (!App->render->Blit(start_under, mov * 0.9  /*1680*/ + 1510, 65 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
+		if (movy <= -60) if (!App->render->Blit(start_under, mov * 0.9  /*1680*/ + 1510, 65 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
 			if (!App->render->Blit(underground_tile, mov * 0.9 + 2091, -128 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
 			if (!App->render->Blit(underground_tile, mov * 0.9 + 2091 + UNDER_TILE_WIDTH, -128 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
 			if (!App->render->Blit(underground_tile, mov * 0.9 + 2091 + UNDER_TILE_WIDTH * 2, -128 + movy * 0.5, nullptr)) return update_status::UPDATE_ERROR;
@@ -106,7 +106,7 @@ update_status Level01::Update()
 
 		if ((mov <= -1684 && movy == 0) || (mov <= -4091 && movy <= -128)) xstop = true;
 		else if ((mov <= -1684 && movy <= -128) || (mov <= -4091 && movy >= 0)) xstop = false;
-		if ((mov <= -1684 && mov >= -1685 && movy >= -128) || (mov <= -2590 && mov >= -2660) || (mov <= -3468 && mov >= -3594)) {
+		if ((mov <= -1684 && mov >= -1685 && movy >= -128) || (mov <= -2590 && mov >= -2660) || (mov <= -3468 && mov >= -3595)) {
 			movy -= 0.45;
 		}
 		else if ((mov <= -2297 && mov >= -2368) || (mov <= -2918 && mov >= -3044) || (mov <= -4091 && mov >= -4092)) {
