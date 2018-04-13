@@ -23,11 +23,13 @@ public:
 	
 	SDL_Texture * tex;
 	SDL_Texture* layout[6];
+	SDL_Texture* underground_tile;
+	SDL_Texture* start_under;
+	SDL_Texture* end_under;
 	float mov;
 	float movy;
 	int position[2];
 	SDL_Rect camera;
-	bool stop = false;
 	bool xstop;
 	Mix_Music* music_level01 = nullptr;
 };

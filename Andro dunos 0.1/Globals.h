@@ -30,5 +30,6 @@ typedef unsigned int uint;
 #define WIN_RESIZABLE 1
 #define REN_VSYNC 1
 #define TILE_WIDTH 251
+#define UNDER_TILE_WIDTH 385
 
 #endif // __GLOBALS_H__
