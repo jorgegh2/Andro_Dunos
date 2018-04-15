@@ -17,6 +17,8 @@ public:
 	update_status Update();
 	bool CleanUp();
 
+	void OnCollision(Collider*, Collider*);
+
 public:
 
 	SDL_Texture * graphics = nullptr;
@@ -27,6 +29,8 @@ public:
 	Animation down;
 
 	iPoint position;
+
+	Collider* c_player = nullptr;
 
 };
 

@@ -1,5 +1,5 @@
-#ifndef __MODULESCENEKEN_H__
-#define __MODULESCENEKEN_H__
+#ifndef __MODULEGAMEINTRODUCTION_H__
+#define __MODULEGAMEINTRODUCTION_H__
 
 #include "Module.h"
 #include "Animation.h"
@@ -21,12 +21,8 @@ public:
 public:
 
 	SDL_Texture * graphics = nullptr;
-	SDL_Rect title;
 	Mix_Music* music_intro = nullptr;
-	
 
-	float foreground_pos;
-	bool forward;
 };
 
 #endif // __MODULEGAMEINTRODUCTION_H__

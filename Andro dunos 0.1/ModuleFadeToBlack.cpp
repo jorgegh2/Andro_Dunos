@@ -5,9 +5,6 @@
 #include "ModuleRender.h"
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_timer.h"
-#include "Level01.h"
-#include "ModuleGameIntroduction.h"
-#include "ModuleStageClear.h"
 
 ModuleFadeToBlack::ModuleFadeToBlack()
 {
@@ -40,29 +37,11 @@ update_status ModuleFadeToBlack::Update()
 	{
 		if (now >= total_time)
 		{
-			
-			// TODO 3: enable / disable the modules received when FadeToBlacks() gets called
-			if (App->game_intro->IsEnabled() == true) {
-				
-				App->game_intro->Disable();
-				App->level01->Enable();
-			}
-			else if (App->level01->IsEnabled() == true) {
-
-				App->level01->Disable();
-				App->stage_clear->Enable();
-			}
-			else if (App->stage_clear->IsEnabled() == true) {
-
-				App->stage_clear->Disable();
-				App->game_intro->Enable();
-			}
-
-			// ---
+			to_disable->Disable();
+			to_enable->Enable();
 			total_time += total_time;
 			start_time = SDL_GetTicks();
 			current_step = fade_step::fade_from_black;
-			
 		}
 	} break;
 
@@ -92,8 +71,15 @@ bool ModuleFadeToBlack::FadeToBlack(Module* module_off, Module* module_on, float
 		current_step = fade_step::fade_to_black;
 		start_time = SDL_GetTicks();
 		total_time = (Uint32)(time * 0.5f * 1000.0f);
+		to_enable = module_on;
+		to_disable = module_off;
 		ret = true;
 	}
 
 	return ret;
+}
+
+bool ModuleFadeToBlack::IsFading() const
+{
+	return current_step != fade_step::none;
 }

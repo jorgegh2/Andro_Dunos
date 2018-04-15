@@ -6,6 +6,10 @@
 #include "ModulePlayer.h"
 #include "SDL\include\SDL.h"
 #include "ModuleParticles.h"
+#include "ModuleCollision.h"
+#include "ModuleFadeToBlack.h"
+#include "Level01.h"
+#include "ModuleGameIntroduction.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -42,6 +46,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("ships.png"); // arcade version
+	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER);
 	
 	return ret;
 }
@@ -98,17 +103,28 @@ update_status ModulePlayer::Update()
 			// Shoot laser
 			if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN) {
 
-				App->particles->AddParticle(App->particles->laser, position.x + 20 , position.y - 14);
+				App->particles->AddParticle(App->particles->laser, position.x + 20 , position.y, COLLIDER_PLAYER_SHOT);
 			}
+
+			c_player->SetPos(position.x, position.y);
 
 			// TODO: Control the ship doesn't get out of the screen
 
 
 			// Draw everything --------------------------------------
-			SDL_Rect r = current_animation->GetCurrentFrame();
-
-			App->render->Blit(graphics, position.x, position.y - r.h, &r);
+			App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+			
 	}
 	
 	return UPDATE_CONTINUE;
+}
+
+void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
+{
+	if (c_player != nullptr && c_player == c1)
+	{
+		//code
+		App->player->Disable();
+		App->fade->FadeToBlack(App->level01, App->game_intro, 1);
+	}
 }
