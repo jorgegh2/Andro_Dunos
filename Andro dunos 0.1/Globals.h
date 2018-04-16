@@ -31,5 +31,7 @@ typedef unsigned int uint;
 #define REN_VSYNC 1
 #define TILE_WIDTH 251
 #define UNDER_TILE_WIDTH 385
+#define SHIP_WIDTH 27
+#define SHIP_HEIGHT 17
 
 #endif // __GLOBALS_H__

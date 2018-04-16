@@ -22,17 +22,17 @@ ModulePlayer::ModulePlayer()
 	position.y = 100;
 
 	// Idle animation
-	idle.PushBack({94, 108, 27, 17});
+	idle.PushBack({94, 108, SHIP_WIDTH, SHIP_HEIGHT});
 
 	// Up animation
-	up.PushBack({94, 87, 27, 15});
-	up.PushBack({94, 66, 27, 15});
+	up.PushBack({94, 87, SHIP_WIDTH, SHIP_HEIGHT });
+	up.PushBack({94, 66, SHIP_WIDTH, SHIP_HEIGHT });
 	up.loop = false;
 	up.speed = 0.1f;
 
 	// Down animation
-	down.PushBack({94, 131, 27, 16});
-	down.PushBack({94, 153, 27, 17});
+	down.PushBack({94, 131, SHIP_WIDTH, SHIP_HEIGHT });
+	down.PushBack({94, 153, SHIP_WIDTH, SHIP_HEIGHT });
 	up.loop = false;
 	down.speed = 0.1f;
 }
@@ -70,17 +70,17 @@ update_status ModulePlayer::Update()
 
 		int speed = 1;
 
-		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+		if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > 0)
 		{
 			position.x -= speed;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+		if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < SCREEN_WIDTH - SHIP_WIDTH)
 		{
 			position.x += speed;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
+		if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) && position.y < SCREEN_HEIGHT - SHIP_HEIGHT)
 		{
 			position.y += speed;
 			if (current_animation != &down)
@@ -90,7 +90,7 @@ update_status ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
+		if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > 0)
 		{
 			position.y -= speed;
 			if (current_animation != &up)
