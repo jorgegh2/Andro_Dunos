@@ -1,25 +1,26 @@
-﻿  ModuleStageClear.cpp
-  ModulePlayer.cpp
-  ModuleParticles.cpp
-  ModuleGameIntroduction.cpp
-  Level01.cpp
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(98): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(98): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(101): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+﻿  Level01.cpp
 c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(102): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(103): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(104): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(102): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(105): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(106): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(107): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(109): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(115): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(118): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(123): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(124): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(125): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(126): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(108): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(109): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(111): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(113): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(119): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(122): warning C4305: '+=': truncation from 'double' to 'float'
 c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(127): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(128): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(130): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(131): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\martiti\desktop\andro_dunos\andro dunos 0.1\level01.cpp(132): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Generating Code...
+  Skipping... (no relevant changes detected)
+  ModuleStageClear.cpp
+  ModulePlayer.cpp
+  ModuleGameIntroduction.cpp
+  Application.cpp
   SDL Game.vcxproj -> C:\Users\martiti\Desktop\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe
   SDL Game.vcxproj -> C:\Users\martiti\Desktop\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.pdb (Partial PDB)
