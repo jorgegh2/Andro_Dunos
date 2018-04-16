@@ -22,19 +22,29 @@ ModulePlayer::ModulePlayer()
 	position.y = 100;
 
 	// Idle animation
-	idle.PushBack({94, 108, SHIP_WIDTH, SHIP_HEIGHT});
+	idle.PushBack({ 94, 108, SHIP_WIDTH, SHIP_HEIGHT });
 
 	// Up animation
-	up.PushBack({94, 87, SHIP_WIDTH, SHIP_HEIGHT });
-	up.PushBack({94, 66, SHIP_WIDTH, SHIP_HEIGHT });
+	up.PushBack({ 94, 87, SHIP_WIDTH, SHIP_HEIGHT });
+	up.PushBack({ 94, 66, SHIP_WIDTH, SHIP_HEIGHT });
 	up.loop = false;
 	up.speed = 0.1f;
 
+	upback.PushBack({ 94, 87, SHIP_WIDTH, SHIP_HEIGHT });
+	upback.PushBack({ 94, 108, SHIP_WIDTH, SHIP_HEIGHT });
+	upback.loop = false;
+	upback.speed = 0.1f;
+
 	// Down animation
-	down.PushBack({94, 131, SHIP_WIDTH, SHIP_HEIGHT });
-	down.PushBack({94, 153, SHIP_WIDTH, SHIP_HEIGHT });
-	up.loop = false;
+	down.PushBack({ 94, 131, SHIP_WIDTH, SHIP_HEIGHT });
+	down.PushBack({ 94, 153, SHIP_WIDTH, SHIP_HEIGHT });
+	down.loop = false;
 	down.speed = 0.1f;
+
+	downback.PushBack({ 94, 131, SHIP_WIDTH, SHIP_HEIGHT });
+	downback.PushBack({ 94, 108, SHIP_WIDTH, SHIP_HEIGHT });
+	downback.loop = false;
+	downback.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -47,7 +57,7 @@ bool ModulePlayer::Start()
 	bool ret = true;
 	graphics = App->textures->Load("Images/ships.png"); // arcade version
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER);
-	
+
 	return ret;
 }
 
@@ -57,7 +67,7 @@ bool ModulePlayer::CleanUp()
 	LOG("Unloading player");
 
 	App->textures->Unload(graphics);
-
+	current_animation = &idle;
 	return true;
 }
 
@@ -66,7 +76,6 @@ update_status ModulePlayer::Update()
 {
 	if (App->player->IsEnabled() == true)
 	{
-		Animation* current_animation = &idle;
 
 		int speed = 1;
 
@@ -74,6 +83,7 @@ update_status ModulePlayer::Update()
 		{
 			position.x -= speed;
 		}
+
 
 		if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < SCREEN_WIDTH - SHIP_WIDTH)
 		{
@@ -90,6 +100,14 @@ update_status ModulePlayer::Update()
 			}
 		}
 
+		else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_UP)
+			if (current_animation != &downback)
+			{
+				downback.Reset();
+				current_animation = &downback;
+			}
+
+
 		if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > 0)
 		{
 			position.y -= speed;
@@ -99,23 +117,29 @@ update_status ModulePlayer::Update()
 				current_animation = &up;
 			}
 		}
-
-			// Shoot laser
-			if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN) {
-
-				App->particles->AddParticle(App->particles->laser, position.x + 20 , position.y + 6, COLLIDER_PLAYER_SHOT, 0, 16, 10);
+		else if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP)
+			if (current_animation != &upback)
+			{
+				upback.Reset();
+				current_animation = &upback;
 			}
 
-			c_player->SetPos(position.x, position.y);
+		// Shoot laser
+		if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN) {
 
-			// TODO: Control the ship doesn't get out of the screen
+			App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, COLLIDER_PLAYER_SHOT);
+		}
+
+		c_player->SetPos(position.x, position.y);
+
+		// TODO: Control the ship doesn't get out of the screen
 
 
-			// Draw everything --------------------------------------
-			App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-			
+		// Draw everything --------------------------------------
+		App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+
 	}
-	
+
 	return UPDATE_CONTINUE;
 }
 

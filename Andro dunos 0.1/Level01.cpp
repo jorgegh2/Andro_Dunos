@@ -79,6 +79,7 @@ bool Level01::CleanUp()
 	App->textures->Unload(underground_tile);
 	App->textures->Unload(start_under);
 	App->textures->Unload(end_under);
+	App->audio->UnloadMusic(music_level01); // necessary?
 
 	return true;
 }

@@ -27,6 +27,8 @@ public:
 	Animation idle;
 	Animation up;
 	Animation down;
+	Animation upback;
+	Animation downback;
 
 	iPoint position;
 
