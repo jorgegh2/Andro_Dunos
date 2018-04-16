@@ -132,9 +132,9 @@ update_status Level01::Update()
 
 
 		//make so pressing SPACE the other stage is loaded
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 		{
-			App->fade->FadeToBlack(App->level01, App->game_intro, 1);
+			App->fade->FadeToBlack(this, (Module*)App->stage_clear);
 		}
 	}
 

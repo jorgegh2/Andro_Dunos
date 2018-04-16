@@ -40,7 +40,7 @@ bool Application::Init()
 
 	App->player->Disable();
 	App->level01->Disable();
-	//App->stage_clear->Disable(); serious problem: game intro doesn't work if there is this
+	App->stage_clear->Disable(); //serious problem: game intro doesn't work if there is this
 
 	collision->Disable();
 

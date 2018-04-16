@@ -103,7 +103,7 @@ update_status ModulePlayer::Update()
 			// Shoot laser
 			if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN) {
 
-				App->particles->AddParticle(App->particles->laser, position.x + 20 , position.y, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser, position.x + 20 , position.y + 6, COLLIDER_PLAYER_SHOT, 0, 16, 10);
 			}
 
 			c_player->SetPos(position.x, position.y);
