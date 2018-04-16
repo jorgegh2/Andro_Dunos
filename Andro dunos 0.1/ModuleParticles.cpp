@@ -21,8 +21,8 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	graphics = App->textures->Load("laser_types.png");
-	graphics2 = App->textures->Load("ship-explosion.png");
+	graphics = App->textures->Load("Images/laser_types.png");
+	graphics2 = App->textures->Load("Images/ship-explosion.png");
 
 	// Laser
 	laser.anim.PushBack({ 41, 11, 13, 2 });

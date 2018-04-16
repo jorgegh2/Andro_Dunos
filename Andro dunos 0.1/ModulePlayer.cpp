@@ -45,7 +45,7 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("ships.png"); // arcade version
+	graphics = App->textures->Load("Images/ships.png"); // arcade version
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER);
 	
 	return ret;

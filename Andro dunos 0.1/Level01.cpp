@@ -36,16 +36,16 @@ bool Level01::Start()
 	// Colliders ---
 	//App->collision->AddCollider({ 0, 100, 100, 16 }, COLLIDER_WALL);
 
-	tex = App->textures->Load("Background1.png");
-	layout[0] = App->textures->Load("layout1.png");
-	layout[1] = App->textures->Load("layout2.png");
-	layout[2] = App->textures->Load("layout3.png");
-	layout[3] = App->textures->Load("layout4.png");
-	layout[4] = App->textures->Load("layout5.png");
-	layout[5] = App->textures->Load("layout6.png");
-	underground_tile = App->textures->Load("under_tile.png");
-	start_under = App->textures->Load("start_under.png");
-	end_under = App->textures->Load("end_under.png");
+	tex = App->textures->Load("Images/Background1.png");
+	layout[0] = App->textures->Load("Images/layout1.png");
+	layout[1] = App->textures->Load("Images/layout2.png");
+	layout[2] = App->textures->Load("Images/layout3.png");
+	layout[3] = App->textures->Load("Images/layout4.png");
+	layout[4] = App->textures->Load("Images/layout5.png");
+	layout[5] = App->textures->Load("Images/layout6.png");
+	underground_tile = App->textures->Load("Images/under_tile.png");
+	start_under = App->textures->Load("Images/start_under.png");
+	end_under = App->textures->Load("Images/end_under.png");
 
 	mov = -1600;
 	movy = 0;

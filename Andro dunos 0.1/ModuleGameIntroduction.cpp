@@ -24,7 +24,7 @@ bool ModuleGameIntroduction::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 
-	graphics = App->textures->Load("Title.png");
+	graphics = App->textures->Load("Images/Title.png");
 
 	music_intro = App->audio->LoadMusic("Music/01_Neo_Geo_Logo.ogg");
 

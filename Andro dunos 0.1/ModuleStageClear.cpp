@@ -39,7 +39,7 @@ bool ModuleStageClear::Start()
 
 	App->audio->PlayMusic(music_intro);
 
-	graphics = App->textures->Load("Stageclear.png");
+	graphics = App->textures->Load("Images/Stageclear.png");
 
 	return ret;
 }
