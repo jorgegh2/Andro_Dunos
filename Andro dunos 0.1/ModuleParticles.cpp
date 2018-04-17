@@ -24,15 +24,73 @@ bool ModuleParticles::Start()
 	graphics = App->textures->Load("Images/laser_types.png");
 	graphics2 = App->textures->Load("Images/ship-explosion.png");
 
-	// Laser
-	laser.anim.PushBack({ 41, 11, 13, 2 });
-	laser.anim.PushBack({ 41, 23, 13, 6 });
-	laser.anim.PushBack({ 41, 49, 13, 12 });
-	laser.anim.PushBack({ 41, 64, 13, 14 });
-	laser.anim.loop = false;
-	laser.anim.speed = 0.3f;
-	laser.speed.x = 5;
-	laser.life = 3000;
+	// Basic_shoot 0_up
+	basic_shoot_0_up.anim.PushBack({ 24, 37, 11, 6 });
+	basic_shoot_0_up.anim.PushBack({ 24, 39, 11, 4 });
+	basic_shoot_0_up.anim.loop = false;
+	basic_shoot_0_up.anim.speed = 0.3f;
+	basic_shoot_0_up.speed.x = 8;
+	basic_shoot_0_up.life = 3000;
+
+	// Basic_shoot 0_down
+	basic_shoot_0_down.anim.PushBack({ 24, 39, 11, 4 });
+	basic_shoot_0_down.anim.PushBack({ 24, 37, 11, 6 });
+	basic_shoot_0_down.anim.loop = false;
+	basic_shoot_0_down.anim.speed = 0.3f;
+	basic_shoot_0_down.speed.x = 8;
+	basic_shoot_0_down.life = 3000;
+
+	// Laser 0
+	laser_0.anim.PushBack({ 57, 16, 16, 3 });
+	laser_0.anim.loop = false;
+	laser_0.anim.speed = 0.3f;
+	laser_0.speed.x = 8;
+	laser_0.life = 3000;
+
+
+	// Basic_shoot 1
+	basic_shoot_1.anim.PushBack({ 28, 39, 15, 4 });
+	basic_shoot_1.anim.PushBack({ 26, 39, 13, 4 });
+	basic_shoot_1.anim.PushBack({ 24, 39, 11, 4 });
+	basic_shoot_1.anim.loop = false;
+	basic_shoot_1.anim.speed = 0.3f;
+	basic_shoot_1.speed.x = 8;
+	basic_shoot_1.life = 3000;
+
+	// Basic_shoot 1_up
+	basic_shoot_1_up.anim.PushBack({ 24, 35, 11, 8 });
+	basic_shoot_1_up.anim.PushBack({ 24, 37, 11, 6 });
+	basic_shoot_1_up.anim.PushBack({ 24, 39, 11, 4 });
+	basic_shoot_1_up.anim.loop = false;
+	basic_shoot_1_up.anim.speed = 0.3f;
+	basic_shoot_1_up.speed.x = 8;
+	basic_shoot_1_up.life = 3000;
+
+	// Basic_shoot 1_down
+	basic_shoot_1_down.anim.PushBack({ 24, 39, 11, 4 });
+	basic_shoot_1_down.anim.PushBack({ 24, 37, 11, 6 });
+	basic_shoot_1_down.anim.PushBack({ 24, 35, 11, 8 });
+	basic_shoot_1_down.anim.loop = false;
+	basic_shoot_1_down.anim.speed = 0.3f;
+	basic_shoot_1_down.speed.x = 8;
+	basic_shoot_1_down.life = 3000;
+
+	// Laser 1
+	laser_1.anim.PushBack({ 57, 35, 16, 18 });
+	laser_1.anim.loop = false;
+	laser_1.anim.speed = 0.3f;
+	laser_1.speed.x = 8;
+	laser_1.speed.y = -8;
+	laser_1.life = 3000;
+
+	// Laser 1_5
+	laser_1_5.anim.PushBack({ 57, 60, 16, 17 });
+	laser_1_5.anim.loop = false;
+	laser_1_5.anim.speed = 0.3f;
+	laser_1_5.speed.x = 8;
+	laser_1_5.speed.y = +8;
+	laser_1_5.life = 3000;
+
 
 	// Explosion
 	explosion.anim.PushBack({ 198, 115, 15, 9 });
