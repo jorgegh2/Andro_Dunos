@@ -1,6 +1,8 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleInput.h"
+#include "ModuleStageClear.h"
+#include "ModuleGameOver.h"
 #include "SDL/include/SDL.h"
 
 ModuleInput::ModuleInput() : Module()
@@ -58,6 +60,16 @@ update_status ModuleInput::PreUpdate()
 	}
 
 	if (keyboard[SDL_SCANCODE_ESCAPE] || e.type == SDL_QUIT) return update_status::UPDATE_STOP;
+
+	return update_status::UPDATE_CONTINUE;
+}
+
+update_status ModuleInput::Update()
+{
+	if (App->input->keyboard[SDL_SCANCODE_O] == 1)
+		App->stage_clear->Enable();
+	if (App->input->keyboard[SDL_SCANCODE_P] == 1)
+		App->game_over->Enable();
 
 	return update_status::UPDATE_CONTINUE;
 }

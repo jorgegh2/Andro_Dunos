@@ -8,16 +8,53 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
+#include "ModuleGameOver.h"
 #include "SDL\include\SDL.h"
 #include "ModuleAudio.h"
+#include "Animation.h"
 
 ModuleStageClear::ModuleStageClear()
 {
-	// Stage clear logo
-	title.x = 0;
-	title.y = 0;
-	title.w = 304;
-	title.h = 224;
+	// Stage clear screen
+
+	//Animation
+	stg_clear.PushBack({ 13, 19, 293, 47 });  // 1st column
+	stg_clear.PushBack({ 13, 74, 293, 47 });
+	stg_clear.PushBack({ 13, 129, 293, 42 });
+	stg_clear.PushBack({ 13, 179, 293, 41 });
+	stg_clear.PushBack({ 13, 228, 293, 38 });
+	stg_clear.PushBack({ 13, 274, 293, 36 });
+	stg_clear.PushBack({ 13, 318, 293, 32 });
+	stg_clear.PushBack({ 13, 359, 293, 31 });
+	stg_clear.PushBack({ 13, 399, 293, 28 });
+	stg_clear.PushBack({ 13, 435, 293, 26 });
+	stg_clear.PushBack({ 13, 469, 293, 22 });
+	stg_clear.PushBack({ 13, 501, 293, 20 });
+	stg_clear.PushBack({ 13, 529, 293, 17 });
+	stg_clear.PushBack({ 317, 19, 294, 15 });  // 2nd column
+	stg_clear.PushBack({ 317, 42, 294, 12 });
+	stg_clear.PushBack({ 317, 61, 294, 9 });
+	stg_clear.PushBack({ 317, 64, 294, 6 });
+	stg_clear.PushBack({ 317, 88, 259, 2 });
+	stg_clear.PushBack({ 320, 98, 256, 1 });
+	stg_clear.PushBack({ 317, 107, 259, 5 });
+	stg_clear.PushBack({ 315, 117, 261, 7 });
+	stg_clear.PushBack({ 315, 129, 261, 9 });
+	stg_clear.PushBack({ 316, 145, 261, 10 });
+	stg_clear.PushBack({ 317, 159, 261, 12 });
+	stg_clear.PushBack({ 316, 179, 261, 12 });
+	stg_clear.PushBack({ 315, 200, 261, 14 });
+	stg_clear.PushBack({ 315, 220, 261, 16 });
+	stg_clear.PushBack({ 316, 238, 261, 18 });
+	stg_clear.PushBack({ 315, 265, 261, 19 });
+	stg_clear.PushBack({ 315, 292, 261, 21 });
+	stg_clear.PushBack({ 315, 318, 261, 23 });
+	stg_clear.PushBack({ 315, 347, 261, 25 });
+	stg_clear.PushBack({ 316, 378, 261, 25 });
+	stg_clear.PushBack({ 315, 408, 261, 27 });
+	stg_clear.PushBack({ 315, 442, 261, 27 });
+	stg_clear.loop = false;
+	stg_clear.speed = 0.4f;
 
 }
 
@@ -33,13 +70,22 @@ bool ModuleStageClear::Start()
 	// We don't want the player in the screen
 	if (App->player->IsEnabled() == true)
 		App->player->Disable();
-	App->level01->Disable();
+
+	// Disable modules for debug mode
+	if (App->game_intro->IsEnabled() == true)
+		App->game_intro->Disable();
+	if (App->level01->IsEnabled() == true)
+		App->level01->Disable();
+	if (App->game_over->IsEnabled() == true)
+		App->game_over->Disable();
+
+	graphics = App->textures->Load("Images/stage_clear2.png");
 
 	music_intro = App->audio->LoadMusic("Music/01_Neo_Geo_Logo.ogg");
 
 	App->audio->PlayMusic(music_intro);
 
-	graphics = App->textures->Load("Images/Stageclear.png");
+	App->render->camera.x = App->render->camera.y = 0;
 
 	return ret;
 }
@@ -47,29 +93,33 @@ bool ModuleStageClear::Start()
 // UnLoad assets
 bool ModuleStageClear::CleanUp()
 {
-
-	if (App->game_intro->IsEnabled() == true)
-		App->game_intro->Disable();
+	LOG("Unloading stage clear scene");
 
 	App->textures->Unload(graphics);
 
-	//no cal
-	//App->audio->StopMusic();
-
 	return true;
+}
+
+// PreUpdate: clear screen to black before every frame
+update_status ModuleStageClear::PreUpdate()
+{
+	SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 255);
+	SDL_RenderClear(App->render->renderer);
+
+	return UPDATE_CONTINUE;
 }
 
 // Update: draw background
 update_status ModuleStageClear::Update()
 {
-	App->render->Blit(graphics, 0, 0, &title);
+	current_animation = &stg_clear;
 
-
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
-
-		App->fade->FadeToBlack(App->stage_clear, App->game_intro, 1);
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
+	{
+		App->fade->FadeToBlack(this, (Module*)App->game_over);
 	}
 
+	App->render->Blit(graphics, 8, 30, &(current_animation->GetCurrentFrame()));
 
 	return UPDATE_CONTINUE;
 }

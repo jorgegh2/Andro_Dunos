@@ -8,6 +8,7 @@
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
 #include "ModuleParticles.h"
+#include "ModuleGameOver.h"
 #include "ModuleStageClear.h"
 #include "ModuleAudio.h"
 #include "ModuleEnemies.h"
@@ -23,10 +24,11 @@ Application::Application()
 	modules[6] = level01 = new Level01();
 	modules[7] = enemy = new ModuleEnemies();
 	modules[8] = stage_clear = new ModuleStageClear();
-	modules[9] = player = new ModulePlayer();
-	modules[10] = fade = new ModuleFadeToBlack();
-	modules[11] = particles = new ModuleParticles();
-	modules[12] = collision = new ModuleCollision();
+	modules[9] = game_over = new ModuleGameOver();
+	modules[10] = player = new ModulePlayer();
+	modules[11] = fade = new ModuleFadeToBlack();
+	modules[12] = particles = new ModuleParticles();
+	modules[13] = collision = new ModuleCollision();
 	
 }	
 
@@ -42,7 +44,8 @@ bool Application::Init()
 
 	App->player->Disable();
 	App->level01->Disable();
-	//App->stage_clear->Disable(); serious problem: game intro doesn't work if there is this
+	App->stage_clear->Disable();
+	App->game_over->Disable();
 
 	collision->Disable();
 	enemy->Disable();

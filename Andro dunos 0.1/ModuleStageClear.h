@@ -15,18 +15,17 @@ public:
 	~ModuleStageClear();
 
 	bool Start();
+	update_status PreUpdate();
 	update_status Update();
 	bool CleanUp();
 
 public:
 
 	SDL_Texture * graphics = nullptr;
-	SDL_Rect title;
 	Mix_Music* music_intro = nullptr;
+	Animation* current_animation = nullptr;
+	Animation stg_clear;
 
-
-	float foreground_pos;
-	bool forward;
 };
 
 #endif // __MODULESTAGECLEAR_H__
