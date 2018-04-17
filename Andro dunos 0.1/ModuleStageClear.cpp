@@ -13,7 +13,12 @@
 
 ModuleStageClear::ModuleStageClear()
 {
-	
+	// Stage clear logo
+	title.x = 0;
+	title.y = 0;
+	title.w = 304;
+	title.h = 224;
+
 }
 
 ModuleStageClear::~ModuleStageClear()
@@ -28,14 +33,13 @@ bool ModuleStageClear::Start()
 	// We don't want the player in the screen
 	if (App->player->IsEnabled() == true)
 		App->player->Disable();
-
-	graphics = App->textures->Load("Images/Stageclear.png");
+	App->level01->Disable();
 
 	music_intro = App->audio->LoadMusic("Music/01_Neo_Geo_Logo.ogg");
 
 	App->audio->PlayMusic(music_intro);
 
-	App->render->camera.x = App->render->camera.y = 0;
+	graphics = App->textures->Load("Images/Stageclear.png");
 
 	return ret;
 }
@@ -43,9 +47,14 @@ bool ModuleStageClear::Start()
 // UnLoad assets
 bool ModuleStageClear::CleanUp()
 {
-	LOG("Unloading stage clear scene");
+
+	if (App->game_intro->IsEnabled() == true)
+		App->game_intro->Disable();
 
 	App->textures->Unload(graphics);
+
+	//no cal
+	//App->audio->StopMusic();
 
 	return true;
 }
@@ -53,12 +62,14 @@ bool ModuleStageClear::CleanUp()
 // Update: draw background
 update_status ModuleStageClear::Update()
 {
-	App->render->Blit(graphics, 0, 0, NULL);
+	App->render->Blit(graphics, 0, 0, &title);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
-	{
-		App->fade->FadeToBlack(this, (Module*)App->game_intro);
+
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1) {
+
+		App->fade->FadeToBlack(App->stage_clear, App->game_intro, 1);
 	}
+
 
 	return UPDATE_CONTINUE;
 }

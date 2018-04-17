@@ -15,6 +15,9 @@
     <Filter Include="Levels">
       <UniqueIdentifier>{2cabc8d5-d143-42e7-89f9-c14533888b1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Modules\Enemies">
+      <UniqueIdentifier>{adb0d877-2ddb-4d9e-9155-7fce91ae806e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -71,6 +74,18 @@
     <ClInclude Include="ModuleCollision.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleEnemies.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_01.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_22.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -117,6 +132,18 @@
     </ClCompile>
     <ClCompile Include="ModuleCollision.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleEnemies.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_01.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_22.cpp">
+      <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -24,34 +24,15 @@ bool ModuleParticles::Start()
 	graphics = App->textures->Load("Images/laser_types.png");
 	graphics2 = App->textures->Load("Images/ship-explosion.png");
 
-	// Basic_shoot 0
-	basic_shoot_0.anim.PushBack({ 24, 39, 11, 4 });
-	basic_shoot_0.anim.loop = false;
-	basic_shoot_0.anim.speed = 0.3f;
-	basic_shoot_0.speed.x = 5;
-	basic_shoot_0.life = 3000;
-
-	// Laser 0
-	laser_0.anim.PushBack({ 57, 16, 16, 3 });
-	laser_0.anim.loop = false;
-	laser_0.anim.speed = 0.3f;
-	laser_0.speed.x = 5;
-	laser_0.life = 3000;
-
-
-	// Basic_shoot 1
-	basic_shoot_1.anim.PushBack({ 22, 51, 15, 6 });
-	basic_shoot_1.anim.loop = false;
-	basic_shoot_1.anim.speed = 0.3f;
-	basic_shoot_1.speed.x = 5;
-	basic_shoot_1.life = 3000;
-
-	// Laser 1
-	laser_1.anim.PushBack({ 57, 35, 16, 18 });
-	laser_1.anim.loop = false;
-	laser_1.anim.speed = 0.3f;
-	laser_1.speed.x = 5;
-	laser_1.life = 3000;
+	// Laser
+	laser.anim.PushBack({ 41, 11, 13, 2 });
+	laser.anim.PushBack({ 41, 23, 13, 6 });
+	laser.anim.PushBack({ 41, 49, 13, 12 });
+	laser.anim.PushBack({ 41, 64, 13, 14 });
+	laser.anim.loop = false;
+	laser.anim.speed = 0.3f;
+	laser.speed.x = 5;
+	laser.life = 3000;
 
 	// Explosion
 	explosion.anim.PushBack({ 198, 115, 15, 9 });
@@ -113,7 +94,7 @@ update_status ModuleParticles::Update()
 	return UPDATE_CONTINUE;
 }
 
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay, int col_x, int col_y)
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type, Uint32 delay)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -124,12 +105,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 			p->position.x = x;
 			p->position.y = y;
 			if (collider_type != COLLIDER_NONE)
-			{
-				if( col_x == -1 && col_y == -1)
-					p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
-				else
-					p->collider = App->collision->AddCollider({0,0, col_x, col_y}, collider_type, this);
-			}
+				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
 			active[i] = p;
 			break;
 		}
@@ -145,7 +121,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
 			//code
-			//App->particles->AddParticle(App->particles->explosion, active[i]->position.x, active[i]->position.y);
+			App->particles->AddParticle(App->particles->explosion, active[i]->position.x, active[i]->position.y);
 
 			delete active[i];
 			active[i] = nullptr;

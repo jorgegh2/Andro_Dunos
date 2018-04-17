@@ -12,6 +12,7 @@
 #include "ModuleAudio.h"
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
+#include "ModuleEnemies.h"
 
 Level01::Level01()
 {
@@ -32,6 +33,17 @@ bool Level01::Start()
 	App->player->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
+	App->enemy->Enable();
+
+	//Enemies
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 320, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 340, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 360, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 380, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 400, 100);// 0 > x > 320 (??) ; y correcta
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 320, 50);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 320, 150);
 
 	// Colliders ---
 	//App->collision->AddCollider({ 0, 100, 100, 16 }, COLLIDER_WALL);
@@ -47,7 +59,7 @@ bool Level01::Start()
 	start_under = App->textures->Load("Images/start_under.png");
 	end_under = App->textures->Load("Images/end_under.png");
 
-	mov = -1600;
+	mov = 0;
 	movy = 0;
 	xstop = false;
 	position[0] = position[1] = position[2] = 0;
@@ -68,6 +80,7 @@ bool Level01::CleanUp()
 	App->player->Disable();
 	App->collision->Disable();
 	App->particles->Disable();
+	//App->enemy->Disable();
 
 	// TODO: loop
 	App->textures->Unload(layout[0]);
@@ -79,7 +92,6 @@ bool Level01::CleanUp()
 	App->textures->Unload(underground_tile);
 	App->textures->Unload(start_under);
 	App->textures->Unload(end_under);
-	App->audio->UnloadMusic(music_level01); // necessary?
 
 	return true;
 }
@@ -133,9 +145,9 @@ update_status Level01::Update()
 
 
 		//make so pressing SPACE the other stage is loaded
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
 		{
-			App->fade->FadeToBlack(this, (Module*)App->stage_clear);
+			App->fade->FadeToBlack(App->level01, App->game_intro, 1);
 		}
 	}
 

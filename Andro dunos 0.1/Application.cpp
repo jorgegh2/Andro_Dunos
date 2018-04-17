@@ -10,6 +10,7 @@
 #include "ModuleParticles.h"
 #include "ModuleStageClear.h"
 #include "ModuleAudio.h"
+#include "ModuleEnemies.h"
 
 Application::Application()
 {
@@ -20,11 +21,12 @@ Application::Application()
 	modules[4] = audio = new ModuleAudio();
 	modules[5] = game_intro = new ModuleGameIntroduction();
 	modules[6] = level01 = new Level01();
-	modules[7] = stage_clear = new ModuleStageClear();
-	modules[8] = player = new ModulePlayer();
-	modules[9] = fade = new ModuleFadeToBlack();
-	modules[10] = particles = new ModuleParticles();
-	modules[11] = collision = new ModuleCollision();
+	modules[7] = enemy = new ModuleEnemies();
+	modules[8] = stage_clear = new ModuleStageClear();
+	modules[9] = player = new ModulePlayer();
+	modules[10] = fade = new ModuleFadeToBlack();
+	modules[11] = particles = new ModuleParticles();
+	modules[12] = collision = new ModuleCollision();
 	
 }	
 
@@ -40,9 +42,10 @@ bool Application::Init()
 
 	App->player->Disable();
 	App->level01->Disable();
-	App->stage_clear->Disable(); //serious problem: game intro doesn't work if there is this
+	//App->stage_clear->Disable(); serious problem: game intro doesn't work if there is this
 
 	collision->Disable();
+	enemy->Disable();
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

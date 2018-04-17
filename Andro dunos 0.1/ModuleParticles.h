@@ -41,7 +41,7 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 
-	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type = COLLIDER_NONE, Uint32 delay = 0, int col_x = -1, int col_y = -1);
+	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type = COLLIDER_NONE, Uint32 delay = 0);
 
 private:
 
@@ -52,14 +52,7 @@ private:
 public:
 
 	Particle explosion;
-
-	Particle laser_0;
-	Particle basic_shoot_0;
-
-	Particle laser_1;
-	Particle basic_shoot_1;
-	//Particle laser;
-	//Particle laser;
+	Particle laser;
 
 };
 
