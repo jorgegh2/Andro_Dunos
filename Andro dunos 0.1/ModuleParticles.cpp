@@ -24,14 +24,34 @@ bool ModuleParticles::Start()
 	graphics = App->textures->Load("Images/laser_types.png");
 	graphics2 = App->textures->Load("Images/ship-explosion.png");
 
-	// Laser
-	laser.anim.PushBack({ 24, 39, 11, 4 });
-	laser.anim.PushBack({ 22, 51, 15, 6 });
-	laser.anim.PushBack({ 21, 6, 16, 10 });
-	laser.anim.loop = false;
-	laser.anim.speed = 0.3f;
-	laser.speed.x = 5;
-	laser.life = 3000;
+	// Basic_shoot 0
+	basic_shoot_0.anim.PushBack({ 24, 39, 11, 4 });
+	basic_shoot_0.anim.loop = false;
+	basic_shoot_0.anim.speed = 0.3f;
+	basic_shoot_0.speed.x = 5;
+	basic_shoot_0.life = 3000;
+
+	// Laser 0
+	laser_0.anim.PushBack({ 57, 16, 16, 3 });
+	laser_0.anim.loop = false;
+	laser_0.anim.speed = 0.3f;
+	laser_0.speed.x = 5;
+	laser_0.life = 3000;
+
+
+	// Basic_shoot 1
+	basic_shoot_1.anim.PushBack({ 22, 51, 15, 6 });
+	basic_shoot_1.anim.loop = false;
+	basic_shoot_1.anim.speed = 0.3f;
+	basic_shoot_1.speed.x = 5;
+	basic_shoot_1.life = 3000;
+
+	// Laser 1
+	laser_1.anim.PushBack({ 57, 35, 16, 18 });
+	laser_1.anim.loop = false;
+	laser_1.anim.speed = 0.3f;
+	laser_1.speed.x = 5;
+	laser_1.life = 3000;
 
 	// Explosion
 	explosion.anim.PushBack({ 198, 115, 15, 9 });

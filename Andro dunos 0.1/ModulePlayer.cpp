@@ -78,7 +78,7 @@ update_status ModulePlayer::Update()
 	{
 
 		int speed = 1;
-
+		
 		if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > 0)
 		{
 			position.x -= speed;
@@ -124,17 +124,58 @@ update_status ModulePlayer::Update()
 				current_animation = &upback;
 			}
 
-		// Shoot laser
-		if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN) {
+		//to change weapon
+		if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN)
+		{
+			switch (change_weapon) {
 
-			App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, COLLIDER_PLAYER_SHOT);
+			case CHANGE_WEAPON::BASIC_ATTACK:
+				change_weapon = CHANGE_WEAPON::LASER;
+				break;
+
+			case CHANGE_WEAPON::LASER:
+				change_weapon = CHANGE_WEAPON::BASIC_ATTACK;
+				break;
+			}
 		}
+		//////////
+		// Shoot 
+		if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN) 
+		{
+			switch (power_up) {
+			case POWER_UPS::POWER_UP_BASIC:
+				switch (change_weapon) {
 
+				case CHANGE_WEAPON::BASIC_ATTACK:
+					App->particles->AddParticle(App->particles->basic_shoot_0, position.x + 20, position.y, COLLIDER_PLAYER_SHOT);
+					break;
+
+				case CHANGE_WEAPON::LASER:
+					App->particles->AddParticle(App->particles->laser_0, position.x + 20, position.y, COLLIDER_PLAYER_SHOT);
+					break;
+				}
+
+			break;
+
+			case POWER_UPS::POWER_UP_1:
+				switch (change_weapon) {
+
+				case CHANGE_WEAPON::BASIC_ATTACK:
+					App->particles->AddParticle(App->particles->basic_shoot_1, position.x + 20, position.y, COLLIDER_PLAYER_SHOT);
+					break;
+
+				case CHANGE_WEAPON::LASER:
+					App->particles->AddParticle(App->particles->laser_1, position.x + 20, position.y, COLLIDER_PLAYER_SHOT);
+					break;
+				}
+
+			break;
+
+			}
+		}
+		/////////////
 		c_player->SetPos(position.x, position.y);
-
-		// TODO: Control the ship doesn't get out of the screen
-
-
+		
 		// Draw everything --------------------------------------
 		App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
