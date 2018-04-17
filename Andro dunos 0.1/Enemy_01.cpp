@@ -46,5 +46,5 @@ void Enemy_01::Move()
 	}
 
 	position.y = int(float(original_y) + (30.0f * sinf(wave)));
-	position.x -= 2;
+	position.x -= 1;
 }

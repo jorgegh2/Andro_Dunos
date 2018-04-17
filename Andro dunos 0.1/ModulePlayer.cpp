@@ -67,20 +67,23 @@ update_status ModulePlayer::Update()
 	if (App->player->IsEnabled() == true)
 	{
 		Animation* current_animation = &idle;
+		
+		position.x += App->render->camera.x / SCREEN_SIZE;
+		position.y += App->render->camera.y / SCREEN_SIZE;
 
 		int speed = 1;
 
-		if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > 0)
+		if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
 		{
 			position.x -= speed;
 		}
 
-		if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < SCREEN_WIDTH - SHIP_WIDTH)
+		if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
 		{
 			position.x += speed;
 		}
 
-		if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) && position.y < SCREEN_HEIGHT - SHIP_HEIGHT)
+		if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
 		{
 			position.y += speed;
 			if (current_animation != &down)
@@ -90,7 +93,7 @@ update_status ModulePlayer::Update()
 			}
 		}
 
-		if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > 0)
+		if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
 		{
 			position.y -= speed;
 			if (current_animation != &up)
@@ -106,14 +109,14 @@ update_status ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->laser, position.x + 20 , position.y, COLLIDER_PLAYER_SHOT);
 			}
 
-			c_player->SetPos(position.x, position.y);
-
+			
 			// TODO: Control the ship doesn't get out of the screen
-
-
+			c_player->SetPos(position.x, position.y);
 			// Draw everything --------------------------------------
 			App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-			
+			//Reset position
+			position.x -= App->render->camera.x / SCREEN_SIZE;
+			position.y -= App->render->camera.y / SCREEN_SIZE;
 	}
 	
 	return UPDATE_CONTINUE;

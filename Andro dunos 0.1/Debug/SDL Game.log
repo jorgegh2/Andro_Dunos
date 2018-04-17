@@ -1,28 +1,3 @@
-﻿  ModuleEnemies.cpp
-  Enemy_22.cpp
-  Generating Code...
-  Compiling...
-  Level01.cpp
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(114): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(114): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(117): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(118): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(119): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(120): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(121): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(123): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(125): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(131): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(134): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(139): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(140): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(141): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(142): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(143): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\nadinegp\desktop\andro_dunos-master\andro dunos 0.1\level01.cpp(144): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  Enemy_01.cpp
-  Enemy.cpp
-  Application.cpp
-  Generating Code...
-  SDL Game.vcxproj -> C:\Users\nadinegp\Desktop\Andro_Dunos-master\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe
-  SDL Game.vcxproj -> C:\Users\nadinegp\Desktop\Andro_Dunos-master\Andro dunos 0.1\Debug\Andro_Dunos0.1.pdb (Partial PDB)
+﻿  ModulePlayer.cpp
+  SDL Game.vcxproj -> C:\Users\martiti\Desktop\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe
+  SDL Game.vcxproj -> C:\Users\martiti\Desktop\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.pdb (Partial PDB)

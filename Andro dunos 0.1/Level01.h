@@ -17,22 +17,18 @@ public:
 
 	bool Start();
 	update_status Update();
-	update_status PostUpdate();
 	bool CleanUp();
 
 public:
 	
-	SDL_Texture* tex;
+	SDL_Texture* background;
 	SDL_Texture* layout[6];
 	SDL_Texture* underground_tile;
 	SDL_Texture* start_under;
 	SDL_Texture* end_under;
-	float mov;
-	float movy;
-	int position[2];
-	SDL_Rect camera;
-	bool xstop;
 	Mix_Music* music_level01 = nullptr;
+	bool xstop;
+	
 };
 
-#endif
+#endif // __ModuleStage1_H__	

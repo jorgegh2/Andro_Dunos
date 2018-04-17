@@ -43,24 +43,25 @@ bool ModuleRender::Init()
 // Called every draw update
 update_status ModuleRender::PreUpdate()
 {
+	SDL_RenderClear(renderer);
 	return update_status::UPDATE_CONTINUE;
 }
 
 update_status ModuleRender::Update()
 {
-	int speed = 3;
+	int speed = 6;
 
 	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
-		camera.y += speed;
+		camera.y += speed * SCREEN_SIZE;
 
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
-		camera.y -= speed;
+		camera.y -= speed * SCREEN_SIZE;
 
 	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-		camera.x += speed;
+		camera.x += speed * SCREEN_SIZE;
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-		camera.x -= speed;
+		camera.x -= speed * SCREEN_SIZE;
 
 	return update_status::UPDATE_CONTINUE;
 }
@@ -86,12 +87,12 @@ bool ModuleRender::CleanUp()
 }
 
 // Blit to screen
-bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
+bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed)
 {
 	bool ret = true;
 	SDL_Rect rect;
-	rect.x = x * SCREEN_SIZE;
-	rect.y = y * SCREEN_SIZE;
+	rect.x = (int)(-camera.x * speed) + x * SCREEN_SIZE;
+	rect.y = (int)(-camera.y * speed) + y * SCREEN_SIZE;
 
 	if (section != nullptr)
 	{
