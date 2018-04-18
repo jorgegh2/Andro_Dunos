@@ -10,6 +10,7 @@
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
+#include "ModuleAudio.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -54,6 +55,9 @@ bool ModulePlayer2::Start()
 	bool ret = true;
 	graphics = App->textures->Load("Images/ships.png"); // arcade version
 	c_player2 = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER);
+
+	laser_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-3_(Main_Ships).wav");
+	basic_attack_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-1_(Main_Ships).wav");
 
 	position.x = 150;
 	position.y = 100;
@@ -170,10 +174,12 @@ update_status ModulePlayer2::Update()
 			case CHANGE_WEAPON::BASIC_ATTACK:
 				App->particles->AddParticle(App->particles->basic_shoot_0_down, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->basic_shoot_0_up, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(basic_attack_sound);
 				break;
 
 			case CHANGE_WEAPON::LASER:
 				App->particles->AddParticle(App->particles->laser_0, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(laser_sound);
 				break;
 			}
 
@@ -186,11 +192,13 @@ update_status ModulePlayer2::Update()
 				App->particles->AddParticle(App->particles->basic_shoot_1_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->basic_shoot_1_up, position.x + 20, position.y + 4, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->basic_shoot_1, position.x + 26, position.y + 10, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(basic_attack_sound);
 				break;
 
 			case CHANGE_WEAPON::LASER:
 				App->particles->AddParticle(App->particles->laser_1, position.x + 12, position.y - 2, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(laser_sound);
 				break;
 			}
 
@@ -203,6 +211,7 @@ update_status ModulePlayer2::Update()
 				App->particles->AddParticle(App->particles->basic_shoot_2_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->basic_shoot_2_up, position.x + 20, position.y + 2, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->basic_shoot_2, position.x + 20, position.y + 9, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(basic_attack_sound);
 				break;
 
 			case CHANGE_WEAPON::LASER:
@@ -210,6 +219,7 @@ update_status ModulePlayer2::Update()
 				App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->laser_2, position.x + 5, position.y - 2, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->laser_2_5, position.x + 5, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(laser_sound);
 				break;
 			}
 

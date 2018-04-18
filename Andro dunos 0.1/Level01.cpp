@@ -116,6 +116,7 @@ update_status Level01::Update()
 		|| (App->render->camera.x >= 8945 * SCREEN_SIZE && xstop == true)) {
 		App->render->camera.y -= 1 * SCREEN_SIZE; // speed in y axes
 	}
+	
 
 
 	// Draw everything --------------------------------------

@@ -6,6 +6,7 @@
 #include "p2Point.h"
 
 struct SDL_Texture;
+struct Mix_Chunk;
 
 class ModulePlayer2 : public Module
 {
@@ -29,6 +30,9 @@ public:
 	Animation down;
 	Animation upback;
 	Animation downback;
+
+	Mix_Chunk* laser_sound = nullptr;
+	Mix_Chunk* basic_attack_sound = nullptr;
 
 	iPoint position;
 
