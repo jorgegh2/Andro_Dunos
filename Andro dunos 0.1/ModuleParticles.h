@@ -16,7 +16,6 @@ enum COLLIDER_TYPE;
 struct Particle
 {
 	Collider* collider = nullptr;
-	bool Type = true;
 	Animation anim;
 	uint fx = 0;
 	iPoint position;
@@ -29,6 +28,10 @@ struct Particle
 	Particle(const Particle& p);
 	~Particle();
 	bool Update();
+	enum TYPE_PARTICLE {
+		SHOOT = 0,
+		EXPLOSION
+	} Type = TYPE_PARTICLE::SHOOT;
 };
 
 class ModuleParticles : public Module

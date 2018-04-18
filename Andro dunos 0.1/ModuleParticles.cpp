@@ -147,7 +147,7 @@ bool ModuleParticles::Start()
 	explosion.anim.PushBack({ 49, 94, 30, 30 });
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
-	explosion.Type = false;
+	explosion.Type = explosion.EXPLOSION;
 	return true;
 }
 
@@ -188,10 +188,10 @@ update_status ModuleParticles::Update()
 		}
 		else if (SDL_GetTicks() >= p->born)
 		{
-			if (p->Type == true) {
-				App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			if (p->Type == p->EXPLOSION) {
+				App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 			}
-			else App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame())) ;
+			else App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame())) ;
 			if (p->fx_played == false)
 			{
 				p->fx_played = true;
