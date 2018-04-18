@@ -38,13 +38,16 @@ bool Level01::Start()
 
 	//Enemies
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 320, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 340, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 360, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 380, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 400, 100);// 0 > x > 320 (??) ; y correcta
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 332, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 344, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 356, 100);
 
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 320, 50);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 320, 150);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 450, 80);
+	//Original position
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1240, 80);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1250, 50);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1250, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1400, 120);
 
 
 	// Colliders ---

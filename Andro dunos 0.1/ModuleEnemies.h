@@ -3,7 +3,7 @@
 
 #include "Module.h"
 #include "Enemy_01.h"
-#include "Enemy_22.h"
+#include "Enemy_3.h"
 
 #define MAX_ENEMIES 100
 
@@ -11,7 +11,7 @@ enum ENEMY_TYPES
 {
 	NO_TYPE,
 	ENEMY_01,
-	ENEMY_22,
+	ENEMY_3,
 };
 
 class Enemy;
@@ -47,7 +47,7 @@ private:
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites;
-	SDL_Texture* enemy_22;
+	SDL_Texture* enemy_3;
 
 };
 

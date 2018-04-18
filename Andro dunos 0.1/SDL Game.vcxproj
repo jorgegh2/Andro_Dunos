@@ -76,7 +76,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_01.h" />
-    <ClInclude Include="Enemy_22.h" />
+    <ClInclude Include="Enemy_3.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Level01.h" />
     <ClInclude Include="MemLeaks.h" />
@@ -101,7 +101,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_01.cpp" />
-    <ClCompile Include="Enemy_22.cpp" />
+    <ClCompile Include="Enemy_3.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Level01.cpp" />
     <ClCompile Include="Main.cpp" />
