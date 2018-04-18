@@ -152,6 +152,10 @@ update_status ModulePlayer::Update()
 				break;
 
 			case POWER_UPS::POWER_UP_1:
+				power_up = POWER_UPS::POWER_UP_2;
+				break;
+
+			case POWER_UPS::POWER_UP_2:
 				power_up = POWER_UPS::POWER_UP_BASIC;
 				break;
 			}
@@ -171,7 +175,7 @@ update_status ModulePlayer::Update()
 					break;
 
 				case CHANGE_WEAPON::LASER:
-					App->particles->AddParticle(App->particles->laser_0, position.x + 20, position.y + 9, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_0, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
 					break;
 				}
 
@@ -187,8 +191,27 @@ update_status ModulePlayer::Update()
 					break;
 
 				case CHANGE_WEAPON::LASER:
-					App->particles->AddParticle(App->particles->laser_1, position.x + 20, position.y, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_1_5, position.x + 20, position.y + 5, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_1, position.x + 12, position.y-2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
+					break;
+				}
+
+				break;
+
+			case POWER_UPS::POWER_UP_2:
+				switch (change_weapon) {
+
+				case CHANGE_WEAPON::BASIC_ATTACK:
+					App->particles->AddParticle(App->particles->basic_shoot_2_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_2_up, position.x + 20, position.y + 2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_2, position.x + 20, position.y + 9, COLLIDER_PLAYER_SHOT);
+					break;
+
+				case CHANGE_WEAPON::LASER:
+					App->particles->AddParticle(App->particles->laser_1, position.x + 12, position.y-2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_2, position.x + 5, position.y-2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_2_5, position.x + 5, position.y + 7, COLLIDER_PLAYER_SHOT);
 					break;
 				}
 

@@ -52,7 +52,7 @@ private:
 public:
 
 	Particle explosion;
-	Particle laser_0;
+	
 	Particle basic_shoot_0_up;
 	Particle basic_shoot_0_down;
 
@@ -60,8 +60,17 @@ public:
 	Particle basic_shoot_1_up;
 	Particle basic_shoot_1_down;
 
+	Particle basic_shoot_2;
+	Particle basic_shoot_2_up;
+	Particle basic_shoot_2_down;
+
+	Particle laser_0;
+
 	Particle laser_1;
 	Particle laser_1_5;
+
+	Particle laser_2;
+	Particle laser_2_5;
 
 };
 
