@@ -247,6 +247,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c_player != nullptr && c_player == c1)
 	{
 		//code
+		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
 		App->player->Disable();
 		App->fade->FadeToBlack(App->level01, App->game_intro, 1);
 	}

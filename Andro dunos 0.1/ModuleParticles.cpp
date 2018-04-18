@@ -147,7 +147,7 @@ bool ModuleParticles::Start()
 	explosion.anim.PushBack({ 49, 94, 30, 30 });
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
-
+	explosion.Type = false;
 	return true;
 }
 
@@ -188,7 +188,10 @@ update_status ModuleParticles::Update()
 		}
 		else if (SDL_GetTicks() >= p->born)
 		{
-			App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			if (p->Type == true) {
+				App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			}
+			else App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame())) ;
 			if (p->fx_played == false)
 			{
 				p->fx_played = true;
@@ -209,6 +212,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
 			p->position.y = y;
+			p->Type = particle.Type;
 			if (collider_type != COLLIDER_NONE)
 				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
 			active[i] = p;

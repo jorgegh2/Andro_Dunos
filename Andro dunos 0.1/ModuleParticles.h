@@ -16,6 +16,7 @@ enum COLLIDER_TYPE;
 struct Particle
 {
 	Collider* collider = nullptr;
+	bool Type = true;
 	Animation anim;
 	uint fx = 0;
 	iPoint position;
