@@ -56,7 +56,7 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("Images/ships.png"); // arcade version
 	laser_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-3_(Main_Ships).wav");
 	basic_attack_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-1_(Main_Ships).wav");
-	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER);
+	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
 	
 	position.x = 100;
 	position.y = 100;
