@@ -18,9 +18,6 @@ ModulePlayer::ModulePlayer()
 	graphics = NULL;
 	current_animation = NULL;
 
-	position.x = 100;
-	position.y = 100;
-
 	// Idle animation
 	idle.PushBack({ 94, 108, SHIP_WIDTH, SHIP_HEIGHT });
 
@@ -58,6 +55,9 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("Images/ships.png"); // arcade version
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER);
 	
+	position.x = 100;
+	position.y = 100;
+
 	return ret;
 }
 
@@ -75,8 +75,6 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	if (App->player->IsEnabled() == true)
-	{		
 		position.x += App->render->camera.x / SCREEN_SIZE;
 		position.y += App->render->camera.y / SCREEN_SIZE;
 
@@ -228,7 +226,7 @@ update_status ModulePlayer::Update()
 			//Reset position
 			position.x -= App->render->camera.x / SCREEN_SIZE;
 			position.y -= App->render->camera.y / SCREEN_SIZE;
-	}
+
 	
 	return UPDATE_CONTINUE;
 }

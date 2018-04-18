@@ -12,6 +12,7 @@
 #include "ModuleStageClear.h"
 #include "ModuleAudio.h"
 #include "ModuleEnemies.h"
+#include "Module_Player_2.h"
 
 Application::Application()
 {
@@ -27,8 +28,10 @@ Application::Application()
 	modules[9] = game_over = new ModuleGameOver();
 	modules[10] = particles = new ModuleParticles();
 	modules[11] = player = new ModulePlayer();
-	modules[12] = fade = new ModuleFadeToBlack();
-	modules[13] = collision = new ModuleCollision();
+	modules[12] = player2 = new ModulePlayer2();
+	modules[13] = fade = new ModuleFadeToBlack();
+	modules[14] = collision = new ModuleCollision();
+	
 	
 }	
 
@@ -43,6 +46,7 @@ bool Application::Init()
 	bool ret = true;
 
 	App->player->Disable();
+	App->player2->Disable();
 	App->level01->Disable();
 	App->stage_clear->Disable();
 	App->game_over->Disable();

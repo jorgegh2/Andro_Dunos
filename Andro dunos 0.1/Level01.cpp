@@ -12,6 +12,7 @@
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
+#include "Module_Player_2.h"
 
 Level01::Level01()
 {
@@ -28,6 +29,8 @@ bool Level01::Start()
 {
 	LOG("Loading background assets");						
 
+	if (App->player2->Two_Players == true)
+		App->player2->Enable();
 	App->player->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
@@ -42,6 +45,7 @@ bool Level01::Start()
 
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 320, 50);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 320, 150);
+
 
 	// Colliders ---
 	//App->collision->AddCollider({ 0, 100, 100, 16 }, COLLIDER_WALL);
@@ -69,6 +73,7 @@ bool Level01::CleanUp()
 	LOG("Unload Level01");
 
 	App->player->Disable();
+	App->player2->Disable();
 	App->collision->Disable();
 	App->particles->Disable();
 	App->enemy->Disable();

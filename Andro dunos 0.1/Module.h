@@ -20,6 +20,8 @@ public:
 	virtual update_status PostUpdate() 	{ return update_status::UPDATE_CONTINUE; }
 	virtual bool CleanUp() { return true; }
 
+	bool Two_Players = false;
+
 	bool IsEnabled() const { return enabled; }
 
 	void Enable()

@@ -9,6 +9,7 @@
 #include "Level01.h"
 #include "SDL\include\SDL.h"
 #include "ModuleAudio.h"
+#include "Module_player_2.h"
 
 ModuleGameIntroduction::ModuleGameIntroduction()
 {
@@ -53,6 +54,12 @@ update_status ModuleGameIntroduction::Update()
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false)
+	{
+		App->fade->FadeToBlack(this, (Module*)App->level01);
+		App->player2->Two_Players = true;
 	}
 
 	return UPDATE_CONTINUE;

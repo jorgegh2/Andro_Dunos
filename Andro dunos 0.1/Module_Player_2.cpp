@@ -1,0 +1,242 @@
+#include "Globals.h"
+#include "Application.h"
+#include "ModuleTextures.h"
+#include "ModuleInput.h"
+#include "ModuleRender.h"
+#include "Module_Player_2.h"
+#include "SDL\include\SDL.h"
+#include "ModuleParticles.h"
+#include "ModuleCollision.h"
+#include "ModuleFadeToBlack.h"
+#include "Level01.h"
+#include "ModuleGameIntroduction.h"
+
+// Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
+
+ModulePlayer2::ModulePlayer2()
+{
+	graphics = NULL;
+	current_animation = &idle;
+
+	// Idle animation
+	idle.PushBack({ 154, 108, SHIP_WIDTH, SHIP_HEIGHT });
+
+	// Up animation
+	up.PushBack({ 154, 87, SHIP_WIDTH, SHIP_HEIGHT });
+	up.PushBack({ 154, 66, SHIP_WIDTH, SHIP_HEIGHT });
+	up.loop = false;
+	up.speed = 0.1f;
+
+	upback.PushBack({ 154, 87, SHIP_WIDTH, SHIP_HEIGHT });
+	upback.PushBack({ 154, 108, SHIP_WIDTH, SHIP_HEIGHT });
+	upback.loop = false;
+	upback.speed = 0.1f;
+
+	// Down animation
+	down.PushBack({ 154, 131, SHIP_WIDTH, SHIP_HEIGHT });
+	down.PushBack({ 154, 153, SHIP_WIDTH, SHIP_HEIGHT });
+	down.loop = false;
+	down.speed = 0.1f;
+
+	downback.PushBack({ 154, 131, SHIP_WIDTH, SHIP_HEIGHT });
+	downback.PushBack({ 154, 108, SHIP_WIDTH, SHIP_HEIGHT });
+	downback.loop = false;
+	downback.speed = 0.1f;
+}
+
+ModulePlayer2::~ModulePlayer2()
+{}
+
+// Load assets
+bool ModulePlayer2::Start()
+{
+	LOG("Loading player textures");
+	bool ret = true;
+	graphics = App->textures->Load("Images/ships.png"); // arcade version
+	c_player2 = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER);
+
+	position.x = 150;
+	position.y = 100;
+
+	return ret;
+}
+
+// Unload assets
+bool ModulePlayer2::CleanUp()
+{
+	LOG("Unloading player");
+
+	App->textures->Unload(graphics);
+	current_animation = &idle;
+
+	return true;
+}
+
+// Update: draw background
+update_status ModulePlayer2::Update()
+{
+	position.x += App->render->camera.x / SCREEN_SIZE;
+	position.y += App->render->camera.y / SCREEN_SIZE;
+
+	int speed = 1;
+
+	if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
+	{
+		position.x -= speed;
+	}
+
+	if ((App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
+	{
+		position.x += speed;
+	}
+
+	if ((App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
+	{
+		position.y += speed;
+		if (current_animation != &down)
+		{
+			down.Reset();
+			current_animation = &down;
+		}
+	}
+
+	else if (App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_UP)
+		if (current_animation != &downback)
+		{
+			downback.Reset();
+			current_animation = &downback;
+		}
+
+	if ((App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
+	{
+		position.y -= speed;
+		if (current_animation != &up)
+		{
+			up.Reset();
+			current_animation = &up;
+		}
+	}
+
+	else if (App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_UP)
+		if (current_animation != &upback)
+		{
+			upback.Reset();
+			current_animation = &upback;
+		}
+
+
+	if (App->input->keyboard[SDL_SCANCODE_M] == KEY_STATE::KEY_DOWN)
+	{
+		switch (change_weapon) {
+
+		case CHANGE_WEAPON::BASIC_ATTACK:
+			change_weapon = CHANGE_WEAPON::LASER;
+			break;
+
+		case CHANGE_WEAPON::LASER:
+			change_weapon = CHANGE_WEAPON::BASIC_ATTACK;
+			break;
+		}
+	}
+
+
+	// POWERUP
+	if (App->input->keyboard[SDL_SCANCODE_N] == KEY_STATE::KEY_DOWN)
+	{
+		switch (power_up) {
+
+		case POWER_UPS::POWER_UP_BASIC:
+			power_up = POWER_UPS::POWER_UP_1;
+			break;
+
+		case POWER_UPS::POWER_UP_1:
+			power_up = POWER_UPS::POWER_UP_2;
+			break;
+
+		case POWER_UPS::POWER_UP_2:
+			power_up = POWER_UPS::POWER_UP_BASIC;
+			break;
+		}
+	}
+	//
+	//////////
+	// Shoot 
+	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_STATE::KEY_DOWN)
+	{
+		switch (power_up) {
+		case POWER_UPS::POWER_UP_BASIC:
+			switch (change_weapon) {
+
+			case CHANGE_WEAPON::BASIC_ATTACK:
+				App->particles->AddParticle(App->particles->basic_shoot_0_down, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->basic_shoot_0_up, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
+				break;
+
+			case CHANGE_WEAPON::LASER:
+				App->particles->AddParticle(App->particles->laser_0, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
+				break;
+			}
+
+			break;
+
+		case POWER_UPS::POWER_UP_1:
+			switch (change_weapon) {
+
+			case CHANGE_WEAPON::BASIC_ATTACK:
+				App->particles->AddParticle(App->particles->basic_shoot_1_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->basic_shoot_1_up, position.x + 20, position.y + 4, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->basic_shoot_1, position.x + 26, position.y + 10, COLLIDER_PLAYER_SHOT);
+				break;
+
+			case CHANGE_WEAPON::LASER:
+				App->particles->AddParticle(App->particles->laser_1, position.x + 12, position.y - 2, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
+				break;
+			}
+
+			break;
+
+		case POWER_UPS::POWER_UP_2:
+			switch (change_weapon) {
+
+			case CHANGE_WEAPON::BASIC_ATTACK:
+				App->particles->AddParticle(App->particles->basic_shoot_2_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->basic_shoot_2_up, position.x + 20, position.y + 2, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->basic_shoot_2, position.x + 20, position.y + 9, COLLIDER_PLAYER_SHOT);
+				break;
+
+			case CHANGE_WEAPON::LASER:
+				App->particles->AddParticle(App->particles->laser_1, position.x + 12, position.y - 2, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_2, position.x + 5, position.y - 2, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_2_5, position.x + 5, position.y + 7, COLLIDER_PLAYER_SHOT);
+				break;
+			}
+
+			break;
+
+		}
+	}
+
+
+	// TODO: Control the ship doesn't get out of the screen
+	c_player2->SetPos(position.x, position.y);
+	// Draw everything --------------------------------------
+	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+	//Reset position
+	position.x -= App->render->camera.x / SCREEN_SIZE;
+	position.y -= App->render->camera.y / SCREEN_SIZE;
+
+
+	return UPDATE_CONTINUE;
+}
+
+void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
+{
+	if (c_player2 != nullptr && c_player2 == c1)
+	{
+		//code
+		App->player2->Disable();
+		App->fade->FadeToBlack(App->level01, App->game_intro, 1);
+	}
+}
