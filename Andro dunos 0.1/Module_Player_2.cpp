@@ -54,7 +54,7 @@ bool ModulePlayer2::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("Images/ships.png"); // arcade version
-	c_player2 = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER);
+	c_player2 = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
 
 	laser_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-3_(Main_Ships).wav");
 	basic_attack_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-1_(Main_Ships).wav");
@@ -82,7 +82,7 @@ update_status ModulePlayer2::Update()
 	position.x += App->render->camera.x / SCREEN_SIZE;
 	position.y += App->render->camera.y / SCREEN_SIZE;
 
-	int speed = 1;
+	int speed = 2;
 
 	if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
 	{

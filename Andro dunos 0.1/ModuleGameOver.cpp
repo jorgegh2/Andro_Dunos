@@ -15,6 +15,18 @@
 
 ModuleGameOver::ModuleGameOver()
 {
+
+}
+
+ModuleGameOver::~ModuleGameOver()
+{}
+
+// Load assets
+bool ModuleGameOver::Start()
+{
+	LOG("Loading background assets");
+	bool ret = true;
+
 	// Game over screen
 
 	//Animation
@@ -136,17 +148,6 @@ ModuleGameOver::ModuleGameOver()
 
 	gm_over.loop = false;
 	gm_over.speed = 0.4f;
-
-}
-
-ModuleGameOver::~ModuleGameOver()
-{}
-
-// Load assets
-bool ModuleGameOver::Start()
-{
-	LOG("Loading background assets");
-	bool ret = true;
 
 	// We don't want the player in the screen
 	if (App->player->IsEnabled() == true)

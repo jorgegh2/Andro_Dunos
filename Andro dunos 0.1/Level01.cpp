@@ -136,7 +136,7 @@ update_status Level01::Update()
 	if (!App->render->Blit(layout[4], 6591, -607, nullptr, 0.8f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[5], 8230, -607, nullptr, 0.8f)) return update_status::UPDATE_ERROR;
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->render->camera.x > 11257 * SCREEN_SIZE)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->stage_clear);
 	}
