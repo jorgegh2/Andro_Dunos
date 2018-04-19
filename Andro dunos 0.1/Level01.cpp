@@ -81,7 +81,6 @@ bool Level01::CleanUp()
 	App->particles->Disable();
 	App->enemy->Disable();
 
-	// TODO: loop
 	App->textures->Unload(background);
 	App->textures->Unload(layout[0]);
 	App->textures->Unload(layout[1]);

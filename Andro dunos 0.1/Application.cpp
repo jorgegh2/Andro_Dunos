@@ -7,6 +7,7 @@
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
+#include "ModuleViscoGames.h"
 #include "ModuleParticles.h"
 #include "ModuleGameOver.h"
 #include "ModuleStageClear.h"
@@ -22,15 +23,16 @@ Application::Application()
 	modules[3] = textures = new ModuleTextures();
 	modules[4] = audio = new ModuleAudio();
 	modules[5] = game_intro = new ModuleGameIntroduction();
-	modules[6] = level01 = new Level01();
-	modules[7] = enemy = new ModuleEnemies();
-	modules[8] = stage_clear = new ModuleStageClear();
-	modules[9] = game_over = new ModuleGameOver();
-	modules[10] = particles = new ModuleParticles();
-	modules[11] = player = new ModulePlayer();
-	modules[12] = player2 = new ModulePlayer2();
-	modules[13] = fade = new ModuleFadeToBlack();
-	modules[14] = collision = new ModuleCollision();
+	modules[6] = visco_games = new ModuleViscoGames();
+	modules[7] = level01 = new Level01();
+	modules[8] = enemy = new ModuleEnemies();
+	modules[9] = stage_clear = new ModuleStageClear();
+	modules[10] = game_over = new ModuleGameOver();
+	modules[11] = particles = new ModuleParticles();
+	modules[12] = player = new ModulePlayer();
+	modules[13] = player2 = new ModulePlayer2();
+	modules[14] = fade = new ModuleFadeToBlack();
+	modules[15] = collision = new ModuleCollision();
 	
 	
 }	

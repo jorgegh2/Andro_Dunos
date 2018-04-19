@@ -92,6 +92,9 @@
     <ClInclude Include="Enemy_3.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleViscoGames.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -156,6 +159,9 @@
     </ClCompile>
     <ClCompile Include="Enemy_3.cpp">
       <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleViscoGames.cpp">
+      <Filter>Levels</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
