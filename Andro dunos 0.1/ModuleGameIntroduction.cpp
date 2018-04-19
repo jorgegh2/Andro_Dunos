@@ -56,11 +56,5 @@ update_status ModuleGameIntroduction::Update()
 		App->fade->FadeToBlack(this, (Module*)App->visco_games);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false)
-	{
-		App->fade->FadeToBlack(this, (Module*)App->level01);
-		App->player2->Two_Players = true;
-	}
-
 	return UPDATE_CONTINUE;
 }

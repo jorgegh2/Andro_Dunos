@@ -70,6 +70,8 @@ bool ModulePlayer2::CleanUp()
 {
 	LOG("Unloading player");
 
+	App->audio->UnloadSoundEffect(laser_sound);
+	App->audio->UnloadSoundEffect(basic_attack_sound);
 	App->textures->Unload(graphics);
 	current_animation = &idle;
 

@@ -46,14 +46,18 @@ bool ModuleAudio::CleanUp()
 {
 	for (uint i = 0; i < MAX_MUSIC; ++i)
 	{
-		if (songs[i] != nullptr)
+		if (songs[i] != nullptr){
 			Mix_FreeMusic(songs[i]);
+		sound_effects[i] = nullptr;
+		}
 	}
 
 	for (uint i = 0; i < MAX_FX; ++i)
 	{
-		if (sound_effects[i] != nullptr)
+		if (sound_effects[i] != nullptr) {
 			Mix_FreeChunk(sound_effects[i]);
+			sound_effects[i] = nullptr;
+		}
 	}
 
 	Mix_CloseAudio();
@@ -109,6 +113,8 @@ void ModuleAudio::UnloadMusic(Mix_Music* music)
 		if (songs[i] == music)
 		{
 			Mix_FreeMusic(music);
+			songs[i] = nullptr;
+		
 			break;
 		}
 	}
@@ -121,6 +127,8 @@ void ModuleAudio::UnloadSoundEffect(Mix_Chunk* effect)
 		if (sound_effects[i] == effect)
 		{
 			Mix_FreeChunk(effect);
+			sound_effects[i] = nullptr;
+		
 			break;
 		}
 	}

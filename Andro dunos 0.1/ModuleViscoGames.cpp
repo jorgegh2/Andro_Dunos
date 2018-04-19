@@ -84,6 +84,11 @@ update_status ModuleViscoGames::Update()
 	if (!App->render->Blit(graphics2, (SCREEN_WIDTH / 2) - 111, ((SCREEN_HEIGHT / 2) + 1), nullptr, 0.39f)) return update_status::UPDATE_ERROR;
 	//position.x -= 1;
 
+	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false)
+	{
+		App->fade->FadeToBlack(this, (Module*)App->level01);
+		App->player2->Two_Players = true;
+	}
 
 	return UPDATE_CONTINUE;
 }

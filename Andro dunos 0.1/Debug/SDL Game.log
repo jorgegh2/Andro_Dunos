@@ -1,3 +1,8 @@
-﻿  ModuleViscoGames.cpp
-  SDL Game.vcxproj -> C:\Users\nadinegp\Desktop\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe
-  SDL Game.vcxproj -> C:\Users\nadinegp\Desktop\Andro dunos 0.1\Debug\Andro_Dunos0.1.pdb (Partial PDB)
+﻿  Module_Player_2.cpp
+  ModuleViscoGames.cpp
+  ModulePlayer.cpp
+  ModuleGameIntroduction.cpp
+  Level01.cpp
+  Generating Code...
+  SDL Game.vcxproj -> C:\Users\jorgegh2\Documents\GitHub\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe
+  SDL Game.vcxproj -> C:\Users\jorgegh2\Documents\GitHub\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.pdb (Partial PDB)
