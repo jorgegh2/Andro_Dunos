@@ -11,6 +11,8 @@
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
 #include "ModuleAudio.h"
+#include "ModuleFonts.h"
+#include <stdio.h>
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -57,7 +59,11 @@ bool ModulePlayer::Start()
 	laser_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-3_(Main_Ships).wav");
 	basic_attack_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-1_(Main_Ships).wav");
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
+	score = 0;
+
+	font_score = App->fonts->Load("Images/rtype_font.png", "! @,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz", 1);
 	
+
 	position.x = 100;
 	position.y = 100;
 
@@ -71,6 +77,7 @@ bool ModulePlayer::CleanUp()
 	App->audio->UnloadSoundEffect(laser_sound);
 	App->audio->UnloadSoundEffect(basic_attack_sound);
 	App->textures->Unload(graphics);
+	App->fonts->UnLoad(font_score);
 	current_animation = &idle;
 
 	return true;
@@ -177,6 +184,7 @@ update_status ModulePlayer::Update()
 					App->particles->AddParticle(App->particles->basic_shoot_0_down, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
 					App->particles->AddParticle(App->particles->basic_shoot_0_up, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(basic_attack_sound);
+					score += 13;
 					break;
 
 				case CHANGE_WEAPON::LASER:
@@ -238,7 +246,11 @@ update_status ModulePlayer::Update()
 			//Reset position
 			position.x -= App->render->camera.x / SCREEN_SIZE;
 			position.y -= App->render->camera.y / SCREEN_SIZE;
+			 
+			sprintf_s(score_text, 10, "%7d", score);
 
+			App->fonts->BlitText(10, 10, font_score, score_text);
+		//	App->fonts->BlitText(73, 10, font_score, "P");
 	
 	return UPDATE_CONTINUE;
 }

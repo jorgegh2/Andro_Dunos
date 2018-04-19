@@ -14,6 +14,7 @@
 #include "ModuleAudio.h"
 #include "ModuleEnemies.h"
 #include "Module_Player_2.h"
+#include "ModuleFonts.h"
 
 Application::Application()
 {
@@ -33,6 +34,7 @@ Application::Application()
 	modules[13] = player2 = new ModulePlayer2();
 	modules[14] = fade = new ModuleFadeToBlack();
 	modules[15] = collision = new ModuleCollision();
+	modules[16] = fonts = new ModuleFonts();
 	
 	
 }	
