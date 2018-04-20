@@ -1,2 +1,29 @@
-﻿  ModuleGameIntroduction.cpp
-  SDL Game.vcxproj -> C:\Users\gerar\Desktop\Andro_Dunos-master\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe
+﻿  Application.cpp
+  Enemy.cpp
+  Enemy_01.cpp
+  Enemy_3.cpp
+  Globals.cpp
+  Level01.cpp
+  Main.cpp
+  ModuleAudio.cpp
+  ModuleCollision.cpp
+  ModuleEnemies.cpp
+  ModuleFadeToBlack.cpp
+  ModuleFonts.cpp
+  ModuleGameIntroduction.cpp
+  ModuleGameOver.cpp
+  ModuleInput.cpp
+  ModuleInsertCoin.cpp
+  ModuleParticles.cpp
+  ModulePlayer.cpp
+  ModulePlayersMenu.cpp
+  ModuleRender.cpp
+  Generating Code...
+  Compiling...
+  ModuleStageClear.cpp
+  ModuleTextures.cpp
+  ModuleViscoGames.cpp
+  ModuleWindow.cpp
+  Module_Player_2.cpp
+  Generating Code...
+  SDL Game.vcxproj -> C:\Users\gerar\OneDrive\Documents\GitHub\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe

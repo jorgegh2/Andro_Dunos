@@ -60,6 +60,7 @@ bool Application::Init()
 	App->insert_coin->Disable();
 	App->visco_games->Disable();
 	App->players_menu->Disable();
+	App->insert_coin->Disable();
 
 	collision->Disable();
 	enemy->Disable();
