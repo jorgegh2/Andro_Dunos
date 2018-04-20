@@ -36,6 +36,8 @@ public:
 
 	iPoint position;
 
+	bool god_mode = false;
+
 	int font_score = -1;
 	char score_text[10];
 	uint score = 0;

@@ -62,7 +62,7 @@ bool ModulePlayer::Start()
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
 	score = 0;
 
-	font_score = App->fonts->Load("Images/rtype_font.png", "! @,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz", 1);
+	font_score = App->fonts->Load("Images/Font-score-white.png", "1234567890P", 1);
 	
 
 	position.x = 100;
@@ -185,7 +185,7 @@ update_status ModulePlayer::Update()
 					App->particles->AddParticle(App->particles->basic_shoot_0_down, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
 					App->particles->AddParticle(App->particles->basic_shoot_0_up, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(basic_attack_sound);
-					score += 13;
+					score += 100;
 					break;
 
 				case CHANGE_WEAPON::LASER:
@@ -241,7 +241,11 @@ update_status ModulePlayer::Update()
 
 			
 			// TODO: Control the ship doesn't get out of the screen
+			if(!god_mode)
 			c_player->SetPos(position.x, position.y);
+
+			
+				
 			// Draw everything --------------------------------------
 			App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 			//Reset position
@@ -251,7 +255,18 @@ update_status ModulePlayer::Update()
 			sprintf_s(score_text, 10, "%7d", score);
 
 			App->fonts->BlitText(10, 10, font_score, score_text);
-		//	App->fonts->BlitText(73, 10, font_score, "P");
+			App->fonts->BlitText(73, 10, font_score, "P");
+
+			//GOD MODE
+
+			if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+				if (god_mode)
+					god_mode = false;
+				else god_mode = true;
+
+				c_player->SetPos(-100, -100);
+			}
+			
 	
 	return UPDATE_CONTINUE;
 }
