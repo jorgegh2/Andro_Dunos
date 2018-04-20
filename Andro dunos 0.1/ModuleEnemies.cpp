@@ -7,6 +7,7 @@
 #include "Enemy.h"
 #include "Enemy_01.h"
 #include "Enemy_3.h"
+#include "Enemy15.h"
 
 
 #define SPAWN_MARGIN 50
@@ -27,6 +28,7 @@ bool ModuleEnemies::Start()
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("Images/Enemies/1.png");
 	enemy_3 = App->textures->Load("Images/Enemies/3.png");
+	enemy15 = App->textures->Load("Images/Enemies/15.png");
 
 
 	return true;
@@ -63,6 +65,9 @@ update_status ModuleEnemies::Update()
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr && enemies[i]->Type == 2) enemies[i]->Draw(enemy_3);
 
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+		if (enemies[i] != nullptr && enemies[i]->Type == 3) enemies[i]->Draw(enemy15);
+
 	return UPDATE_CONTINUE;
 }
 
@@ -92,6 +97,7 @@ bool ModuleEnemies::CleanUp()
 
 	App->textures->Unload(sprites);
 	App->textures->Unload(enemy_3);
+	App->textures->Unload(enemy15);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
@@ -140,6 +146,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::ENEMY_3:
 			enemies[i] = new Enemy_3(info.x, info.y);
 			enemies[i]->Type = 2;
+			break;
+			case ENEMY_TYPES::ENEMY_15:
+			enemies[i] = new Enemy_15(info.x, info.y);
+			enemies[i]->Type = 3;
 			break;
 		}
 	}

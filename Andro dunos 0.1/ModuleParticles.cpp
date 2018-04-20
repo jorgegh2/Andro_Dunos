@@ -23,6 +23,7 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	graphics = App->textures->Load("Images/laser_types.png");
 	graphics2 = App->textures->Load("Images/ship-explosion.png");
+	enemy15shotgraphics = App->textures->Load("Images/Enemies/15.png");
 
 	// Basic_shoot 0_up
 	basic_shoot_0_up.anim.PushBack({ 24, 37, 11, 6 });
@@ -148,6 +149,18 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 	explosion.Type = explosion.EXPLOSION;
+
+
+	//Enemy15 shot
+	enemy15shot.anim.PushBack({ 84, 10, 53, 29 });
+	enemy15shot.anim.PushBack({ 139, 10, 54, 29 });
+	enemy15shot.anim.PushBack({ 30, 44, 56, 29 });
+	enemy15shot.anim.PushBack({ 91, 44, 58, 29 });
+	enemy15shot.anim.loop = false;
+	enemy15shot.speed.x = -2;
+	enemy15shot.speed.y = 0;
+	enemy15shot.life = 2500;
+
 	return true;
 }
 
@@ -158,6 +171,7 @@ bool ModuleParticles::CleanUp()
 	LOG("Unloading particles");
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics2);
+	App->textures->Unload(enemy15shotgraphics);
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -191,7 +205,14 @@ update_status ModuleParticles::Update()
 			if (p->Type == p->EXPLOSION) {
 				App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 			}
-			else App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame())) ;
+			else
+				(App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame())));
+
+			if (p->Type == p->SHOOT) {
+				App->render->Blit(enemy15shotgraphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			}
+
+
 			if (p->fx_played == false)
 			{
 				p->fx_played = true;

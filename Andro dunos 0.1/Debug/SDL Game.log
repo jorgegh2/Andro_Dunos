@@ -1,29 +1,15 @@
-﻿  Application.cpp
-  Enemy.cpp
-  Enemy_01.cpp
-  Enemy_3.cpp
-  Globals.cpp
-  Level01.cpp
-  Main.cpp
-  ModuleAudio.cpp
-  ModuleCollision.cpp
+﻿  ModuleParticles.cpp
   ModuleEnemies.cpp
-  ModuleFadeToBlack.cpp
-  ModuleFonts.cpp
-  ModuleGameIntroduction.cpp
-  ModuleGameOver.cpp
-  ModuleInput.cpp
-  ModuleInsertCoin.cpp
-  ModuleParticles.cpp
-  ModulePlayer.cpp
-  ModulePlayersMenu.cpp
-  ModuleRender.cpp
+  Level01.cpp
+  Enemy15.cpp
   Generating Code...
   Compiling...
-  ModuleStageClear.cpp
-  ModuleTextures.cpp
-  ModuleViscoGames.cpp
-  ModuleWindow.cpp
   Module_Player_2.cpp
+  ModulePlayer.cpp
+  Enemy_3.cpp
+  Enemy_01.cpp
+  Enemy.cpp
+  Application.cpp
   Generating Code...
-  SDL Game.vcxproj -> C:\Users\gerar\OneDrive\Documents\GitHub\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe
+  SDL Game.vcxproj -> C:\Users\nadinegp\Desktop\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe
+  SDL Game.vcxproj -> C:\Users\nadinegp\Desktop\Andro dunos 0.1\Debug\Andro_Dunos0.1.pdb (Partial PDB)

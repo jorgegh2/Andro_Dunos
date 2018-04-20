@@ -43,6 +43,10 @@ bool Level01::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 356, 100);
 
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 450, 80);
+	//
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_15, 500, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_15, 5070, 100);
+
 	//Original position
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1240, 80);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1250, 50);

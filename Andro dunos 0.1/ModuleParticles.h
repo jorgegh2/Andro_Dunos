@@ -51,6 +51,7 @@ private:
 
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr;
+	SDL_Texture* enemy15shotgraphics = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 
 public:
@@ -75,6 +76,8 @@ public:
 
 	Particle laser_2;
 	Particle laser_2_5;
+
+	Particle enemy15shot;
 
 };
 
