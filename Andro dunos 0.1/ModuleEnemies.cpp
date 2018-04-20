@@ -94,10 +94,10 @@ update_status ModuleEnemies::PostUpdate()
 bool ModuleEnemies::CleanUp()
 {
 	LOG("Freeing all enemies");
-
-	App->textures->Unload(sprites);
-	App->textures->Unload(enemy_3);
+	
 	App->textures->Unload(enemy15);
+	App->textures->Unload(enemy_3);
+	App->textures->Unload(sprites);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{

@@ -39,14 +39,14 @@ bool Level01::Start()
 	App->UI->Enable();
 
 	//Enemies
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 320, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 332, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 344, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 356, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 1320, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 1332, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 1344, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 1356, 100);
 
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 450, 80);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1450, 80);
 	//
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_15, 500, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_15, 1500, 100);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_15, 5070, 100);
 
 	//Original position
@@ -99,7 +99,7 @@ bool Level01::CleanUp()
 	App->textures->Unload(end_under);
 
 	App->audio->UnloadMusic(music_level01);
-	
+	App->UI->Disable();
 
 	return true;
 }

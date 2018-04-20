@@ -238,6 +238,26 @@ update_status ModulePlayer::Update()
 			}
 		}
 
+		//GOD MODE
+
+		if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+			if (god_mode)
+				god_mode = false;
+			else god_mode = true;
+
+			c_player->SetPos(-100, -100);
+			if (App->player2->IsEnabled() == true)
+			App->player2->c_player2->SetPos(-100, -100);
+		}
+
+		if (!god_mode)
+		{
+			if (App->player2->IsEnabled() == true)
+			App->player2->c_player2->SetPos(App->player2->position.x, App->player2->position.y);
+
+			c_player->SetPos(position.x, position.y);
+		}
+
 			
 			
 			
@@ -252,21 +272,8 @@ update_status ModulePlayer::Update()
 			 
 			
 
-			//GOD MODE
-/*
-			if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
-				if (god_mode)
-					god_mode = false;
-				else god_mode = true;
-
-				c_player->SetPos(-100, -100);
-				App->player2->c_player2->SetPos(-100, -100);
-			}
-
-			if (!god_mode)
-				App->player2->c_player2->SetPos(position.x, position.y);
-			
-	*/
+		
+	
 	return UPDATE_CONTINUE;
 }
 

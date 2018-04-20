@@ -30,7 +30,8 @@ struct Particle
 	bool Update();
 	enum TYPE_PARTICLE {
 		SHOOT = 0,
-		EXPLOSION
+		EXPLOSION,
+		SHOOT_ENEMY
 	} Type = TYPE_PARTICLE::SHOOT;
 };
 

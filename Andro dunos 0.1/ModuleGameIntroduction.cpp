@@ -165,5 +165,9 @@ update_status ModuleGameIntroduction::Update()
 		App->fade->FadeToBlack(this, (Module*)App->visco_games);
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
+		App->fade->FadeToBlack(this, (Module*)App->level01);
+	}
+
 	return UPDATE_CONTINUE;
 }

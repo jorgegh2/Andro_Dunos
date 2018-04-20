@@ -75,7 +75,10 @@ SDL_Texture* const ModuleTextures::Load(const char* path)
 		}
 		else
 		{
+			if (last_texture <= MAX_TEXTURES)
 			textures[last_texture++] = texture;
+
+			else system("pause");
 		}
 
 		SDL_FreeSurface(surface);
@@ -101,7 +104,9 @@ bool ModuleTextures::Unload(SDL_Texture* texture)
 				break;
 			}
 		}
+		last_texture--;
 	}
+	
 
 	return ret;
 }

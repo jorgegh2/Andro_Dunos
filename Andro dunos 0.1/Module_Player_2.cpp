@@ -12,6 +12,8 @@
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
 #include "ModuleAudio.h"
+#include "ModulePlayer.h"
+
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -232,7 +234,10 @@ update_status ModulePlayer2::Update()
 	}
 
 
-	
+	if (!App->player->god_mode)
+	{
+		c_player2->SetPos(position.x, position.y);
+	}
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 	//Reset position

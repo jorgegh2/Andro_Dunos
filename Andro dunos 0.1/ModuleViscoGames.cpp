@@ -82,10 +82,10 @@ update_status ModuleViscoGames::PreUpdate()
 update_status ModuleViscoGames::Update()
 {
 
-	/*if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
-	App->fade->FadeToBlack(this, (Module*)App->level01);
-	}*/
+	App->fade->FadeToBlack(this, (Module*)App->insert_coin);
+	}
 
 	v.y -= speedY;
 	g.y += speedY;

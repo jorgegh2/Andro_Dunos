@@ -202,16 +202,22 @@ update_status ModuleParticles::Update()
 		}
 		else if (SDL_GetTicks() >= p->born)
 		{
-			if (p->Type == p->EXPLOSION) {
+			switch (p->Type) {
+			case p->EXPLOSION:
 				App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-			}
-			else
-				(App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame())));
+				break;
 
-			if (p->Type == p->SHOOT) {
-				App->render->Blit(enemy15shotgraphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-			}
+			case p->SHOOT:
+				
+				App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+				break;
 
+			case p->SHOOT_ENEMY:
+				
+					App->render->Blit(enemy15shotgraphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+					break;
+				
+			}
 
 			if (p->fx_played == false)
 			{

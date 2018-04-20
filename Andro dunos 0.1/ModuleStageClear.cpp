@@ -97,6 +97,7 @@ bool ModuleStageClear::CleanUp()
 	stg_clear.Reset();
 
 	App->textures->Unload(graphics);
+	App->audio->UnloadMusic(music_intro);
 
 	return true;
 }
