@@ -1,5 +1,5 @@
-#ifndef __ModuleStage1_H__
-#define __ModuleStage1_H__	
+#ifndef __MODULELEVEL01_H__
+#define __MODULELEVEL01_H__	
 
 #include "Module.h"
 #include "Animation.h"
@@ -31,4 +31,4 @@ public:
 	
 };
 
-#endif // __ModuleStage1_H__	
+#endif // __MODULELEVEL01_H__	

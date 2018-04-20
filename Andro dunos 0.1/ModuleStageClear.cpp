@@ -15,19 +15,6 @@
 
 ModuleStageClear::ModuleStageClear()
 {
-	
-
-}
-
-ModuleStageClear::~ModuleStageClear()
-{}
-
-// Load assets
-bool ModuleStageClear::Start()
-{
-	LOG("Loading background assets");
-	bool ret = true;
-
 	// Stage clear screen
 
 	//Animation
@@ -68,6 +55,16 @@ bool ModuleStageClear::Start()
 	stg_clear.PushBack({ 315, 442, 261, 27 });
 	stg_clear.loop = false;
 	stg_clear.speed = 0.4f;
+}
+
+ModuleStageClear::~ModuleStageClear()
+{}
+
+// Load assets
+bool ModuleStageClear::Start()
+{
+	LOG("Loading background assets");
+	bool ret = true;
 
 	// We don't want the player in the screen
 	if (App->player->IsEnabled() == true)
@@ -96,6 +93,8 @@ bool ModuleStageClear::Start()
 bool ModuleStageClear::CleanUp()
 {
 	LOG("Unloading stage clear scene");
+
+	stg_clear.Reset();
 
 	App->textures->Unload(graphics);
 

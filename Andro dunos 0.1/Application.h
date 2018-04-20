@@ -3,7 +3,7 @@
 
 #include "Globals.h"
 
-#define NUM_MODULES 17
+#define NUM_MODULES 19
 
 class ModuleWindow;
 class ModuleInput;
@@ -23,6 +23,8 @@ class ModuleEnemies;
 class ModulePlayer2;
 class ModuleViscoGames;
 class ModuleFonts;
+class ModuleInsertCoin;
+class ModulePlayersMenu;
 
 class Application
 {
@@ -46,6 +48,8 @@ public:
 	ModuleEnemies* enemy = nullptr;
 	ModulePlayer2* player2 = nullptr;
 	ModuleFonts* fonts = nullptr;
+	ModuleInsertCoin* insert_coin = nullptr;
+	ModulePlayersMenu* players_menu = nullptr;
 
 public:
 

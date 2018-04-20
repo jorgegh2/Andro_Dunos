@@ -14,7 +14,15 @@
 
 ModuleViscoGames::ModuleViscoGames()
 {
+	v.x = 57;
+	v.y = 224;
+	v.w = 189;
+	v.h = 39;
 
+	g.x = 40;
+	g.y = -40;
+	g.w = 223;
+	g.h = 39;
 }
 
 ModuleViscoGames::~ModuleViscoGames()
@@ -26,16 +34,7 @@ bool ModuleViscoGames::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 
-	//
-
-	//visco_games_animation.PushBack({32, 88, 189, 39}); //VISCO
-	//visco_games_animation.PushBack({ 15, 128, 223, 39 }); //GAMES
-
-//	visco_games_animation.loop = false;
-
-	//
-
-	graphics = App->textures->Load("Images/Visco.png");	
+	graphics = App->textures->Load("Images/Visco.png");
 	graphics2 = App->textures->Load("Images/Games.png");
 
 	App->visco_games->Enable();
@@ -72,23 +71,38 @@ update_status ModuleViscoGames::PreUpdate()
 update_status ModuleViscoGames::Update()
 {
 
-	
-
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
+	/*if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->level01);
+	App->fade->FadeToBlack(this, (Module*)App->level01);
+	}*/
+
+	v.y -= speedY;
+	g.y += speedY;
+
+	if (v.y < 73)
+	{
+		speedY = 0;
+		movX = true;
+	}
+
+	if (movX == true && SDL_GetTicks() > 8000)
+	{
+		v.x -= speedX;
+		g.x += speedX;
+	}
+
+	if (v.x < -v.w - 20)   // 20 is used because the "games" sprite is widther than "visco", so we don't see a part of the letter 'g' of "games"
+	{
+		movX = false;
+		speedX = 0;
+		animComplete = true;
+		App->fade->FadeToBlack(this, (Module*)App->insert_coin, 1.5f);
 	}
 
 	//
-	if (!App->render->Blit(graphics, (SCREEN_WIDTH / 2) - 94, ((SCREEN_HEIGHT / 2) - 39), nullptr, 0.39f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(graphics2, (SCREEN_WIDTH / 2) - 111, ((SCREEN_HEIGHT / 2) + 1), nullptr, 0.39f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(graphics2, g.x, g.y, NULL)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(graphics, v.x, v.y, NULL)) return update_status::UPDATE_ERROR;
 	//position.x -= 1;
-
-	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false)
-	{
-		App->fade->FadeToBlack(this, (Module*)App->level01);
-		App->player2->Two_Players = true;
-	}
 
 	return UPDATE_CONTINUE;
 }

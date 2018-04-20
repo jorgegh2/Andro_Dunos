@@ -7,6 +7,8 @@
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
+#include "ModuleInsertCoin.h"
+#include "ModulePlayersMenu.h"
 #include "ModuleViscoGames.h"
 #include "ModuleParticles.h"
 #include "ModuleGameOver.h"
@@ -25,17 +27,18 @@ Application::Application()
 	modules[4] = audio = new ModuleAudio();
 	modules[5] = game_intro = new ModuleGameIntroduction();
 	modules[6] = visco_games = new ModuleViscoGames();
-	modules[7] = level01 = new Level01();
-	modules[8] = enemy = new ModuleEnemies();
-	modules[9] = stage_clear = new ModuleStageClear();
-	modules[10] = game_over = new ModuleGameOver();
-	modules[11] = particles = new ModuleParticles();
-	modules[12] = player = new ModulePlayer();
-	modules[13] = player2 = new ModulePlayer2();
-	modules[14] = fade = new ModuleFadeToBlack();
-	modules[15] = collision = new ModuleCollision();
-	modules[16] = fonts = new ModuleFonts();
-	
+	modules[7] = insert_coin = new ModuleInsertCoin();
+	modules[8] = level01 = new Level01();
+	modules[9] = enemy = new ModuleEnemies();
+	modules[10] = stage_clear = new ModuleStageClear();
+	modules[11] = game_over = new ModuleGameOver();
+	modules[12] = players_menu = new ModulePlayersMenu();
+	modules[13] = particles = new ModuleParticles();
+	modules[14] = player = new ModulePlayer();
+	modules[15] = player2 = new ModulePlayer2();
+	modules[16] = fade = new ModuleFadeToBlack();
+	modules[17] = collision = new ModuleCollision();
+	modules[18] = fonts = new ModuleFonts();
 	
 }	
 
@@ -54,6 +57,9 @@ bool Application::Init()
 	App->level01->Disable();
 	App->stage_clear->Disable();
 	App->game_over->Disable();
+	App->insert_coin->Disable();
+	App->visco_games->Disable();
+	App->players_menu->Disable();
 
 	collision->Disable();
 	enemy->Disable();

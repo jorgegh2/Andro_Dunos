@@ -15,14 +15,23 @@ public:
 	~ModuleGameIntroduction();
 
 	bool Start();
+	update_status PreUpdate();
 	update_status Update();
 	bool CleanUp();
 
 public:
 
-	SDL_Texture * graphics = nullptr;
+	SDL_Texture * graphics = nullptr; // neo geo
+	SDL_Texture* graphics2 = nullptr; // text
+	SDL_Texture* graphics3 = nullptr; // snk
 	Mix_Music* music_intro = nullptr;
+	Animation* current_animation = nullptr; // neo geo
+	Animation* current_animation2 = nullptr; // snk
+	Animation neo_geo;
+	Animation snk;
 
+	int time_passed = 0;
+	bool change_bg = false;
 };
 
 #endif // __MODULEGAMEINTRODUCTION_H__

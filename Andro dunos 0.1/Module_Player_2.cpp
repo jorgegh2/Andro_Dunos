@@ -6,6 +6,7 @@
 #include "Module_Player_2.h"
 #include "SDL\include\SDL.h"
 #include "ModuleParticles.h"
+#include "ModuleGameOver.h"
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
@@ -249,6 +250,6 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 	{
 		//code
 		App->player2->Disable();
-		App->fade->FadeToBlack(App->level01, App->game_intro, 1);
+		App->fade->FadeToBlack(App->level01, App->game_over, 1);
 	}
 }

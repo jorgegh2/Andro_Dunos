@@ -7,6 +7,7 @@
 #include "SDL_mixer\include\SDL_mixer.h"
 
 struct SDL_Texture;
+struct SDL_Rect;
 
 class ModuleViscoGames : public Module
 {
@@ -24,6 +25,14 @@ public:
 	SDL_Texture * graphics = nullptr;
 	SDL_Texture * graphics2 = nullptr;
 	Mix_Music* music_intro = nullptr;
+
+	SDL_Rect v;
+	SDL_Rect g;
+
+	int speedX = 2;
+	int speedY = 2;
+	bool movX = false;
+	bool animComplete = false;
 
 };
 

@@ -9,6 +9,7 @@
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
+#include "ModuleGameOver.h"
 #include "ModuleGameIntroduction.h"
 #include "ModuleAudio.h"
 #include "ModuleFonts.h"
@@ -262,6 +263,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		//code
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
 		App->player->Disable();
-		App->fade->FadeToBlack(App->level01, App->game_intro, 1);
+		App->fade->FadeToBlack(App->level01, App->game_over, 1);
 	}
 }
