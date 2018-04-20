@@ -52,6 +52,17 @@ bool ModuleViscoGames::CleanUp()
 {
 	LOG("Unloading game intro scene");
 
+	// Reposition visco games
+	v.x = 57;
+	v.y = 224;
+	v.w = 189;
+	v.h = 39;
+
+	g.x = 40;
+	g.y = -40;
+	g.w = 223;
+	g.h = 39;
+
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics2);
 
