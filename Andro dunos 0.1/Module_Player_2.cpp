@@ -232,8 +232,7 @@ update_status ModulePlayer2::Update()
 	}
 
 
-	// TODO: Control the ship doesn't get out of the screen
-	c_player2->SetPos(position.x, position.y);
+	
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 	//Reset position

@@ -17,6 +17,7 @@
 #include "ModuleEnemies.h"
 #include "Module_Player_2.h"
 #include "ModuleFonts.h"
+#include "UI.h"
 
 Application::Application()
 {
@@ -39,6 +40,7 @@ Application::Application()
 	modules[16] = fade = new ModuleFadeToBlack();
 	modules[17] = collision = new ModuleCollision();
 	modules[18] = fonts = new ModuleFonts();
+	modules[19] = UI = new ModuleUI();
 	
 }	
 
@@ -61,6 +63,7 @@ bool Application::Init()
 	App->visco_games->Disable();
 	App->players_menu->Disable();
 	App->insert_coin->Disable();
+	App->UI->Disable();
 
 	collision->Disable();
 	enemy->Disable();

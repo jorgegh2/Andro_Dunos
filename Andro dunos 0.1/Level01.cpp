@@ -13,6 +13,7 @@
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
 #include "Module_Player_2.h"
+#include "UI.h"
 
 Level01::Level01()
 {
@@ -35,6 +36,7 @@ bool Level01::Start()
 	App->particles->Enable();
 	App->collision->Enable();
 	App->enemy->Enable();
+	App->UI->Enable();
 
 	//Enemies
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 320, 100);

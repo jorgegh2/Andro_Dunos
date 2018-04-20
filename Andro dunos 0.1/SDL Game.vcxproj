@@ -101,6 +101,7 @@
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="Module_Player_2.h" />
     <ClInclude Include="p2Point.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -129,6 +130,7 @@
     <ClCompile Include="ModuleViscoGames.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="Module_Player_2.cpp" />
+    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
