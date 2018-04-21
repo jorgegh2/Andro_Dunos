@@ -38,22 +38,53 @@ bool Level01::Start()
 	App->enemy->Enable();
 	App->UI->Enable();
 
-	//Enemies
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 1320, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 1332, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 1344, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 1356, 100);
+	//Enemies Correct Coord.
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 450, 50);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 465, 50);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 480, 50);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 495, 50);
 
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1450, 80);
-	//
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_15, 1500, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_15, 5070, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 555, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 570, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 585, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 600, 140);
 
-	//Original position
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1240, 80);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1250, 50);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1250, 100);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1400, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 660, 50);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 675, 50);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 690, 50);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 705, 50);
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 765, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 780, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 795, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 810, 140);
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1240, 65);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1250, 40);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1250, 90);
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1340, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1350, 95);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1350, 145);
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1440, 65);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1450, 40);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1450, 90);
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1540, 95);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1550, 70);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1550, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1530, 90);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1560, 55);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1560, 145);
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1660, 90);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1670, 65);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1680, 45);
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1760, 110);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1770, 135);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1780, 155);
 
 
 	// Colliders ---
