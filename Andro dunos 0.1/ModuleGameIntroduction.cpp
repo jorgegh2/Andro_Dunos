@@ -121,12 +121,11 @@ bool ModuleGameIntroduction::CleanUp()
 {
 	LOG("Unloading game intro scene");
 
-	neo_geo.Reset();
-	snk.Reset();
-
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics2);
 	App->textures->Unload(graphics3);
+
+	change_bg = false;
 
 	// Reset time counter
 	time_passed = 0;

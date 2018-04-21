@@ -33,7 +33,8 @@ public:
 	int speedY = 2;
 	bool movX = false;
 	bool animComplete = false;
-	int time = 0;
+	int time_passed = 0;
+	int time_init = 0;
 
 };
 

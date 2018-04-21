@@ -41,8 +41,9 @@ bool ModuleViscoGames::Start()
 
 	if (App->game_intro->IsEnabled() == true)
 		App->visco_games->Disable();
-	time = 0;
 
+	time_passed = 0;
+	time_init = SDL_GetTicks();
 
 	App->render->camera.x = App->render->camera.y = 0;
 	//movX = false;
@@ -65,6 +66,8 @@ bool ModuleViscoGames::CleanUp()
 	g.w = 223;
 	g.h = 39;
 
+	time_passed = 0;
+
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics2);
 
@@ -83,6 +86,7 @@ update_status ModuleViscoGames::PreUpdate()
 // Update: draw background
 update_status ModuleViscoGames::Update()
 {
+	time_passed = SDL_GetTicks() - time_init;
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
@@ -97,8 +101,8 @@ update_status ModuleViscoGames::Update()
 		speedY = 0;
 		movX = true;
 	}
-	time = SDL_GetTicks();
-	if (movX == true && time > 8000)
+
+	if (movX == true && time_passed > 4000)
 	{
 		v.x -= speedX;
 		g.x += speedX;
