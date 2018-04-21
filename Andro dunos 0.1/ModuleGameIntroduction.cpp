@@ -10,9 +10,33 @@
 #include "SDL\include\SDL.h"
 #include "ModuleAudio.h"
 #include "Module_player_2.h"
+#include "ModulePlayersMenu.h"
 
 ModuleGameIntroduction::ModuleGameIntroduction()
 {
+}
+
+ModuleGameIntroduction::~ModuleGameIntroduction()
+{}
+
+// Load assets
+bool ModuleGameIntroduction::Start()
+{
+	LOG("Loading background assets");
+	bool ret = true;
+
+	graphics = App->textures->Load("Images/ng_anim.png");
+	graphics2 = App->textures->Load("Images/max_330.png");
+	graphics3 = App->textures->Load("Images/snk_animation.png");
+
+	music_intro = App->audio->LoadMusic("Music/01_Neo_Geo_Logo.ogg");
+
+	App->audio->PlayMusic(music_intro,-1,1);
+
+	App->render->camera.x = App->render->camera.y = 0;
+	time_passed = 0;
+
+
 
 	// neo geo anim
 	neo_geo.PushBack({ 142, 7, 218, 38 });
@@ -87,27 +111,6 @@ ModuleGameIntroduction::ModuleGameIntroduction()
 	snk.PushBack({ 171, 164, 72, 19 });
 	snk.loop = false;
 	snk.speed = 0.4f;
-}
-
-ModuleGameIntroduction::~ModuleGameIntroduction()
-{}
-
-// Load assets
-bool ModuleGameIntroduction::Start()
-{
-	LOG("Loading background assets");
-	bool ret = true;
-
-	graphics = App->textures->Load("Images/ng_anim.png");
-	graphics2 = App->textures->Load("Images/max_330.png");
-	graphics3 = App->textures->Load("Images/snk_animation.png");
-
-	music_intro = App->audio->LoadMusic("Music/01_Neo_Geo_Logo.ogg");
-
-	App->audio->PlayMusic(music_intro);
-
-	App->render->camera.x = App->render->camera.y = 0;
-
 	return ret;
 }
 
@@ -166,7 +169,10 @@ update_status ModuleGameIntroduction::Update()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {
-		App->fade->FadeToBlack(this, (Module*)App->level01);
+		//App->fade->FadeToBlack(this, (Module*)App->players_menu);
+		Disable();
+		App->players_menu->Enable();
+		App->audio->StopMusic();
 	}
 
 	return UPDATE_CONTINUE;

@@ -22,7 +22,7 @@ public:
 public:
 
 	SDL_Texture * graphics = nullptr;
-	Mix_Music* music_intro = nullptr;
+	Mix_Music* music_stage_clear = nullptr;
 	Animation* current_animation = nullptr;
 	Animation stg_clear;
 

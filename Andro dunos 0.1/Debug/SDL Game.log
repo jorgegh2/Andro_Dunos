@@ -1,10 +1,2 @@
-﻿  Application.cpp
-  Enemy.cpp
-  Enemy15.cpp
-  Level01.cpp
-  ModuleEnemies.cpp
-  ModuleParticles.cpp
-  ModulePlayer.cpp
-  Module_Player_2.cpp
-  Generando código...
+﻿  UI.cpp
   SDL Game.vcxproj -> C:\Users\jgher\Documents\GitHub\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe

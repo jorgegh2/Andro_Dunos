@@ -33,6 +33,7 @@ public:
 	int speedY = 2;
 	bool movX = false;
 	bool animComplete = false;
+	int time = 0;
 
 };
 

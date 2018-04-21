@@ -164,7 +164,7 @@ bool ModuleGameOver::Start()
 
 	music_go = App->audio->LoadMusic("Music/18_Game_Over.ogg");
 
-	App->audio->PlayMusic(music_go);
+	App->audio->PlayMusic(music_go,-1,1);
 
 	App->render->camera.x = App->render->camera.y = 0;
 

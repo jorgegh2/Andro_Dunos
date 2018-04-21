@@ -41,9 +41,11 @@ bool ModuleViscoGames::Start()
 
 	if (App->game_intro->IsEnabled() == true)
 		App->visco_games->Disable();
+	time = 0;
+
 
 	App->render->camera.x = App->render->camera.y = 0;
-
+	//movX = false;
 	return ret;
 }
 
@@ -95,8 +97,8 @@ update_status ModuleViscoGames::Update()
 		speedY = 0;
 		movX = true;
 	}
-
-	if (movX == true && SDL_GetTicks() > 8000)
+	time = SDL_GetTicks();
+	if (movX == true && time > 8000)
 	{
 		v.x -= speedX;
 		g.x += speedX;

@@ -4,6 +4,9 @@
 #include "Module.h"
 //#include <iostream>
 
+struct SDL_Texture;
+
+
 class ModuleUI : public Module 
 {
 public:
@@ -25,6 +28,10 @@ public:
 	int font_score = -1;
 	char score_text[10];
 	uint score = 0;
+	
+
+	SDL_Texture* UI = nullptr;
+	SDL_Texture* Life_texture1 = nullptr;
 };
 
 

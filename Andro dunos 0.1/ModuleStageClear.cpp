@@ -80,9 +80,9 @@ bool ModuleStageClear::Start()
 
 	graphics = App->textures->Load("Images/stage_clear2.png");
 
-	music_intro = App->audio->LoadMusic("Music/01_Neo_Geo_Logo.ogg");
+	music_stage_clear = App->audio->LoadMusic("Music/06_Stage_Clear.ogg");
 
-	App->audio->PlayMusic(music_intro);
+	App->audio->PlayMusic(music_stage_clear,-1,1);
 
 	App->render->camera.x = App->render->camera.y = 0;
 
@@ -97,7 +97,7 @@ bool ModuleStageClear::CleanUp()
 	stg_clear.Reset();
 
 	App->textures->Unload(graphics);
-	App->audio->UnloadMusic(music_intro);
+	App->audio->UnloadMusic(music_stage_clear);
 
 	return true;
 }
