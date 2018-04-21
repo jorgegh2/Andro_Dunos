@@ -13,7 +13,6 @@
 #include "ModuleGameIntroduction.h"
 #include "ModuleAudio.h"
 #include "ModuleFonts.h"
-#include <stdio.h>
 #include "UI.h"
 #include "Module_player_2.h"
 
@@ -64,8 +63,10 @@ bool ModulePlayer::Start()
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
 	
 
-	position.x = 100;
-	position.y = 100;
+	position.x = 0;
+	position.y = 0;
+	location.x = 100;
+	location.y = 100;
 
 	return ret;
 }
@@ -86,26 +87,26 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-		position.x += App->render->camera.x / SCREEN_SIZE;
-		position.y += App->render->camera.y / SCREEN_SIZE;
+		position.x = App->render->camera.x / SCREEN_SIZE + location.x;
+		position.y = App->render->camera.y / SCREEN_SIZE + location.y;
 
 		int speed = 2;
 
 		if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
 		{
-			position.x -= speed;
+			location.x -= speed;
 			
 
 		}
 
 		if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
 		{
-			position.x += speed;
+			location.x += speed;
 		}
 
 		if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
 		{
-			position.y += speed;
+			location.y += speed;
 			if (current_animation != &down)
 			{
 				down.Reset();
@@ -122,7 +123,7 @@ update_status ModulePlayer::Update()
 
 		if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
 		{
-			position.y -= speed;
+			location.y -= speed;
 			if (current_animation != &up)
 			{
 				up.Reset();
@@ -266,9 +267,7 @@ update_status ModulePlayer::Update()
 				
 			// Draw everything --------------------------------------
 			App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-			//Reset position
-			position.x -= App->render->camera.x / SCREEN_SIZE;
-			position.y -= App->render->camera.y / SCREEN_SIZE;
+			
 			 
 			
 

@@ -35,6 +35,7 @@ public:
 	Mix_Chunk* basic_attack_sound = nullptr;
 
 	iPoint position;
+	iPoint location;
 
 	bool god_mode = false;
 

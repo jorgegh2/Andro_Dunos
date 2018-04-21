@@ -62,8 +62,10 @@ bool ModulePlayer2::Start()
 	laser_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-3_(Main_Ships).wav");
 	basic_attack_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-1_(Main_Ships).wav");
 
-	position.x = 150;
-	position.y = 100;
+	position.x = 0;
+	position.y = 0;
+	location.x = 150;
+	location.y = 100;
 
 	return ret;
 }
@@ -84,24 +86,24 @@ bool ModulePlayer2::CleanUp()
 // Update: draw background
 update_status ModulePlayer2::Update()
 {
-	position.x += App->render->camera.x / SCREEN_SIZE;
-	position.y += App->render->camera.y / SCREEN_SIZE;
+	position.x = App->render->camera.x / SCREEN_SIZE + location.x;
+	position.y = App->render->camera.y / SCREEN_SIZE + location.y;
 
 	int speed = 2;
 
 	if ((App->input->keyboard[SDL_SCANCODE_J] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
 	{
-		position.x -= speed;
+		location.x -= speed;
 	}
 
 	if ((App->input->keyboard[SDL_SCANCODE_L] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
 	{
-		position.x += speed;
+		location.x += speed;
 	}
 
 	if ((App->input->keyboard[SDL_SCANCODE_K] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
 	{
-		position.y += speed;
+		location.y += speed;
 		if (current_animation != &down)
 		{
 			down.Reset();
@@ -118,7 +120,7 @@ update_status ModulePlayer2::Update()
 
 	if ((App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
 	{
-		position.y -= speed;
+		location.y -= speed;
 		if (current_animation != &up)
 		{
 			up.Reset();
@@ -240,10 +242,6 @@ update_status ModulePlayer2::Update()
 	}
 	// Draw everything --------------------------------------
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-	//Reset position
-	position.x -= App->render->camera.x / SCREEN_SIZE;
-	position.y -= App->render->camera.y / SCREEN_SIZE;
-
 
 	return UPDATE_CONTINUE;
 }

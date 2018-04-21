@@ -141,7 +141,7 @@ bool ModuleParticles::Start()
 
 
 	// Explosion
-	explosion.anim.PushBack({ 198, 115, 15, 9 });
+	explosion.anim.PushBack({ 196, 113, 15, 9 });
 	explosion.anim.PushBack({ 167, 113, 19, 11 });
 	explosion.anim.PushBack({ 131, 109, 24, 15 });
 	explosion.anim.PushBack({ 91, 104, 28, 20 });

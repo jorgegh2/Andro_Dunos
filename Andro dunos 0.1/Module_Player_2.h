@@ -35,6 +35,7 @@ public:
 	Mix_Chunk* basic_attack_sound = nullptr;
 
 	iPoint position;
+	iPoint location;
 
 	Collider* c_player2 = nullptr;
 
