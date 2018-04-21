@@ -8,6 +8,7 @@
 #include "Enemy_01.h"
 #include "Enemy_3.h"
 #include "Enemy15.h"
+#include "UI.h"
 
 
 #define SPAWN_MARGIN 50
@@ -167,4 +168,6 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			break;
 		}
 	}
+	if(c2->type == COLLIDER_PLAYER_SHOT)
+		App->UI->score += 100;
 }

@@ -25,11 +25,16 @@ public:
 	SDL_Texture * graphics = nullptr;
 
 	Animation* current_animation = nullptr;
+	Animation* anim_turbo = nullptr;
 	Animation idle;
 	Animation up;
 	Animation down;
 	Animation upback;
 	Animation downback;
+
+	Animation turbo_idle;
+	Animation turbo_up;
+	Animation turbo_down;
 
 	Mix_Chunk* laser_sound = nullptr;
 	Mix_Chunk* basic_attack_sound = nullptr;

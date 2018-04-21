@@ -47,6 +47,32 @@ ModulePlayer::ModulePlayer()
 	downback.PushBack({ 94, 108, SHIP_WIDTH, SHIP_HEIGHT });
 	downback.loop = false;
 	downback.speed = 0.1f;
+
+	// Turbo
+
+	turbo_idle.PushBack({ 73, 116, 12, 5 });
+	turbo_idle.PushBack({ 61, 116, 12, 5});
+	turbo_idle.PushBack({ 42, 116, 12, 5 });
+	turbo_idle.loop = true;
+	turbo_idle.speed = 0.8f;
+
+	/*turbo_up.PushBack({ 73, 66, 12, 10 });
+	turbo_up.PushBack({ 58, 66, 12, 10 });
+	turbo_up.PushBack({ 42, 66, 12, 10 });
+	turbo_down.loop = true;
+	turbo_down.speed = 0.5f;*/
+	
+	/*
+	turbo_up.PushBack({ 73, 91, 12, 8 });
+	turbo_up.PushBack({ 59, 91, 12, 8 });
+	turbo_up.PushBack({ 42, 91, 12, 8 });
+	turbo_up.loop = true;
+	turbo_up.speed = 0.8f;
+	turbo_down.PushBack({});
+	turbo_down.loop = true;
+	turbo_down.speed = 0.8f;
+	*/
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -90,6 +116,8 @@ update_status ModulePlayer::Update()
 		position.x = App->render->camera.x / SCREEN_SIZE + location.x;
 		position.y = App->render->camera.y / SCREEN_SIZE + location.y;
 
+		anim_turbo = &turbo_idle;
+
 		int speed = 2;
 
 		if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
@@ -119,6 +147,7 @@ update_status ModulePlayer::Update()
 			{
 				downback.Reset();
 				current_animation = &downback;
+				
 			}
 
 		if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
@@ -128,6 +157,7 @@ update_status ModulePlayer::Update()
 			{
 				up.Reset();
 				current_animation = &up;
+				anim_turbo = &turbo_up;
 			}
 		}
 
@@ -136,6 +166,7 @@ update_status ModulePlayer::Update()
 			{
 				upback.Reset();
 				current_animation = &upback;
+				anim_turbo = &turbo_up;
 			}
 
 
@@ -185,7 +216,7 @@ update_status ModulePlayer::Update()
 					App->particles->AddParticle(App->particles->basic_shoot_0_down, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
 					App->particles->AddParticle(App->particles->basic_shoot_0_up, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(basic_attack_sound);
-					App->UI->score += 100;
+					//App->UI->score += 100;
 					break;
 
 				case CHANGE_WEAPON::LASER:
@@ -267,7 +298,7 @@ update_status ModulePlayer::Update()
 				
 			// Draw everything --------------------------------------
 			App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-			
+			App->render->Blit(graphics, position.x - 12, position.y + 8, &(anim_turbo->GetCurrentFrame()));
 			 
 			
 

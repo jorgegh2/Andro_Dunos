@@ -171,12 +171,14 @@ update_status ModulePlayersMenu::Update()
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
 		App->player2->Two_Players = false;
+		cr--;
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false && cr > 1)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
 		App->player2->Two_Players = true;
+		cr -= 2;
 	}
 
 	return UPDATE_CONTINUE;
