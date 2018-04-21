@@ -29,16 +29,20 @@ public:
 	SDL_Texture* graphics5 = nullptr; // visco games
 	SDL_Texture* graphics6 = nullptr; // text
 	SDL_Texture* graphics7 = nullptr; // timer
+	SDL_Texture* graphics8 = nullptr; // credit
 	Animation* current_animation = nullptr;   // animation for timer
 	Animation* current_animation2 = nullptr;  // animation for player_1p_start
 	Animation* current_animation3 = nullptr;  // animation for player_2p_start
+	Mix_Chunk* coin = nullptr;
 
 	Animation timer;
 	Animation p1;
 	Animation p2;
 	SDL_Rect bg;
 
-	int coins = 0;
+	int font_credits = -1;
+	char credits_text[10];
+	uint cr = 0;
 
 	int time_passed = 0;
 	bool change_bg = false;

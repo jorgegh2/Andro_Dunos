@@ -11,6 +11,8 @@
 #include "SDL\include\SDL.h"
 #include "ModuleAudio.h"
 #include "Module_player_2.h"
+#include "ModuleFonts.h"
+#include <stdio.h>
 
 ModulePlayersMenu::ModulePlayersMenu()
 {
@@ -85,6 +87,9 @@ bool ModulePlayersMenu::Start()
 	graphics5 = App->textures->Load("Images/visco_games.png");
 	graphics6 = App->textures->Load("Images/text.png");
 	graphics7 = App->textures->Load("Images/timer.png");
+	graphics8 = App->textures->Load("Images/credit.png");
+	font_credits = App->fonts->Load("Images/credits_numbers.png", "0123456789", 1);
+	coin = App->audio->LoadSoundEffect("Music/COIN_inserted.wav");
 
 	App->render->camera.x = App->render->camera.y = 0;
 
@@ -107,6 +112,9 @@ bool ModulePlayersMenu::CleanUp()
 	App->textures->Unload(graphics5);
 	App->textures->Unload(graphics6);
 	App->textures->Unload(graphics7);
+	App->textures->Unload(graphics8);
+	App->fonts->UnLoad(font_credits);
+	App->audio->UnloadSoundEffect(coin);
 
 	return true;
 }
@@ -124,8 +132,14 @@ update_status ModulePlayersMenu::PreUpdate()
 update_status ModulePlayersMenu::Update()
 {
 
-	if (App->input->keyboard[SDL_SCANCODE_1] == KEY_DOWN)
-		coins++;
+	if (App->input->keyboard[SDL_SCANCODE_1] == KEY_DOWN) 
+	{
+		Mix_VolumeChunk(coin, MIX_MAX_VOLUME);
+		App->audio->PlaySoundEffect(coin);
+		cr++;
+	}
+	sprintf_s(credits_text, 10, "%7d", cr);
+	App->fonts->BlitText(5, 7, font_credits, credits_text);
 
 	current_animation = &timer;
 	current_animation2 = &p1;
@@ -133,13 +147,14 @@ update_status ModulePlayersMenu::Update()
 
 	App->render->Blit(graphics, 0, 0, &bg);
 	App->render->Blit(graphics2, 33, 40, NULL);
+	App->render->Blit(graphics8, 230, 208, NULL);
 
 	// pi
-	if (coins < 2)
+	if (cr < 2)
 		App->render->Blit(graphics3, 97, 142, &(current_animation2->GetCurrentFrame()));
 
 	// p2
-	if (coins > 1)
+	if (cr > 1)
 		App->render->Blit(graphics4, 73, 142, &(current_animation3->GetCurrentFrame()));
 
 	App->render->Blit(graphics5, 68, 159, NULL);
@@ -152,13 +167,13 @@ update_status ModulePlayersMenu::Update()
 		App->player2->Two_Players = false;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false && coins >= 1)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false && cr >= 1)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
 		App->player2->Two_Players = false;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false && coins > 1)
+	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false && cr > 1)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
 		App->player2->Two_Players = true;

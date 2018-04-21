@@ -22,9 +22,8 @@ bool ModuleUI::Start() {
 	return true;
 }
 
-update_status ModuleUI::Update() {
-
-	
+update_status ModuleUI::Update() 
+{
 
 	sprintf_s(score_text, 10, "%7d", score);
 	

@@ -32,7 +32,7 @@ public:
 
 private:
 
-	Font	 fonts[MAX_FONTS];
+	Font fonts[MAX_FONTS];
 };
 
 
