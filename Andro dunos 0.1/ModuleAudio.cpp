@@ -8,8 +8,6 @@ ModuleAudio::ModuleAudio()
 		songs[i] = nullptr;
 	}
 
-
-
 	for (uint i = 0; i < MAX_FX; ++i)
 	{
 		sound_effects[i] = nullptr;

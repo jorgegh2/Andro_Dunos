@@ -12,6 +12,9 @@
 #include "SDL\include\SDL.h"
 #include "ModuleAudio.h"
 #include "Animation.h"
+#include "ModuleViscoGames.h"
+#include "ModuleInsertCoin.h"
+#include "ModulePlayersMenu.h"
 
 ModuleStageClear::ModuleStageClear()
 {
@@ -77,6 +80,12 @@ bool ModuleStageClear::Start()
 		App->level01->Disable();
 	if (App->game_over->IsEnabled() == true)
 		App->game_over->Disable();
+	if (App->visco_games->IsEnabled() == true)
+		App->visco_games->Disable();
+	if (App->insert_coin->IsEnabled() == true)
+		App->insert_coin->Disable();
+	if (App->players_menu->IsEnabled() == true)
+		App->players_menu->Disable();
 
 	graphics = App->textures->Load("Images/stage_clear2.png");
 

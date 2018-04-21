@@ -12,6 +12,9 @@
 #include "SDL\include\SDL.h"
 #include "ModuleAudio.h"
 #include "Animation.h"
+#include "ModuleViscoGames.h"
+#include "ModuleInsertCoin.h"
+#include "ModulePlayersMenu.h"
 
 ModuleGameOver::ModuleGameOver()
 {
@@ -159,6 +162,12 @@ bool ModuleGameOver::Start()
 		App->level01->Disable();
 	if (App->stage_clear->IsEnabled() == true)
 		App->stage_clear->Disable();
+	if (App->visco_games->IsEnabled() == true)
+		App->visco_games->Disable();
+	if (App->insert_coin->IsEnabled() == true)
+		App->insert_coin->Disable();
+	if (App->players_menu->IsEnabled() == true)
+		App->players_menu->Disable();
 
 	graphics = App->textures->Load("Images/game_over.png");
 

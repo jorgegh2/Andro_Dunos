@@ -30,6 +30,7 @@ public:
 	Animation neo_geo;
 	Animation snk;
 
+	int time_init = 0;
 	int time_passed = 0;
 	bool change_bg = false;
 };

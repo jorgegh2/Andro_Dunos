@@ -36,7 +36,9 @@ bool ModuleGameIntroduction::Start()
 	App->render->camera.x = App->render->camera.y = 0;
 	time_passed = 0;
 
-
+	// time code
+	time_init = SDL_GetTicks();
+	time_passed = 0;
 
 	// neo geo anim
 	neo_geo.PushBack({ 142, 7, 218, 38 });
@@ -126,21 +128,28 @@ bool ModuleGameIntroduction::CleanUp()
 	App->textures->Unload(graphics2);
 	App->textures->Unload(graphics3);
 
+	// Reset time counter
+	time_passed = 0;
+
 	return true;
 }
 
 // PreUpdate: clear screen to black before every frame
 update_status ModuleGameIntroduction::PreUpdate()
 {
-	time_passed = SDL_GetTicks();
+	time_passed = SDL_GetTicks() - time_init;
 
-	if (time_passed > 1800) change_bg = true;
+	if (time_passed > 1500) change_bg = true;
 
-	if (!change_bg)
-		SDL_SetRenderDrawColor(App->render->renderer, 255, 255, 255, 255);
-	else
+	if (!change_bg) {
+		
+		SDL_SetRenderDrawColor(App->render->renderer, 255, 255, 255, 0);
+	}
+	else {
+		
 		SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 0);
-
+	}
+	
 	SDL_RenderClear(App->render->renderer);
 
 	return UPDATE_CONTINUE;
@@ -149,7 +158,7 @@ update_status ModuleGameIntroduction::PreUpdate()
 // Update: draw background
 update_status ModuleGameIntroduction::Update()
 {
-	time_passed = SDL_GetTicks();
+	time_passed = SDL_GetTicks() - time_init;
 
 	current_animation = &neo_geo;
 	current_animation2 = &snk;
