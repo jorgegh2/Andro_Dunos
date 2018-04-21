@@ -6,7 +6,7 @@
 class Enemy_01 : public Enemy
 {
 private:
-	float wave = -1.0f;
+	float wave = -1.5f;
 	bool going_up = true;
 	int original_y = 0;
 	Animation fly;
