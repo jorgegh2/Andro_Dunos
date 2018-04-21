@@ -37,7 +37,7 @@ bool ModuleViscoGames::Start()
 	graphics = App->textures->Load("Images/Visco.png");
 	graphics2 = App->textures->Load("Images/Games.png");
 
-	App->visco_games->Enable();
+	//App->visco_games->Enable();
 
 	if (App->game_intro->IsEnabled() == true)
 		App->visco_games->Disable();

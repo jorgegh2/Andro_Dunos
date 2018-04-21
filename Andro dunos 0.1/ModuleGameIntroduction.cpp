@@ -125,6 +125,8 @@ bool ModuleGameIntroduction::CleanUp()
 	App->textures->Unload(graphics2);
 	App->textures->Unload(graphics3);
 
+	App->audio->UnloadMusic(music_intro);
+
 	change_bg = false;
 
 	// Reset time counter

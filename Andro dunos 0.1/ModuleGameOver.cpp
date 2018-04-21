@@ -188,6 +188,7 @@ bool ModuleGameOver::CleanUp()
 	gm_over.Reset();
 
 	App->textures->Unload(graphics);
+	App->audio->UnloadMusic(music_go);
 
 	return true;
 }
