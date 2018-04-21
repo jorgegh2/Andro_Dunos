@@ -1,2 +1,98 @@
-﻿  ModulePlayersMenu.cpp
-  SDL Game.vcxproj -> C:\Users\gerar\Desktop\Andro_Dunos-master\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe
+﻿  ModuleRender.cpp
+  Level01.cpp
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(224): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(225): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(226): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(227): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(228): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(229): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(230): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(231): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(232): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(233): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(234): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(235): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(236): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(237): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(238): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(239): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(240): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(241): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(242): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(243): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(244): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(245): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(246): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(247): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(248): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(249): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(250): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(251): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(252): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(253): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(254): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(255): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(256): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(257): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(258): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(259): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(260): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(261): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(262): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(263): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(264): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(265): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(266): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(267): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(268): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(269): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(270): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(271): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(272): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(273): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(274): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(275): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(276): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(277): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(278): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(279): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(280): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(281): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(282): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(283): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(284): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(285): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(286): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(287): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(288): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(289): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(290): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(291): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(292): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(293): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(294): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(295): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(296): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\martí\documents\andro_dunos\andro dunos 0.1\level01.cpp(297): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  Compiling...
+  Module_Player_2.cpp
+  ModulePlayer.cpp
+  ModuleParticles.cpp
+  ModuleEnemies.cpp
+  ModuleCollision.cpp
+  Enemy_3.cpp
+  Enemy_01.cpp
+  Enemy15.cpp
+  Enemy.cpp
+  Application.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  ModuleViscoGames.cpp
+  ModuleStageClear.cpp
+  ModulePlayersMenu.cpp
+  ModuleInsertCoin.cpp
+  ModuleGameOver.cpp
+  ModuleGameIntroduction.cpp
+  SDL Game.vcxproj -> C:\Users\Martí\Documents\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.exe
+  SDL Game.vcxproj -> C:\Users\Martí\Documents\Andro_Dunos\Andro dunos 0.1\Debug\Andro_Dunos0.1.pdb (Partial PDB)

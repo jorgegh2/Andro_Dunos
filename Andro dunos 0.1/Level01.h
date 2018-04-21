@@ -27,6 +27,7 @@ public:
 	SDL_Texture* start_under;
 	SDL_Texture* end_under;
 	Mix_Music* music_level01 = nullptr;
+	Collider* c_wall[80];
 	bool xstop;
 	
 };
