@@ -138,7 +138,7 @@ update_status ModuleStageClear::Update()
 	time_passed = SDL_GetTicks() - time_init;
 	current_animation = &stg_clear;
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
+	if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN && App->fade->IsFading() == false)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->game_intro);
 	}

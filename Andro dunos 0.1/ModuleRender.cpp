@@ -51,7 +51,7 @@ update_status ModuleRender::Update()
 {
 	int speed = 12;
 
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+/*	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 		camera.y += speed * SCREEN_SIZE;
 
 	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
@@ -62,7 +62,7 @@ update_status ModuleRender::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 		camera.x -= speed * SCREEN_SIZE;
-
+		*/
 	return update_status::UPDATE_CONTINUE;
 }
 

@@ -403,7 +403,7 @@ update_status Level01::Update()
 	c_wall[72]->SetPos(8415 + (App->render->camera.x / SCREEN_SIZE) * 0.2f, 184 + (App->render->camera.y / SCREEN_SIZE) * 0.2f);
 	c_wall[73]->SetPos(8655 + (App->render->camera.x / SCREEN_SIZE) * 0.2f, 179 + (App->render->camera.y / SCREEN_SIZE) * 0.2f);
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->render->camera.x > 11257 * SCREEN_SIZE)
+	if (App->input->keyboard[SDL_SCANCODE_F8] == 1 || App->render->camera.x > 11257 * SCREEN_SIZE)
 	{
 		//App->fade->FadeToBlack(this, (Module*)App->stage_clear);
 		App->stage_clear->Enable();

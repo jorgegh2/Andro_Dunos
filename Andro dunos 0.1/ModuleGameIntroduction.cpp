@@ -177,7 +177,7 @@ update_status ModuleGameIntroduction::Update()
 	if (time_passed > 2500)
 		App->render->Blit(graphics3, 112, 170, &(current_animation2->GetCurrentFrame()));
 
-	if ((time_passed > 5000 || App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) && App->fade->IsFading() == false)
+	if ((time_passed > 5000 || App->input->keyboard[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN) && App->fade->IsFading() == false)
 	{
 		App->render->camera.x = App->render->camera.y = 0;
 		App->fade->FadeToBlack(this, (Module*)App->visco_games);

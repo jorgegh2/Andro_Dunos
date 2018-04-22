@@ -215,7 +215,7 @@ update_status ModulePlayer::Update()
 		//
 		//////////
 		// Shoot 
-		if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN)
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 		{
 			switch (power_up) {
 			case POWER_UPS::POWER_UP_BASIC:
@@ -310,7 +310,11 @@ update_status ModulePlayer::Update()
 			App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 			App->render->Blit(graphics, position.x - 12, position.y + 8, &(anim_turbo->GetCurrentFrame()));
 		}
-			
+		if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false)
+		{
+			App->player2->Enable();
+
+		}
 
 		
 	
