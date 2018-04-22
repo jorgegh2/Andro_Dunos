@@ -17,6 +17,11 @@
 
 Level01::Level01()
 {
+	//moon
+	moon.x = 91;
+	moon.y = 215;
+	moon.w = 137;
+	moon.h = 138;
 	
 }
 
@@ -250,6 +255,7 @@ update_status Level01::Update()
 	if (!App->render->Blit(layout[3], 4935, -607, nullptr, 0.8f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[4], 6591, -607, nullptr, 0.8f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[5], 8230, -607, nullptr, 0.8f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[5], 790, 0 , &moon, 0.25f)) return update_status::UPDATE_ERROR;
 	
 	//colliders
 	c_wall[0]->SetPos(0 + (App->render->camera.x / SCREEN_SIZE) * 0.2f, 200 + (App->render->camera.y / SCREEN_SIZE) * 0.2f);

@@ -28,6 +28,7 @@ public:
 	SDL_Texture* end_under;
 	Mix_Music* music_level01 = nullptr;
 	Collider* c_wall[80];
+	SDL_Rect moon;
 	bool xstop;
 	
 };

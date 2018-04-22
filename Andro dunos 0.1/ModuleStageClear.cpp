@@ -127,7 +127,7 @@ update_status ModuleStageClear::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->game_over);
+		App->fade->FadeToBlack(this, (Module*)App->game_intro);
 	}
 
 	App->render->Blit(graphics, 8, 30, &(current_animation->GetCurrentFrame()));
