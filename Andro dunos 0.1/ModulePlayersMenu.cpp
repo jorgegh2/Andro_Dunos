@@ -138,8 +138,7 @@ update_status ModulePlayersMenu::Update()
 		App->audio->PlaySoundEffect(coin);
 		cr++;
 	}
-	sprintf_s(credits_text, 10, "%7d", cr);
-	App->fonts->BlitText(5, 7, font_credits, credits_text);
+	
 
 	current_animation = &timer;
 	current_animation2 = &p1;
@@ -180,6 +179,12 @@ update_status ModulePlayersMenu::Update()
 		App->player2->Two_Players = true;
 		cr -= 2;
 	}
+	if (cr < 10) {
+		
+		App->fonts->BlitText(280, 208, font_credits, "0");
+	}
+	sprintf_s(credits_text, 10, "%7d", cr);
+	App->fonts->BlitText(234, 208, font_credits, credits_text);
 
 	return UPDATE_CONTINUE;
 }

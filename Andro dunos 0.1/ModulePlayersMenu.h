@@ -43,6 +43,7 @@ public:
 	int font_credits = -1;
 	char credits_text[10];
 	uint cr = 0;
+	
 
 	int time_passed = 0;
 	bool change_bg = false;

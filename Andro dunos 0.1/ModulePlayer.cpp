@@ -88,6 +88,8 @@ bool ModulePlayer::Start()
 	basic_attack_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-1_(Main_Ships).wav");
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
 	destroyed = false;
+	player_death = App->audio->LoadSoundEffect("Music/Player_Death_Explosion.wav");
+	
 
 	position.x = 0;
 	position.y = 0;
@@ -101,6 +103,7 @@ bool ModulePlayer::Start()
 bool ModulePlayer::CleanUp()
 {
 	LOG("Unloading player");
+	App->audio->UnloadSoundEffect(player_death);
 	App->audio->UnloadSoundEffect(laser_sound);
 	App->audio->UnloadSoundEffect(basic_attack_sound);
 	App->textures->Unload(graphics);
@@ -313,6 +316,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c_player != nullptr && c_player == c1 && App->fade->IsFading() == false)
 	{
 		//code
+		App->audio->PlaySoundEffect(player_death);
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
 		App->player->Disable();
 		App->fade->FadeToBlack(App->level01, App->game_over, 1);
