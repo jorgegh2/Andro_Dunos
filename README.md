@@ -76,6 +76,6 @@ CITM Terrassa 2018. Degree in videogame design and developement.
 · Added Andro Dunos game intro screen
 · The player can now change scenes between game intro scene and level 1 scene
 
-## Version 0.2.1
+### Version 0.2.1
 · Added ship 
 · Added an infinite scroll of level 1 background
