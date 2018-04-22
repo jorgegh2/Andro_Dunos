@@ -23,6 +23,7 @@ bool ModuleParticles::Start()
 	LOG("Loading particles");
 	graphics = App->textures->Load("Images/laser_types.png");
 	graphics2 = App->textures->Load("Images/ship-explosion.png");
+	graphics3 = App->textures->Load("Images/explosions_all_in_one.png");
 	enemy15shotgraphics = App->textures->Load("Images/Enemies/15.png");
 
 	// Basic_shoot 0_up
@@ -140,7 +141,7 @@ bool ModuleParticles::Start()
 	laser_2_5.life = 3000;
 
 
-	// Explosion
+	// Explosion ship
 	explosion.anim.PushBack({ 33, 19, 35, 35 });
 	explosion.anim.PushBack({ 82, 18, 35, 35 });
 	explosion.anim.PushBack({ 134, 19, 35, 35 });
@@ -159,9 +160,73 @@ bool ModuleParticles::Start()
 	explosion.anim.PushBack({ 228, 95, 28, 35 });
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.5f;
-	//explosion.life = 600;
 	explosion.Type = explosion.EXPLOSION;
 
+	//Explosion 2nd player ship
+	explosion2.anim.PushBack({ 45, 143, 35, 35 });
+	explosion2.anim.PushBack({ 82, 142, 35, 31 });
+	explosion2.anim.PushBack({ 122, 140, 35, 33 });
+	explosion2.anim.PushBack({ 162, 139, 35, 34 });
+	explosion2.anim.PushBack({ 48, 174, 35, 35 });
+	explosion2.anim.PushBack({ 89, 172, 35, 35 });
+	explosion2.anim.PushBack({ 132, 173, 35, 35 });
+	explosion2.anim.PushBack({ 187, 54, 35, 35 });
+	explosion2.anim.PushBack({ 7, 95, 35, 35 });
+	explosion2.anim.PushBack({ 50, 95, 35, 35 });
+	explosion2.anim.PushBack({ 87, 95, 35, 35 });
+	explosion2.anim.PushBack({ 118, 95, 35, 35 });
+	explosion2.anim.PushBack({ 148, 95, 35, 35 });
+	explosion2.anim.PushBack({ 177, 95, 35, 35 });
+	explosion2.anim.PushBack({ 204, 95, 35, 35 });
+	explosion2.anim.PushBack({ 228, 95, 28, 35 });
+	explosion2.anim.loop = false;
+	explosion2.anim.speed = 0.5f;
+	explosion2.Type = explosion.EXPLOSION;
+
+	//1st Explosion enemy
+	enemy_explosion1.anim.PushBack({ 4, 12, 39, 30});
+	enemy_explosion1.anim.PushBack({ 26, 11, 39, 38 });
+	enemy_explosion1.anim.PushBack({ 63, 11, 39, 38 });
+	enemy_explosion1.anim.PushBack({ 103, 11, 39, 38 });
+	enemy_explosion1.anim.PushBack({ 142, 11, 39, 38 });
+	enemy_explosion1.anim.PushBack({ 183, 11, 39, 38 });
+	enemy_explosion1.anim.PushBack({ 11, 52, 39, 38 });
+	enemy_explosion1.anim.PushBack({ 58, 52, 39, 38 });
+	enemy_explosion1.anim.PushBack({ 108, 52, 39, 38 });
+	enemy_explosion1.anim.PushBack({ 153, 52, 39, 38 });
+	enemy_explosion1.anim.loop = false;
+	enemy_explosion1.anim.speed = 0.6f;
+	enemy_explosion1.Type = explosion.EXPLOSION_ENEMY;
+
+	//2nd Explosion enemy
+	enemy_explosion2.anim.PushBack({ 6, 100, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 38, 100, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 72, 100, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 117, 99, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 160, 98, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 203, 99, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 10, 138, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 47, 138, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 84, 138, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 122, 138, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 160, 138, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 197, 138, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 8, 178, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 42, 178, 39, 38 });
+	enemy_explosion2.anim.PushBack({ 73, 178, 39, 38 });
+	enemy_explosion2.anim.loop = false;
+	enemy_explosion2.anim.speed = 0.6f;
+	enemy_explosion2.Type = explosion.EXPLOSION_ENEMY;
+
+	//3rd explosion enemy
+	enemy_explosion2.anim.PushBack({ 112, 217, 24, 24 });
+	enemy_explosion2.anim.PushBack({ 139, 217, 24, 24 });
+	enemy_explosion2.anim.PushBack({ 168, 217, 24, 24 });
+	enemy_explosion2.anim.PushBack({ 205, 217, 24, 24 });
+	enemy_explosion2.anim.PushBack({ 14, 105, 24, 24 });
+	enemy_explosion3.anim.loop = false;
+	enemy_explosion3.anim.speed = 0.5f;
+	enemy_explosion3.Type = explosion.EXPLOSION_ENEMY;
 
 	//Enemy15 shot
 	enemy15shot.anim.PushBack({ 84, 10, 53, 29 });
@@ -183,6 +248,7 @@ bool ModuleParticles::CleanUp()
 	LOG("Unloading particles");
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics2);
+	App->textures->Unload(graphics3);
 	App->textures->Unload(enemy15shotgraphics);
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
@@ -219,6 +285,9 @@ update_status ModuleParticles::Update()
 				App->render->Blit(graphics2, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 				break;
 
+			case p->EXPLOSION_ENEMY:
+				App->render->Blit(graphics3, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+				break;
 			case p->SHOOT:
 				
 				App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
@@ -269,7 +338,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		if (active[i] != nullptr && active[i]->collider == c1)
 		{
 			//code
-			App->particles->AddParticle(App->particles->explosion, active[i]->position.x, active[i]->position.y);
+			//App->particles->AddParticle(App->particles->explosion, active[i]->position.x, active[i]->position.y);
 
 			delete active[i];
 			active[i] = nullptr;

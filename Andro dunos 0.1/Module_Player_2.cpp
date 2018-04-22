@@ -61,7 +61,7 @@ bool ModulePlayer2::Start()
 
 	laser_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-3_(Main_Ships).wav");
 	basic_attack_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-1_(Main_Ships).wav");
-
+	destroyed = false;
 	position.x = 0;
 	position.y = 0;
 	location.x = 150;
@@ -241,17 +241,20 @@ update_status ModulePlayer2::Update()
 		c_player2->SetPos(position.x, position.y);
 	}
 	// Draw everything --------------------------------------
-	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-
+	if (destroyed == false) {
+		App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+	}
 	return UPDATE_CONTINUE;
 }
 
 void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c_player2 != nullptr && c_player2 == c1)
+	if (c_player2 != nullptr && c_player2 == c1 && App->fade->IsFading() == false)
 	{
 		//code
+		App->particles->AddParticle(App->particles->explosion2, position.x, position.y);
 		App->player2->Disable();
 		App->fade->FadeToBlack(App->level01, App->game_over, 1);
+		destroyed == true;
 	}
 }

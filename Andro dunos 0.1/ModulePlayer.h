@@ -41,7 +41,7 @@ public:
 
 	iPoint position;
 	iPoint location;
-
+	bool destroyed = false;
 	bool god_mode = false;
 
 	Collider* c_player = nullptr;

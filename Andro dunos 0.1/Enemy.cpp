@@ -29,5 +29,7 @@ void Enemy::Draw(SDL_Texture* sprites)
 
 void Enemy::OnCollision(Collider* collider)
 {
-	App->particles->AddParticle(App->particles->explosion, position.x, position.y);
+	App->particles->AddParticle(App->particles->enemy_explosion1, position.x, position.y);
+	App->particles->AddParticle(App->particles->enemy_explosion2, position.x + 10, position.y + 10);
+	App->particles->AddParticle(App->particles->enemy_explosion3, position.x, position.y);
 }

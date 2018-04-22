@@ -31,6 +31,7 @@ struct Particle
 	enum TYPE_PARTICLE {
 		SHOOT = 0,
 		EXPLOSION,
+		EXPLOSION_ENEMY,
 		SHOOT_ENEMY
 	} Type = TYPE_PARTICLE::SHOOT;
 };
@@ -52,12 +53,17 @@ private:
 
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr;
+	SDL_Texture* graphics3 = nullptr;
 	SDL_Texture* enemy15shotgraphics = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 
 public:
 
 	Particle explosion;
+	Particle explosion2;
+	Particle enemy_explosion1;
+	Particle enemy_explosion2;
+	Particle enemy_explosion3;
 	
 	Particle basic_shoot_0_up;
 	Particle basic_shoot_0_down;

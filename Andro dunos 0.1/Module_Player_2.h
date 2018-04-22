@@ -36,6 +36,7 @@ public:
 
 	iPoint position;
 	iPoint location;
+	bool destroyed;
 
 	Collider* c_player2 = nullptr;
 
