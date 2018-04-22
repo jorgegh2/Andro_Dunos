@@ -18,7 +18,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_0_up.anim.PushBack({ 24, 39, 11, 4 });
 	basic_shoot_0_up.anim.loop = false;
 	basic_shoot_0_up.anim.speed = 0.3f;
-	basic_shoot_0_up.speed.x = 3;
+	basic_shoot_0_up.speed.x = 5;
 	basic_shoot_0_up.life = 3000;
 
 	// Basic_shoot 0_down
@@ -26,7 +26,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_0_down.anim.PushBack({ 24, 37, 11, 6 });
 	basic_shoot_0_down.anim.loop = false;
 	basic_shoot_0_down.anim.speed = 0.3f;
-	basic_shoot_0_down.speed.x = 3;
+	basic_shoot_0_down.speed.x = 5;
 	basic_shoot_0_down.life = 3000;
 
 	// Laser 0
@@ -43,7 +43,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_1.anim.PushBack({ 24, 39, 11, 4 });
 	basic_shoot_1.anim.loop = false;
 	basic_shoot_1.anim.speed = 0.3f;
-	basic_shoot_1.speed.x = 3;
+	basic_shoot_1.speed.x = 5;
 	basic_shoot_1.life = 3000;
 
 	// Basic_shoot 1_up
@@ -52,7 +52,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_1_up.anim.PushBack({ 24, 39, 11, 4 });
 	basic_shoot_1_up.anim.loop = false;
 	basic_shoot_1_up.anim.speed = 0.3f;
-	basic_shoot_1_up.speed.x = 3;
+	basic_shoot_1_up.speed.x = 5;
 	basic_shoot_1_up.life = 3000;
 
 	// Basic_shoot 1_down
@@ -61,7 +61,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_1_down.anim.PushBack({ 24, 35, 11, 8 });
 	basic_shoot_1_down.anim.loop = false;
 	basic_shoot_1_down.anim.speed = 0.3f;
-	basic_shoot_1_down.speed.x = 3;
+	basic_shoot_1_down.speed.x = 5;
 	basic_shoot_1_down.life = 3000;
 
 	// Laser 1 up
@@ -88,7 +88,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_2.anim.PushBack({ 16, 51, 21, 6 });
 	basic_shoot_2.anim.loop = false;
 	basic_shoot_2.anim.speed = 0.3f;
-	basic_shoot_2.speed.x = 3;
+	basic_shoot_2.speed.x = 5;
 	basic_shoot_2.life = 3000;
 
 	// Basic_shoot 2_up
@@ -98,7 +98,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_2_up.anim.PushBack({ 24, 39, 11, 4 });
 	basic_shoot_2_up.anim.loop = false;
 	basic_shoot_2_up.anim.speed = 0.3f;
-	basic_shoot_2_up.speed.x = 3;
+	basic_shoot_2_up.speed.x = 5;
 	basic_shoot_2_up.life = 3000;
 
 	// Basic_shoot 2_down
@@ -108,7 +108,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_2_down.anim.PushBack({ 24, 33, 11, 10 });
 	basic_shoot_2_down.anim.loop = false;
 	basic_shoot_2_down.anim.speed = 0.3f;
-	basic_shoot_2_down.speed.x = 3;
+	basic_shoot_2_down.speed.x = 5;
 	basic_shoot_2_down.life = 3000;
 
 	// Laser 2 up
