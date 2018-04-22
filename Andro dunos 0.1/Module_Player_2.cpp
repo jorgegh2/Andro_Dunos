@@ -136,7 +136,7 @@ update_status ModulePlayer2::Update()
 		}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
 	{
 		switch (change_weapon) {
 
@@ -152,7 +152,7 @@ update_status ModulePlayer2::Update()
 
 
 	// POWERUP
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_H] == KEY_STATE::KEY_DOWN)
 	{
 		switch (power_up) {
 
@@ -172,7 +172,7 @@ update_status ModulePlayer2::Update()
 	//
 	//////////
 	// Shoot 
-	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_STATE::KEY_DOWN)
 	{
 		switch (power_up) {
 		case POWER_UPS::POWER_UP_BASIC:
