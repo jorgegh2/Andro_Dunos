@@ -23,6 +23,46 @@ Level01::Level01()
 	moon.w = 137;
 	moon.h = 138;
 	
+	//stars
+	star[0].x = 3;
+	star[0].y = 2;
+	star[0].w = 7;
+	star[0].h = 5;
+
+	star[1].x = 3;
+	star[1].y = 7;
+	star[1].w = 7;
+	star[1].h = 5;
+
+	star[2].x = 3;
+	star[2].y = 12;
+	star[2].w = 7;
+	star[2].h = 5;
+
+	star[3].x = 3;
+	star[3].y = 17;
+	star[3].w = 7;
+	star[3].h = 5;
+
+	star[4].x = 4;
+	star[4].y = 22;
+	star[4].w = 5;
+	star[4].h = 3;
+
+	star[5].x = 4;
+	star[5].y = 25;
+	star[5].w = 5;
+	star[5].h = 3;
+
+	star[6].x = 4;
+	star[6].y = 28;
+	star[6].w = 5;
+	star[6].h = 3;
+
+	star[7].x = 19;
+	star[7].y = 32;
+	star[7].w = 5;
+	star[7].h = 5;
 }
 
 Level01::~Level01()
@@ -169,6 +209,7 @@ bool Level01::Start()
 	c_wall[73] = App->collision->AddCollider({ 8655, 179, 100, 30 }, COLLIDER_WALL, nullptr);
 
 	xstop = false;
+	i[0] = i[1] = i[2] = i[3] = i[4] = i[5] = i[6] = i[7] = 0;
 	background = App->textures->Load("Images/Background1.png");
 	layout[0] = App->textures->Load("Images/layout1.png");
 	layout[1] = App->textures->Load("Images/layout2.png");
@@ -176,6 +217,8 @@ bool Level01::Start()
 	layout[3] = App->textures->Load("Images/layout4.png");
 	layout[4] = App->textures->Load("Images/layout5.png");
 	layout[5] = App->textures->Load("Images/layout6.png");
+	mars = App->textures->Load("Images/mars.png");
+	stars = App->textures->Load("Images/stars.png");
 	underground_tile = App->textures->Load("Images/under_tile.png");
 	start_under = App->textures->Load("Images/start_under.png");
 	end_under = App->textures->Load("Images/end_under.png");
@@ -203,6 +246,8 @@ bool Level01::CleanUp()
 	App->textures->Unload(layout[3]);
 	App->textures->Unload(layout[4]);
 	App->textures->Unload(layout[5]);
+	App->textures->Unload(mars);
+	App->textures->Unload(stars);
 	App->textures->Unload(underground_tile);
 	App->textures->Unload(start_under);
 	App->textures->Unload(end_under);
@@ -241,6 +286,27 @@ update_status Level01::Update()
 
 	// Draw everything --------------------------------------
 	for (int i = 0; i < 29; ++i) if (!App->render->Blit(background, TILE_WIDTH * i, 120, NULL, 0.6f)) return update_status::UPDATE_ERROR;
+	if (10 + SCREEN_WIDTH * i[0] < 2.0f * App->render->camera.x / SCREEN_SIZE) ++i[0];
+	if (100 + SCREEN_WIDTH * i[1] < App->render->camera.x / SCREEN_SIZE) ++i[1];
+	if (200 + SCREEN_WIDTH * i[2] < 0.5f * App->render->camera.x / SCREEN_SIZE) ++i[2];
+	if (150 + SCREEN_WIDTH * i[3] < 1.8f * App->render->camera.x / SCREEN_SIZE) ++i[3];
+	if (120 + SCREEN_WIDTH * i[4] < 0.95f * App->render->camera.x / SCREEN_SIZE) ++i[4];
+	if (60 + SCREEN_WIDTH * i[5] < 0.95f * App->render->camera.x / SCREEN_SIZE) ++i[5];
+	if (150 + SCREEN_WIDTH * i[6]  < 0.5f * App->render->camera.x / SCREEN_SIZE) ++i[6];
+	if (165 + SCREEN_WIDTH * i[7]  < 0.5f * App->render->camera.x / SCREEN_SIZE) ++i[7];
+	if (!App->render->Blit(stars, 10 + SCREEN_WIDTH * i[0], 28, &star[0], 2.0f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(stars, 100 + SCREEN_WIDTH * i[1], 50, &star[1], 1.0f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(stars, 200 + SCREEN_WIDTH * i[2], 90, &star[2], 0.5f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(stars, 150 + SCREEN_WIDTH * i[3], 90, &star[3], 1.8f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(stars, 120 + SCREEN_WIDTH * i[4], 60, &star[4], 0.95f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(stars, 60 + SCREEN_WIDTH * i[5], 85, &star[5], 0.95f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(stars, 150 + SCREEN_WIDTH * i[6], 38, &star[6], 0.5f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(stars, 165 + SCREEN_WIDTH * i[7], 45, &star[7], 0.5f)) return update_status::UPDATE_ERROR;
+	
+	if (!App->render->Blit(layout[5], 790, -5 , &moon, 0.25f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(mars, 2600, 10, nullptr, 0.25f)) return update_status::UPDATE_ERROR;
+	
+	
 	if (App->render->camera.x > 3681 * SCREEN_SIZE && App->render->camera.x <= 8943 * SCREEN_SIZE) {
 		if (!App->render->Blit(start_under, 1435, -85, nullptr, 0.39f)) return update_status::UPDATE_ERROR;
 		if (!App->render->Blit(underground_tile, 2015, -85, nullptr, 0.39f)) return update_status::UPDATE_ERROR;
@@ -255,7 +321,8 @@ update_status Level01::Update()
 	if (!App->render->Blit(layout[3], 4935, -607, nullptr, 0.8f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[4], 6591, -607, nullptr, 0.8f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[5], 8230, -607, nullptr, 0.8f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[5], 790, 0 , &moon, 0.25f)) return update_status::UPDATE_ERROR;
+	
+	
 	
 	//colliders
 	c_wall[0]->SetPos(0 + (App->render->camera.x / SCREEN_SIZE) * 0.2f, 200 + (App->render->camera.y / SCREEN_SIZE) * 0.2f);

@@ -26,9 +26,13 @@ public:
 	SDL_Texture* underground_tile;
 	SDL_Texture* start_under;
 	SDL_Texture* end_under;
+	SDL_Texture* mars;
+	SDL_Texture* stars;
 	Mix_Music* music_level01 = nullptr;
 	Collider* c_wall[80];
 	SDL_Rect moon;
+	SDL_Rect star[8];
+	uint i[8];
 	bool xstop;
 	
 };
