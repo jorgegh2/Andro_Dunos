@@ -90,7 +90,7 @@ bool ModulePlayer::Start()
 	destroyed = false;
 	player_death = App->audio->LoadSoundEffect("Music/Player_Death_Explosion.wav");
 	change_weapon_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type_CHANGE.wav");
-
+	god_mode = false;
 
 	position.x = 0;
 	position.y = 0;

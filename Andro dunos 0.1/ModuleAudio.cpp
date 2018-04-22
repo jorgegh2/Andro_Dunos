@@ -46,7 +46,7 @@ bool ModuleAudio::CleanUp()
 	{
 		if (songs[i] != nullptr){
 			Mix_FreeMusic(songs[i]);
-		sound_effects[i] = nullptr;
+		songs[i] = nullptr;
 		}
 	}
 
