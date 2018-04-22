@@ -53,7 +53,7 @@ CITM Terrassa 2018. Degree in videogame design and developement.
 ## Changelist
 
 ### Version 0.5
-
+. Completed full level 1, with all animations / scenes.
 
 ### Version 0.4.0
 
