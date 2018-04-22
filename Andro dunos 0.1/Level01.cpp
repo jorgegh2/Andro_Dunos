@@ -84,6 +84,9 @@ bool Level01::Start()
 	App->UI->Enable();
 
 	//Enemies Correct Coord.
+	
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_15, 450, 170);
+	
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 450, 50);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 465, 50);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_01, 480, 50);
