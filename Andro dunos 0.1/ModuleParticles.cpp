@@ -141,13 +141,25 @@ bool ModuleParticles::Start()
 
 
 	// Explosion
-	explosion.anim.PushBack({ 196, 113, 15, 9 });
-	explosion.anim.PushBack({ 167, 113, 19, 11 });
-	explosion.anim.PushBack({ 131, 109, 24, 15 });
-	explosion.anim.PushBack({ 91, 104, 28, 20 });
-	explosion.anim.PushBack({ 49, 94, 30, 30 });
+	explosion.anim.PushBack({ 33, 19, 35, 35 });
+	explosion.anim.PushBack({ 82, 18, 35, 35 });
+	explosion.anim.PushBack({ 134, 19, 35, 35 });
+	explosion.anim.PushBack({ 187, 19, 35, 35 });
+	explosion.anim.PushBack({ 33, 55, 35, 35 });
+	explosion.anim.PushBack({ 82, 56, 35, 35 });
+	explosion.anim.PushBack({ 134, 55, 35, 35 });
+	explosion.anim.PushBack({ 187, 54, 35, 35 });
+	explosion.anim.PushBack({ 7, 95, 35, 35 });
+	explosion.anim.PushBack({ 50, 95, 35, 35 });
+	explosion.anim.PushBack({ 87, 95, 35, 35 });
+	explosion.anim.PushBack({ 118, 95, 35, 35 });
+	explosion.anim.PushBack({ 148, 95, 35, 35 });
+	explosion.anim.PushBack({ 177, 95, 35, 35 });
+	explosion.anim.PushBack({ 204, 95, 35, 35 });
+	explosion.anim.PushBack({ 228, 95, 28, 35 });
 	explosion.anim.loop = false;
-	explosion.anim.speed = 0.3f;
+	explosion.anim.speed = 0.5f;
+	//explosion.life = 600;
 	explosion.Type = explosion.EXPLOSION;
 
 
