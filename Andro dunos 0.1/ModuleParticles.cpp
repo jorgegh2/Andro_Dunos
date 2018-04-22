@@ -159,7 +159,7 @@ bool ModuleParticles::Start()
 	explosion.anim.PushBack({ 204, 95, 35, 35 });
 	explosion.anim.PushBack({ 228, 95, 28, 35 });
 	explosion.anim.loop = false;
-	explosion.anim.speed = 0.5f;
+	explosion.anim.speed = 0.7f;
 	explosion.Type = explosion.EXPLOSION;
 
 	//Explosion 2nd player ship
@@ -180,7 +180,7 @@ bool ModuleParticles::Start()
 	explosion2.anim.PushBack({ 204, 95, 35, 35 });
 	explosion2.anim.PushBack({ 228, 95, 28, 35 });
 	explosion2.anim.loop = false;
-	explosion2.anim.speed = 0.5f;
+	explosion2.anim.speed = 0.7f;
 	explosion2.Type = explosion.EXPLOSION;
 
 	//1st Explosion enemy
@@ -215,7 +215,7 @@ bool ModuleParticles::Start()
 	enemy_explosion2.anim.PushBack({ 42, 178, 39, 38 });
 	enemy_explosion2.anim.PushBack({ 73, 178, 39, 38 });
 	enemy_explosion2.anim.loop = false;
-	enemy_explosion2.anim.speed = 0.6f;
+	enemy_explosion2.anim.speed = 0.7f;
 	enemy_explosion2.Type = explosion.EXPLOSION_ENEMY;
 
 	//3rd explosion enemy
