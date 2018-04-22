@@ -402,7 +402,8 @@ update_status Level01::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 || App->render->camera.x > 11257 * SCREEN_SIZE)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->stage_clear);
+		//App->fade->FadeToBlack(this, (Module*)App->stage_clear);
+		App->stage_clear->Enable();
 	}
 
 	return UPDATE_CONTINUE;

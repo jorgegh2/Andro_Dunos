@@ -15,6 +15,8 @@
 #include "ModuleViscoGames.h"
 #include "ModuleInsertCoin.h"
 #include "ModulePlayersMenu.h"
+#include "Module_Player_2.h"
+#include "ModuleParticles.h"
 
 ModuleStageClear::ModuleStageClear()
 {
@@ -70,14 +72,22 @@ bool ModuleStageClear::Start()
 	bool ret = true;
 
 	// We don't want the player in the screen
-	if (App->player->IsEnabled() == true)
-		App->player->Disable();
+	/*if (App->player->IsEnabled() == true)
+		App->player->Disable();*/
+
+	App->player->god_mode = true;
+
 
 	// Disable modules for debug mode
 	if (App->game_intro->IsEnabled() == true)
 		App->game_intro->Disable();
-	if (App->level01->IsEnabled() == true)
-		App->level01->Disable();
+
+	App->player->c_player->SetPos(-100, -100);
+	if (App->player2->IsEnabled() == true)
+		App->player2->c_player2->SetPos(-100, -100);
+
+	//if (App->level01->IsEnabled() == true)
+		//App->level01->Disable();
 	if (App->game_over->IsEnabled() == true)
 		App->game_over->Disable();
 	if (App->visco_games->IsEnabled() == true)
@@ -93,8 +103,9 @@ bool ModuleStageClear::Start()
 
 	App->audio->PlayMusic(music_stage_clear,-1,1);
 
-	App->render->camera.x = App->render->camera.y = 0;
-
+	//App->render->camera.x = App->render->camera.y = 0;
+	time_init = SDL_GetTicks();
+	time_passed = 0;
 	return ret;
 }
 
@@ -107,6 +118,7 @@ bool ModuleStageClear::CleanUp()
 
 	App->textures->Unload(graphics);
 	App->audio->UnloadMusic(music_stage_clear);
+	time_passed = 0;
 
 	return true;
 }
@@ -123,6 +135,7 @@ update_status ModuleStageClear::PreUpdate()
 // Update: draw background
 update_status ModuleStageClear::Update()
 {
+	time_passed = SDL_GetTicks() - time_init;
 	current_animation = &stg_clear;
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false)
@@ -130,7 +143,12 @@ update_status ModuleStageClear::Update()
 		App->fade->FadeToBlack(this, (Module*)App->game_intro);
 	}
 
-	App->render->Blit(graphics, 8, 30, &(current_animation->GetCurrentFrame()));
+	/*if (time_passed > 5000 && App->fade->IsFading() == false)
+	{
+		App->fade->FadeToBlack(this, (Module*)App->game_intro);
+	}*/
+
+	App->render->Blit(graphics, 20, 30, &(current_animation->GetCurrentFrame()), false);
 
 	return UPDATE_CONTINUE;
 }

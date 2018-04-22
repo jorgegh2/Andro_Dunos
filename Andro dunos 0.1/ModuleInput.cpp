@@ -5,6 +5,8 @@
 #include "ModuleGameOver.h"
 #include "SDL/include/SDL.h"
 
+#include "ModulePlayer.h"
+#include "Level01.h"
 ModuleInput::ModuleInput() : Module()
 {
 	for (uint i = 0; i < MAX_KEYS; ++i)
@@ -67,7 +69,11 @@ update_status ModuleInput::PreUpdate()
 update_status ModuleInput::Update()
 {
 	if (App->input->keyboard[SDL_SCANCODE_O] == 1)
+	{
+		App->level01->Enable();
+		App->player->Enable();
 		App->stage_clear->Enable();
+	}
 	if (App->input->keyboard[SDL_SCANCODE_P] == 1)
 		App->game_over->Enable();
 

@@ -39,6 +39,7 @@ public:
 	Mix_Chunk* laser_sound = nullptr;
 	Mix_Chunk* basic_attack_sound = nullptr;
 	Mix_Chunk* player_death = nullptr;
+	Mix_Chunk* change_weapon_sound = nullptr;
 
 	iPoint position;
 	iPoint location;

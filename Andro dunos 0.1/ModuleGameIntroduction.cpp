@@ -25,6 +25,9 @@ bool ModuleGameIntroduction::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 
+	if (App->level01->IsEnabled() == true)
+		App->level01->Disable();
+
 	graphics = App->textures->Load("Images/ng_anim.png");
 	graphics2 = App->textures->Load("Images/max_330.png");
 	graphics3 = App->textures->Load("Images/snk_animation.png");

@@ -27,13 +27,13 @@ update_status ModuleUI::Update()
 
 	sprintf_s(score_text, 10, "%7d", score);
 	
-	App->fonts->BlitText(5, 7, font_score, score_text);
+	App->fonts->BlitText(30, 7, font_score, score_text);
 	App->fonts->BlitText(5, 7, font_score, "1P");
 	//HUD
-	App->render->Blit(UI, 5, 15, NULL, 0.0f, false);
+	App->render->Blit(UI, 5, 16, NULL, 0.0f, false);
 	//lifes
-	App->render->Blit(Life_texture1, 10, 23, NULL, 0.0f, false);
-	App->render->Blit(Life_texture1, 19, 23, NULL, 0.0f, false);
+	App->render->Blit(Life_texture1, 10, 24, NULL, 0.0f, false);
+	App->render->Blit(Life_texture1, 19, 24, NULL, 0.0f, false);
 	
 
 	return UPDATE_CONTINUE;

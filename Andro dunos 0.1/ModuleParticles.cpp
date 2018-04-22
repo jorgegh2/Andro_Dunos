@@ -12,19 +12,6 @@ ModuleParticles::ModuleParticles()
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
-}
-
-ModuleParticles::~ModuleParticles()
-{}
-
-// Load assets
-bool ModuleParticles::Start()
-{
-	LOG("Loading particles");
-	graphics = App->textures->Load("Images/laser_types.png");
-	graphics2 = App->textures->Load("Images/ship-explosion.png");
-	graphics3 = App->textures->Load("Images/explosions_all_in_one.png");
-	enemy15shotgraphics = App->textures->Load("Images/Enemies/15.png");
 
 	// Basic_shoot 0_up
 	basic_shoot_0_up.anim.PushBack({ 24, 37, 11, 6 });
@@ -184,7 +171,7 @@ bool ModuleParticles::Start()
 	explosion2.Type = explosion.EXPLOSION;
 
 	//1st Explosion enemy
-	enemy_explosion1.anim.PushBack({ 4, 12, 39, 30});
+	enemy_explosion1.anim.PushBack({ 4, 12, 39, 30 });
 	enemy_explosion1.anim.PushBack({ 26, 11, 39, 38 });
 	enemy_explosion1.anim.PushBack({ 63, 11, 39, 38 });
 	enemy_explosion1.anim.PushBack({ 103, 11, 39, 38 });
@@ -237,6 +224,21 @@ bool ModuleParticles::Start()
 	enemy15shot.speed.x = -2;
 	enemy15shot.speed.y = 0;
 	enemy15shot.life = 2500;
+}
+
+ModuleParticles::~ModuleParticles()
+{}
+
+// Load assets
+bool ModuleParticles::Start()
+{
+	LOG("Loading particles");
+	graphics = App->textures->Load("Images/laser_types.png");
+	graphics2 = App->textures->Load("Images/ship-explosion.png");
+	graphics3 = App->textures->Load("Images/explosions_all_in_one.png");
+	enemy15shotgraphics = App->textures->Load("Images/Enemies/15.png");
+
+
 
 	return true;
 }

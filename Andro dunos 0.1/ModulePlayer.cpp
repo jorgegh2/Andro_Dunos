@@ -89,7 +89,8 @@ bool ModulePlayer::Start()
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
 	destroyed = false;
 	player_death = App->audio->LoadSoundEffect("Music/Player_Death_Explosion.wav");
-	
+	change_weapon_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type_CHANGE.wav");
+
 
 	position.x = 0;
 	position.y = 0;
@@ -106,6 +107,7 @@ bool ModulePlayer::CleanUp()
 	App->audio->UnloadSoundEffect(player_death);
 	App->audio->UnloadSoundEffect(laser_sound);
 	App->audio->UnloadSoundEffect(basic_attack_sound);
+	App->audio->UnloadSoundEffect(change_weapon_sound);
 	App->textures->Unload(graphics);
 
 	current_animation = &idle;
@@ -179,10 +181,14 @@ update_status ModulePlayer::Update()
 
 			case CHANGE_WEAPON::BASIC_ATTACK:
 				change_weapon = CHANGE_WEAPON::LASER;
+				App->audio->PlaySoundEffect(change_weapon_sound);
+
 				break;
 
 			case CHANGE_WEAPON::LASER:
 				change_weapon = CHANGE_WEAPON::BASIC_ATTACK;
+				App->audio->PlaySoundEffect(change_weapon_sound);
+
 				break;
 			}
 		}

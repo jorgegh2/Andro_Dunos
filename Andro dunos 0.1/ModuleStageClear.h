@@ -26,6 +26,8 @@ public:
 	Animation* current_animation = nullptr;
 	Animation stg_clear;
 
+	int time_init = 0;
+	int time_passed = 0;
 };
 
 #endif // __MODULESTAGECLEAR_H__
