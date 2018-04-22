@@ -58,29 +58,39 @@ CITM Terrassa 2018. Degree in videogame design and developement.
 ### Version 0.4.0
 
 · Added one type of enemy plus its colliders
+
 · Enemies explode when colliding to the player
+
 · All game now works with the camera, no longer moving textures only
+
 · Added camera limits to the player
 
 ### Version 0.3.5
 
 · Added collider for the spaceship
+
 · Shots now move from left to right
+
 · Added all level 1 textures and movements, so no longer infinite scroll
 
 ### Version 0.3.0
 
 · Added audio (music for game intro and level 1)
+
 · Added ship animation
+
 · Added shot animation (it doesn't move)
+
 · Added game over scene (black screen)
 
 ### Version 0.2.2
 
 · Added Andro Dunos game intro screen
+
 · The player can now change scenes between game intro scene and level 1 scene
 
 ### Version 0.2.1
 
 · Added ship 
+
 · Added an infinite scroll of level 1 background
