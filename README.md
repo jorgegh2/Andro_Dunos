@@ -94,3 +94,18 @@ CITM Terrassa 2018. Degree in videogame design and developement.
 · Added ship 
 
 · Added an infinite scroll of level 1 background
+
+## Controls
+
+Player 1 move: arrow keys
+Player 1 shot: space
+X: POWER UP
+C: CHANGE WEAPON
+
+f8 change scene
+1: insert coin
+
+Player 2 move: w, a, s, d
+Shot: f
+G: CHANGE WEAPON
+H: POWER UP
