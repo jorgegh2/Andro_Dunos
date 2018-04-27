@@ -56,11 +56,15 @@ bool ModulePlayer2::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("Images/ships.png"); // arcade version
+	graphics = App->textures->Load("Images/Ship/ships.png"); // arcade version
 	c_player2 = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
 
-	laser_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-3_(Main_Ships).wav");
-	basic_attack_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-1_(Main_Ships).wav");
+	laser_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-3_(Main_Ships).wav");
+	basic_attack_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-1_(Main_Ships).wav");
+
+	player_death = App->audio->LoadSoundEffect("Music/Sounds_effects/Player_Death_Explosion.wav");
+	change_weapon_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type_CHANGE.wav");
+
 	destroyed = false;
 	position.x = 0;
 	position.y = 0;
@@ -75,8 +79,10 @@ bool ModulePlayer2::CleanUp()
 {
 	LOG("Unloading player");
 
+	App->audio->UnloadSoundEffect(player_death);
 	App->audio->UnloadSoundEffect(laser_sound);
 	App->audio->UnloadSoundEffect(basic_attack_sound);
+	App->audio->UnloadSoundEffect(change_weapon_sound);
 	App->textures->Unload(graphics);
 	current_animation = &idle;
 
@@ -142,10 +148,14 @@ update_status ModulePlayer2::Update()
 
 		case CHANGE_WEAPON::BASIC_ATTACK:
 			change_weapon = CHANGE_WEAPON::LASER;
+			App->audio->PlaySoundEffect(change_weapon_sound);
+
 			break;
 
 		case CHANGE_WEAPON::LASER:
 			change_weapon = CHANGE_WEAPON::BASIC_ATTACK;
+			App->audio->PlaySoundEffect(change_weapon_sound);
+
 			break;
 		}
 	}
@@ -254,6 +264,7 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 	if (c_player2 != nullptr && c_player2 == c1 && App->fade->IsFading() == false)
 	{
 		//code
+		App->audio->PlaySoundEffect(player_death);
 		App->particles->AddParticle(App->particles->explosion2, position.x, position.y);
 		App->player2->Disable();
 		App->fade->FadeToBlack(App->level01, App->game_over, 1);

@@ -88,8 +88,8 @@ bool ModulePlayersMenu::Start()
 	graphics6 = App->textures->Load("Images/text.png");
 	graphics7 = App->textures->Load("Images/timer.png");
 	graphics8 = App->textures->Load("Images/credit.png");
-	font_credits = App->fonts->Load("Images/credits_numbers.png", "0123456789", 1);
-	coin = App->audio->LoadSoundEffect("Music/COIN_inserted.wav");
+	font_credits = App->fonts->Load("Images/Fonts/credits_numbers.png", "0123456789", 1);
+	coin = App->audio->LoadSoundEffect("Music/Sounds_effects/COIN_inserted.wav");
 
 	App->render->camera.x = App->render->camera.y = 0;
 

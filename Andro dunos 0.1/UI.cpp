@@ -14,9 +14,9 @@ bool ModuleUI::Start() {
 
 	score = 0;
 
-	font_score = App->fonts->Load("Images/Font-score-white.png", "1234567890P", 1);
-	UI = App->textures->Load("Images/ui_elements_base.png");
-	Life_texture1 = App->textures->Load("Images/Player_1_life.png");
+	font_score = App->fonts->Load("Images/Fonts/Font-score-white.png", "1234567890P", 1);
+	UI = App->textures->Load("Images/HUD/ui_elements_base.png");
+	Life_texture1 = App->textures->Load("Images/HUD/Player_1_life.png");
 	
 
 	return true;

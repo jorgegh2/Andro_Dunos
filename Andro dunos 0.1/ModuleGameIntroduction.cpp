@@ -105,7 +105,7 @@ bool ModuleGameIntroduction::Start()
 	graphics2 = App->textures->Load("Images/max_330.png");
 	graphics3 = App->textures->Load("Images/snk_animation.png");
 
-	music_intro = App->audio->LoadMusic("Music/01_Neo_Geo_Logo.ogg");
+	music_intro = App->audio->LoadMusic("Music/Songs/01_Neo_Geo_Logo.ogg");
 
 	App->audio->PlayMusic(music_intro,-1,1);
 

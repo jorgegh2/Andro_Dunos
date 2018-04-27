@@ -171,7 +171,7 @@ bool ModuleGameOver::Start()
 
 	graphics = App->textures->Load("Images/game_over.png");
 
-	music_go = App->audio->LoadMusic("Music/18_Game_Over.ogg");
+	music_go = App->audio->LoadMusic("Music/Songs/18_Game_Over.ogg");
 
 	App->audio->PlayMusic(music_go,-1,1);
 

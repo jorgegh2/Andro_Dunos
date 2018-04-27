@@ -83,13 +83,13 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("Images/ships.png"); // arcade version
-	laser_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-3_(Main_Ships).wav");
-	basic_attack_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type-1_(Main_Ships).wav");
+	graphics = App->textures->Load("Images/Ship/ships.png"); // arcade version
+	laser_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-3_(Main_Ships).wav");
+	basic_attack_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-1_(Main_Ships).wav");
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
 	destroyed = false;
-	player_death = App->audio->LoadSoundEffect("Music/Player_Death_Explosion.wav");
-	change_weapon_sound = App->audio->LoadSoundEffect("Music/Laser_Shot_Type_CHANGE.wav");
+	player_death = App->audio->LoadSoundEffect("Music/Sounds_effects/Player_Death_Explosion.wav");
+	change_weapon_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type_CHANGE.wav");
 	god_mode = false;
 
 	position.x = 0;
@@ -128,8 +128,6 @@ update_status ModulePlayer::Update()
 		if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
 		{
 			location.x -= speed;
-			
-
 		}
 
 		if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)

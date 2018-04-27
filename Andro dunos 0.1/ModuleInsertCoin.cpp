@@ -32,7 +32,7 @@ bool ModuleInsertCoin::Start()
 	graphics = App->textures->Load("Images/insert_coin.png");
 	//graphics2 = App->textures->Load("Images/max_330.png");
 
-	coin = App->audio->LoadSoundEffect("Music/COIN_inserted.wav");
+	coin = App->audio->LoadSoundEffect("Music/Sounds_effects/COIN_inserted.wav");
 
 	App->render->camera.x = App->render->camera.y = 0;
 

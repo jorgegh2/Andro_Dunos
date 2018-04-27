@@ -7,7 +7,7 @@
 
 Enemy::Enemy(int x, int y) : position(x, y)
 {
-	enemy_death = App->audio->LoadSoundEffect("Music/Enemy_Medium_EXPLOSION.wav");
+	enemy_death = App->audio->LoadSoundEffect("Music/Sounds_effects/Enemy_Medium_EXPLOSION.wav");
 }
 
 Enemy::~Enemy()

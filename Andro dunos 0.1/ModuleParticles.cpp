@@ -233,9 +233,9 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	graphics = App->textures->Load("Images/laser_types.png");
-	graphics2 = App->textures->Load("Images/ship-explosion.png");
-	graphics3 = App->textures->Load("Images/explosions_all_in_one.png");
+	graphics = App->textures->Load("Images/Ship/laser_types.png");
+	graphics2 = App->textures->Load("Images/Ship/ship-explosion.png");
+	graphics3 = App->textures->Load("Images/Enemies/explosions_all_in_one.png");
 	enemy15shotgraphics = App->textures->Load("Images/Enemies/15.png");
 
 

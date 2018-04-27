@@ -99,7 +99,7 @@ bool ModuleStageClear::Start()
 
 	graphics = App->textures->Load("Images/stage_clear2.png");
 
-	music_stage_clear = App->audio->LoadMusic("Music/06_Stage_Clear.ogg");
+	music_stage_clear = App->audio->LoadMusic("Music/Songs/06_Stage_Clear.ogg");
 
 	App->audio->PlayMusic(music_stage_clear,-1,1);
 

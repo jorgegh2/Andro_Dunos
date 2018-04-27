@@ -213,19 +213,19 @@ bool Level01::Start()
 
 	xstop = false;
 	i[0] = i[1] = i[2] = i[3] = i[4] = i[5] = i[6] = i[7] = 0;
-	background = App->textures->Load("Images/Background1.png");
-	layout[0] = App->textures->Load("Images/layout1.png");
-	layout[1] = App->textures->Load("Images/layout2.png");
-	layout[2] = App->textures->Load("Images/layout3.png");
-	layout[3] = App->textures->Load("Images/layout4.png");
-	layout[4] = App->textures->Load("Images/layout5.png");
-	layout[5] = App->textures->Load("Images/layout6.png");
-	mars = App->textures->Load("Images/mars.png");
-	stars = App->textures->Load("Images/stars.png");
-	underground_tile = App->textures->Load("Images/under_tile.png");
-	start_under = App->textures->Load("Images/start_under.png");
-	end_under = App->textures->Load("Images/end_under.png");
-	music_level01 = App->audio->LoadMusic("Music/04_Stage_1 -The Moon-Loop.ogg");
+	background = App->textures->Load("Images/Level01/Background1.png");
+	layout[0] = App->textures->Load("Images/Level01/layout1.png");
+	layout[1] = App->textures->Load("Images/Level01/layout2.png");
+	layout[2] = App->textures->Load("Images/Level01/layout3.png");
+	layout[3] = App->textures->Load("Images/Level01/layout4.png");
+	layout[4] = App->textures->Load("Images/Level01/layout5.png");
+	layout[5] = App->textures->Load("Images/Level01/layout6.png");
+	mars = App->textures->Load("Images/Level01/mars.png");
+	stars = App->textures->Load("Images/Level01/stars.png");
+	underground_tile = App->textures->Load("Images/Level01/under_tile.png");
+	start_under = App->textures->Load("Images/Level01/start_under.png");
+	end_under = App->textures->Load("Images/Level01/end_under.png");
+	music_level01 = App->audio->LoadMusic("Music/Songs/04_Stage_1 -The Moon-Loop.ogg");
 	App->audio->PlayMusic(music_level01);
 
 	return true;
