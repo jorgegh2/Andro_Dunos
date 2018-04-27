@@ -63,6 +63,9 @@ update_status ModuleRender::Update()
 	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 		camera.x -= speed * SCREEN_SIZE;
 		*/
+
+	SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+
 	return update_status::UPDATE_CONTINUE;
 }
 

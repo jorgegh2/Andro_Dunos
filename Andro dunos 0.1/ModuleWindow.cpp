@@ -57,6 +57,8 @@ bool ModuleWindow::Init()
 		}
 	}
 
+	if(!SDL_SetWindowFullscreen(window, WINDOW_FULLSCREEN_DESKTOP)) LOG("Window could not be in fullscreen! SDL_Error: %s\n", SDL_GetError());
+
 	return ret;
 }
 
