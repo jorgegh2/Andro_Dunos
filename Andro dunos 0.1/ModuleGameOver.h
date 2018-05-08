@@ -6,6 +6,8 @@
 #include "Globals.h"
 #include "SDL_mixer\include\SDL_mixer.h"
 
+#define ZONE_GO_SIZE 256
+
 struct SDL_Texture;
 
 class ModuleGameOver : public Module
@@ -25,6 +27,10 @@ public:
 	Mix_Music* music_go = nullptr;
 	Animation* current_animation = nullptr;
 	Animation gm_over;
+
+	int x;
+	int y;
+	bool loop = true;
 
 };
 

@@ -55,21 +55,10 @@ bool ModuleViscoGames::CleanUp()
 {
 	LOG("Unloading game intro scene");
 
-	// Reposition visco games
-	v.x = 57;
-	v.y = 224;
-	v.w = 189;
-	v.h = 39;
-
-	g.x = 40;
-	g.y = -40;
-	g.w = 223;
-	g.h = 39;
-
-	time_passed = 0;
-
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics2);
+
+	time_passed = 0;
 
 	return true;
 }
@@ -88,13 +77,17 @@ update_status ModuleViscoGames::Update()
 {
 	time_passed = SDL_GetTicks() - time_init;
 
+	// problem with the camera maybe...
+
 	if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN && App->fade->IsFading() == false)
 	{
 	App->fade->FadeToBlack(this, (Module*)App->insert_coin);
 	}
 
-	v.y -= speedY;
-	g.y += speedY;
+	if (movX == false) {
+		v.y -= speedY;
+		g.y += speedY;
+	}
 
 	if (v.y < 73)
 	{

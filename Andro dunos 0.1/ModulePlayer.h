@@ -46,11 +46,6 @@ public:
 	bool destroyed = false;
 	bool god_mode = false;
 
-	uint life = 3;
-	uint time_final = 0;
-	uint time_init = 0;
-	bool time_finished = true;
-
 	Collider* c_player = nullptr;
 
 private:

@@ -21,14 +21,17 @@ public:
 
 public:
 
-	SDL_Texture * graphics = nullptr; // neo geo
+	SDL_Texture* graphics = nullptr; // neo geo
 	SDL_Texture* graphics2 = nullptr; // text
 	SDL_Texture* graphics3 = nullptr; // snk
+	SDL_Texture* graphics4 = nullptr; // copyright
 	Mix_Music* music_intro = nullptr;
 	Animation* current_animation = nullptr; // neo geo
 	Animation* current_animation2 = nullptr; // snk
+	Animation* current_animation3 = nullptr; // copyright
 	Animation neo_geo;
 	Animation snk;
+	Animation c;
 
 	int time_init = 0;
 	int time_passed = 0;

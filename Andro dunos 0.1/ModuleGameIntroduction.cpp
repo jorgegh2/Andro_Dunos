@@ -87,6 +87,7 @@ ModuleGameIntroduction::ModuleGameIntroduction()
 	snk.PushBack({ 171, 164, 72, 19 });
 	snk.loop = false;
 	snk.speed = 0.4f;
+
 }
 
 ModuleGameIntroduction::~ModuleGameIntroduction()
@@ -104,18 +105,17 @@ bool ModuleGameIntroduction::Start()
 	graphics = App->textures->Load("Images/ng_anim.png");
 	graphics2 = App->textures->Load("Images/max_330.png");
 	graphics3 = App->textures->Load("Images/snk_animation.png");
+	graphics4 = App->textures->Load("Images/copyright.png");
 
 	music_intro = App->audio->LoadMusic("Music/Songs/01_Neo_Geo_Logo.ogg");
 
 	App->audio->PlayMusic(music_intro,-1,1);
 
 	App->render->camera.x = App->render->camera.y = 0;
-	time_passed = 0;
 
 	// time code
 	time_init = SDL_GetTicks();
 	time_passed = 0;
-
 	
 	return ret;
 }
@@ -132,6 +132,9 @@ bool ModuleGameIntroduction::CleanUp()
 	App->audio->UnloadMusic(music_intro);
 
 	change_bg = false;
+
+	neo_geo.Reset();
+	snk.Reset();
 
 	// Reset time counter
 	time_passed = 0;
@@ -176,6 +179,10 @@ update_status ModuleGameIntroduction::Update()
 
 	if (time_passed > 2500)
 		App->render->Blit(graphics3, 112, 170, &(current_animation2->GetCurrentFrame()));
+
+	if (time_passed > 3500)
+		App->render->Blit(graphics4, 257, 50, NULL);
+
 
 	if ((time_passed > 5000 || App->input->keyboard[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN) && App->fade->IsFading() == false)
 	{

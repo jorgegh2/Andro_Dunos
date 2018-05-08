@@ -283,10 +283,11 @@ update_status ModulePlayer::Update()
 			if (god_mode)
 				god_mode = false;
 			else god_mode = true;
-		}
 
-			
-		
+			c_player->SetPos(-100, -100);
+			if (App->player2->IsEnabled() == true)
+			App->player2->c_player2->SetPos(-100, -100);
+		}
 
 		if (!god_mode)
 		{
@@ -295,32 +296,18 @@ update_status ModulePlayer::Update()
 
 			c_player->SetPos(position.x, position.y);
 		}
-		else
-		{
-			c_player->SetPos(-100, -100);
-			if (App->player2->IsEnabled() == true)
-				App->player2->c_player2->SetPos(-100, -100);
-		}
 
 			
-		if (time_finished == false) 
-		{
-			time_final = SDL_GetTicks() - time_init;
-			if (time_final >= 5000/*tiempo random, hay que cambiarlo*/)
-			{
-				time_finished = true;
-				god_mode = false;
-			}
-						
-		}
-		
-
+			
+			
 
 			
 				
 			// Draw everything --------------------------------------
+		if (destroyed == false) {
 			App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 			App->render->Blit(graphics, position.x - 12, position.y + 8, &(anim_turbo->GetCurrentFrame()));
+		}
 		if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false)
 		{
 			App->player2->Enable();
@@ -339,17 +326,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		//code
 		App->audio->PlaySoundEffect(player_death);
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
-		life--;
-		time_init = SDL_GetTicks();
-		time_final = 0;
-		time_finished = false;
-		god_mode = true;
-		if (life == 0) {
-			App->player->Disable();
-			App->fade->FadeToBlack(App->level01, App->game_over, 1);
-			
-		}
-	//destroyed = true;
-
+		App->player->Disable();
+		App->fade->FadeToBlack(App->level01, App->game_over, 1);
+		destroyed = true;
 	}
 }
