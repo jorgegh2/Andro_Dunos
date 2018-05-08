@@ -96,7 +96,7 @@ bool ModulePlayer::Start()
 	position.y = 0;
 	location.x = 100;
 	location.y = 100;
-
+	life = 3;
 	return ret;
 }
 
@@ -305,8 +305,8 @@ update_status ModulePlayer::Update()
 	if (time_finished == false)
 	{
 		time_final = SDL_GetTicks() - time_init;
-		if (time_final <= 2000) {
-			location.x +=0.5;
+		if (time_final <= 1000) {
+			location.x +=1;
 			position.x = App->render->camera.x / SCREEN_SIZE + location.x;
 			position.y = App->render->camera.y / SCREEN_SIZE + location.y;
 		}
@@ -315,9 +315,8 @@ update_status ModulePlayer::Update()
 			position.y = App->render->camera.y / SCREEN_SIZE + location.y;
 		}
 		
-		
 	
-		if (time_final >= 5000/*tiempo random, hay que cambiarlo*/)
+		if (time_final >= 4000/*tiempo random, hay que cambiarlo*/)
 		{
 			time_finished = true;
 			god_mode = false;
@@ -363,7 +362,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		god_mode = true;
 		position.x = App->render->camera.x / SCREEN_SIZE;
 		position.y = App->render->camera.y / SCREEN_SIZE;
-		location.x = 0;
+		location.x = -SHIP_WIDTH;
 		location.y = 100;
 		if (life == 0) {
 			App->player->Disable();
