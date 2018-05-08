@@ -87,7 +87,7 @@ bool ModulePlayer::Start()
 	laser_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-3_(Main_Ships).wav");
 	basic_attack_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-1_(Main_Ships).wav");
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
-	destroyed = false;
+	
 	player_death = App->audio->LoadSoundEffect("Music/Sounds_effects/Player_Death_Explosion.wav");
 	change_weapon_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type_CHANGE.wav");
 	god_mode = false;
@@ -118,8 +118,7 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	position.x = App->render->camera.x / SCREEN_SIZE + location.x;
-	position.y = App->render->camera.y / SCREEN_SIZE + location.y;
+
 
 	anim_turbo = &turbo_idle;
 
@@ -306,16 +305,34 @@ update_status ModulePlayer::Update()
 	if (time_finished == false)
 	{
 		time_final = SDL_GetTicks() - time_init;
+		if (time_final <= 2000) {
+			location.x +=0.5;
+			position.x = App->render->camera.x / SCREEN_SIZE + location.x;
+			position.y = App->render->camera.y / SCREEN_SIZE + location.y;
+		}
+		else {
+			position.x = App->render->camera.x / SCREEN_SIZE + location.x;
+			position.y = App->render->camera.y / SCREEN_SIZE + location.y;
+		}
+		
+		
+	
 		if (time_final >= 5000/*tiempo random, hay que cambiarlo*/)
 		{
 			time_finished = true;
 			god_mode = false;
 		}
+		
 
 	}
+	
+	
+	else {
+		position.x = App->render->camera.x / SCREEN_SIZE + location.x;
+		position.y = App->render->camera.y / SCREEN_SIZE + location.y;
+	}
 
-
-
+	
 
 
 	// Draw everything --------------------------------------
@@ -344,12 +361,14 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		time_final = 0;
 		time_finished = false;
 		god_mode = true;
+		position.x = App->render->camera.x / SCREEN_SIZE;
+		position.y = App->render->camera.y / SCREEN_SIZE;
+		location.x = 0;
+		location.y = 100;
 		if (life == 0) {
 			App->player->Disable();
 			App->fade->FadeToBlack(App->level01, App->game_over, 1);
 
 		}
-		//destroyed = true;
-
 	}
 }

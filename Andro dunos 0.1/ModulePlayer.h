@@ -42,7 +42,7 @@ public:
 	Mix_Chunk* change_weapon_sound = nullptr;
 
 	iPoint position;
-	iPoint location;
+	fPoint location;
 	bool destroyed = false;
 	bool god_mode = false;
 

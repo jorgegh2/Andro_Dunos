@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
+#include "ModulePlayer.h"
 
 
 ModuleUI::ModuleUI(){}
@@ -32,8 +33,9 @@ update_status ModuleUI::Update()
 	//HUD
 	App->render->Blit(UI, 5, 16, NULL, 0.0f, false);
 	//lifes
-	App->render->Blit(Life_texture1, 10, 24, NULL, 0.0f, false);
-	App->render->Blit(Life_texture1, 19, 24, NULL, 0.0f, false);
+	if(App->player->life >= 2) App->render->Blit(Life_texture1, 10, 24, NULL, 0.0f, false);
+	
+	if (App->player->life == 3) App->render->Blit(Life_texture1, 19, 24, NULL, 0.0f, false);
 	
 
 	return UPDATE_CONTINUE;
