@@ -51,7 +51,7 @@ ModulePlayer::ModulePlayer()
 	// Turbo
 
 	turbo_idle.PushBack({ 73, 116, 12, 5 });
-	turbo_idle.PushBack({ 61, 116, 12, 5});
+	turbo_idle.PushBack({ 61, 116, 12, 5 });
 	turbo_idle.PushBack({ 42, 116, 12, 5 });
 	turbo_idle.loop = true;
 	turbo_idle.speed = 0.8f;
@@ -61,7 +61,7 @@ ModulePlayer::ModulePlayer()
 	turbo_up.PushBack({ 42, 66, 12, 10 });
 	turbo_down.loop = true;
 	turbo_down.speed = 0.5f;*/
-	
+
 	/*
 	turbo_up.PushBack({ 73, 91, 12, 8 });
 	turbo_up.PushBack({ 59, 91, 12, 8 });
@@ -118,204 +118,217 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-		position.x = App->render->camera.x / SCREEN_SIZE + location.x;
-		position.y = App->render->camera.y / SCREEN_SIZE + location.y;
+	position.x = App->render->camera.x / SCREEN_SIZE + location.x;
+	position.y = App->render->camera.y / SCREEN_SIZE + location.y;
 
-		anim_turbo = &turbo_idle;
+	anim_turbo = &turbo_idle;
 
-		int speed = 2;
+	int speed = 2;
 
-		if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
+	if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
+	{
+		location.x -= speed;
+	}
+
+	if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
+	{
+		location.x += speed;
+	}
+
+	if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
+	{
+		location.y += speed;
+		if (current_animation != &down)
 		{
-			location.x -= speed;
+			down.Reset();
+			current_animation = &down;
+		}
+	}
+
+	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_UP)
+		if (current_animation != &downback)
+		{
+			downback.Reset();
+			current_animation = &downback;
+
 		}
 
-		if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
+	if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
+	{
+		location.y -= speed;
+		if (current_animation != &up)
 		{
-			location.x += speed;
+			up.Reset();
+			current_animation = &up;
+			anim_turbo = &turbo_up;
+		}
+	}
+
+	else if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP)
+		if (current_animation != &upback)
+		{
+			upback.Reset();
+			current_animation = &upback;
+			anim_turbo = &turbo_up;
 		}
 
-		if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
-		{
-			location.y += speed;
-			if (current_animation != &down)
-			{
-				down.Reset();
-				current_animation = &down;
-			}
+
+	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN)
+	{
+		switch (change_weapon) {
+
+		case CHANGE_WEAPON::BASIC_ATTACK:
+			change_weapon = CHANGE_WEAPON::LASER;
+			App->audio->PlaySoundEffect(change_weapon_sound);
+
+			break;
+
+		case CHANGE_WEAPON::LASER:
+			change_weapon = CHANGE_WEAPON::BASIC_ATTACK;
+			App->audio->PlaySoundEffect(change_weapon_sound);
+
+			break;
 		}
+	}
 
-		else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_UP)
-			if (current_animation != &downback)
-			{
-				downback.Reset();
-				current_animation = &downback;
-				
-			}
 
-		if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
-		{
-			location.y -= speed;
-			if (current_animation != &up)
-			{
-				up.Reset();
-				current_animation = &up;
-				anim_turbo = &turbo_up;
-			}
+	// POWERUP
+	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN)
+	{
+		switch (power_up) {
+
+		case POWER_UPS::POWER_UP_BASIC:
+			power_up = POWER_UPS::POWER_UP_1;
+			break;
+
+		case POWER_UPS::POWER_UP_1:
+			power_up = POWER_UPS::POWER_UP_2;
+			break;
+
+		case POWER_UPS::POWER_UP_2:
+			power_up = POWER_UPS::POWER_UP_BASIC;
+			break;
 		}
-
-		else if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP)
-			if (current_animation != &upback)
-			{
-				upback.Reset();
-				current_animation = &upback;
-				anim_turbo = &turbo_up;
-			}
-
-
-		if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN)
-		{
+	}
+	//
+	//////////
+	// Shoot 
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+	{
+		switch (power_up) {
+		case POWER_UPS::POWER_UP_BASIC:
 			switch (change_weapon) {
 
 			case CHANGE_WEAPON::BASIC_ATTACK:
-				change_weapon = CHANGE_WEAPON::LASER;
-				App->audio->PlaySoundEffect(change_weapon_sound);
-
+				App->particles->AddParticle(App->particles->basic_shoot_0_down, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->basic_shoot_0_up, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(basic_attack_sound);
+				//App->UI->score += 100;
 				break;
 
 			case CHANGE_WEAPON::LASER:
-				change_weapon = CHANGE_WEAPON::BASIC_ATTACK;
-				App->audio->PlaySoundEffect(change_weapon_sound);
-
+				App->particles->AddParticle(App->particles->laser_0, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(laser_sound);
 				break;
 			}
-		}
 
+			break;
 
-		// POWERUP
-		if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN)
-		{
-			switch (power_up) {
+		case POWER_UPS::POWER_UP_1:
+			switch (change_weapon) {
 
-			case POWER_UPS::POWER_UP_BASIC:
-				power_up = POWER_UPS::POWER_UP_1;
+			case CHANGE_WEAPON::BASIC_ATTACK:
+				App->particles->AddParticle(App->particles->basic_shoot_1_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->basic_shoot_1_up, position.x + 20, position.y + 4, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->basic_shoot_1, position.x + 26, position.y + 10, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(basic_attack_sound);
 				break;
 
-			case POWER_UPS::POWER_UP_1:
-				power_up = POWER_UPS::POWER_UP_2;
-				break;
-
-			case POWER_UPS::POWER_UP_2:
-				power_up = POWER_UPS::POWER_UP_BASIC;
+			case CHANGE_WEAPON::LASER:
+				App->particles->AddParticle(App->particles->laser_1, position.x + 12, position.y - 2, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(laser_sound);
 				break;
 			}
-		}
-		//
-		//////////
-		// Shoot 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
-		{
-			switch (power_up) {
-			case POWER_UPS::POWER_UP_BASIC:
-				switch (change_weapon) {
 
-				case CHANGE_WEAPON::BASIC_ATTACK:
-					App->particles->AddParticle(App->particles->basic_shoot_0_down, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->basic_shoot_0_up, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
-					App->audio->PlaySoundEffect(basic_attack_sound);
-					//App->UI->score += 100;
-					break;
+			break;
 
-				case CHANGE_WEAPON::LASER:
-					App->particles->AddParticle(App->particles->laser_0, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlaySoundEffect(laser_sound);
-					break;
-				}
+		case POWER_UPS::POWER_UP_2:
+			switch (change_weapon) {
 
+			case CHANGE_WEAPON::BASIC_ATTACK:
+				App->particles->AddParticle(App->particles->basic_shoot_2_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->basic_shoot_2_up, position.x + 20, position.y + 2, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->basic_shoot_2, position.x + 20, position.y + 9, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(basic_attack_sound);
 				break;
 
-			case POWER_UPS::POWER_UP_1:
-				switch (change_weapon) {
-
-				case CHANGE_WEAPON::BASIC_ATTACK:
-					App->particles->AddParticle(App->particles->basic_shoot_1_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->basic_shoot_1_up, position.x + 20, position.y + 4, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->basic_shoot_1, position.x + 26, position.y + 10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlaySoundEffect(basic_attack_sound);
-					break;
-
-				case CHANGE_WEAPON::LASER:
-					App->particles->AddParticle(App->particles->laser_1, position.x + 12, position.y-2, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
-					App->audio->PlaySoundEffect(laser_sound);
-					break;
-				}
-
+			case CHANGE_WEAPON::LASER:
+				App->particles->AddParticle(App->particles->laser_1, position.x + 12, position.y - 2, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_2, position.x + 5, position.y - 2, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->laser_2_5, position.x + 5, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(laser_sound);
 				break;
-
-			case POWER_UPS::POWER_UP_2:
-				switch (change_weapon) {
-
-				case CHANGE_WEAPON::BASIC_ATTACK:
-					App->particles->AddParticle(App->particles->basic_shoot_2_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->basic_shoot_2_up, position.x + 20, position.y + 2, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->basic_shoot_2, position.x + 20, position.y + 9, COLLIDER_PLAYER_SHOT);
-					App->audio->PlaySoundEffect(basic_attack_sound);
-					break;
-
-				case CHANGE_WEAPON::LASER:
-					App->particles->AddParticle(App->particles->laser_1, position.x + 12, position.y-2, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_2, position.x + 5, position.y-2, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_2_5, position.x + 5, position.y + 7, COLLIDER_PLAYER_SHOT);
-					App->audio->PlaySoundEffect(laser_sound);
-					break;
-				}
-
-				break;
-
 			}
+
+			break;
+
 		}
+	}
 
-		//GOD MODE
+	//GOD MODE
 
-		if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
-			if (god_mode)
-				god_mode = false;
-			else god_mode = true;
+	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+		if (god_mode)
+			god_mode = false;
+		else god_mode = true;
+	}
 
-			c_player->SetPos(-100, -100);
-			if (App->player2->IsEnabled() == true)
-			App->player2->c_player2->SetPos(-100, -100);
-		}
 
-		if (!god_mode)
-		{
-			if (App->player2->IsEnabled() == true)
+
+
+	if (!god_mode)
+	{
+		if (App->player2->IsEnabled() == true)
 			App->player2->c_player2->SetPos(App->player2->position.x, App->player2->position.y);
 
-			c_player->SetPos(position.x, position.y);
-		}
+		c_player->SetPos(position.x, position.y);
+	}
+	else
+	{
+		c_player->SetPos(-100, -100);
+		if (App->player2->IsEnabled() == true)
+			App->player2->c_player2->SetPos(-100, -100);
+	}
 
-			
-			
-			
 
-			
-				
-			// Draw everything --------------------------------------
-		if (destroyed == false) {
-			App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-			App->render->Blit(graphics, position.x - 12, position.y + 8, &(anim_turbo->GetCurrentFrame()));
-		}
-		if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false)
+	if (time_finished == false)
+	{
+		time_final = SDL_GetTicks() - time_init;
+		if (time_final >= 5000/*tiempo random, hay que cambiarlo*/)
 		{
-			App->player2->Enable();
-
+			time_finished = true;
+			god_mode = false;
 		}
 
-		
-	
+	}
+
+
+
+
+
+	// Draw everything --------------------------------------
+	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+	App->render->Blit(graphics, position.x - 12, position.y + 8, &(anim_turbo->GetCurrentFrame()));
+	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false)
+	{
+		App->player2->Enable();
+
+	}
+
+
+
 	return UPDATE_CONTINUE;
 }
 
@@ -326,8 +339,17 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		//code
 		App->audio->PlaySoundEffect(player_death);
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
-		App->player->Disable();
-		App->fade->FadeToBlack(App->level01, App->game_over, 1);
-		destroyed = true;
+		life--;
+		time_init = SDL_GetTicks();
+		time_final = 0;
+		time_finished = false;
+		god_mode = true;
+		if (life == 0) {
+			App->player->Disable();
+			App->fade->FadeToBlack(App->level01, App->game_over, 1);
+
+		}
+		//destroyed = true;
+
 	}
 }
