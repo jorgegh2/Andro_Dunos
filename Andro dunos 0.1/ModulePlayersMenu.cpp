@@ -134,7 +134,7 @@ update_status ModulePlayersMenu::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_1] == KEY_DOWN) 
 	{
-		Mix_VolumeChunk(coin, MIX_MAX_VOLUME);
+		//Mix_VolumeChunk(coin, MIX_MAX_VOLUME);
 		App->audio->PlaySoundEffect(coin);
 		cr++;
 	}
