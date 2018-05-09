@@ -69,7 +69,7 @@ update_status ModuleInsertCoin::Update()
 
 	App->render->Blit(graphics, 104, 120, &i_coin);
 
-	if (App->input->keyboard[SDL_SCANCODE_1] == KEY_DOWN && App->fade->IsFading() == false)
+	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN && App->fade->IsFading() == false)
 	{
 		//Mix_VolumeChunk(coin, MIX_MAX_VOLUME);
 		App->audio->PlaySoundEffect(coin);

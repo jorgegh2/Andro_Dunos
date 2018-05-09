@@ -132,7 +132,7 @@ update_status ModulePlayersMenu::PreUpdate()
 update_status ModulePlayersMenu::Update()
 {
 
-	if (App->input->keyboard[SDL_SCANCODE_1] == KEY_DOWN) 
+	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN) 
 	{
 		//Mix_VolumeChunk(coin, MIX_MAX_VOLUME);
 		App->audio->PlaySoundEffect(coin);
@@ -166,14 +166,14 @@ update_status ModulePlayersMenu::Update()
 		App->player2->Two_Players = false;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN && App->fade->IsFading() == false && cr >= 1)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false && cr >= 1)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
 		App->player2->Two_Players = false;
 		cr--;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false && cr > 1)
+	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN && App->fade->IsFading() == false && cr > 1)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
 		App->player2->Two_Players = true;

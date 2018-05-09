@@ -97,18 +97,21 @@ CITM Terrassa 2018. Degree in videogame design and developement.
 
 ## Controls
 
-Player 1 move: arrow keys
-Player 1 shot: space
+Player 1 move: W, A, S, D.
+Player 1 shot: SPACE
 X: POWER UP
 C: CHANGE WEAPON
 
-f8 change scene
-1: insert coin
+Player 2 move: ARROW KEYS.
+Shot: RIGHT CTRL
+POWER UP: O
+CHANGE WEAPON: P
 
-1 player mode: space
-2 player mode: backspace
 
-Player 2 move: w, a, s, d
-Shot: f
-G: CHANGE WEAPON
-H: POWER UP
+Insert Coin: F1
+1 player mode: SPACE
+2 player mode: F2
+Colliders: F3
+Stage Clear: F4
+Game Over: F5
+Change Scene: F8

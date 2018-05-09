@@ -97,17 +97,17 @@ update_status ModulePlayer2::Update()
 
 	int speed = 2;
 
-	if ((App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
+	if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
 	{
 		location.x -= speed;
 	}
 
-	if ((App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
+	if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
 	{
 		location.x += speed;
 	}
 
-	if ((App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
+	if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
 	{
 		location.y += speed;
 		if (current_animation != &down)
@@ -117,14 +117,14 @@ update_status ModulePlayer2::Update()
 		}
 	}
 
-	else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP)
+	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_UP)
 		if (current_animation != &downback)
 		{
 			downback.Reset();
 			current_animation = &downback;
 		}
 
-	if ((App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
+	if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
 	{
 		location.y -= speed;
 		if (current_animation != &up)
@@ -134,7 +134,7 @@ update_status ModulePlayer2::Update()
 		}
 	}
 
-	else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP)
+	else if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP)
 		if (current_animation != &upback)
 		{
 			upback.Reset();
@@ -142,7 +142,7 @@ update_status ModulePlayer2::Update()
 		}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_O] == KEY_STATE::KEY_DOWN)
 	{
 		switch (change_weapon) {
 
@@ -162,7 +162,7 @@ update_status ModulePlayer2::Update()
 
 
 	// POWERUP
-	if (App->input->keyboard[SDL_SCANCODE_H] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN)
 	{
 		switch (power_up) {
 
@@ -182,7 +182,7 @@ update_status ModulePlayer2::Update()
 	//
 	//////////
 	// Shoot 
-	if (App->input->keyboard[SDL_SCANCODE_F] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN)
 	{
 		switch (power_up) {
 		case POWER_UPS::POWER_UP_BASIC:

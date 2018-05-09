@@ -124,17 +124,17 @@ update_status ModulePlayer::Update()
 
 	int speed = 2;
 
-	if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
+	if ((App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
 	{
 		location.x -= speed;
 	}
 
-	if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
+	if ((App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
 	{
 		location.x += speed;
 	}
 
-	if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
+	if ((App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
 	{
 		location.y += speed;
 		if (current_animation != &down)
@@ -144,7 +144,7 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_UP)
+	else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP)
 		if (current_animation != &downback)
 		{
 			downback.Reset();
@@ -152,7 +152,7 @@ update_status ModulePlayer::Update()
 
 		}
 
-	if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
+	if ((App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
 	{
 		location.y -= speed;
 		if (current_animation != &up)
@@ -163,7 +163,7 @@ update_status ModulePlayer::Update()
 		}
 	}
 
-	else if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP)
+	else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP)
 		if (current_animation != &upback)
 		{
 			upback.Reset();
