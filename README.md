@@ -1,4 +1,4 @@
-# Andro Dunos
+﻿# Andro Dunos
 
 This project is a tribute to the game **_Andro Dunos_**, released in 1992 for the Neo Geo by Visco Corporation.      
 We are a team of four students of CITM in terrassa (Catalonia/Spain), and we are Goosebump Games.
@@ -115,3 +115,4 @@ Colliders: F3
 Stage Clear: F4
 Game Over: F5
 Change Scene: F8
+God mode: F6

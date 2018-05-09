@@ -278,14 +278,11 @@ update_status ModulePlayer::Update()
 
 	//GOD MODE
 
-	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) {
 		if (god_mode)
 			god_mode = false;
 		else god_mode = true;
 	}
-
-
-
 
 	if (!god_mode)
 	{
