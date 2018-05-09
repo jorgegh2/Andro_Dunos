@@ -106,7 +106,7 @@ f8 change scene
 1: insert coin
 
 1 player mode: space
-2 player mdoe: backspace
+2 player mode: backspace
 
 Player 2 move: w, a, s, d
 Shot: f
