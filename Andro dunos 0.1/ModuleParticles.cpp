@@ -127,6 +127,20 @@ ModuleParticles::ModuleParticles()
 	laser_2_5.speed.y = 3;
 	laser_2_5.life = 3000;
 
+	//Disparo_trasero_0
+	back_shoot_0.anim.PushBack({ 3, 8, 15, 5 });
+	back_shoot_0.anim.loop = false;
+	back_shoot_0.anim.speed = 0.3f;
+	back_shoot_0.speed.x = 4;
+	back_shoot_0.life = 3000;
+
+	//Disparo_trasero_1
+	back_shoot_1.anim.PushBack({ 3, 23, 15, 5 });
+	back_shoot_1.anim.loop = false;
+	back_shoot_1.anim.speed = 0.3f;
+	back_shoot_1.speed.x = -3;
+	back_shoot_1.life = 3000;
+
 
 	// Explosion ship
 	explosion.anim.PushBack({ 33, 19, 35, 35 });

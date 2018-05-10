@@ -105,13 +105,13 @@ update_status ModuleInput::PreUpdate()
 
 update_status ModuleInput::Update()
 {
-	if (App->input->keyboard[SDL_SCANCODE_F4] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_F6] == 1)
 	{
 		App->level01->Enable();
 		App->player->Enable();
 		App->stage_clear->Enable();
 	}
-	if (App->input->keyboard[SDL_SCANCODE_F5] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_F7] == 1)
 		App->game_over->Enable();
 
 	return update_status::UPDATE_CONTINUE;

@@ -64,7 +64,7 @@ update_status ModuleRender::Update()
 		camera.x -= speed * SCREEN_SIZE;
 		*/
 
-	//SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+	SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	return update_status::UPDATE_CONTINUE;
 }

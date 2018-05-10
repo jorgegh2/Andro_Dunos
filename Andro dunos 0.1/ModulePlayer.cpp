@@ -203,48 +203,6 @@ update_status ModulePlayer::Update()
 		}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN || change == true)
-	{
-		change = false;
-		switch (change_weapon) {
-
-		case CHANGE_WEAPON::BASIC_ATTACK:
-			change_weapon = CHANGE_WEAPON::LASER;
-			App->audio->PlaySoundEffect(change_weapon_sound);
-
-			break;
-
-		case CHANGE_WEAPON::LASER:
-			change_weapon = CHANGE_WEAPON::BASIC_ATTACK;
-			App->audio->PlaySoundEffect(change_weapon_sound);
-
-			break;
-		}
-	}
-
-
-	// POWERUP
-	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || powerup == true)
-	{
-		powerup = false;
-		switch (power_up) {
-
-		case POWER_UPS::POWER_UP_BASIC:
-			power_up = POWER_UPS::POWER_UP_1;
-			break;
-
-		case POWER_UPS::POWER_UP_1:
-			power_up = POWER_UPS::POWER_UP_2;
-			break;
-
-		case POWER_UPS::POWER_UP_2:
-			power_up = POWER_UPS::POWER_UP_BASIC;
-			break;
-		}
-	}
-	//
-	//////////
-
 	// Player controls input
 
 	/* pressed */
@@ -279,6 +237,53 @@ update_status ModulePlayer::Update()
 		b_pressed = false;
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN || change == true)
+	{
+		change = false;
+		switch (change_weapon) {
+
+		case CHANGE_WEAPON::BASIC_ATTACK:
+			change_weapon = CHANGE_WEAPON::LASER;
+			App->audio->PlaySoundEffect(change_weapon_sound);
+
+			break;
+
+		case CHANGE_WEAPON::LASER:
+			change_weapon = CHANGE_WEAPON::BACK_SHOOT;
+			App->audio->PlaySoundEffect(change_weapon_sound);
+
+			break;
+
+		case CHANGE_WEAPON::BACK_SHOOT:
+			change_weapon = CHANGE_WEAPON::BASIC_ATTACK;
+			App->audio->PlaySoundEffect(change_weapon_sound);
+
+			break;
+		}
+	}
+
+
+	// POWERUP
+	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || powerup == true)
+	{
+		powerup = false;
+		switch (power_up) {
+
+		case POWER_UPS::POWER_UP_BASIC:
+			power_up = POWER_UPS::POWER_UP_1;
+			break;
+
+		case POWER_UPS::POWER_UP_1:
+			power_up = POWER_UPS::POWER_UP_2;
+			break;
+
+		case POWER_UPS::POWER_UP_2:
+			power_up = POWER_UPS::POWER_UP_BASIC;
+			break;
+		}
+	}
+	//
+	//////////
 
 	// Shoot 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || shoot == true)
@@ -297,6 +302,11 @@ update_status ModulePlayer::Update()
 
 			case CHANGE_WEAPON::LASER:
 				App->particles->AddParticle(App->particles->laser_0, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(laser_sound);
+				break;
+
+			case CHANGE_WEAPON::BACK_SHOOT:
+				App->particles->AddParticle(App->particles->back_shoot_0, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
 				App->audio->PlaySoundEffect(laser_sound);
 				break;
 			}
@@ -348,7 +358,7 @@ update_status ModulePlayer::Update()
 
 	//GOD MODE
 
-	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
 		if (god_mode)
 			god_mode = false;
 		else god_mode = true;

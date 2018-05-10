@@ -84,6 +84,9 @@ public:
 	Particle laser_2;
 	Particle laser_2_5;
 
+	Particle back_shoot_0;
+	Particle back_shoot_1;
+
 	Particle enemy15shot;
 
 };
