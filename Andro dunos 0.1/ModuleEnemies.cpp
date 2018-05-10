@@ -8,6 +8,7 @@
 #include "Enemy_01.h"
 #include "Enemy_3.h"
 #include "Enemy15.h"
+#include "Enemy_PowerUp.h"
 #include "UI.h"
 
 
@@ -30,6 +31,7 @@ bool ModuleEnemies::Start()
 	sprites = App->textures->Load("Images/Enemies/1.png");
 	enemy_3 = App->textures->Load("Images/Enemies/3.png");
 	enemy15 = App->textures->Load("Images/Enemies/15.png");
+	enemyPowerUp = App->textures->Load("Images/Enemies/POWER_UP.png");
 
 
 	return true;
@@ -69,6 +71,9 @@ update_status ModuleEnemies::Update()
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr && enemies[i]->Type == 3) enemies[i]->Draw(enemy15);
 
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+		if (enemies[i] != nullptr && enemies[i]->Type == 4) enemies[i]->Draw(enemyPowerUp);
+
 	return UPDATE_CONTINUE;
 }
 
@@ -95,10 +100,11 @@ update_status ModuleEnemies::PostUpdate()
 bool ModuleEnemies::CleanUp()
 {
 	LOG("Freeing all enemies");
-	
+
 	App->textures->Unload(enemy15);
 	App->textures->Unload(enemy_3);
 	App->textures->Unload(sprites);
+	App->textures->Unload(enemyPowerUp);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
@@ -148,9 +154,13 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new Enemy_3(info.x, info.y);
 			enemies[i]->Type = 2;
 			break;
-			case ENEMY_TYPES::ENEMY_15:
+		case ENEMY_TYPES::ENEMY_15:
 			enemies[i] = new Enemy_15(info.x, info.y);
 			enemies[i]->Type = 3;
+			break;
+		case ENEMY_TYPES::ENEMY_POWER_UP:
+			enemies[i] = new Enemy_Power_Up(info.x, info.y);
+			enemies[i]->Type = 4;
 			break;
 		}
 	}
@@ -168,6 +178,6 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			break;
 		}
 	}
-	if(c2->type == COLLIDER_PLAYER_SHOT)
+	if (c2->type == COLLIDER_PLAYER_SHOT)
 		App->UI->score += 100;
 }

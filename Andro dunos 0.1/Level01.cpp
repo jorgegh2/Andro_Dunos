@@ -135,6 +135,7 @@ bool Level01::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1770, 135);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_3, 1780, 155);
 
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_POWER_UP, 600, 100);
 
 	// Colliders ---
 	c_wall[0] = App->collision->AddCollider({ 0, 200, 3000, 35 }, COLLIDER_WALL, nullptr);
