@@ -132,8 +132,9 @@ update_status ModulePlayersMenu::PreUpdate()
 update_status ModulePlayersMenu::Update()
 {
 
-	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN) 
+	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN || coin_inserted == true) 
 	{
+		coin_inserted = false;
 		//Mix_VolumeChunk(coin, MIX_MAX_VOLUME);
 		App->audio->PlaySoundEffect(coin);
 		cr++;
@@ -157,6 +158,24 @@ update_status ModulePlayersMenu::Update()
 	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) == false)
 	{
 		y_pressed = false;
+	}
+
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_UP) && dpad_up == false)
+	{
+		dpad_up = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_UP) == false)
+	{
+		dpad_up = false;
+	}
+
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) && dpad_down == false) 
+	{
+		coin_inserted = true;
+		dpad_down = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == false) {
+		dpad_down = false;
 	}
 
 
@@ -185,7 +204,7 @@ update_status ModulePlayersMenu::Update()
 		cr--;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN && App->fade->IsFading() == false && cr > 1)
+	if ((App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN || dpad_up  == true) && App->fade->IsFading() == false && cr > 1)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
 		App->player2->Two_Players = true;

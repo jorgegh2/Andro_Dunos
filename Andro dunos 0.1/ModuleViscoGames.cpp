@@ -77,9 +77,16 @@ update_status ModuleViscoGames::Update()
 {
 	time_passed = SDL_GetTicks() - time_init;
 
+	// Controller input
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) && y_pressed == false)
+		y_pressed = true;
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) == false)
+		y_pressed = false;
+
+
 	// problem with the camera maybe...
 
-	if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN && App->fade->IsFading() == false)
+	if ((App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN || y_pressed == true) && App->fade->IsFading() == false)
 	{
 	App->fade->FadeToBlack(this, (Module*)App->insert_coin);
 	}

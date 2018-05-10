@@ -33,6 +33,11 @@ public:
 	int speedY = 2;
 	bool movX = false;
 	bool animComplete = false;
+
+	// Controller input
+	bool y_pressed = false;
+
+
 	int time_passed = 0;
 	int time_init = 0;
 

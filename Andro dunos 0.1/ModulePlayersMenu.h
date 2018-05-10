@@ -46,7 +46,10 @@ public:
 	
 
 	// Controller input
-	bool y_pressed = false;
+	bool y_pressed = false;  // 1 player mode
+	bool dpad_up = false;    // 2 players mode
+	bool dpad_down = false;  // insert coin
+	bool coin_inserted = false;  // not infinite coins lol
 
 
 	int time_passed = 0;
