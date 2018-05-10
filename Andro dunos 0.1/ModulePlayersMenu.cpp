@@ -148,6 +148,18 @@ update_status ModulePlayersMenu::Update()
 	App->render->Blit(graphics2, 33, 40, NULL);
 	App->render->Blit(graphics8, 230, 208, NULL);
 
+
+	// Controller input
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) && y_pressed == false)
+	{
+		y_pressed = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) == false)
+	{
+		y_pressed = false;
+	}
+
+
 	// pi
 	if (cr < 2)
 		App->render->Blit(graphics3, 97, 142, &(current_animation2->GetCurrentFrame()));
@@ -166,7 +178,7 @@ update_status ModulePlayersMenu::Update()
 		App->player2->Two_Players = false;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN && App->fade->IsFading() == false && cr >= 1)
+	if (((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN || y_pressed == true) && App->fade->IsFading() == false && cr >= 1))
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
 		App->player2->Two_Players = false;

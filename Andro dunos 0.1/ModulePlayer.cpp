@@ -172,7 +172,7 @@ update_status ModulePlayer::Update()
 		}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN || b_pressed == true)
 	{
 		switch (change_weapon) {
 
@@ -192,7 +192,7 @@ update_status ModulePlayer::Update()
 
 
 	// POWERUP
-	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || x_pressed == true)
 	{
 		switch (power_up) {
 
@@ -211,8 +211,41 @@ update_status ModulePlayer::Update()
 	}
 	//
 	//////////
+
+	// Player controls input
+
+	/* pressed */
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_A) && a_pressed == false)
+	{
+		a_pressed = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_X) && x_pressed == false)
+	{
+		x_pressed = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_B) && b_pressed == false)
+	{
+		b_pressed = true;
+	}
+
+	/*not pressed*/
+
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_A) == false)
+	{
+		a_pressed = false;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_X) == false)
+	{
+		x_pressed = false;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_B) == false)
+	{
+		b_pressed = false;
+	}
+
+
 	// Shoot 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || a_pressed == true)
 	{
 		switch (power_up) {
 		case POWER_UPS::POWER_UP_BASIC:

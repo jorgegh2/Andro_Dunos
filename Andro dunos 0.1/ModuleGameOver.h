@@ -28,6 +28,10 @@ public:
 	Animation* current_animation = nullptr;
 	Animation gm_over;
 
+	// Controller input
+	bool y_pressed = false;
+
+
 	int x;
 	int y;
 	bool loop = true;

@@ -26,6 +26,10 @@ public:
 	Animation* current_animation = nullptr;
 	Animation stg_clear;
 
+	// Controller input
+	bool y_pressed = false;
+
+
 	int time_init = 0;
 	int time_passed = 0;
 };

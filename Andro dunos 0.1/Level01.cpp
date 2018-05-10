@@ -286,6 +286,16 @@ update_status Level01::Update()
 	}
 	
 
+	// Controllers input
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) && y_pressed == false)
+	{
+		y_pressed = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == false)
+	{
+		y_pressed = false;
+	}
+
 
 	// Draw everything --------------------------------------
 	for (int i = 0; i < 29; ++i) if (!App->render->Blit(background, TILE_WIDTH * i, 120, NULL, 0.6f)) return update_status::UPDATE_ERROR;
@@ -403,7 +413,7 @@ update_status Level01::Update()
 	c_wall[72]->SetPos(8415 + (App->render->camera.x / SCREEN_SIZE) * 0.2f, 184 + (App->render->camera.y / SCREEN_SIZE) * 0.2f);
 	c_wall[73]->SetPos(8655 + (App->render->camera.x / SCREEN_SIZE) * 0.2f, 179 + (App->render->camera.y / SCREEN_SIZE) * 0.2f);
 
-	if (App->input->keyboard[SDL_SCANCODE_F8] == 1 || App->render->camera.x > 11257 * SCREEN_SIZE)
+	if (App->input->keyboard[SDL_SCANCODE_F8] == 1 || y_pressed == true || App->render->camera.x > 11257 * SCREEN_SIZE)
 	{
 		//App->fade->FadeToBlack(this, (Module*)App->stage_clear);
 		App->stage_clear->Enable();

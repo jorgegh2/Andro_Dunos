@@ -53,6 +53,11 @@ public:
 
 	Collider* c_player = nullptr;
 
+	// Vars to check if the buttons are still pressed
+	bool a_pressed = false;
+	bool x_pressed = false;
+	bool b_pressed = false;
+
 private:
 	enum CHANGE_WEAPON
 	{

@@ -45,6 +45,10 @@ public:
 	uint cr = 0;
 	
 
+	// Controller input
+	bool y_pressed = false;
+
+
 	int time_passed = 0;
 	bool change_bg = false;
 };

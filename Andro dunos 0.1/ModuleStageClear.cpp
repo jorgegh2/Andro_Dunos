@@ -138,7 +138,19 @@ update_status ModuleStageClear::Update()
 	time_passed = SDL_GetTicks() - time_init;
 	current_animation = &stg_clear;
 
-	if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN && App->fade->IsFading() == false)
+
+	// Controller input
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) && y_pressed == false)
+	{
+		y_pressed = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == false)
+	{
+		y_pressed = false;
+	}
+
+
+	if ((App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN || y_pressed == true) && App->fade->IsFading() == false)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->game_intro);
 	}

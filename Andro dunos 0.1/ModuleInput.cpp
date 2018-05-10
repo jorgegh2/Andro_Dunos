@@ -31,6 +31,13 @@ bool ModuleInput::Init()
 		ret = false;
 	}
 
+	// Init controller subsystem
+	if (SDL_InitSubSystem(SDL_INIT_GAMECONTROLLER) < 0) {
+
+		LOG("SDL_GAMECONTROLLER could not initialize! SDL_Error: %s\n", SDL_GetError());
+		ret = false;
+	}
+
 	return ret;
 }
 
@@ -63,6 +70,36 @@ update_status ModuleInput::PreUpdate()
 
 	if (keyboard[SDL_SCANCODE_ESCAPE] || e.type == SDL_QUIT) return update_status::UPDATE_STOP;
 
+
+	// Controllers
+
+	if (controller1 == nullptr || controller2 == nullptr) {
+
+		for (int i = 0; i < SDL_NumJoysticks(); ++i) {
+
+			if (SDL_IsGameController(i)) {
+
+				// Controller1
+				controller1 = SDL_GameControllerOpen(i);
+
+				if (controller1 != nullptr) {
+
+					map1 = SDL_GameControllerMapping(controller1);
+				}
+
+				// maybe for controller2 put if i > 0 ?? must see
+				// Controller2
+				controller2 = SDL_GameControllerOpen(i);
+
+				if (controller1 != nullptr) {
+
+					map2 = SDL_GameControllerMapping(controller2);
+				}
+			}
+		}
+	}
+
+
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -85,5 +122,6 @@ bool ModuleInput::CleanUp()
 {
 	LOG("Quitting SDL input event subsystem");
 	SDL_QuitSubSystem(SDL_INIT_EVENTS);
+	SDL_QuitSubSystem(SDL_INIT_GAMECONTROLLER); ////// new, remember
 	return true;
 }

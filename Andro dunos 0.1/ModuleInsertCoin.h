@@ -29,6 +29,10 @@ public:
 	Animation insert_coin1;
 	SDL_Rect i_coin;
 
+	// Controller input
+	bool dpad_down = false;
+
+
 	int time_passed = 0;
 	bool change_bg = false;
 };

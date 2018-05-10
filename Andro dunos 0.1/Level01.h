@@ -34,6 +34,9 @@ public:
 	SDL_Rect star[8];
 	uint i[8];
 	bool xstop;
+
+	// Controller input
+	bool y_pressed = false;
 	
 };
 

@@ -33,6 +33,10 @@ public:
 	Animation snk;
 	Animation c;
 
+	// Controller input
+	bool y_pressed = false;
+
+
 	int time_init = 0;
 	int time_passed = 0;
 	bool change_bg = false;
