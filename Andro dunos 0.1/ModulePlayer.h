@@ -64,6 +64,7 @@ public:
 
 	bool player_up = false;
 	bool player_down = false;
+	bool player_idle = false;
 
 private:
 	enum CHANGE_WEAPON
