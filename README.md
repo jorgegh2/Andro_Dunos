@@ -112,7 +112,7 @@ Insert Coin: F1
 1 player mode: SPACE
 2 player mode: F2
 Colliders: F3
-Stage Clear: F4
-Game Over: F5
+Stage Clear: F6
+Game Over: F7
 Change Scene: F8
-God mode: F6
+God mode: F5
