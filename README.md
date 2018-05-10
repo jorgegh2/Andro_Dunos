@@ -154,6 +154,7 @@ God mode: F5
 
 
 _controller_ (needs to be remapped)(we are aware of an animation error of the ship that only occurs when playing with controller)
+
 A: shot
 
 X: power-up
