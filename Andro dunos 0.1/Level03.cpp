@@ -124,8 +124,8 @@ update_status Level03::Update()
 	}
 	if (App->input->keyboard[SDL_SCANCODE_F8] == 1 || y_pressed == true)
 	{
-		//App->fade->FadeToBlack(this, (Module*)App->stage_clear);
-		App->stage_clear->Enable();
+		App->fade->FadeToBlack(this, (Module*)App->game_intro);
+		
 	}
 
 	return UPDATE_CONTINUE;

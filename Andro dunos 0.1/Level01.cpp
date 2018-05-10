@@ -417,14 +417,14 @@ update_status Level01::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_F8] == 1 || y_pressed == true || App->render->camera.x > 11257 * SCREEN_SIZE)
 	{
-		//App->fade->FadeToBlack(this, (Module*)App->stage_clear);
-		App->stage_clear->Enable();
-	}
-	if (((App->input->keyboard[SDL_SCANCODE_3] == KEY_DOWN) && App->fade->IsFading() == false))
-	{
 		App->fade->FadeToBlack(this, (Module*)App->level03);
-		App->player2->Two_Players = false;
+		//App->player2->Two_Players = false;
 	}
+	
+
+
+
+	// IMPORTANT: TIME OR POSITION CONDITION TO WIN THE STAGE !!! TODO
 
 	return UPDATE_CONTINUE;
 }
