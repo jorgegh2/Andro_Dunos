@@ -1,20 +1,20 @@
-Add/ fix audio.
+General: Add/ fix audio.
 
 0.6:
-	-Arreglar el game over/neo geo/viscogames.						(Gerard)
-	-Arreglar todos los bug actuales.(goblal)						(All)
-	-arreglar animación de la nave del fuego trasero.					(Nadine)
-	-Añadir dos disparos restantes hasta el power up 2 de la nave				(Jorge)
-	-enemigo del power up añadirlo + que suelte el power up.				(Nadine/Jorge)
-	-Arregalr colliders de las balas del jugador de ambos disparos + sus power ups.	(Martí)
-	-Mando.											(Gerard)
-	-UI(vidas + continue)									(Jorge)
-	-Actualizar todos los controles y botones de debug					(Nadine)
+	-Fix game over/neo geo/viscogames.						        (Gerard)
+	-Fix all bugs.					                                        (All)
+	-Fix spaceship turbo.					                                (Nadine)
+	-Add the two left power-ups of the ship				                        (Jorge)
+	-Enemy power-up + throw power-up.			                                (Nadine/Jorge)
+	-Fix all shot colliders + its power-ups.	                                        (Martí)
+	-Gamepad.										(Gerard)
+	-UI(HP + continue).									(Jorge)
+	-Update all player and debug controls.					                (Nadine)
 0.7:
 
-	-Background + Layout without moviment vertical without colliders.		(Martí)
+	-Background + Layout without moviment vertical without colliders.		        (Martí)
 	-Player 1 == Player 2 (completely finished)						(Nadine)
-	- Finish weapon power-ups.(colliders correctamente, solo disparos) (power Up new module)
+	-Finish weapon power-ups.(Correct colliders, only shots) (power-up new module)
 	-Finish UI(including BOTH players score) 
 0.8
 	-Layout with vertical movement
@@ -29,8 +29,8 @@ Add/ fix audio.
 1.0
 	-2/2 Boss (all).
 	-Enemy HP
-	-TESTEO
-	-README, BUILD CHECK, LINK TO WEBPAGE (+ FIX IT), GAMEPLAY DEBUGGING
+	-TESTING !!!
+	-README, BUILD CHECK, LINK TO WEBPAGE (+ FIX IT), GAMEPLAY DEBUGGING !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REMEMBER
 
 
 
