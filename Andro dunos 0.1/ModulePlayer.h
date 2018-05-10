@@ -62,6 +62,9 @@ public:
 	bool change = false; // so that the player does not change weapons forever
 	bool powerup = false;
 
+	bool player_up = false;
+	bool player_down = false;
+
 private:
 	enum CHANGE_WEAPON
 	{
