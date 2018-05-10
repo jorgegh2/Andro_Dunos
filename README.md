@@ -52,7 +52,26 @@ CITM Terrassa 2018. Degree in videogame design and developement.
 
 ## Changelist
 
+### Version 0.6
+
+· Minor bug fixes
+
+· Changed player and debug controls
+
+· Now players can play with a controller/gamepad
+
+· Fixed game over animation
+
+· Fixed neo geo screen
+
+· Level 03 progress started
+
+· UI life counter implemented
+
+· Enemy power-up implemented
+
 ### Version 0.5
+
 . Completed full level 1, with all animations / scenes.
 
 ### Version 0.4.0
@@ -97,23 +116,52 @@ CITM Terrassa 2018. Degree in videogame design and developement.
 
 ## Controls
 
+_keyboard_
+
 Player 1 move: W, A, S, D.
+
 Player 1 shot: SPACE
-X: POWER UP
-C: CHANGE WEAPON
+
+Player 1 power-up: X
+
+Player 1 change weapon: C
+
 
 Player 2 move: ARROW KEYS.
-Shot: RIGHT CTRL
-POWER UP: O
-CHANGE WEAPON: P
 
-Change to level 3: 3
+Player 2 shot: RIGHT CTRL
+
+Player 2 power-up: O
+
+Player 2 change weapon: P
+
 
 Insert Coin: F1
-1 player mode: SPACE
+
+1 player mode: F8
+
 2 player mode: F2
+
 Colliders: F3
-Stage Clear: F6
-Game Over: F7
+
+Instant Stage Clear: F6
+
+Instant Game Over: F7
+
 Change Scene: F8
+
 God mode: F5
+
+
+_controller_ (needs to be remapped)(we are aware of an animation error of the ship that only occurs when playing with controller)
+A: shot
+
+X: power-up
+
+B: change weapon
+
+Y: change scenes / 1 player mode
+
+Dpad up arrow: 2 player mode (may not work, this has not been tested)
+
+Dpad down arrow: insert coin
