@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
+#include "Level03.h"
 #include "SDL\include\SDL.h"
 #include "ModuleAudio.h"
 #include "Module_player_2.h"

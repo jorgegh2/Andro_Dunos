@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
+#include "Level03.h"
 #include "SDL\include\SDL.h"
 #include "ModuleAudio.h"
 #include "Module_player_2.h"
@@ -101,6 +102,8 @@ bool ModuleGameIntroduction::Start()
 
 	if (App->level01->IsEnabled() == true)
 		App->level01->Disable();
+	if (App->level03->IsEnabled() == true)
+		App->level03->Disable();
 
 	graphics = App->textures->Load("Images/ng_anim.png");
 	graphics2 = App->textures->Load("Images/max_330.png");

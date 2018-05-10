@@ -8,6 +8,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
+#include "Level03.h"
 #include "ModuleStageClear.h"
 #include "SDL\include\SDL.h"
 #include "ModuleAudio.h"
@@ -51,6 +52,8 @@ bool ModuleGameOver::Start()
 		App->game_intro->Disable();
 	if (App->level01->IsEnabled() == true)
 		App->level01->Disable();
+	if (App->level03->IsEnabled() == true)
+		App->level03->Disable();
 	if (App->stage_clear->IsEnabled() == true)
 		App->stage_clear->Disable();
 	if (App->visco_games->IsEnabled() == true)

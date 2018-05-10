@@ -8,6 +8,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "Level01.h"
+#include "Level03.h"
 #include "ModuleGameOver.h"
 #include "SDL\include\SDL.h"
 #include "ModuleAudio.h"
@@ -86,8 +87,8 @@ bool ModuleStageClear::Start()
 	if (App->player2->IsEnabled() == true)
 		App->player2->c_player2->SetPos(-100, -100);
 
-	//if (App->level01->IsEnabled() == true)
-		//App->level01->Disable();
+	if (App->level03->IsEnabled() == true)
+		App->level01->Disable();
 	if (App->game_over->IsEnabled() == true)
 		App->game_over->Disable();
 	if (App->visco_games->IsEnabled() == true)

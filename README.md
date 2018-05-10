@@ -107,6 +107,7 @@ Shot: RIGHT CTRL
 POWER UP: O
 CHANGE WEAPON: P
 
+Change to level 3: 3
 
 Insert Coin: F1
 1 player mode: SPACE

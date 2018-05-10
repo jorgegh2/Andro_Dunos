@@ -5,6 +5,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
 #include "Level01.h"
+#include "Level03.h"
 #include "ModuleInput.h"
 #include "ModuleGameIntroduction.h"
 #include "ModuleStageClear.h"
@@ -417,6 +418,11 @@ update_status Level01::Update()
 	{
 		//App->fade->FadeToBlack(this, (Module*)App->stage_clear);
 		App->stage_clear->Enable();
+	}
+	if (((App->input->keyboard[SDL_SCANCODE_3] == KEY_DOWN) && App->fade->IsFading() == false))
+	{
+		App->fade->FadeToBlack(this, (Module*)App->level03);
+		App->player2->Two_Players = false;
 	}
 
 	return UPDATE_CONTINUE;

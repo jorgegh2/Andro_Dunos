@@ -110,6 +110,9 @@
     <ClInclude Include="UI.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Level03.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -192,6 +195,9 @@
     </ClCompile>
     <ClCompile Include="UI.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Level03.cpp">
+      <Filter>Levels</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
