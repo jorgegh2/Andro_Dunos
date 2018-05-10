@@ -172,8 +172,9 @@ update_status ModulePlayer::Update()
 		}
 
 
-	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN || b_pressed == true)
+	if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN || change == true)
 	{
+		change = false;
 		switch (change_weapon) {
 
 		case CHANGE_WEAPON::BASIC_ATTACK:
@@ -192,8 +193,9 @@ update_status ModulePlayer::Update()
 
 
 	// POWERUP
-	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || x_pressed == true)
+	if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || powerup == true)
 	{
+		powerup = false;
 		switch (power_up) {
 
 		case POWER_UPS::POWER_UP_BASIC:
@@ -217,14 +219,17 @@ update_status ModulePlayer::Update()
 	/* pressed */
 	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_A) && a_pressed == false)
 	{
+		shoot = true;
 		a_pressed = true;
 	}
 	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_X) && x_pressed == false)
 	{
+		powerup = true;
 		x_pressed = true;
 	}
 	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_B) && b_pressed == false)
 	{
+		change = true;
 		b_pressed = true;
 	}
 
@@ -245,8 +250,9 @@ update_status ModulePlayer::Update()
 
 
 	// Shoot 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || a_pressed == true)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || shoot == true)
 	{
+		shoot = false;
 		switch (power_up) {
 		case POWER_UPS::POWER_UP_BASIC:
 			switch (change_weapon) {

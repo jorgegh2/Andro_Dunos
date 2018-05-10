@@ -58,6 +58,10 @@ public:
 	bool x_pressed = false;
 	bool b_pressed = false;
 
+	bool shoot = false; // so that the player does not shot forever
+	bool change = false; // so that the player does not change weapons forever
+	bool powerup = false;
+
 private:
 	enum CHANGE_WEAPON
 	{
