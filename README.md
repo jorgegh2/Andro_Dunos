@@ -23,6 +23,7 @@ Originally, Andro Dunos weighted 34 Mb. Thus, being (with Zed Blade) one of the 
  - Github project page: https://github.com/jorgegh2/Andro_Dunos
  - Project wiki: https://github.com/jorgegh2/Andro_Dunos/wiki 
  - Project webpage: https://jorgegh2.github.io/Andro_Dunos/
+ - Trello: https://trello.com/b/Kh1DxzsN/project-1-andro-dunos-goosebump-games
 
 Jorge Gemas' Github account and responsability:
 
