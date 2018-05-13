@@ -103,6 +103,7 @@
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="Module_Player_2.h" />
     <ClInclude Include="p2Point.h" />
+    <ClInclude Include="Path.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
