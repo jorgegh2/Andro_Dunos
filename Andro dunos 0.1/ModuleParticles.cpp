@@ -142,6 +142,23 @@ ModuleParticles::ModuleParticles()
 	back_shoot_1.life = 3000;
 
 
+	// Helix_01_1
+	helix_01_1.anim.PushBack({ 41, 23, 13, 6 });
+	helix_01_1.anim.loop = false;
+	helix_01_1.anim.speed = 0.3f;
+	helix_01_1.speed.x = 4;
+	helix_01_1.speed.y = 1;
+	helix_01_1.life = 3000;
+
+	// Helix_01_2
+	helix_01_2.anim.PushBack({ 41, 23, 13, 6 });
+	helix_01_2.anim.loop = false;
+	helix_01_2.anim.speed = 0.3f;
+	helix_01_2.speed.x = 4;
+	helix_01_2.speed.y = -1;
+	helix_01_2.life = 3000;
+
+
 	// Explosion ship
 	explosion.anim.PushBack({ 33, 19, 35, 35 });
 	explosion.anim.PushBack({ 82, 18, 35, 35 });
@@ -305,15 +322,15 @@ update_status ModuleParticles::Update()
 				App->render->Blit(graphics3, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 				break;
 			case p->SHOOT:
-				
+
 				App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 				break;
 
 			case p->SHOOT_ENEMY:
-				
-					App->render->Blit(enemy15shotgraphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
-					break;
-				
+
+				App->render->Blit(enemy15shotgraphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+				break;
+
 			}
 
 			if (p->fx_played == false)

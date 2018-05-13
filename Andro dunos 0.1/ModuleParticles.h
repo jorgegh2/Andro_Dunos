@@ -51,7 +51,7 @@ public:
 
 private:
 
-	SDL_Texture* graphics = nullptr;
+	SDL_Texture * graphics = nullptr;
 	SDL_Texture* graphics2 = nullptr;
 	SDL_Texture* graphics3 = nullptr;
 	SDL_Texture* enemy15shotgraphics = nullptr;
@@ -64,7 +64,7 @@ public:
 	Particle enemy_explosion1;
 	Particle enemy_explosion2;
 	Particle enemy_explosion3;
-	
+
 	Particle basic_shoot_0_up;
 	Particle basic_shoot_0_down;
 
@@ -86,6 +86,9 @@ public:
 
 	Particle back_shoot_0;
 	Particle back_shoot_1;
+
+	Particle helix_01_1;  // Particle that goes up
+	Particle helix_01_2;  // Particle that goes down
 
 	Particle enemy15shot;
 

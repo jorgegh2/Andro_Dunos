@@ -36,6 +36,7 @@ public:
 	Animation turbo_up;
 	Animation turbo_down;
 
+	Mix_Chunk* helix_sound = nullptr;
 	Mix_Chunk* laser_sound = nullptr;
 	Mix_Chunk* basic_attack_sound = nullptr;
 	Mix_Chunk* player_death = nullptr;

@@ -86,6 +86,8 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("Images/Ship/ships.png"); // arcade version
 	laser_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-3_(Main_Ships).wav");
 	basic_attack_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-1_(Main_Ships).wav");
+	helix_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-4_(Main_Ships).wav");
+	
 	c_player = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_PLAYER, this);
 	
 	player_death = App->audio->LoadSoundEffect("Music/Sounds_effects/Player_Death_Explosion.wav");
@@ -255,6 +257,12 @@ update_status ModulePlayer::Update()
 			break;
 
 		case CHANGE_WEAPON::BACK_SHOOT:
+			change_weapon = CHANGE_WEAPON::HELIX;
+			App->audio->PlaySoundEffect(change_weapon_sound);
+
+			break;
+
+		case CHANGE_WEAPON::HELIX:
 			change_weapon = CHANGE_WEAPON::BASIC_ATTACK;
 			App->audio->PlaySoundEffect(change_weapon_sound);
 
@@ -309,6 +317,12 @@ update_status ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->back_shoot_0, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
 				App->audio->PlaySoundEffect(laser_sound);
 				break;
+
+			case CHANGE_WEAPON::HELIX:
+				App->particles->AddParticle(App->particles->helix_01_1, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->helix_01_2, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(helix_sound);
+			
 			}
 
 			break;
