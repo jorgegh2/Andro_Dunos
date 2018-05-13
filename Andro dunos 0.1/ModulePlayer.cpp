@@ -96,7 +96,7 @@ bool ModulePlayer::Start()
 	position.y = 0;
 	location.x = 100;
 	location.y = 100;
-	life = 3;
+	life = 1;
 	return ret;
 }
 
@@ -441,9 +441,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		position.y = App->render->camera.y / SCREEN_SIZE;
 		location.x = -SHIP_WIDTH;
 		location.y = 100;
-		if (life == 0) {
-			App->player->Disable();
-			App->fade->FadeToBlack(App->level01, App->game_over, 1);
+		if (life <= 0) {
+			/*App->player->Disable();
+			App->fade->FadeToBlack(App->level01, App->game_over, 1);*/
+		
+
 
 		}
 	}

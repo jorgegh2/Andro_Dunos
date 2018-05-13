@@ -5,7 +5,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
-
+#include "SDL\include\SDL.h"
 
 ModuleUI::ModuleUI(){}
 
@@ -14,11 +14,13 @@ ModuleUI::~ModuleUI() {}
 bool ModuleUI::Start() {
 
 	score = 0;
+	Cuenta_atras_number = 9;
 
 	font_score = App->fonts->Load("Images/Fonts/Font-score-white.png", "1234567890P", 1);
 	UI = App->textures->Load("Images/HUD/ui_elements_base.png");
 	Life_texture1 = App->textures->Load("Images/HUD/Player_1_life.png");
-	
+	Continue = App->textures->Load("Images/continue-fonts.png");
+	Continue_Number = App->fonts->Load("Images/continue-fonts-number.png", "0123456789", 1);
 
 	return true;
 }
@@ -37,6 +39,22 @@ update_status ModuleUI::Update()
 	
 	if (App->player->life == 3) App->render->Blit(Life_texture1, 19, 24, NULL, 0.0f, false);
 	
+	if (App->player->life <= 0)
+	{
+		time_dead_init = SDL_GetTicks();
+		time_dead = SDL_GetTicks() - time_dead_init;
+		if (time_dead >= 13000)
+		{
+			App->player->life = 3;
+		}
+		
+		Cuenta_atras_number = 5;
+		
+		sprintf_s(Cuenta_atras, 10, "%7d", Cuenta_atras_number);
+		App->render->Blit(Continue, SCREEN_WIDTH / 10, SCREEN_HEIGHT / 4, NULL, 0.0f, false);
+		App->fonts->BlitText(10, SCREEN_HEIGHT / 4, Continue_Number, Cuenta_atras);
+
+	}
 
 	return UPDATE_CONTINUE;
 }
