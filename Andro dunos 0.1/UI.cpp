@@ -51,12 +51,15 @@ update_status ModuleUI::Update()
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 		{
 			App->player->life = 3;
+			App->player->Enable();
+
+			App->player->PlayerSpawn();
 		}
 
 		else if (Cuenta_atras_number == 0)
 		{
 			App->fade->FadeToBlack(App->level01, App->game_over, 1);
-			App->player->Disable();
+			
 
 		}
 		
@@ -65,6 +68,7 @@ update_status ModuleUI::Update()
 			//para que cada segundo se reinicie y vuelva a contar un segundo
 			time_dead_init = SDL_GetTicks();
 			Cuenta_atras_number--;
+			App->player->Disable();
 		}
 		
 		sprintf_s(Cuenta_atras, 10, "%7d", Cuenta_atras_number);

@@ -92,13 +92,10 @@ bool ModulePlayer::Start()
 	
 	player_death = App->audio->LoadSoundEffect("Music/Sounds_effects/Player_Death_Explosion.wav");
 	change_weapon_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type_CHANGE.wav");
-	god_mode = false;
+	
+	PlayerSpawn();
 
-	position.x = 0;
-	position.y = 0;
-	location.x = 100;
-	location.y = 100;
-	life = 1;
+	life = 3;
 	return ret;
 }
 
@@ -419,7 +416,7 @@ update_status ModulePlayer::Update()
 	if (time_finished == false)
 	{
 		time_final = SDL_GetTicks() - time_init;
-		if (time_final <= 1000) {
+		if (time_final <= 2000 && time_final >= 1000) {
 			location.x +=1;
 			position.x = App->render->camera.x / SCREEN_SIZE + location.x;
 			position.y = App->render->camera.y / SCREEN_SIZE + location.y;
@@ -470,14 +467,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->audio->PlaySoundEffect(player_death);
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
 		life--;
-		time_init = SDL_GetTicks();
-		time_final = 0;
-		time_finished = false;
-		god_mode = true;
-		position.x = App->render->camera.x / SCREEN_SIZE;
-		position.y = App->render->camera.y / SCREEN_SIZE;
-		location.x = -SHIP_WIDTH;
-		location.y = 100;
+		PlayerSpawn();
 		if (life <= 0) {
 			App->UI->time_dead = 0;
 			App->UI->Cuenta_atras_number = 9;
@@ -490,4 +480,15 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		}
 	}
+}
+
+void ModulePlayer::PlayerSpawn() {
+	time_init = SDL_GetTicks();
+	time_final = 0;
+	time_finished = false;
+	god_mode = true;
+	/*	position.x = App->render->camera.x / SCREEN_SIZE;
+	position.y = App->render->camera.y / SCREEN_SIZE;*/
+	location.x = -SHIP_WIDTH;
+	location.y = 50;
 }

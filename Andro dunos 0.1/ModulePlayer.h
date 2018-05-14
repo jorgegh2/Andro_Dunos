@@ -20,6 +20,8 @@ public:
 
 	void OnCollision(Collider*, Collider*);
 
+	void PlayerSpawn();
+
 public:
 
 	SDL_Texture * graphics = nullptr;
