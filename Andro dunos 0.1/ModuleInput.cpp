@@ -91,7 +91,7 @@ update_status ModuleInput::PreUpdate()
 				// Controller2
 				controller2 = SDL_GameControllerOpen(i);
 
-				if (controller1 != nullptr) {
+				if (controller2 != nullptr) {
 
 					map2 = SDL_GameControllerMapping(controller2);
 				}
