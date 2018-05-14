@@ -73,31 +73,38 @@ update_status ModuleInput::PreUpdate()
 
 	// Controllers
 
-	if (controller1 == nullptr || controller2 == nullptr) {
+	if (controller1 == nullptr || controller2 == nullptr) 
+		for (int i = 0; i < SDL_NumJoysticks(); ++i) 
+		{
+			if (SDL_IsGameController(i)) 
+			{
+				if (controller1 == nullptr)
+				{
+					// Controller1
+					controller1 = SDL_GameControllerOpen(i);
 
-		for (int i = 0; i < SDL_NumJoysticks(); ++i) {
-
-			if (SDL_IsGameController(i)) {
-
-				// Controller1
-				controller1 = SDL_GameControllerOpen(i);
-
-				if (controller1 != nullptr) {
-
-					map1 = SDL_GameControllerMapping(controller1);
+					if (controller1 /* != nullptr*/)
+					{
+						char* map; // array of control buttons will be assigned here
+						map = SDL_GameControllerMapping(controller1);
+						SDL_free(map); // we free the mapping
+					}
 				}
-
 				// maybe for controller2 put if i > 0 ?? must see
 				// Controller2
-				controller2 = SDL_GameControllerOpen(i);
+				else if (controller2 == nullptr)
+				{
+					controller2 = SDL_GameControllerOpen(i);
 
-				if (controller2 != nullptr) {
-
-					map2 = SDL_GameControllerMapping(controller2);
+					if (controller2 /*!= nullptr*/) 
+					{
+						char* map;
+						map = SDL_GameControllerMapping(controller2);
+						SDL_free(map);
+					}
 				}
 			}
 		}
-	}
 
 
 	return update_status::UPDATE_CONTINUE;

@@ -32,8 +32,6 @@ public:
 
 	SDL_GameController * controller1 = nullptr;
 	SDL_GameController* controller2 = nullptr;
-	char *map1; // Char array where the controller buttons will be assigned
-	char *map2;
 
 	KEY_STATE keyboard[MAX_KEYS];
 };
