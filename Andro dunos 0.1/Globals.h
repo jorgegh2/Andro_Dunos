@@ -34,6 +34,6 @@ typedef unsigned int uint;
 #define SHIP_WIDTH 27
 #define SHIP_HEIGHT 17
 #define WINDOW_FULLSCREEN 0
-#define WINDOW_FULLSCREEN_DESKTOP 1
+#define WINDOW_FULLSCREEN_DESKTOP 0
 
 #endif // __GLOBALS_H__

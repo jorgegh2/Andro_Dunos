@@ -430,7 +430,7 @@ update_status ModulePlayer::Update()
 		}
 		
 	
-		if (time_final >= 4000/*tiempo random, hay que cambiarlo*/)
+		if (time_final >= 4000)
 		{
 			time_finished = true;
 			god_mode = false;
@@ -479,6 +479,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		location.x = -SHIP_WIDTH;
 		location.y = 100;
 		if (life <= 0) {
+			App->UI->time_dead = 0;
+			App->UI->Cuenta_atras_number = 9;
+			App->UI->time_dead_init = SDL_GetTicks();
+
 			/*App->player->Disable();
 			App->fade->FadeToBlack(App->level01, App->game_over, 1);*/
 		

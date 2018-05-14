@@ -33,6 +33,7 @@ public:
 	char Cuenta_atras[10];
 	uint time_dead_init = 0;
 	uint time_dead = 0;
+	
 
 	SDL_Texture* UI = nullptr;
 	SDL_Texture* Life_texture1 = nullptr;
