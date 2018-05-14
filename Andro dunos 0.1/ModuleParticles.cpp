@@ -158,6 +158,14 @@ ModuleParticles::ModuleParticles()
 	helix_01_2.speed.y = -1;
 	helix_01_2.life = 3000;
 
+	// Helix 01_3
+	helix_01_3.anim.PushBack({ 41, 23, 13, 6 });
+	helix_01_3.anim.loop = false;
+	helix_01_3.anim.speed = 0.3f;
+	helix_01_3.speed.x = 4;
+	helix_01_3.speed.y = 0;
+	helix_01_3.life = 3000;
+
 
 	// Explosion ship
 	explosion.anim.PushBack({ 33, 19, 35, 35 });

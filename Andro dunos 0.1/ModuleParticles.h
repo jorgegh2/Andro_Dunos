@@ -89,6 +89,7 @@ public:
 
 	Particle helix_01_1;  // Particle that goes up
 	Particle helix_01_2;  // Particle that goes down
+	Particle helix_01_3;  // Particle at the middle
 
 	Particle enemy15shot;
 
