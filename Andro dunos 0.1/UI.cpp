@@ -6,6 +6,10 @@
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "SDL\include\SDL.h"
+#include "ModuleInput.h"
+#include "ModuleFadeToBlack.h"
+#include "ModuleGameOver.h"
+#include "Level01.h"
 
 ModuleUI::ModuleUI(){}
 
@@ -14,7 +18,7 @@ ModuleUI::~ModuleUI() {}
 bool ModuleUI::Start() {
 
 	score = 0;
-	Cuenta_atras_number = 9;
+	
 
 	font_score = App->fonts->Load("Images/Fonts/Font-score-white.png", "1234567890P", 1);
 	UI = App->textures->Load("Images/HUD/ui_elements_base.png");
@@ -41,14 +45,27 @@ update_status ModuleUI::Update()
 	
 	if (App->player->life <= 0)
 	{
-		time_dead_init = SDL_GetTicks();
+		
 		time_dead = SDL_GetTicks() - time_dead_init;
-		if (time_dead >= 13000)
+
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 		{
 			App->player->life = 3;
 		}
+
+		else if (Cuenta_atras_number == 0)
+		{
+			App->fade->FadeToBlack(App->level01, App->game_over, 1);
+			App->player->Disable();
+
+		}
 		
-		Cuenta_atras_number = 5;
+		if (time_dead >= 1000) {
+			time_dead = 0;
+			//para que cada segundo se reinicie y vuelva a contar un segundo
+			time_dead_init = SDL_GetTicks();
+			Cuenta_atras_number--;
+		}
 		
 		sprintf_s(Cuenta_atras, 10, "%7d", Cuenta_atras_number);
 		App->render->Blit(Continue, SCREEN_WIDTH / 10, SCREEN_HEIGHT / 4, NULL, 0.0f, false);
