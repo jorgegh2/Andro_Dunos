@@ -105,6 +105,8 @@ bool ModulePlayer::Start()
 // Unload assets
 bool ModulePlayer::CleanUp()
 {
+
+ 
 	LOG("Unloading player");
 	App->audio->UnloadSoundEffect(player_death);
 	App->audio->UnloadSoundEffect(laser_sound);

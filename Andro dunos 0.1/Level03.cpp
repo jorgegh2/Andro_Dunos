@@ -50,12 +50,15 @@ bool Level03::Start()
 	layout[1] = App->textures->Load("Images/Level03/layout2.png");
 	layout[2] = App->textures->Load("Images/Level03/layout3.png");
 	layout[3] = App->textures->Load("Images/Level03/layout4.png");
-	layout[4] = App->textures->Load("Images/Level03/layout5.png");
+	layout[4] = App->textures->Load("Images/Level03/layout4_5.png");
+	layout[5] = App->textures->Load("Images/Level03/layout5.png");
 	finalbackground = App->textures->Load("Images/Level03/final_background.png");
 
 	music_level03 = App->audio->LoadMusic("Music/Songs/09_Stage_3-Alien-Intro.ogg");
 	music_level03v2 = App->audio->LoadMusic("Music/Songs/09_Stage_3-Alien-Loop.ogg");
 	App->audio->PlayMusic(music_level03);
+
+	i = 0;
 
 	return true;
 }
@@ -76,6 +79,7 @@ bool Level03::CleanUp()
 	App->textures->Unload(layout[2]);
 	App->textures->Unload(layout[3]);
 	App->textures->Unload(layout[4]);
+	App->textures->Unload(layout[5]);
 	App->textures->Unload(finalbackground);
 	App->audio->UnloadMusic(music_level03);
 	App->audio->UnloadMusic(music_level03v2);
@@ -111,12 +115,21 @@ update_status Level03::Update()
 
 	// Draw everything --------------------------------------
 	for (int i = 0; i < 10; ++i) if (!App->render->Blit(background1, 400 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
-	for (int i = 0; i < 17; ++i) if (!App->render->Blit(finalbackground, 3470 + 80 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
+	for (int i = 0; i < 18; ++i) if (!App->render->Blit(finalbackground, 3370 + 80 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
+	if (App->render->camera.x >= 8040 * SCREEN_SIZE && App->render->camera.x <= 8850 * SCREEN_SIZE) {
+		if (i < 255) i += 3;
+			App->render->DrawQuad({ App->render->camera.x * SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
+	}
+	if (App->render->camera.x >= 8850 * SCREEN_SIZE && App->render->camera.x <= 8950 * SCREEN_SIZE) {
+		if (i > 0) i -= 5;
+		App->render->DrawQuad({ App->render->camera.x * SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
+	}
 	if (!App->render->Blit(layout[0], 0, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[1], 1842, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[2], 3684, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[3], 5530, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[4], 7678, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[4], 6800, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[5], 7707, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	//colliders
 	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_REPEAT)
 	{

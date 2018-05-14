@@ -21,13 +21,14 @@ public:
 
 public:
 	SDL_Texture* background1;
-	SDL_Texture* layout[5];
+	SDL_Texture* layout[6];
 	SDL_Texture* finalbackground;
 	Mix_Music* music_level03 = nullptr;
 	Mix_Music* music_level03v2 = nullptr;
 	bool mus_change = 0;
 	// Controller input
 	bool y_pressed = false;
+	uint i;
 
 };
 
