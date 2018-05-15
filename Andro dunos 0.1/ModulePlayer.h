@@ -70,7 +70,7 @@ public:
 	bool player_down = false;
 	bool player_idle = false;
 
-private:
+public: // so we can access from UI module and blit the HUD textures or images
 	enum CHANGE_WEAPON
 	{
 		BASIC_ATTACK = 0,

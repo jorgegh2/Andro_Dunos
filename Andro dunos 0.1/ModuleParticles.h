@@ -96,6 +96,8 @@ public:
 	Particle helix_02_1;  // Particle that goes downwards
 	Particle helix_02_2;  // Particle that goes upwards
 	Particle helix_02_3;  // Particle at the middle
+	// For power up 3
+	//etc
 
 	Particle enemy15shot;
 

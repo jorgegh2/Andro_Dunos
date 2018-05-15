@@ -34,8 +34,11 @@ public:
 	uint time_dead_init = 0;
 	uint time_dead = 0;
 	
+	SDL_Texture* UI = nullptr; // normal shot
+	SDL_Texture* UI_laser = nullptr;
+	SDL_Texture* UI_backshoot = nullptr;
+	SDL_Texture* UI_helix = nullptr; // way
 
-	SDL_Texture* UI = nullptr;
 	SDL_Texture* Life_texture1 = nullptr;
 	SDL_Texture* Continue = nullptr;
 };

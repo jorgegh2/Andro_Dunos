@@ -21,7 +21,13 @@ bool ModuleUI::Start() {
 	
 
 	font_score = App->fonts->Load("Images/Fonts/Font-score-white.png", "1234567890P", 1);
+	
+	// Shots
 	UI = App->textures->Load("Images/HUD/ui_elements_base.png");
+	UI_laser = App->textures->Load("Images/HUD/ui_elements_laser.png");
+	UI_backshoot = App->textures->Load("Images/HUD/ui_elements_backshoot.png");
+	UI_helix = App->textures->Load("Images/HUD/ui_elements_helix.png");
+
 	Life_texture1 = App->textures->Load("Images/HUD/Player_1_life.png");
 	Continue = App->textures->Load("Images/continue-fonts.png");
 	Continue_Number = App->fonts->Load("Images/continue-fonts-number.png", "0123456789", 1);
@@ -36,8 +42,17 @@ update_status ModuleUI::Update()
 	
 	App->fonts->BlitText(30, 7, font_score, score_text);
 	App->fonts->BlitText(5, 7, font_score, "1P");
-	//HUD
-	App->render->Blit(UI, 5, 16, NULL, 0.0f, false);
+	
+	//HUD PLAYER 1
+	if (App->player->change_weapon == 0)
+		App->render->Blit(UI, 5, 16, NULL, 0.0f, false);
+	else if (App->player->change_weapon == 1)
+		App->render->Blit(UI_laser, 5, 16, NULL, 0.0f, false);
+	else if (App->player->change_weapon == 2)
+		App->render->Blit(UI_backshoot, 5, 16, NULL, 0.0f, false);
+	else if(App->player->change_weapon == 3)
+		App->render->Blit(UI_helix, 5, 16, NULL, 0.0f, false);
+
 	//lifes
 	if(App->player->life >= 2) App->render->Blit(Life_texture1, 10, 24, NULL, 0.0f, false);
 	
@@ -83,6 +98,15 @@ update_status ModuleUI::Update()
 bool ModuleUI::CleanUp() {
 
 	App->fonts->UnLoad(font_score);
+	App->fonts->UnLoad(Continue_Number);
+
+	App->textures->Unload(UI);
+	App->textures->Unload(UI_laser);
+	App->textures->Unload(UI_backshoot);
+	App->textures->Unload(UI_helix);
+
+	App->textures->Unload(Continue);
+	App->textures->Unload(Life_texture1);
 
 	return true;
 }
