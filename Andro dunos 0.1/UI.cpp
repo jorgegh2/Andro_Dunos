@@ -11,7 +11,24 @@
 #include "ModuleGameOver.h"
 #include "Level01.h"
 
-ModuleUI::ModuleUI(){}
+ModuleUI::ModuleUI()
+{
+	n_1.x = 41;
+	n_1.y = 62;
+	n_1.w = 2;
+	n_1.h = 5;
+
+	n_2.x = 46;
+	n_2.y = 62;
+	n_2.w = 4;
+	n_2.h = 5;
+
+	n_3.x = 52;
+	n_3.y = 62;
+	n_3.w = 4;
+	n_3.h = 5;
+	
+}
 
 ModuleUI::~ModuleUI() {}
 
@@ -28,6 +45,9 @@ bool ModuleUI::Start() {
 	UI_backshoot = App->textures->Load("Images/HUD/ui_elements_backshoot.png");
 	UI_helix = App->textures->Load("Images/HUD/ui_elements_helix.png");
 
+	// Numbers
+	power_up_numbers = App->textures->Load("Images/HUD/numbers_powerup.png");
+
 	Life_texture1 = App->textures->Load("Images/HUD/Player_1_life.png");
 	Continue = App->textures->Load("Images/continue-fonts.png");
 	Continue_Number = App->fonts->Load("Images/continue-fonts-number.png", "0123456789", 1);
@@ -43,7 +63,8 @@ update_status ModuleUI::Update()
 	App->fonts->BlitText(30, 7, font_score, score_text);
 	App->fonts->BlitText(5, 7, font_score, "1P");
 	
-	//HUD PLAYER 1
+	/*HUD PLAYER 1*/
+	// Weapons image
 	if (App->player->change_weapon == 0)
 		App->render->Blit(UI, 5, 16, NULL, 0.0f, false);
 	else if (App->player->change_weapon == 1)
@@ -52,8 +73,16 @@ update_status ModuleUI::Update()
 		App->render->Blit(UI_backshoot, 5, 16, NULL, 0.0f, false);
 	else if(App->player->change_weapon == 3)
 		App->render->Blit(UI_helix, 5, 16, NULL, 0.0f, false);
+	
+	// Numbers
+	if (App->player->power_up == 0)
+		App->render->Blit(power_up_numbers, 32, 17, &n_1, 0.0f, false);
+	else if (App->player->power_up == 1)
+		App->render->Blit(power_up_numbers, 31, 17, &n_2, 0.0f, false);
+	else if (App->player->power_up == 2)
+		App->render->Blit(power_up_numbers, 31, 17, &n_3, 0.0f, false);
 
-	//lifes
+	// Lifes
 	if(App->player->life >= 2) App->render->Blit(Life_texture1, 10, 24, NULL, 0.0f, false);
 	
 	if (App->player->life == 3) App->render->Blit(Life_texture1, 19, 24, NULL, 0.0f, false);
@@ -104,6 +133,8 @@ bool ModuleUI::CleanUp() {
 	App->textures->Unload(UI_laser);
 	App->textures->Unload(UI_backshoot);
 	App->textures->Unload(UI_helix);
+
+	App->textures->Unload(power_up_numbers);
 
 	App->textures->Unload(Continue);
 	App->textures->Unload(Life_texture1);
