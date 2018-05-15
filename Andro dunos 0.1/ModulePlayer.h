@@ -46,7 +46,7 @@ public:
 
 	iPoint position;
 	fPoint location;
-	bool destroyed = false;
+	bool destroyed = true;
 	bool god_mode = false;
 
 	uint life = 1;
