@@ -7,6 +7,7 @@
 #include "Level03.h"
 #include "Level01.h"
 #include "ModuleInput.h"
+#include "ModuleInsertCoin.h"
 #include "ModuleGameIntroduction.h"
 #include "ModuleStageClear.h"
 #include "ModuleAudio.h"

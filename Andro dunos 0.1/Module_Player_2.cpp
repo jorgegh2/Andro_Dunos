@@ -97,17 +97,48 @@ update_status ModulePlayer2::Update()
 
 	int speed = 2;
 
-	if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT) && position.x > App->render->camera.x / SCREEN_SIZE)
+
+	if (SDL_GameControllerGetAxis(App->input->controller2, SDL_CONTROLLER_AXIS_LEFTY) > 5000 && player_down == false)
+	{
+		player_down = true;
+	}
+	if (SDL_GameControllerGetAxis(App->input->controller2, SDL_CONTROLLER_AXIS_LEFTY) > 5000 == false)
+	{
+		player_down = false;
+	}
+
+	if (SDL_GameControllerGetAxis(App->input->controller2, SDL_CONTROLLER_AXIS_LEFTY) < -5000 && player_up == false)
+	{
+		player_up = true;
+	}
+	if (SDL_GameControllerGetAxis(App->input->controller2, SDL_CONTROLLER_AXIS_LEFTY) < -5000 == false)
+	{
+		player_up = false;
+	}
+
+	if (SDL_GameControllerGetAxis(App->input->controller2, SDL_CONTROLLER_AXIS_LEFTY) > -5000 && SDL_GameControllerGetAxis(App->input->controller2, SDL_CONTROLLER_AXIS_LEFTY) < 5000 && player_up == false && player_down == false && player_idle == false)
+	{
+		player_idle = true;
+	}
+	if (SDL_GameControllerGetAxis(App->input->controller2, SDL_CONTROLLER_AXIS_LEFTY) > -5000 && SDL_GameControllerGetAxis(App->input->controller2, SDL_CONTROLLER_AXIS_LEFTY) < 5000)
+	{
+		player_idle = false;
+	}
+
+
+
+
+	if ((App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT || (SDL_GameControllerGetAxis(App->input->controller2, SDL_CONTROLLER_AXIS_LEFTX) < -5000)) && position.x > App->render->camera.x / SCREEN_SIZE)
 	{
 		location.x -= speed;
 	}
 
-	if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
+	if ((App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT || (SDL_GameControllerGetAxis(App->input->controller2, SDL_CONTROLLER_AXIS_LEFTX) > 5000)) && position.x < App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - SHIP_WIDTH)
 	{
 		location.x += speed;
 	}
 
-	if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
+	if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT || player_down == true) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
 	{
 		location.y += speed;
 		if (current_animation != &down)
@@ -117,14 +148,14 @@ update_status ModulePlayer2::Update()
 		}
 	}
 
-	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_UP)
+	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_UP || (player_idle == true && player_down == false))
 		if (current_animation != &downback)
 		{
 			downback.Reset();
 			current_animation = &downback;
 		}
 
-	if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT) && position.y > App->render->camera.y / SCREEN_SIZE)
+	if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT || player_up == true) && position.y > App->render->camera.y / SCREEN_SIZE)
 	{
 		location.y -= speed;
 		if (current_animation != &up)
@@ -134,16 +165,52 @@ update_status ModulePlayer2::Update()
 		}
 	}
 
-	else if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP)
+	else if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_UP || (player_idle == true && player_up == false))
 		if (current_animation != &upback)
 		{
 			upback.Reset();
 			current_animation = &upback;
 		}
 
+	// Player 2 controls input
 
-	if (App->input->keyboard[SDL_SCANCODE_O] == KEY_STATE::KEY_DOWN)
+	/* pressed */
+	if (SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_A) && a_pressed == false)
 	{
+		shoot = true;
+		a_pressed = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_X) && x_pressed == false)
+	{
+		powerup = true;
+		x_pressed = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_B) && b_pressed == false)
+	{
+		change = true;
+		b_pressed = true;
+	}
+
+	/*not pressed*/
+
+	if (SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_A) == false)
+	{
+		a_pressed = false;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_X) == false)
+	{
+		x_pressed = false;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_B) == false)
+	{
+		b_pressed = false;
+	}
+
+	// Change player 2 weapon
+
+	if (App->input->keyboard[SDL_SCANCODE_O] == KEY_STATE::KEY_DOWN || change == true)
+	{
+		change = false;
 		switch (change_weapon) {
 
 		case CHANGE_WEAPON::BASIC_ATTACK:
@@ -162,8 +229,9 @@ update_status ModulePlayer2::Update()
 
 
 	// POWERUP
-	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN || powerup == true)
 	{
+		powerup = false;
 		switch (power_up) {
 
 		case POWER_UPS::POWER_UP_BASIC:
@@ -182,8 +250,9 @@ update_status ModulePlayer2::Update()
 	//
 	//////////
 	// Shoot 
-	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN || shoot == true)
 	{
+		shoot = false;
 		switch (power_up) {
 		case POWER_UPS::POWER_UP_BASIC:
 			switch (change_weapon) {

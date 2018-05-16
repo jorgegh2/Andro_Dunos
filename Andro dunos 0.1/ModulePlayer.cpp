@@ -238,6 +238,8 @@ update_status ModulePlayer::Update()
 			b_pressed = false;
 		}
 
+		// Change player weapon
+
 		if (App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN || change == true)
 		{
 			change = false;

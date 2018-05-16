@@ -42,7 +42,20 @@ public:
 
 	Collider* c_player2 = nullptr;
 
-private:
+	// Vars to check if the buttons are still pressed
+	bool a_pressed = false;
+	bool x_pressed = false;
+	bool b_pressed = false;
+
+	bool shoot = false; // so that the player does not shot forever
+	bool change = false; // so that the player does not change weapons forever
+	bool powerup = false;
+
+	bool player_up = false;
+	bool player_down = false;
+	bool player_idle = false;
+
+public:
 	enum CHANGE_WEAPON
 	{
 		BASIC_ATTACK = 0,
