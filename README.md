@@ -153,6 +153,8 @@ Change Scene: F8
 
 God mode: F5
 
+Spawn player 2 in-game: BACKSPACE
+
 
 _controller_ (needs to be remapped)(we are aware of an animation error of the ship that only occurs when playing with controller)
 
@@ -167,3 +169,5 @@ Y: change scenes / 1 player mode
 Dpad up arrow: 2 player mode (may not work, this has not been tested)
 
 Dpad down arrow: insert coin
+
+Dpad left arrow: spawn player 2 in-game

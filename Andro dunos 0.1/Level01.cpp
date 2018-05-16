@@ -5,6 +5,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
 #include "Level01.h"
+#include "ModuleInsertCoin.h"
 #include "Level03.h"
 #include "ModuleInput.h"
 #include "ModuleGameIntroduction.h"
@@ -265,6 +266,14 @@ bool Level01::CleanUp()
 
 update_status Level01::Update()
 {
+	// Player 2 spawn in-level
+	if (App->player2->IsEnabled() == false)
+		if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == 1 || SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_DPAD_LEFT))
+		{
+			App->insert_coin->coin--;
+			App->player2->Enable();
+		}
+
 	// Move camera forward -----------------------------
 
 	if (xstop == false && App->render->camera.x <= 11257 * SCREEN_SIZE) {
