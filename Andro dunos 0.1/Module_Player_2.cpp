@@ -46,6 +46,14 @@ ModulePlayer2::ModulePlayer2()
 	downback.PushBack({ 154, 108, SHIP_WIDTH, SHIP_HEIGHT });
 	downback.loop = false;
 	downback.speed = 0.1f;
+
+	// Turbo
+
+	turbo_idle.PushBack({ 73, 116, 12, 5 });
+	turbo_idle.PushBack({ 61, 116, 12, 5 });
+	turbo_idle.PushBack({ 42, 116, 12, 5 });
+	turbo_idle.loop = true;
+	turbo_idle.speed = 0.8f;
 }
 
 ModulePlayer2::~ModulePlayer2()
@@ -61,6 +69,7 @@ bool ModulePlayer2::Start()
 
 	laser_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-3_(Main_Ships).wav");
 	basic_attack_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-1_(Main_Ships).wav");
+	helix_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-4_(Main_Ships).wav");
 
 	player_death = App->audio->LoadSoundEffect("Music/Sounds_effects/Player_Death_Explosion.wav");
 	change_weapon_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type_CHANGE.wav");
@@ -77,13 +86,16 @@ bool ModulePlayer2::Start()
 // Unload assets
 bool ModulePlayer2::CleanUp()
 {
-	LOG("Unloading player");
+	LOG("Unloading player 2");
 
 	App->audio->UnloadSoundEffect(player_death);
 	App->audio->UnloadSoundEffect(laser_sound);
 	App->audio->UnloadSoundEffect(basic_attack_sound);
 	App->audio->UnloadSoundEffect(change_weapon_sound);
+	App->audio->UnloadSoundEffect(helix_sound);
+
 	App->textures->Unload(graphics);
+
 	current_animation = &idle;
 
 	return true;
@@ -92,6 +104,8 @@ bool ModulePlayer2::CleanUp()
 // Update: draw background
 update_status ModulePlayer2::Update()
 {
+	anim_turbo = &turbo_idle;
+
 	position.x = App->render->camera.x / SCREEN_SIZE + location.x;
 	position.y = App->render->camera.y / SCREEN_SIZE + location.y;
 
@@ -220,6 +234,18 @@ update_status ModulePlayer2::Update()
 			break;
 
 		case CHANGE_WEAPON::LASER:
+			change_weapon = CHANGE_WEAPON::BACK_SHOOT;
+			App->audio->PlaySoundEffect(change_weapon_sound);
+
+			break;
+
+		case CHANGE_WEAPON::BACK_SHOOT:
+			change_weapon = CHANGE_WEAPON::HELIX;
+			App->audio->PlaySoundEffect(change_weapon_sound);
+
+			break;
+
+		case CHANGE_WEAPON::HELIX:
 			change_weapon = CHANGE_WEAPON::BASIC_ATTACK;
 			App->audio->PlaySoundEffect(change_weapon_sound);
 
@@ -267,6 +293,18 @@ update_status ModulePlayer2::Update()
 				App->particles->AddParticle(App->particles->laser_0, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
 				App->audio->PlaySoundEffect(laser_sound);
 				break;
+
+			case CHANGE_WEAPON::BACK_SHOOT:
+				App->particles->AddParticle(App->particles->back_shoot_0, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->back_shoot_0_back, position.x + 15, position.y + 10, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(laser_sound);
+				break;
+
+			case CHANGE_WEAPON::HELIX:
+				App->particles->AddParticle(App->particles->helix_01_1, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->helix_01_2, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(helix_sound);
+				break;
 			}
 
 			break;
@@ -285,6 +323,15 @@ update_status ModulePlayer2::Update()
 				App->particles->AddParticle(App->particles->laser_1, position.x + 12, position.y - 2, COLLIDER_PLAYER_SHOT);
 				App->particles->AddParticle(App->particles->laser_1_5, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
 				App->audio->PlaySoundEffect(laser_sound);
+				break;
+
+			// case BACK_SHOOT
+
+			case CHANGE_WEAPON::HELIX:
+				App->particles->AddParticle(App->particles->helix_01_1, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->helix_01_2, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->helix_01_3, position.x + 20, position.y + 9, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(helix_sound);
 				break;
 			}
 
@@ -307,6 +354,15 @@ update_status ModulePlayer2::Update()
 				App->particles->AddParticle(App->particles->laser_2_5, position.x + 5, position.y + 7, COLLIDER_PLAYER_SHOT);
 				App->audio->PlaySoundEffect(laser_sound);
 				break;
+
+			// case BACK_SHOOT
+
+			case CHANGE_WEAPON::HELIX:
+				App->particles->AddParticle(App->particles->helix_02_1, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->helix_02_2, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->helix_02_3, position.x + 20, position.y + 9, COLLIDER_PLAYER_SHOT);
+				App->audio->PlaySoundEffect(helix_sound);
+				break;
 			}
 
 			break;
@@ -324,6 +380,7 @@ update_status ModulePlayer2::Update()
 	// Draw everything --------------------------------------
 	if (destroyed == false) {
 		App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+		App->render->Blit(graphics, position.x - 12, position.y + 8, &(anim_turbo->GetCurrentFrame()));
 	}
 	return UPDATE_CONTINUE;
 }
