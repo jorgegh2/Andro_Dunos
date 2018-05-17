@@ -53,7 +53,25 @@ CITM Terrassa 2018. Degree in videogame design and developement.
 
 ## Changelist
 
-### Version 0.6
+### Version 0.7.0
+
+· Controllers fixed
+
+· All types of weapons implemented
+
+· All weapons have two levels of power-up
+
+· HUD implemented (Still needs lots of changes, especially the player 2)
+
+· Player 2 spawn in-game
+
+· Many, many bugs corrected
+
+· Lots of corrections on the level 3 layout
+
+· We are aware of some bugs, espacially : Visco Games screen only works once; when playing with controllers the spaceship animations do not work (by    playing with keyboard, this does not happen); colliders of the first weapon.
+
+### Version 0.6.0
 
 · Minor bug fixes
 
@@ -71,7 +89,7 @@ CITM Terrassa 2018. Degree in videogame design and developement.
 
 · Enemy power-up implemented
 
-### Version 0.5
+### Version 0.5.0
 
 . Completed full level 1, with all animations / scenes.
 

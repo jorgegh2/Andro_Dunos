@@ -6,6 +6,7 @@
 #include "ModulePlayer.h"
 #include "Level01.h"
 #include "ModuleInsertCoin.h"
+#include "ModulePlayersMenu.h"
 #include "Level03.h"
 #include "ModuleInput.h"
 #include "ModuleGameIntroduction.h"
@@ -270,7 +271,8 @@ update_status Level01::Update()
 	if (App->player2->IsEnabled() == false)
 		if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == 1 || SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_DPAD_LEFT))
 		{
-			App->insert_coin->coin--;
+			App->audio->PlaySoundEffect(App->insert_coin->coin);
+			App->players_menu->cr--;
 			App->player2->Enable();
 		}
 
