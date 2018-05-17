@@ -267,11 +267,19 @@ bool Level01::CleanUp()
 
 update_status Level01::Update()
 {
+	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN || App->players_menu->coin_inserted == true)
+	{
+		App->players_menu->coin_inserted = false;
+		//Mix_VolumeChunk(coin, MIX_MAX_VOLUME);
+		App->audio->PlaySoundEffect(App->players_menu->coin);
+		App->players_menu->cr++;
+	}
+
+
 	// Player 2 spawn in-level
 	if (App->player2->IsEnabled() == false)
 		if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == 1 || SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_DPAD_LEFT))
 		{
-			App->audio->PlaySoundEffect(App->insert_coin->coin);
 			App->players_menu->cr--;
 			App->player2->Enable();
 		}
