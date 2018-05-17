@@ -22,7 +22,8 @@ public:
 
 public:
 
-	SDL_Texture * graphics = nullptr;
+	SDL_Texture* graphics = nullptr; // insert coin
+	SDL_Texture* graphics2 = nullptr; // infinite scroll background
 	//SDL_Texture* graphics2 = nullptr;
 	Mix_Chunk* coin = nullptr;
 	Animation* current_animation = nullptr;

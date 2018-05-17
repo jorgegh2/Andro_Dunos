@@ -31,6 +31,7 @@ bool ModuleInsertCoin::Start()
 	bool ret = true;
 
 	graphics = App->textures->Load("Images/insert_coin.png");
+	graphics2 = App->textures->Load("Images/lvl_2_scroll.png");
 	//graphics2 = App->textures->Load("Images/max_330.png");
 
 	coin = App->audio->LoadSoundEffect("Music/Sounds_effects/COIN_inserted.wav");
@@ -46,6 +47,7 @@ bool ModuleInsertCoin::CleanUp()
 	LOG("Unloading insert coin scene");
 
 	App->textures->Unload(graphics);
+	App->textures->Unload(graphics2);
 	//App->textures->Unload(graphics2);
 	App->audio->UnloadSoundEffect(coin);
 
@@ -68,7 +70,14 @@ update_status ModuleInsertCoin::Update()
 	current_animation = &insert_coin1;
 	i_coin = current_animation->GetCurrentFrame();
 
-	App->render->Blit(graphics, 104, 120, &i_coin);
+	int speed = 1;
+
+	if(App->render->camera.x < 820 * 2 && App->render->camera.x >= 0)
+		App->render->camera.x += speed;
+	else App->render->camera.x = 0;
+
+	App->render->Blit(graphics2, 0, 7, NULL);
+	App->render->Blit(graphics, 104, 120, &i_coin, 1.0f, false);
 
 
 	// Controller input
