@@ -15,6 +15,7 @@ enum COLLIDER_TYPE;
 
 struct Particle
 {
+	int tipeee;
 	Collider* collider = nullptr;
 	Animation anim;
 	uint fx = 0;
@@ -23,6 +24,8 @@ struct Particle
 	Uint32 born = 0;
 	Uint32 life = 0;
 	bool fx_played = false;
+
+	int tipe;
 
 	Particle();
 	Particle(const Particle& p);
@@ -47,7 +50,7 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 
-	void AddParticle(const Particle& particle, int x, int y, COLLIDER_TYPE collider_type = COLLIDER_NONE, Uint32 delay = 0);
+	void AddParticle( Particle& particle, int x, int y, COLLIDER_TYPE collider_type = COLLIDER_NONE, Uint32 delay = 0);
 
 private:
 
@@ -58,7 +61,8 @@ private:
 	Particle* active[MAX_ACTIVE_PARTICLES];
 
 public:
-
+	
+	
 	Particle explosion;
 	Particle explosion2;
 	Particle enemy_explosion1;
