@@ -86,6 +86,9 @@ public:
 
 	Particle back_shoot_0;
 	Particle back_shoot_0_back;
+	
+	Particle back_shoot_2_diagonal_up;
+	Particle back_shoot_2_diagonal_down;
 
 	// For normal and power up 1
 	Particle helix_01_1;  // Particle that goes downwards

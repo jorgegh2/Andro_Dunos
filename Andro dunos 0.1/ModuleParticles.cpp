@@ -127,6 +127,7 @@ ModuleParticles::ModuleParticles()
 	laser_2_5.speed.y = 3;
 	laser_2_5.life = 3000;
 
+
 	//Disparo_trasero_0
 	back_shoot_0.anim.PushBack({ 6, 69, 10, 3});
 	back_shoot_0.anim.loop = false;
@@ -141,6 +142,21 @@ ModuleParticles::ModuleParticles()
 	back_shoot_0_back.speed.x = -5;
 	back_shoot_0_back.life = 3000;
 
+	// Back shoot 2 diagonal up
+	back_shoot_2_diagonal_up.anim.PushBack({ 5, 50, 11, 8 });
+	back_shoot_2_diagonal_up.anim.loop = false;
+	back_shoot_2_diagonal_up.anim.speed = 0.3f;
+	back_shoot_2_diagonal_up.speed.x = -5;
+	back_shoot_2_diagonal_up.speed.y = -2;
+	back_shoot_2_diagonal_up.life = 3000;
+
+	// Back shoot 2 diagonal down
+	back_shoot_2_diagonal_down.anim.PushBack({ 5, 37, 11, 8 });
+	back_shoot_2_diagonal_down.anim.loop = false;
+	back_shoot_2_diagonal_down.anim.speed = 0.3f;
+	back_shoot_2_diagonal_down.speed.x = -5;
+	back_shoot_2_diagonal_down.speed.y = 2;
+	back_shoot_2_diagonal_down.life = 3000;
 
 	/*normal & power-up 1*/
 	// Helix_01_1
