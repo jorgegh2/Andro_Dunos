@@ -19,6 +19,40 @@
 
 Level03::Level03()
 {
+	lay1.x = 0;
+	lay1.y = 0;
+	lay1.w = 1416;
+	lay1.h = 69;
+
+	lay2.x = 0;
+	lay2.y = 85;
+	lay2.w = 1425;
+	lay2.h = 70;
+
+	lay3.x = 0;
+	lay3.y = 170;
+	lay3.w = 1437;
+	lay3.h = 104;
+
+	lay4.x = 0;
+	lay4.y = 284;
+	lay4.w = 1054;
+	lay4.h = 117;
+
+	lay5.x = 0;
+	lay5.y = 422;
+	lay5.w = 1432;
+	lay5.h = 110;
+
+	lay6.x = 0;
+	lay6.y = 533;
+	lay6.w = 1425;
+	lay6.h = 141;
+
+	lay7.x = 0;
+	lay7.y = 691;
+	lay7.w = 1489;
+	lay7.h = 85;
 
 }
 
@@ -47,12 +81,9 @@ bool Level03::Start()
 
 
 	background1 = App->textures->Load("Images/Level03/Standard_background_Level 3.png");
-	layout[0] = App->textures->Load("Images/Level03/layout1.png");
-	layout[1] = App->textures->Load("Images/Level03/layout2.png");
-	layout[2] = App->textures->Load("Images/Level03/layout3.png");
-	layout[3] = App->textures->Load("Images/Level03/layout4.png");
-	layout[4] = App->textures->Load("Images/Level03/layout4_5.png");
-	layout[5] = App->textures->Load("Images/Level03/layout5.png");
+	layout[1] = App->textures->Load("Images/Level03/layout4_5.png");
+	layout[2] = App->textures->Load("Images/Level03/layout5.png");
+	layout[0] = App->textures->Load("Images/Level03/layout_v1.png");
 	finalbackground = App->textures->Load("Images/Level03/final_background.png");
 
 	music_level03 = App->audio->LoadMusic("Music/Songs/09_Stage_3-Alien-Intro.ogg");
@@ -78,9 +109,6 @@ bool Level03::CleanUp()
 	App->textures->Unload(layout[0]);
 	App->textures->Unload(layout[1]);
 	App->textures->Unload(layout[2]);
-	App->textures->Unload(layout[3]);
-	App->textures->Unload(layout[4]);
-	App->textures->Unload(layout[5]);
 	App->textures->Unload(finalbackground);
 	App->audio->UnloadMusic(music_level03);
 	App->audio->UnloadMusic(music_level03v2);
@@ -116,7 +144,7 @@ update_status Level03::Update()
 
 	// Draw everything --------------------------------------
 	for (int i = 0; i < 10; ++i) if (!App->render->Blit(background1, 400 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
-	for (int i = 0; i < 18; ++i) if (!App->render->Blit(finalbackground, 3370 + 80 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
+	for (int i = 0; i < 18; ++i) if (!App->render->Blit(finalbackground, 3210 + 80 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
 	if (App->render->camera.x >= 8040 * SCREEN_SIZE && App->render->camera.x <= 8850 * SCREEN_SIZE) {
 		if (i < 255) i += 3;
 			App->render->DrawQuad({ App->render->camera.x * SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
@@ -125,12 +153,17 @@ update_status Level03::Update()
 		if (i > 0) i -= 5;
 		App->render->DrawQuad({ App->render->camera.x * SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
 	}
-	if (!App->render->Blit(layout[0], 0, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[1], 1842, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[2], 3684, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[3], 5530, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[4], 6800, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[5], 7707, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
+
+
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50, 0, &lay1, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 1416, 0, &lay2, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 2833, 0, &lay3, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 4251, 0, &lay4, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50, 147, &lay5, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 1416, 100, &lay6, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 2834, 162, &lay7, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[1], 6800, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[2], 7707, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	//colliders
 	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_REPEAT)
 	{
