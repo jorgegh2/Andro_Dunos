@@ -89,6 +89,45 @@ ModuleGameIntroduction::ModuleGameIntroduction()
 	snk.loop = false;
 	snk.speed = 0.4f;
 
+	// text anim 1
+	t1.PushBack({ 1, 1, 15, 14 });
+	t1.PushBack({ 1, 1, 23, 14 });
+	t1.PushBack({ 1, 1, 31, 14 });
+	t1.PushBack({ 1, 1, 40, 14 });
+	t1.PushBack({ 1, 1, 56, 14 });
+	t1.PushBack({ 1, 1, 65, 14 });
+	t1.PushBack({ 1, 1, 73, 14 });
+	t1.PushBack({ 1, 1, 76, 14 });
+	t1.PushBack({ 1, 1, 87, 14 });
+	t1.PushBack({ 1, 1, 95, 14 });
+	t1.PushBack({ 1, 1, 103, 14 });
+	t1.PushBack({ 1, 1, 112, 14 });
+	t1.PushBack({ 1, 1, 119, 14 });
+	t1.PushBack({ 1, 1, 126, 14 });
+	t1.loop = false;
+	t1.speed = 0.2f;
+
+	// text anim 2
+	t2.PushBack({ 1, 18, 7, 13 });
+	t2.PushBack({ 1, 18, 15, 13 });
+	t2.PushBack({ 1, 18, 23, 13 });
+	t2.PushBack({ 1, 18, 31, 13 });
+	t2.PushBack({ 1, 18, 40, 13 });
+	t2.PushBack({ 1, 18, 47, 13 });
+	t2.PushBack({ 1, 18, 55, 13 });
+	t2.PushBack({ 1, 18, 63, 13 });
+	t2.PushBack({ 1, 18, 71, 13 });
+	t2.PushBack({ 1, 18, 77, 13 });
+	t2.PushBack({ 1, 18, 87, 13 });
+	t2.PushBack({ 1, 18, 96, 13 });
+	t2.PushBack({ 1, 18, 102, 13 });
+	t2.PushBack({ 1, 18, 111, 13 });
+	t2.PushBack({ 1, 18, 119, 13 });
+	t2.PushBack({ 1, 18, 126, 13 });
+	t2.PushBack({ 1, 18, 133, 13 });
+	t2.loop = false;
+	t2.speed = 0.2f;
+
 }
 
 ModuleGameIntroduction::~ModuleGameIntroduction()
@@ -131,6 +170,7 @@ bool ModuleGameIntroduction::CleanUp()
 	App->textures->Unload(graphics);
 	App->textures->Unload(graphics2);
 	App->textures->Unload(graphics3);
+	App->textures->Unload(graphics4);
 
 	App->audio->UnloadMusic(music_intro);
 
@@ -138,6 +178,10 @@ bool ModuleGameIntroduction::CleanUp()
 
 	neo_geo.Reset();
 	snk.Reset();
+	t1.Reset();
+	t2.Reset();
+
+	change_text = false;
 
 	// Reset time counter
 	time_passed = 0;
@@ -173,6 +217,8 @@ update_status ModuleGameIntroduction::Update()
 
 	current_animation = &neo_geo;
 	current_animation2 = &snk;
+	current_animation3 = &t1;
+	current_animation4 = &t2;
 
 	App->render->Blit(graphics, 40, 50, &(current_animation->GetCurrentFrame()));
 
@@ -184,18 +230,24 @@ update_status ModuleGameIntroduction::Update()
 		y_pressed = false;
 
 
-
+	// text  1
 	if (time_passed > 1700)
-		App->render->Blit(graphics2, 83, 120, NULL);
+	{
+		App->render->Blit(graphics2, 83, 120, &(current_animation3->GetCurrentFrame()));
+		if (current_animation3->current_frame > 13) change_text = true;
+	}
+	// text 2
+	if(change_text)
+		App->render->Blit(graphics2, 83, 137, &(current_animation4->GetCurrentFrame()));
 
-	if (time_passed > 2500)
+	if (time_passed > 4500)
 		App->render->Blit(graphics3, 112, 170, &(current_animation2->GetCurrentFrame()));
 
-	if (time_passed > 3500)
+	if (time_passed > 6500)
 		App->render->Blit(graphics4, 257, 50, NULL);
 
 
-	if ((time_passed > 5000 || ((App->input->keyboard[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN) || y_pressed == true)) && App->fade->IsFading() == false)
+	if ((time_passed > 8000 || ((App->input->keyboard[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN) || y_pressed == true)) && App->fade->IsFading() == false)
 	{
 		App->render->camera.x = App->render->camera.y = 0;
 		App->fade->FadeToBlack(this, (Module*)App->visco_games);
