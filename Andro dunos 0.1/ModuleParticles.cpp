@@ -128,18 +128,18 @@ ModuleParticles::ModuleParticles()
 	laser_2_5.life = 3000;
 
 	//Disparo_trasero_0
-	back_shoot_0.anim.PushBack({ 3, 8, 15, 5 });
+	back_shoot_0.anim.PushBack({ 6, 69, 10, 3});
 	back_shoot_0.anim.loop = false;
 	back_shoot_0.anim.speed = 0.3f;
-	back_shoot_0.speed.x = 4;
+	back_shoot_0.speed.x = 6;
 	back_shoot_0.life = 3000;
 
-	//Disparo_trasero_1
-	back_shoot_1.anim.PushBack({ 3, 23, 15, 5 });
-	back_shoot_1.anim.loop = false;
-	back_shoot_1.anim.speed = 0.3f;
-	back_shoot_1.speed.x = -3;
-	back_shoot_1.life = 3000;
+	//Disparo_trasero_0_back
+	back_shoot_0_back.anim.PushBack({ 6, 84, 10, 3 });
+	back_shoot_0_back.anim.loop = false;
+	back_shoot_0_back.anim.speed = 0.3f;
+	back_shoot_0_back.speed.x = -5;
+	back_shoot_0_back.life = 3000;
 
 
 	/*normal & power-up 1*/

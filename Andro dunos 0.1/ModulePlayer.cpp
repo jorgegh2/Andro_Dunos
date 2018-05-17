@@ -47,7 +47,7 @@ ModulePlayer::ModulePlayer()
 	downback.PushBack({ 94, 108, SHIP_WIDTH, SHIP_HEIGHT });
 	downback.loop = false;
 	downback.speed = 0.1f;
-
+	
 	// Turbo
 
 	turbo_idle.PushBack({ 73, 116, 12, 5 });
@@ -315,7 +315,8 @@ update_status ModulePlayer::Update()
 					break;
 
 				case CHANGE_WEAPON::BACK_SHOOT:
-					App->particles->AddParticle(App->particles->back_shoot_0, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->back_shoot_0, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->back_shoot_0_back, position.x + 15, position.y + 10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(laser_sound);
 					break;
 
