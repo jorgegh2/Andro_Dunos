@@ -164,14 +164,14 @@ update_status Level03::Update()
 
 	// Draw everything --------------------------------------
 	for (int i = 0; i < 10; ++i) if (!App->render->Blit(background1, 400 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
-	for (int i = 0; i < 18; ++i) if (!App->render->Blit(finalbackground, 3210 + 80 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
-	if (App->render->camera.x >= 8040 * SCREEN_SIZE && App->render->camera.x <= 8850 * SCREEN_SIZE) {
+	for (int i = 0; i < 18; ++i) if (!App->render->Blit(finalbackground, 3005 + 80 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
+	if (App->render->camera.x >= 7840 * SCREEN_SIZE && App->render->camera.x <= 8650 * SCREEN_SIZE) {
 		if (i < 255) i += 3;
-			App->render->DrawQuad({ App->render->camera.x * SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
+		App->render->DrawQuad({ App->render->camera.x / SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
 	}
-	if (App->render->camera.x >= 8850 * SCREEN_SIZE && App->render->camera.x <= 8950 * SCREEN_SIZE) {
+	if (App->render->camera.x >= 8650 * SCREEN_SIZE && App->render->camera.x <= 8750 * SCREEN_SIZE) {
 		if (i > 0) i -= 5;
-		App->render->DrawQuad({ App->render->camera.x * SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
+		App->render->DrawQuad({ App->render->camera.x / SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
 	}
 
 
@@ -187,7 +187,7 @@ update_status Level03::Update()
 	//colliders
 	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_REPEAT)
 	{
-		App->render->camera.x += 20;
+		App->render->camera.x += 20 * SCREEN_SIZE;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_F8] == 1 || y_pressed == true)
 	{
