@@ -74,6 +74,8 @@ bool Level03::Start()
 	App->collision->Enable();
 	App->UI->Enable();
 	App->level01->Disable();
+	App->render->camera.x = 0;
+	App->render->camera.y = 0;
 
 	//Enemies Correct Coord.
 
@@ -140,7 +142,7 @@ update_status Level03::Update()
 
 
 	// Move camera forward -----------------------------
-	if (App->render->camera.x <= 11900 * SCREEN_SIZE) {
+	if (App->render->camera.x <= 11000 * SCREEN_SIZE) {
 		App->render->camera.x += 1 * SCREEN_SIZE; //speed in x axes
 	}
 
@@ -165,11 +167,11 @@ update_status Level03::Update()
 	// Draw everything --------------------------------------
 	for (int i = 0; i < 10; ++i) if (!App->render->Blit(background1, 400 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
 	for (int i = 0; i < 18; ++i) if (!App->render->Blit(finalbackground, 3005 + 80 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
-	if (App->render->camera.x >= 7840 * SCREEN_SIZE && App->render->camera.x <= 8650 * SCREEN_SIZE) {
+	if (App->render->camera.x >= 7100 * SCREEN_SIZE && App->render->camera.x <= 7910 * SCREEN_SIZE) {
 		if (i < 255) i += 3;
 		App->render->DrawQuad({ App->render->camera.x / SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
 	}
-	if (App->render->camera.x >= 8650 * SCREEN_SIZE && App->render->camera.x <= 8750 * SCREEN_SIZE) {
+	if (App->render->camera.x >= 7910 * SCREEN_SIZE && App->render->camera.x <= 8010 * SCREEN_SIZE) {
 		if (i > 0) i -= 5;
 		App->render->DrawQuad({ App->render->camera.x / SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
 	}
@@ -182,8 +184,8 @@ update_status Level03::Update()
 	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50, 147, &lay5, 0.75f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 1416, 100, &lay6, 0.75f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 2834, 162, &lay7, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[1], 6800, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[2], 7707, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[1], 6080, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[2], 6987, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	//colliders
 	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_REPEAT)
 	{
