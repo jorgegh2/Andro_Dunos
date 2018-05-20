@@ -20,41 +20,43 @@
 
 Level03::Level03()
 {
-	lay1.x = 0;
-	lay1.y = 0;
-	lay1.w = 1416;
-	lay1.h = 69;
 
-	lay2.x = 0;
-	lay2.y = 85;
-	lay2.w = 1425;
-	lay2.h = 70;
+	//layout animation
 
-	lay3.x = 0;
-	lay3.y = 170;
-	lay3.w = 1437;
-	lay3.h = 104;
+	top_layout1.PushBack({ 0, 0, 1425, 70 });
+	top_layout1.PushBack({ 0, 425, 1420, 70 });
+	top_layout1.loop = true;
+	top_layout1.speed = 0.1f;
+	
+	top_layout2.PushBack({ 0, 85, 1425, 70 });
+	top_layout2.PushBack({ 0, 539, 1420, 68 });
+	top_layout2.loop = true;
+	top_layout2.speed = 0.1f;
 
-	lay4.x = 0;
-	lay4.y = 284;
-	lay4.w = 1054;
-	lay4.h = 117;
+	top_layout3.PushBack({ 0, 170, 1440, 104 });
+	top_layout3.PushBack({ 0, 624, 1430, 55 });
+	top_layout3.loop = true;
+	top_layout3.speed = 0.1f;
 
-	lay5.x = 0;
-	lay5.y = 422;
-	lay5.w = 1432;
-	lay5.h = 110;
+	top_layout4.PushBack({ 0, 284, 1060, 117 });
+	top_layout4.PushBack({ 0, 680, 1060, 116 });
+	top_layout4.loop = true;
+	top_layout4.speed = 0.1f;
 
-	lay6.x = 0;
-	lay6.y = 533;
-	lay6.w = 1425;
-	lay6.h = 141;
+	bot_layout1.PushBack({ 0, 425, 1430, 80 });
+	bot_layout1.PushBack({ 0, -1, 1424, 80 });
+	bot_layout1.loop = true;
+	bot_layout1.speed = 0.1f;
 
-	lay7.x = 0;
-	lay7.y = 691;
-	lay7.w = 1489;
-	lay7.h = 85;
+	bot_layout2.PushBack({ 0, 538, 1430, 122 });
+	bot_layout2.PushBack({ 0, 112, 1424, 122 });
+	bot_layout2.loop = true;
+	bot_layout2.speed = 0.1f;
 
+	bot_layout3.PushBack({ 0, 708, 1401, 57 });
+	bot_layout3.PushBack({ 0, 281, 1426, 60 });
+	bot_layout3.loop = true;
+	bot_layout3.speed = 0.1f;
 }
 
 Level03::~Level03()
@@ -86,7 +88,8 @@ bool Level03::Start()
 	background1 = App->textures->Load("Images/Level03/Standard_background_Level 3.png");
 	layout[1] = App->textures->Load("Images/Level03/layout4_5.png");
 	layout[2] = App->textures->Load("Images/Level03/layout5.png");
-	layout[0] = App->textures->Load("Images/Level03/layout_v1.png");
+	layout[0] = App->textures->Load("Images/Level03/top_layout1.png");
+	layout[3] = App->textures->Load("Images/Level03/bot_layout1.png");
 	finalbackground = App->textures->Load("Images/Level03/final_background.png");
 
 	music_level03 = App->audio->LoadMusic("Music/Songs/09_Stage_3-Alien-Intro.ogg");
@@ -112,6 +115,7 @@ bool Level03::CleanUp()
 	App->textures->Unload(layout[0]);
 	App->textures->Unload(layout[1]);
 	App->textures->Unload(layout[2]);
+	App->textures->Unload(layout[3]);
 	App->textures->Unload(finalbackground);
 	App->audio->UnloadMusic(music_level03);
 	App->audio->UnloadMusic(music_level03v2);
@@ -176,14 +180,21 @@ update_status Level03::Update()
 		App->render->DrawQuad({ App->render->camera.x / SCREEN_SIZE, 0, SCREEN_WIDTH, SCREEN_HEIGHT }, 0, 0, 0, i);
 	}
 
+	current = &top_layout1;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50, 0, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	current = &top_layout2;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 1417, 0, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	current = &top_layout3;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 2834, 0, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	current = &top_layout4;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 4252, 0, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	current = &bot_layout1;
+	if (!App->render->Blit(layout[3], SCREEN_WIDTH + 50, 150, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	current = &bot_layout2;
+	if (!App->render->Blit(layout[3], SCREEN_WIDTH + 50 + 1417, 105, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	current = &bot_layout3;
+	if (!App->render->Blit(layout[3], SCREEN_WIDTH + 50 + 2834, 179, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
 
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50, 0, &lay1, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 1416, 0, &lay2, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 2833, 0, &lay3, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 4251, 0, &lay4, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50, 147, &lay5, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 1416, 100, &lay6, 0.75f)) return update_status::UPDATE_ERROR;
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 2834, 162, &lay7, 0.75f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[1], 6080, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[2], 6987, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	//colliders
