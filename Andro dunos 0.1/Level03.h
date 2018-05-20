@@ -38,6 +38,8 @@ public:
 	// Controller input
 	bool y_pressed = false;
 	uint i;
+	float pos;
+	bool up;
 
 };
 
