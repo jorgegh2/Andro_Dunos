@@ -93,6 +93,8 @@ ModuleParticles::ModuleParticles()
 
 
 	// Basic_shoot 2
+	basic_shoot_2.anim.PushBack({ 26, 51, 11, 6 });
+	basic_shoot_2.anim.PushBack({ 24, 51, 13, 6 });
 	basic_shoot_2.anim.PushBack({ 22, 51, 15, 6 });
 	basic_shoot_2.anim.PushBack({ 20, 51, 17, 6 });
 	basic_shoot_2.anim.PushBack({ 18, 51, 19, 6 });
@@ -101,8 +103,11 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_2.anim.speed = 0.3f;
 	basic_shoot_2.speed.x = 5;
 	basic_shoot_2.life = 3000;
+	basic_shoot_2.type_particle = 3;
 
 	// Basic_shoot 2_up
+	basic_shoot_2_up.anim.PushBack({ 24, 91, 11, 4 });
+	basic_shoot_2_up.anim.PushBack({ 24, 31, 11, 12 });
 	basic_shoot_2_up.anim.PushBack({ 24, 33, 11, 10 });
 	basic_shoot_2_up.anim.PushBack({ 24, 35, 11, 8 });
 	basic_shoot_2_up.anim.PushBack({ 24, 37, 11, 6 });
@@ -113,14 +118,17 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_2_up.life = 3000;
 
 	// Basic_shoot 2_down
+	basic_shoot_2_down.anim.PushBack({ 24, 91, 11, 4 });
 	basic_shoot_2_down.anim.PushBack({ 24, 39, 11, 4 });
 	basic_shoot_2_down.anim.PushBack({ 24, 37, 11, 6 });
 	basic_shoot_2_down.anim.PushBack({ 24, 35, 11, 8 });
 	basic_shoot_2_down.anim.PushBack({ 24, 33, 11, 10 });
+	basic_shoot_2_down.anim.PushBack({ 24, 31, 11, 12 });
 	basic_shoot_2_down.anim.loop = false;
 	basic_shoot_2_down.anim.speed = 0.3f;
 	basic_shoot_2_down.speed.x = 5;
 	basic_shoot_2_down.life = 3000;
+	basic_shoot_2_down.type_particle = 4;
 
 	// Laser 2 up
 	laser_2.anim.PushBack({ 57, 60, 16, 18 });
@@ -491,6 +499,10 @@ bool Particle::Update()
  			collider->SetPos(position.x, position.y + 2);
 		if (collider->type_collider == 2)
 			collider->SetPos(position.x, position.y + 4);
+		if (collider->type_collider == 3)
+			collider->SetPos(position.x + 8, position.y);
+		if (collider->type_collider == 4)
+			collider->SetPos(position.x, position.y + 8);
 		
 	}
 
