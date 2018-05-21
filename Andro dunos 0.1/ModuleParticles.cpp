@@ -20,7 +20,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_0_up.anim.speed = 0.3f;
 	basic_shoot_0_up.speed.x = 5;
 	basic_shoot_0_up.life = 3000;
-	//basic_shoot_0_up.tipeee = 1;
+	basic_shoot_0_up.type_particle = 1;
 
 	// Basic_shoot 0_down
 	basic_shoot_0_down.anim.PushBack({ 24, 39, 11, 4 });
@@ -29,7 +29,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_0_down.anim.speed = 0.3f;
 	basic_shoot_0_down.speed.x = 5;
 	basic_shoot_0_down.life = 3000;
-//	basic_shoot_0_down.tipeee = 1;
+	basic_shoot_0_down.type_particle = 2;
 	
 
 	// Laser 0
@@ -48,6 +48,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_1.anim.speed = 0.3f;
 	basic_shoot_1.speed.x = 5;
 	basic_shoot_1.life = 3000;
+	//basic_shoot_1_down.tipeee = 3;
 
 	// Basic_shoot 1_up
 	basic_shoot_1_up.anim.PushBack({ 24, 35, 11, 8 });
@@ -408,8 +409,11 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 			p->Type = particle.Type;
 			if (collider_type != COLLIDER_NONE) {
 				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
+				p->collider->type_collider = particle.type_particle;
 				/*if(particle.tipeee == 1)
-					p->collider->tipee = 1;*/
+					p->collider->tipee = 1;
+				if (particle.tipeee == 2)
+					p->collider->tipee = 2;*/
 			}
 			active[i] = p;
 			break;
@@ -459,6 +463,8 @@ bool Particle::Update()
 {
 	bool ret = true;
 
+
+
 	if (life > 0)
 	{
 		if ((SDL_GetTicks() - born) > life)
@@ -470,14 +476,14 @@ bool Particle::Update()
 
 	position.x += speed.x;
 	position.y += speed.y;
+	
 
 	if (collider != nullptr) {
 		collider->SetPos(position.x, position.y);
-		/*if (collider->tipee ==1) {
-		 collider->SetPos(position.x, position.y);
-		
-
-		}*/
+		if (collider->type_collider == 1) 
+			collider->SetPos(position.x, position.y-1);
+		if (collider->type_collider == 2)
+ 			collider->SetPos(position.x, position.y + 2);
 	}
 
 	return ret;

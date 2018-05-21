@@ -30,7 +30,7 @@ struct Collider
 		type(type),
 		callback(callback)
 	{}
-	//int tipee;
+	int type_collider;
 	void SetPos(int x, int y)
 	{
 		rect.x = x;

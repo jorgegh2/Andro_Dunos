@@ -15,7 +15,7 @@ enum COLLIDER_TYPE;
 
 struct Particle
 {
-	//int tipeee;
+	int type_particle;
 	Collider* collider = nullptr;
 	Animation anim;
 	uint fx = 0;
@@ -25,7 +25,7 @@ struct Particle
 	Uint32 life = 0;
 	bool fx_played = false;
 
-	//int tipe;
+	int tipe;
 
 	Particle();
 	Particle(const Particle& p);
