@@ -15,6 +15,7 @@
 #include "ModuleFonts.h"
 #include "UI.h"
 #include "Module_player_2.h"
+#include "ModulePowerUp.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -491,7 +492,7 @@ update_status ModulePlayer::Update()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c_player != nullptr && c_player == c1 && App->fade->IsFading() == false)
+	if (c_player != nullptr && c_player == c1 && App->fade->IsFading() == false && c2 != App->power_up->c_power_up)
 	{
 		//code
 		if (!god_mode) {
@@ -509,6 +510,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				App->fade->FadeToBlack(App->level01, App->game_over, 1);*/
 			}
 		}
+	}
+	if (c_player != nullptr && c_player == c1 && App->fade->IsFading() == false && c2 == App->power_up->c_power_up)
+	{
+		App->power_up->Disable();
 	}
 }
 

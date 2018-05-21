@@ -19,6 +19,7 @@
 #include "Module_Player_2.h"
 #include "ModuleFonts.h"
 #include "UI.h"
+#include "ModulePowerUp.h"
 
 Application::Application()
 {
@@ -33,16 +34,17 @@ Application::Application()
 	modules[8] = level03 = new Level03();
 	modules[9] = level01 = new Level01();
 	modules[10] = enemy = new ModuleEnemies();
-	modules[11] = stage_clear = new ModuleStageClear();
-	modules[12] = game_over = new ModuleGameOver();
-	modules[13] = players_menu = new ModulePlayersMenu();
-	modules[14] = particles = new ModuleParticles();
-	modules[15] = player = new ModulePlayer();
-	modules[16] = player2 = new ModulePlayer2();
-	modules[17] = fade = new ModuleFadeToBlack();
-	modules[18] = collision = new ModuleCollision();
-	modules[19] = fonts = new ModuleFonts();
-	modules[20] = UI = new ModuleUI();
+	modules[11] = power_up = new ModulePowerUp();
+	modules[12] = stage_clear = new ModuleStageClear();
+	modules[13] = game_over = new ModuleGameOver();
+	modules[14] = players_menu = new ModulePlayersMenu();
+	modules[15] = particles = new ModuleParticles();
+	modules[16] = player = new ModulePlayer();
+	modules[17] = player2 = new ModulePlayer2();
+	modules[18] = fade = new ModuleFadeToBlack();
+	modules[19] = collision = new ModuleCollision();
+	modules[20] = fonts = new ModuleFonts();
+	modules[21] = UI = new ModuleUI();
 	
 }	
 
@@ -67,6 +69,7 @@ bool Application::Init()
 	App->players_menu->Disable();
 	App->insert_coin->Disable();
 	App->UI->Disable();
+	App->power_up->Disable();
 
 	collision->Disable();
 	enemy->Disable();

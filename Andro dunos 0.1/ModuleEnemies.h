@@ -45,7 +45,7 @@ private:
 
 	void SpawnEnemy(const EnemyInfo& info);
 
-private:
+public:
 
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
@@ -53,6 +53,8 @@ private:
 	SDL_Texture* enemy_3;
 	SDL_Texture* enemy15;
 	SDL_Texture* enemyPowerUp;
+	int posXpowerUP;
+	int posYpowerUP;
 
 };
 

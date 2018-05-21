@@ -16,6 +16,10 @@
 #include "UI.h"
 #include "Module_player_2.h"
 #include "ModulePowerUp.h"
+#include "Enemy.h"
+#include "ModuleEnemies.h"
+#include "Enemy_PowerUp.h"
+
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -24,7 +28,7 @@ ModulePowerUp::ModulePowerUp()
 	PowerUpText = NULL;
 
 	// General Animation 
-	general.PushBack({ 94, 108, SHIP_WIDTH, SHIP_HEIGHT }); //Power Up Size //Coordenadas de Power Up
+	idle.PushBack({ 9, 29, 16, 16 }); //Power Up Size //Coordenadas de Power Up
 
 
 															/*// Up animation
@@ -89,7 +93,7 @@ bool ModulePowerUp::Start()
 	power_up_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Power_Up_Picked.wav");
 	c_power_up = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_POWER_UP, this); //Mirar esto
 
-	PickPowerUp();
+	
 
 
 	/*laser_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type-3_(Main_Ships).wav");
@@ -115,7 +119,8 @@ bool ModulePowerUp::CleanUp()
 
 	App->audio->UnloadSoundEffect(power_up_sound);
 	App->textures->Unload(PowerUpText);
-
+	/*if(c_power_up !=nullptr)
+		c_power_up->SetPos(App->player->position.x, App->player->position.y);*/
 	/*App->audio->UnloadSoundEffect(player_death);
 	App->audio->UnloadSoundEffect(laser_sound);
 	App->audio->UnloadSoundEffect(basic_attack_sound);
@@ -131,14 +136,10 @@ bool ModulePowerUp::CleanUp()
 update_status ModulePowerUp::Update()
 {
 	//power up conditions and movement
+ 	current_animation = &idle;
+	App->render->Blit(PowerUpText, App->enemy->posXpowerUP, App->enemy->posYpowerUP, &(current_animation->GetCurrentFrame()));
+	c_power_up->SetPos(App->enemy->posXpowerUP, App->enemy->posYpowerUP);
 	return UPDATE_CONTINUE;
 }
 
-void ModulePowerUp::OnCollision(Collider* c1, Collider* c2)
-{
-	//function for colliders
-}
 
-void ModulePowerUp::PickPowerUp() {
-	//function
-}

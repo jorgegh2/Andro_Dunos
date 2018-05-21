@@ -10,6 +10,7 @@
 #include "Enemy15.h"
 #include "Enemy_PowerUp.h"
 #include "UI.h"
+#include "ModulePowerUp.h"
 
 
 #define SPAWN_MARGIN 50
@@ -172,6 +173,11 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
+			if (enemies[i]->Type == 4) {
+				App->power_up->Enable();
+				posXpowerUP = enemies[i]->position.x;
+				posYpowerUP = enemies[i]->position.y;
+			}
 			enemies[i]->OnCollision(c2);
 			delete enemies[i];
 			enemies[i] = nullptr;
@@ -180,4 +186,5 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	}
 	if (c2->type == COLLIDER_PLAYER_SHOT)
 		App->UI->score += 100;
+	
 }

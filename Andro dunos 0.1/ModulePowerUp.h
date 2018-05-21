@@ -19,14 +19,15 @@ public:
 	update_status Update();
 	bool CleanUp();
 
-	void OnCollision(Collider*, Collider*);
-	void PickPowerUp();
+	
+
 
 public:
 
 	SDL_Texture * PowerUpText = nullptr;
 
-	Animation general;
+	Animation idle;
+	Animation* current_animation = nullptr;
 
 	Mix_Chunk* power_up_sound = nullptr;
 
