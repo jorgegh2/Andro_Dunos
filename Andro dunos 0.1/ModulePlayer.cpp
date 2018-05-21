@@ -307,8 +307,8 @@ update_status ModulePlayer::Update()
 				switch (change_weapon) {
 
 				case CHANGE_WEAPON::BASIC_ATTACK:
-					App->particles->AddParticle(App->particles->basic_shoot_0_down, position.x + 20, position.y + 11, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->basic_shoot_0_up, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_0_down, position.x + 10, position.y + 11, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_0_up, position.x + 10, position.y + 7, COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(basic_attack_sound);
 					//App->UI->score += 100;
 					break;
