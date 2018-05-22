@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleWindow.h"
 #include "SDL/include/SDL.h"
+#include "ModuleRender.h"
 
 ModuleWindow::ModuleWindow() : Module()
 {
@@ -43,7 +44,7 @@ bool ModuleWindow::Init()
 		if(WIN_FULLSCREEN_DESKTOP == true)
 			flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 
-		window = SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
+		window = SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_FULLSCREEN_DESKTOP);
 
 		if(window == NULL)
 		{
@@ -56,8 +57,9 @@ bool ModuleWindow::Init()
 			screen_surface = SDL_GetWindowSurface(window);
 		}
 	}
-
-	//if(!SDL_SetWindowFullscreen(window, WINDOW_FULLSCREEN_DESKTOP)) LOG("Window could not be in fullscreen! SDL_Error: %s\n", SDL_GetError());
+	
+	if(!SDL_SetWindowFullscreen(window, WINDOW_FULLSCREEN_DESKTOP)) LOG("Window could not be in fullscreen! SDL_Error: %s\n", SDL_GetError());
+	
 
 	return ret;
 }
