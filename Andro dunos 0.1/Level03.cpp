@@ -164,7 +164,7 @@ update_status Level03::Update()
 
 
 	// Music
-	if (App->render->camera.x >= 1150 * SCREEN_SIZE && mus_change == false) {
+	if (App->render->camera.x >= 1055 * SCREEN_SIZE && mus_change == false) {
 		App->audio->StopMusic();
 		App->audio->PlayMusic(music_level03v2);
 		mus_change = true;
@@ -172,9 +172,9 @@ update_status Level03::Update()
 	if (pos >= 32 && up) up = false;
 	else if (pos <= 0 && !up) up = true;
 	if (up)
-		pos += 0.15;
+		pos += 0.125;
 	else if (!up)
-		pos -= 0.15;
+		pos -= 0.125;
 	// Draw everything --------------------------------------
 	for (int i = 0; i < 10; ++i) if (!App->render->Blit(background1, 400 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
 	for (int i = 0; i < 18; ++i) if (!App->render->Blit(finalbackground, 3005 + 80 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
@@ -188,19 +188,19 @@ update_status Level03::Update()
 	}
 
 	current = &top_layout1;
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50, 0 - pos, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 30, 0 - pos, &(current->GetCurrentFrame()), 0.74f)) return update_status::UPDATE_ERROR;
 	current = &top_layout2;
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 1417, 0 - pos, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 30 + 1417, 0 - pos, &(current->GetCurrentFrame()), 0.74f)) return update_status::UPDATE_ERROR;
 	current = &top_layout3;
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 2834, 0 - pos, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 30 + 2834, 0 - pos, &(current->GetCurrentFrame()), 0.74f)) return update_status::UPDATE_ERROR;
 	current = &top_layout4;
-	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 50 + 4252, 0 - pos, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[0], SCREEN_WIDTH + 30 + 4252, 0 - pos, &(current->GetCurrentFrame()), 0.74f)) return update_status::UPDATE_ERROR;
 	current = &bot_layout1;
-	if (!App->render->Blit(layout[3], SCREEN_WIDTH + 50, 150 + pos, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[3], SCREEN_WIDTH + 30, 150 + pos, &(current->GetCurrentFrame()), 0.74f)) return update_status::UPDATE_ERROR;
 	current = &bot_layout2;
-	if (!App->render->Blit(layout[3], SCREEN_WIDTH + 50 + 1417, 105 + pos, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[3], SCREEN_WIDTH + 30 + 1417, 105 + pos, &(current->GetCurrentFrame()), 0.74f)) return update_status::UPDATE_ERROR;
 	current = &bot_layout3;
-	if (!App->render->Blit(layout[3], SCREEN_WIDTH + 50 + 2834, 179 + pos, &(current->GetCurrentFrame()), 0.75f)) return update_status::UPDATE_ERROR;
+	if (!App->render->Blit(layout[3], SCREEN_WIDTH + 30 + 2834, 179 + pos, &(current->GetCurrentFrame()), 0.74f)) return update_status::UPDATE_ERROR;
 
 	if (!App->render->Blit(layout[1], 6080, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[2], 6987, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
