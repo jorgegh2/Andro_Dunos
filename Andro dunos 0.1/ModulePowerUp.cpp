@@ -28,7 +28,43 @@ ModulePowerUp::ModulePowerUp()
 	PowerUpText = NULL;
 
 	// General Animation 
-	idle.PushBack({ 9, 29, 16, 16 }); //Power Up Size //Coordenadas de Power Up
+	idle.PushBack({ 2, 2, 16, 16 });
+	idle.PushBack({ 21, 2, 16, 16 });
+	idle.PushBack({ 39, 2, 16, 16 });//openclose
+	idle.PushBack({ 111, 2, 16, 16 });//openclose
+	idle.PushBack({ 57, 2, 16, 16 });//openclose
+	idle.PushBack({ 75, 2, 16, 16 });
+	idle.PushBack({ 93, 2, 16, 16 });
+
+	idle.PushBack({ 2, 20, 16, 16 });
+	idle.PushBack({ 21, 20, 16, 16 });
+	idle.PushBack({ 39, 20, 16, 16 });//openclose
+	idle.PushBack({ 111, 20, 16, 16 });//openclose
+	idle.PushBack({ 57, 20, 16, 16 });//openclose
+	idle.PushBack({ 75, 20, 16, 16 });
+	idle.PushBack({ 93, 20, 16, 16 });
+
+	idle.PushBack({ 2, 38, 16, 16 });
+	idle.PushBack({ 21, 38, 16, 16 });
+	idle.PushBack({ 39, 38, 16, 16 });//openclose
+	idle.PushBack({ 111, 38, 16, 16 });//openclose
+	idle.PushBack({ 57, 38, 16, 16 });//openclose
+	idle.PushBack({ 75, 38, 16, 16 });
+	idle.PushBack({ 93, 38, 16, 16 });
+
+	idle.PushBack({ 2, 56, 16, 16 });
+	idle.PushBack({ 21, 56, 16, 16 });
+	idle.PushBack({ 39, 56, 16, 16 });//openclose
+	idle.PushBack({ 111, 56, 16, 16 });//openclose
+	idle.PushBack({ 57, 56, 16, 16 });//openclose
+	idle.PushBack({ 75, 56, 16, 16 });
+	idle.PushBack({ 93, 56, 16, 16 });
+
+	idle.loop = false;
+	idle.speed = 0.1f;
+
+	
+
 
 
 															/*// Up animation

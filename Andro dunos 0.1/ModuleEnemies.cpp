@@ -177,6 +177,10 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				App->power_up->Enable();
 				posXpowerUP = enemies[i]->position.x;
 				posYpowerUP = enemies[i]->position.y;
+				
+				//if () {
+					//que cuando choque el jugador desaparezca TOTALMENTE power up
+				//}
 			}
 			enemies[i]->OnCollision(c2);
 			delete enemies[i];
