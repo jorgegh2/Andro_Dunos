@@ -183,7 +183,7 @@ ModuleParticles::ModuleParticles()
 	helix_01_1.anim.PushBack({ 41, 23, 13, 6 });
 	helix_01_1.anim.loop = false;
 	helix_01_1.anim.speed = 0.3f;
-	helix_01_1.speed.x = 4;
+	helix_01_1.speed.x = 8;
 	helix_01_1.speed.y = 1;
 	helix_01_1.life = 3000;
 
@@ -192,7 +192,7 @@ ModuleParticles::ModuleParticles()
 	helix_01_2.anim.PushBack({ 41, 23, 13, 6 });
 	helix_01_2.anim.loop = false;
 	helix_01_2.anim.speed = 0.3f;
-	helix_01_2.speed.x = 4;
+	helix_01_2.speed.x = 8;
 	helix_01_2.speed.y = -1;
 	helix_01_2.life = 3000;
 
@@ -201,7 +201,7 @@ ModuleParticles::ModuleParticles()
 	helix_01_3.anim.PushBack({ 41, 23, 13, 6 });
 	helix_01_3.anim.loop = false;
 	helix_01_3.anim.speed = 0.3f;
-	helix_01_3.speed.x = 4;
+	helix_01_3.speed.x = 8;
 	helix_01_3.speed.y = 0;
 	helix_01_3.life = 3000;
 	/*power-up 2*/
@@ -211,7 +211,7 @@ ModuleParticles::ModuleParticles()
 	helix_02_1.anim.PushBack({ 41, 38, 13, 8 });
 	helix_02_1.anim.loop = false;
 	helix_02_1.anim.speed = 0.3f;
-	helix_02_1.speed.x = 4;
+	helix_02_1.speed.x = 8;
 	helix_02_1.speed.y = 1;
 	helix_02_1.life = 3000;
 
@@ -221,7 +221,7 @@ ModuleParticles::ModuleParticles()
 	helix_02_2.anim.PushBack({ 41, 38, 13, 8 });
 	helix_02_2.anim.loop = false;
 	helix_02_2.anim.speed = 0.3f;
-	helix_02_2.speed.x = 4;
+	helix_02_2.speed.x = 8;
 	helix_02_2.speed.y = -1;
 	helix_02_2.life = 3000;
 
@@ -231,7 +231,7 @@ ModuleParticles::ModuleParticles()
 	helix_02_3.anim.PushBack({ 41, 38, 13, 8 });
 	helix_02_3.anim.loop = false;
 	helix_02_3.anim.speed = 0.3f;
-	helix_02_3.speed.x = 4;
+	helix_02_3.speed.x = 8;
 	helix_02_3.speed.y = 0;
 	helix_02_3.life = 3000;
 
