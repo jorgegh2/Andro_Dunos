@@ -299,8 +299,16 @@ update_status ModulePlayer::Update()
 		//////////
 
 		// Shoot 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || shoot == true)
+		if (Reset_time_bullets) {
+			Bullet_time_init = SDL_GetTicks();
+			Reset_time_bullets = false;
+		}
+		Bullet_delay = SDL_GetTicks() - Bullet_time_init;
+
+		if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || shoot == true) && Bullet_delay >=100)
 		{
+			Bullet_delay = 0;
+			Reset_time_bullets = true;
 			shoot = false;
 			switch (power_up) {
 			case POWER_UPS::POWER_UP_BASIC:

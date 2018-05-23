@@ -53,6 +53,9 @@ public:
 	uint time_final = 0;
 	uint time_init = 0;
 	bool time_finished = true;
+	uint Bullet_time_init = 0;
+	uint Bullet_delay;
+	bool Reset_time_bullets = true;
 	
 
 	Collider* c_player = nullptr;
