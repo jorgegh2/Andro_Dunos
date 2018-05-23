@@ -9,7 +9,9 @@
 #include "Level01.h"
 #include "ModuleInput.h"
 #include "ModuleInsertCoin.h"
+#include <stdio.h>
 #include "ModuleGameIntroduction.h"
+#include "ModuleFonts.h"
 #include "ModuleStageClear.h"
 #include "ModuleAudio.h"
 #include "ModuleCollision.h"
@@ -214,6 +216,10 @@ update_status Level03::Update()
 		App->fade->FadeToBlack(this, (Module*)App->game_intro);
 		
 	}
+
+	// Show credits
+	sprintf_s(App->players_menu->credits_text, 10, "%7d", App->players_menu->cr);
+	App->fonts->BlitText(234, 208, App->players_menu->font_credits, App->players_menu->credits_text);
 
 	return UPDATE_CONTINUE;
 }

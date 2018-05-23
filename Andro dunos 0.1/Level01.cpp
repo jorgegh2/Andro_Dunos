@@ -12,6 +12,8 @@
 #include "ModuleGameIntroduction.h"
 #include "ModuleStageClear.h"
 #include "ModuleAudio.h"
+#include "ModuleFonts.h"
+#include <stdio.h>
 #include "ModuleCollision.h"
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
@@ -440,7 +442,11 @@ update_status Level01::Update()
 		//App->player2->Two_Players = false;
 	}
 	
-
+	// Show credits
+	sprintf_s(App->players_menu->credits_text, 10, "%7d", App->players_menu->cr);
+	App->fonts->BlitText(234, 208, App->players_menu->font_credits, App->players_menu->credits_text);
+	/*App->render->Blit(App->players_menu->graphics8, 230, 208, NULL);
+	App->fonts->BlitText(234, 208, App->players_menu->font_credits, App->players_menu->credits_text);*/
 
 
 	// IMPORTANT: TIME OR POSITION CONDITION TO WIN THE STAGE !!! TODO

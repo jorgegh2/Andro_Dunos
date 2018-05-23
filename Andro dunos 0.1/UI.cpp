@@ -99,13 +99,14 @@ update_status ModuleUI::Update()
 	else if (App->player->change_weapon == 3)
 		App->render->Blit(UI_helix, 5, 16, NULL, 0.0f, false);
 
-	// Numbers
+	// Numbers Player 1
 	if (App->player->power_up == 0)
 		App->render->Blit(power_up_numbers, 32, 17, &n_1, 0.0f, false);
 	else if (App->player->power_up == 1)
 		App->render->Blit(power_up_numbers, 31, 17, &n_2, 0.0f, false);
 	else if (App->player->power_up == 2)
 		App->render->Blit(power_up_numbers, 31, 17, &n_3, 0.0f, false);
+
 
 	// Lifes
 	if (App->player->life >= 2) App->render->Blit(Life_texture1, 10, 24, NULL, 0.0f, false);
@@ -158,6 +159,13 @@ update_status ModuleUI::Update()
 			App->render->Blit(UI_helix, 171, 16, NULL, 0.0f, false);
 	}
 
+	// Numbers Player 2
+	if (App->player2->power_up == 0)
+		App->render->Blit(power_up_numbers, 198, 17, &n_1, 0.0f, false);
+	else if (App->player2->power_up == 1)
+		App->render->Blit(power_up_numbers, 197, 17, &n_2, 0.0f, false);
+	else if (App->player2->power_up == 2)
+		App->render->Blit(power_up_numbers, 197, 17, &n_3, 0.0f, false);
 
 
 	return UPDATE_CONTINUE;

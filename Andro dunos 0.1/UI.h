@@ -27,7 +27,7 @@ public:
 
 public:
 	int font_score = -1;
-	int font_score2 = -1;
+	//int font_score2 = -1;
 	int Continue_Number = -1;
 	char score_text[10];
 	uint score = 0;
