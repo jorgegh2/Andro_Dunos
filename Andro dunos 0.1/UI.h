@@ -30,7 +30,9 @@ public:
 	//int font_score2 = -1;
 	int Continue_Number = -1;
 	char score_text[10];
+	char score_text2[10];
 	uint score = 0;
+	uint score2 = 0;
 	uint Cuenta_atras_number = 0;
 	char Cuenta_atras[10];
 	uint time_dead_init = 0;

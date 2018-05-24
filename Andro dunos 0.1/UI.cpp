@@ -48,6 +48,7 @@ ModuleUI::~ModuleUI() {}
 bool ModuleUI::Start() {
 
 	score = 0;
+	score2 = 0;
 
 	red_insert_coin = App->textures->Load("Images/HUD/insert_coin_red_p2.png");
 	red_2p_button = App->textures->Load("Images/HUD/red_p2_button.png");
@@ -85,10 +86,15 @@ update_status ModuleUI::Update()
 		App->render->Blit(red_2p_button, 160, 16, &(p2_button->GetCurrentFrame()), 0.0f, false);
 	}
 
+	// P1
 	sprintf_s(score_text, 10, "%7d", score);
-
 	App->fonts->BlitText(30, 7, font_score, score_text);
 	App->fonts->BlitText(5, 7, font_score, "1P");
+
+	// P2
+	sprintf_s(score_text2, 10, "%7d", score2);
+	App->fonts->BlitText(100, 7, font_score, score_text2);
+	App->fonts->BlitText(250, 7, font_score, "2P");
 
 	// SHOW CREDITS BOTTOM RIGHT
 	sprintf_s(credits_text, 10, "%7d", App->players_menu->cr);
