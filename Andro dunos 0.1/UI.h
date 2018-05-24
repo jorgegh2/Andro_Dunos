@@ -62,6 +62,7 @@ public:
 	// Credits
 	int font_credits = -1;
 	char credits_text[10];
+	SDL_Texture* graphics8 = nullptr; // credit
 };
 
 
