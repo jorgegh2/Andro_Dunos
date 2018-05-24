@@ -291,6 +291,10 @@ update_status ModulePlayer::Update()
 				break;
 
 			case POWER_UPS::POWER_UP_2:
+				power_up = POWER_UPS::POWER_UP_3;
+				break;
+
+			case POWER_UPS::POWER_UP_3:
 				power_up = POWER_UPS::POWER_UP_BASIC;
 				break;
 			}
@@ -412,6 +416,16 @@ update_status ModulePlayer::Update()
 				}
 
 				break;
+			case POWER_UPS::POWER_UP_3:
+				switch (change_weapon) {
+
+				case CHANGE_WEAPON::BASIC_ATTACK:
+					App->particles->AddParticle(App->particles->basic_shoot_3_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_3_up, position.x + 20, position.y - 2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_2, position.x + 24, position.y + 9 , COLLIDER_PLAYER_SHOT);
+					App->audio->PlaySoundEffect(basic_attack_sound);
+					break;
+				}
 
 			}
 		}

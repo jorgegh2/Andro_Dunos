@@ -80,6 +80,9 @@ public:
 	Particle basic_shoot_2_up;
 	Particle basic_shoot_2_down;
 
+	Particle basic_shoot_3_up;
+	Particle basic_shoot_3_down;
+
 	Particle laser_0;
 
 	Particle laser_1;

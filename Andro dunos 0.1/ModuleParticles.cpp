@@ -93,9 +93,9 @@ ModuleParticles::ModuleParticles()
 
 
 	// Basic_shoot 2
-	basic_shoot_2.anim.PushBack({ 26, 51, 11, 6 });
+	basic_shoot_2.anim.PushBack({ 26, 51, 15, 6 });
 	basic_shoot_2.anim.PushBack({ 24, 51, 13, 6 });
-	basic_shoot_2.anim.PushBack({ 22, 51, 15, 6 });
+	basic_shoot_2.anim.PushBack({ 22, 51, 15, 6 }); //
 	basic_shoot_2.anim.PushBack({ 20, 51, 17, 6 });
 	basic_shoot_2.anim.PushBack({ 18, 51, 19, 6 });
 	basic_shoot_2.anim.PushBack({ 16, 51, 21, 6 });
@@ -129,6 +129,33 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_2_down.speed.x = 5;
 	basic_shoot_2_down.life = 1200;
 	basic_shoot_2_down.type_particle = 4;
+
+
+	//Basic_shoot 3_up
+	basic_shoot_3_up.anim.PushBack({ 22, 91, 15, 6 });
+	basic_shoot_3_up.anim.PushBack({ 22, 43, 15, 14 });
+	basic_shoot_3_up.anim.PushBack({ 22, 45, 15, 12 });
+	basic_shoot_3_up.anim.PushBack({ 22, 47, 15, 10 });
+	basic_shoot_3_up.anim.PushBack({ 22, 49, 15, 8 });
+	basic_shoot_3_up.anim.PushBack({ 22, 51, 15, 6 });
+	basic_shoot_3_up.anim.loop = false;
+	basic_shoot_3_up.anim.speed = 0.3f;
+	basic_shoot_3_up.speed.x = 5;
+	basic_shoot_3_up.life = 1200;
+	
+
+	//Basic_shoot 3_down
+	basic_shoot_3_down.anim.PushBack({ 22, 91, 15, 6 });
+	basic_shoot_3_down.anim.PushBack({ 22, 51, 15, 6 });
+	basic_shoot_3_down.anim.PushBack({ 22, 49, 15, 8 });
+	basic_shoot_3_down.anim.PushBack({ 22, 47, 15, 10 });
+	basic_shoot_3_down.anim.PushBack({ 22, 45, 15, 12 });
+	basic_shoot_3_down.anim.PushBack({ 22, 43, 15, 14 });
+	basic_shoot_3_down.anim.loop = false;
+	basic_shoot_3_down.anim.speed = 0.3f;
+	basic_shoot_3_down.speed.x = 5;
+	basic_shoot_3_down.life = 1200;
+	basic_shoot_3_down.type_particle = 5;
 
 	// Laser 2 up
 	laser_2.anim.PushBack({ 57, 60, 16, 18 });
@@ -516,8 +543,10 @@ bool Particle::Update()
 		if (collider->type_collider == 2)
 			collider->SetPos(position.x, position.y + 4);
 		if (collider->type_collider == 3)
-			collider->SetPos(position.x + 8, position.y);
+ 			collider->SetPos(position.x + 6, position.y);
 		if (collider->type_collider == 4)
+			collider->SetPos(position.x, position.y + 8);
+		if (collider->type_collider == 5)
 			collider->SetPos(position.x, position.y + 8);
 		
 	}
