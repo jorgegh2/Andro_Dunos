@@ -299,6 +299,14 @@ update_status ModulePlayer::Update()
 				break;
 
 			case POWER_UPS::POWER_UP_4:
+				power_up = POWER_UPS::POWER_UP_5;
+				break;
+
+			case POWER_UPS::POWER_UP_5:
+				power_up = POWER_UPS::POWER_UP_6;
+				break;
+
+			case POWER_UPS::POWER_UP_6:
 				power_up = POWER_UPS::POWER_UP_BASIC;
 				break;
 			}
@@ -443,7 +451,32 @@ update_status ModulePlayer::Update()
 					App->audio->PlaySoundEffect(basic_attack_sound);
 					break;
 				}
+				break;
 
+			case POWER_UPS::POWER_UP_5:
+				switch (change_weapon) {
+
+				case CHANGE_WEAPON::BASIC_ATTACK:
+					App->particles->AddParticle(App->particles->basic_shoot_3_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_3_up, position.x + 20, position.y - 5, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_5_down, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_5_up, position.x + 20, position.y , COLLIDER_PLAYER_SHOT);
+					App->audio->PlaySoundEffect(basic_attack_sound);
+					break;
+				}
+				break;
+
+			case POWER_UPS::POWER_UP_6:
+				switch (change_weapon) {
+
+				case CHANGE_WEAPON::BASIC_ATTACK:
+					App->particles->AddParticle(App->particles->basic_shoot_6_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_6_up, position.x + 20, position.y - 11, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_5_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->basic_shoot_5_up, position.x + 20, position.y - 1, COLLIDER_PLAYER_SHOT);
+					App->audio->PlaySoundEffect(basic_attack_sound);
+					break;
+				}
 			}
 		}
 	}
