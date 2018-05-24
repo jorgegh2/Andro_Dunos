@@ -167,16 +167,15 @@ update_status ModuleUI::Update()
 			App->render->Blit(UI_backshoot, 171, 16, NULL, 0.0f, false);
 		else if (App->player2->change_weapon == 3)
 			App->render->Blit(UI_helix, 171, 16, NULL, 0.0f, false);
+
+		// Numbers Player 2
+		if (App->player2->power_up == 0)
+			App->render->Blit(power_up_numbers, 198, 17, &n_1, 0.0f, false);
+		else if (App->player2->power_up == 1)
+			App->render->Blit(power_up_numbers, 197, 17, &n_2, 0.0f, false);
+		else if (App->player2->power_up == 2)
+			App->render->Blit(power_up_numbers, 197, 17, &n_3, 0.0f, false);
 	}
-
-	// Numbers Player 2
-	if (App->player2->power_up == 0)
-		App->render->Blit(power_up_numbers, 198, 17, &n_1, 0.0f, false);
-	else if (App->player2->power_up == 1)
-		App->render->Blit(power_up_numbers, 197, 17, &n_2, 0.0f, false);
-	else if (App->player2->power_up == 2)
-		App->render->Blit(power_up_numbers, 197, 17, &n_3, 0.0f, false);
-
 
 	return UPDATE_CONTINUE;
 }
