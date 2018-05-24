@@ -88,7 +88,8 @@ public: // so we can access from UI module and blit the HUD textures or images
 		POWER_UP_BASIC = 0,
 		POWER_UP_1,
 		POWER_UP_2,
-		POWER_UP_3
+		POWER_UP_3,
+		POWER_UP_4
 	} power_up = POWER_UPS::POWER_UP_BASIC;
 };
 

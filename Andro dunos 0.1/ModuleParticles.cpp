@@ -93,12 +93,12 @@ ModuleParticles::ModuleParticles()
 
 
 	// Basic_shoot 2
-	basic_shoot_2.anim.PushBack({ 26, 51, 15, 6 });
-	basic_shoot_2.anim.PushBack({ 24, 51, 13, 6 });
-	basic_shoot_2.anim.PushBack({ 22, 51, 15, 6 }); //
-	basic_shoot_2.anim.PushBack({ 20, 51, 17, 6 });
-	basic_shoot_2.anim.PushBack({ 18, 51, 19, 6 });
-	basic_shoot_2.anim.PushBack({ 16, 51, 21, 6 });
+	basic_shoot_2.anim.PushBack({ 26, 63, 15, 6 });
+	basic_shoot_2.anim.PushBack({ 24, 63, 13, 6 });
+	basic_shoot_2.anim.PushBack({ 22, 63, 15, 6 }); //
+	basic_shoot_2.anim.PushBack({ 20, 63, 17, 6 });
+	basic_shoot_2.anim.PushBack({ 18, 63, 19, 6 });
+	basic_shoot_2.anim.PushBack({ 16, 63, 21, 6 });
 	basic_shoot_2.anim.loop = false;
 	basic_shoot_2.anim.speed = 0.3f;
 	basic_shoot_2.speed.x = 5;
@@ -132,12 +132,13 @@ ModuleParticles::ModuleParticles()
 
 
 	//Basic_shoot 3_up
-	basic_shoot_3_up.anim.PushBack({ 22, 91, 15, 6 });
-	basic_shoot_3_up.anim.PushBack({ 22, 43, 15, 14 });
-	basic_shoot_3_up.anim.PushBack({ 22, 45, 15, 12 });
-	basic_shoot_3_up.anim.PushBack({ 22, 47, 15, 10 });
-	basic_shoot_3_up.anim.PushBack({ 22, 49, 15, 8 });
-	basic_shoot_3_up.anim.PushBack({ 22, 51, 15, 6 });
+	basic_shoot_3_up.anim.PushBack({ 22, 92, 15, 6 });
+	basic_shoot_3_up.anim.PushBack({ 22, 54, 15, 15 });
+	basic_shoot_3_up.anim.PushBack({ 22, 55, 15, 14 });
+	basic_shoot_3_up.anim.PushBack({ 22, 57, 15, 12 });
+	basic_shoot_3_up.anim.PushBack({ 22, 59, 15, 10 });
+	basic_shoot_3_up.anim.PushBack({ 22, 61, 15, 8 });
+	basic_shoot_3_up.anim.PushBack({ 22, 63, 15, 6 });
 	basic_shoot_3_up.anim.loop = false;
 	basic_shoot_3_up.anim.speed = 0.3f;
 	basic_shoot_3_up.speed.x = 5;
@@ -145,17 +146,70 @@ ModuleParticles::ModuleParticles()
 	
 
 	//Basic_shoot 3_down
-	basic_shoot_3_down.anim.PushBack({ 22, 91, 15, 6 });
-	basic_shoot_3_down.anim.PushBack({ 22, 51, 15, 6 });
-	basic_shoot_3_down.anim.PushBack({ 22, 49, 15, 8 });
-	basic_shoot_3_down.anim.PushBack({ 22, 47, 15, 10 });
-	basic_shoot_3_down.anim.PushBack({ 22, 45, 15, 12 });
-	basic_shoot_3_down.anim.PushBack({ 22, 43, 15, 14 });
+	basic_shoot_3_down.anim.PushBack({ 22, 92, 15, 6 });
+	basic_shoot_3_down.anim.PushBack({ 22, 63, 15, 6 });
+	basic_shoot_3_down.anim.PushBack({ 22, 61, 15, 8 });
+	basic_shoot_3_down.anim.PushBack({ 22, 59, 15, 10 });
+	basic_shoot_3_down.anim.PushBack({ 22, 57, 15, 12 });
+	basic_shoot_3_down.anim.PushBack({ 22, 55, 15, 14 });
+	basic_shoot_3_down.anim.PushBack({ 22, 54, 15, 15 });
 	basic_shoot_3_down.anim.loop = false;
 	basic_shoot_3_down.anim.speed = 0.3f;
 	basic_shoot_3_down.speed.x = 5;
 	basic_shoot_3_down.life = 1200;
 	basic_shoot_3_down.type_particle = 5;
+
+	//Basic_shoot 4_up
+	basic_shoot_4_up.anim.PushBack({ 22, 91, 15, 6 });
+	basic_shoot_4_up.anim.PushBack({ 22, 61, 15, 8 });
+	basic_shoot_4_up.anim.PushBack({ 20, 62, 17, 7 });
+	basic_shoot_4_up.anim.PushBack({ 18, 62, 19, 7 });
+	basic_shoot_4_up.anim.PushBack({ 16, 62, 21, 7 });
+	basic_shoot_4_up.anim.PushBack({ 14, 62, 23, 7 });
+	basic_shoot_4_up.anim.loop = false;
+	basic_shoot_4_up.anim.speed = 0.3f;
+	basic_shoot_4_up.speed.x = 5;
+	basic_shoot_4_up.life = 1200;
+	basic_shoot_4_up.type_particle = 6;
+
+	//Basic_shoot 4_up_up
+	/*basic_shoot_4_up_up.anim.PushBack({ 22, 91, 15, 6 });
+	basic_shoot_4_up_up.anim.PushBack({ 22, 43, 15, 14 });
+	basic_shoot_4_up_up.anim.PushBack({ 22, 45, 15, 12 });
+	basic_shoot_4_up_up.anim.PushBack({ 22, 47, 15, 10 });
+	basic_shoot_4_up_up.anim.PushBack({ 22, 49, 15, 8 });
+	basic_shoot_4_up_up.anim.PushBack({ 22, 51, 15, 6 });
+	basic_shoot_4_up_up.anim.loop = false;
+	basic_shoot_4_up_up.anim.speed = 0.3f;
+	basic_shoot_4_up_up.speed.x = 5;
+	basic_shoot_4_up_up.life = 1200;*/
+
+	//Basic_shoot 4_down
+	basic_shoot_4_down.anim.PushBack({ 22, 92, 15, 6 });
+	basic_shoot_4_down.anim.PushBack({ 22, 63, 15, 6 });
+	basic_shoot_4_down.anim.PushBack({ 20, 62, 17, 7 });
+	basic_shoot_4_down.anim.PushBack({ 18, 62, 19, 7 });
+	basic_shoot_4_down.anim.PushBack({ 16, 62, 21, 7 });
+	basic_shoot_4_down.anim.PushBack({ 14, 62, 23, 7 });
+	basic_shoot_4_down.anim.loop = false;
+	basic_shoot_4_down.anim.speed = 0.3f;
+	basic_shoot_4_down.speed.x = 5;
+	basic_shoot_4_down.life = 1200;
+	basic_shoot_4_down.type_particle = 7;
+	//basic_shoot_3_down.type_particle = 5;
+
+	//Basic_shoot 4_down_down
+	/*basic_shoot_4_down_down.anim.PushBack({ 22, 91, 15, 6 });
+	basic_shoot_4_down_down.anim.PushBack({ 22, 51, 15, 6 });
+	basic_shoot_4_down_down.anim.PushBack({ 22, 49, 15, 8 });
+	basic_shoot_4_down_down.anim.PushBack({ 22, 47, 15, 10 });
+	basic_shoot_4_down_down.anim.PushBack({ 22, 45, 15, 12 });
+	basic_shoot_4_down_down.anim.PushBack({ 22, 43, 15, 14 });
+	basic_shoot_4_down_down.anim.loop = false;
+	basic_shoot_4_down_down.anim.speed = 0.3f;
+	basic_shoot_4_down_down.speed.x = 5;
+	basic_shoot_4_down_down.life = 1200;*/
+	//basic_shoot_3_down.type_particle = 5;
 
 	// Laser 2 up
 	laser_2.anim.PushBack({ 57, 60, 16, 18 });
@@ -547,7 +601,11 @@ bool Particle::Update()
 		if (collider->type_collider == 4)
 			collider->SetPos(position.x, position.y + 8);
 		if (collider->type_collider == 5)
-			collider->SetPos(position.x, position.y + 8);
+			collider->SetPos(position.x, position.y + 9);
+		if (collider->type_collider == 6)
+			collider->SetPos(position.x+8, position.y + 1);
+		if (collider->type_collider == 7)
+			collider->SetPos(position.x+8, position.y + 1);
 		
 	}
 
