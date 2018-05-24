@@ -145,8 +145,8 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_ENEMY_SHOT: // magenta
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
-		case COLLIDER_POWER_UP: // black
-			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
+		case COLLIDER_POWER_UP: // white
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 			break;
 		}
 	}

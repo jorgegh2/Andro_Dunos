@@ -127,7 +127,7 @@ bool ModulePowerUp::Start()
 	PowerUpText = App->textures->Load("Images/power_ups.png");
 
 	power_up_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Power_Up_Picked.wav");
-	c_power_up = App->collision->AddCollider({ position.x, position.y, 27, 17 }, COLLIDER_POWER_UP, this); //Mirar esto
+	c_power_up = App->collision->AddCollider({ position.x, position.y, 16, 16 }, COLLIDER_POWER_UP, this); //Mirar esto
 
 	
 
@@ -145,6 +145,14 @@ bool ModulePowerUp::Start()
 
 	life = 3;*/
 	return ret;
+}
+
+void ModulePowerUp::OnCollision(Collider* c1, Collider* c2) {
+
+	if (c_power_up != nullptr && c_power_up == c1 && App->fade->IsFading() == false && c2 == App->player->c_player) {
+			c_power_up->SetPos(-100, -100);
+	}
+
 }
 
 // Unload assets
@@ -175,7 +183,10 @@ update_status ModulePowerUp::Update()
  	current_animation = &idle;
 	App->render->Blit(PowerUpText, App->enemy->posXpowerUP, App->enemy->posYpowerUP, &(current_animation->GetCurrentFrame()));
 	c_power_up->SetPos(App->enemy->posXpowerUP, App->enemy->posYpowerUP);
+	
 	return UPDATE_CONTINUE;
 }
+
+
 
 
