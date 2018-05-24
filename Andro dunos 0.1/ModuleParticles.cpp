@@ -195,7 +195,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_4_down.anim.speed = 0.3f;
 	basic_shoot_4_down.speed.x = 5;
 	basic_shoot_4_down.life = 1200;
-	basic_shoot_4_down.type_particle = 7;
+	basic_shoot_4_down.type_particle = 6;
 	//basic_shoot_3_down.type_particle = 5;
 
 	//Basic_shoot 4_down_down
@@ -603,9 +603,8 @@ bool Particle::Update()
 		if (collider->type_collider == 5)
 			collider->SetPos(position.x, position.y + 9);
 		if (collider->type_collider == 6)
-			collider->SetPos(position.x+8, position.y + 1);
-		if (collider->type_collider == 7)
-			collider->SetPos(position.x+8, position.y + 1);
+			collider->SetPos(position.x+8 , position.y + 1);
+
 		
 	}
 
