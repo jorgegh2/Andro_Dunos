@@ -52,6 +52,7 @@ bool ModuleUI::Start() {
 	red_insert_coin = App->textures->Load("Images/HUD/insert_coin_red_p2.png");
 	red_2p_button = App->textures->Load("Images/HUD/red_p2_button.png");
 	font_score = App->fonts->Load("Images/Fonts/Font-score-white.png", "1234567890P", 1);
+	font_credits = App->fonts->Load("Images/Fonts/credits_numbers.png", "0123456789", 1);
 
 	// Shots
 	UI = App->textures->Load("Images/HUD/ui_elements_base.png");
@@ -87,6 +88,10 @@ update_status ModuleUI::Update()
 
 	App->fonts->BlitText(30, 7, font_score, score_text);
 	App->fonts->BlitText(5, 7, font_score, "1P");
+
+	// SHOW CREDITS BOTTOM RIGHT
+	sprintf_s(credits_text, 10, "%7d", App->players_menu->cr);
+	App->fonts->BlitText(234, 208, font_credits, credits_text);
 
 	/*HUD PLAYER 1*/
 	// Weapons image
@@ -175,6 +180,7 @@ bool ModuleUI::CleanUp() {
 
 	App->fonts->UnLoad(font_score);
 	App->fonts->UnLoad(Continue_Number);
+	App->fonts->UnLoad(font_credits);
 
 	App->textures->Unload(UI);
 	App->textures->Unload(UI_laser);

@@ -58,6 +58,10 @@ public:
 
 	SDL_Texture* Life_texture1 = nullptr;
 	SDL_Texture* Continue = nullptr;
+
+	// Credits
+	int font_credits = -1;
+	char credits_text[10];
 };
 
 
