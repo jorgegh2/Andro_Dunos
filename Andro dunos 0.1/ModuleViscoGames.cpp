@@ -14,15 +14,7 @@
 
 ModuleViscoGames::ModuleViscoGames()
 {
-	v.x = 57;
-	v.y = 224;
-	v.w = 189;
-	v.h = 39;
-
-	g.x = 40;
-	g.y = -40;
-	g.w = 223;
-	g.h = 39;
+	
 }
 
 ModuleViscoGames::~ModuleViscoGames()
@@ -46,7 +38,21 @@ bool ModuleViscoGames::Start()
 	time_init = SDL_GetTicks();
 
 	App->render->camera.x = App->render->camera.y = 0;
-	//movX = false;
+
+	speedY = 4;
+	speedX = 5;
+
+	v.x = 57;
+	v.y = 224;
+	v.w = 189;
+	v.h = 39;
+
+	g.x = 40;
+	g.y = -40;
+	g.w = 223;
+	g.h = 39;
+
+	movX = false;
 	return ret;
 }
 
@@ -59,6 +65,7 @@ bool ModuleViscoGames::CleanUp()
 	App->textures->Unload(graphics2);
 
 	time_passed = 0;
+
 
 	return true;
 }
@@ -102,7 +109,7 @@ update_status ModuleViscoGames::Update()
 		movX = true;
 	}
 
-	if (movX == true && time_passed > 4000)
+	if (movX == true && time_passed > 2500)
 	{
 		v.x -= speedX;
 		g.x += speedX;
@@ -112,7 +119,7 @@ update_status ModuleViscoGames::Update()
 	{
 		movX = false;
 		speedX = 0;
-		animComplete = true;
+		//animComplete = true;
 		App->fade->FadeToBlack(this, (Module*)App->insert_coin, 1.5f);
 	}
 
