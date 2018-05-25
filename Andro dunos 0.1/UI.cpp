@@ -108,11 +108,12 @@ update_status ModuleUI::Update()
 	}
 
 	// Highscore
+	highscore = score + score2;
 	App->render->Blit(high_score, 101, 7, NULL, 0.0f, false);
 	sprintf_s(high_score_text, 10, "%7d", highscore);
 	App->fonts->BlitText(122, 7, font_high_score, high_score_text);
-
-	if (highscore < 10000000)
+	/*
+	if (highscore < 10)
 	{
 		App->fonts->BlitText(132, 7, font_high_score, "0");  // + 8
 		App->fonts->BlitText(140, 7, font_high_score, "0");
@@ -123,6 +124,45 @@ update_status ModuleUI::Update()
 		App->fonts->BlitText(180, 7, font_high_score, "0");
 	}
 	// more conditions to add, for now it's ok because highscore is constant
+	else if (highscore < 100 && highscore >= 10)
+	{
+		App->fonts->BlitText(132, 7, font_high_score, "0");  // + 8
+		App->fonts->BlitText(140, 7, font_high_score, "0");
+		App->fonts->BlitText(148, 7, font_high_score, "0");
+		App->fonts->BlitText(156, 7, font_high_score, "0");
+		App->fonts->BlitText(164, 7, font_high_score, "0");
+		App->fonts->BlitText(172, 7, font_high_score, "0");
+	}
+	else if (highscore < 1000 && highscore >= 100)
+	{
+		App->fonts->BlitText(132, 7, font_high_score, "0");  // + 8
+		App->fonts->BlitText(140, 7, font_high_score, "0");
+		App->fonts->BlitText(148, 7, font_high_score, "0");
+		App->fonts->BlitText(156, 7, font_high_score, "0");
+		App->fonts->BlitText(164, 7, font_high_score, "0");
+	}
+	else if (highscore < 10000 && highscore >= 1000)
+	{
+		App->fonts->BlitText(132, 7, font_high_score, "0");  // + 8
+		App->fonts->BlitText(140, 7, font_high_score, "0");
+		App->fonts->BlitText(148, 7, font_high_score, "0");
+		App->fonts->BlitText(156, 7, font_high_score, "0");
+	}
+	else if (highscore < 100000 && highscore >= 10000)
+	{
+		App->fonts->BlitText(132, 7, font_high_score, "0");  // + 8
+		App->fonts->BlitText(140, 7, font_high_score, "0");
+		App->fonts->BlitText(148, 7, font_high_score, "0");
+	}
+	else if (highscore < 1000000 && highscore >= 100000)
+	{
+		App->fonts->BlitText(132, 7, font_high_score, "0");  // + 8
+		App->fonts->BlitText(140, 7, font_high_score, "0");
+	}
+	else if (highscore < 10000000 && highscore >= 1000000)
+	{
+		App->fonts->BlitText(132, 7, font_high_score, "0");  // + 8
+	}*/
 
 	/*HUD PLAYER 1*/
 	// Weapons image
