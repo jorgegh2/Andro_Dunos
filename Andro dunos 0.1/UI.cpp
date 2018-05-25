@@ -54,7 +54,10 @@ bool ModuleUI::Start() {
 	red_2p_button = App->textures->Load("Images/HUD/red_p2_button.png");
 	font_score = App->fonts->Load("Images/Fonts/Font-score-white.png", "1234567890P", 1);
 	font_credits = App->fonts->Load("Images/Fonts/credits_numbers.png", "0123456789", 1);
+	font_high_score = App->fonts->Load("Images/Fonts/red_font_high_score_corrected.png", "0123456789", 1);
 	graphics8 = App->textures->Load("Images/credit.png");
+
+	high_score = App->textures->Load("Images/HUD/red_high_score.png");
 
 	// Shots
 	UI = App->textures->Load("Images/HUD/ui_elements_base.png");
@@ -79,7 +82,7 @@ update_status ModuleUI::Update()
 
 	if (App->player2->IsEnabled() == false && App->players_menu->cr == 0)
 	{
-		App->render->Blit(red_insert_coin, 190, 16, &(red_coin->GetCurrentFrame()), 0.0f, false);
+		App->render->Blit(red_insert_coin, 188, 16, &(red_coin->GetCurrentFrame()), 0.0f, false);
 	}
 	if (App->player2->IsEnabled() == false && App->players_menu->cr > 0)
 	{
@@ -93,8 +96,8 @@ update_status ModuleUI::Update()
 
 	// P2
 	sprintf_s(score_text2, 10, "%7d", score2);
-	App->fonts->BlitText(100, 7, font_score, score_text2);
-	App->fonts->BlitText(250, 7, font_score, "2P");
+	App->fonts->BlitText(233, 7, font_score, score_text2);
+	App->fonts->BlitText(210, 7, font_score, "2P");
 
 	// SHOW CREDITS BOTTOM RIGHT
 	sprintf_s(credits_text, 10, "%7d", App->players_menu->cr);
@@ -103,6 +106,23 @@ update_status ModuleUI::Update()
 	if (App->players_menu->cr < 10) {
 		App->fonts->BlitText(280, 208, font_credits, "0");
 	}
+
+	// Highscore
+	App->render->Blit(high_score, 101, 7, NULL, 0.0f, false);
+	sprintf_s(high_score_text, 10, "%7d", highscore);
+	App->fonts->BlitText(122, 7, font_high_score, high_score_text);
+
+	if (highscore < 10000000)
+	{
+		App->fonts->BlitText(132, 7, font_high_score, "0");  // + 8
+		App->fonts->BlitText(140, 7, font_high_score, "0");
+		App->fonts->BlitText(148, 7, font_high_score, "0");
+		App->fonts->BlitText(156, 7, font_high_score, "0");
+		App->fonts->BlitText(164, 7, font_high_score, "0");
+		App->fonts->BlitText(172, 7, font_high_score, "0");
+		App->fonts->BlitText(180, 7, font_high_score, "0");
+	}
+	// more conditions to add, for now it's ok because highscore is constant
 
 	/*HUD PLAYER 1*/
 	// Weapons image
@@ -191,6 +211,9 @@ bool ModuleUI::CleanUp() {
 	App->fonts->UnLoad(font_score);
 	App->fonts->UnLoad(Continue_Number);
 	App->fonts->UnLoad(font_credits);
+	App->fonts->UnLoad(font_high_score);
+
+	App->textures->Unload(high_score);
 
 	App->textures->Unload(UI);
 	App->textures->Unload(UI_laser);
