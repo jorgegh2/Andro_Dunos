@@ -437,6 +437,23 @@ update_status ModulePlayer::Update()
 					App->particles->AddParticle(App->particles->basic_shoot_2, position.x + 24, position.y + 9 , COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(basic_attack_sound);
 					break;
+
+				case CHANGE_WEAPON::LASER:
+					App->particles->AddParticle(App->particles->laser_3_up, position.x + 12, position.y - 2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_3_down, position.x + 12, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_3_up_back, position.x + 5, position.y - 2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_3_down_back, position.x + 5, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->audio->PlaySoundEffect(laser_sound);
+					break;
+
+				case CHANGE_WEAPON::BACK_SHOOT:
+					App->particles->AddParticle(App->particles->back_shoot_0, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->back_shoot_0, position.x + 20, position.y + 13, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->back_shoot_2_diagonal_up, position.x + 10, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->back_shoot_2_diagonal_down, position.x + 10, position.y + 8, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->back_shoot_3_back, position.x, position.y + 8, COLLIDER_PLAYER_SHOT);
+					App->audio->PlaySoundEffect(laser_sound);
+					break;
 				}
 				break;
 
@@ -449,6 +466,23 @@ update_status ModulePlayer::Update()
 					App->particles->AddParticle(App->particles->basic_shoot_4_down, position.x + 20, position.y + 12, COLLIDER_PLAYER_SHOT);
 					App->particles->AddParticle(App->particles->basic_shoot_4_up, position.x + 20, position.y + 4, COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(basic_attack_sound);
+					break;
+
+				case CHANGE_WEAPON::LASER:
+					App->particles->AddParticle(App->particles->laser_4_up, position.x + 2, position.y - 2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_4_down, position.x + 2, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_4_up_back, position.x -5 , position.y - 2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_4_down_back, position.x-5, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->audio->PlaySoundEffect(laser_sound);
+					break;
+
+				case CHANGE_WEAPON::BACK_SHOOT:
+					App->particles->AddParticle(App->particles->back_shoot_0, position.x + 20, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->back_shoot_0, position.x + 20, position.y + 13, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->back_shoot_3_diagonal_up, position.x + 10, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->back_shoot_3_diagonal_down, position.x + 10, position.y + 8, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->back_shoot_3_back, position.x, position.y + 8, COLLIDER_PLAYER_SHOT);
+					App->audio->PlaySoundEffect(laser_sound);
 					break;
 				}
 				break;

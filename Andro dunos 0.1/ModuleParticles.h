@@ -100,11 +100,28 @@ public:
 	Particle laser_2;
 	Particle laser_2_5;
 
+	Particle laser_3_up;
+	Particle laser_3_down;
+	Particle laser_3_up_back;
+	Particle laser_3_down_back;
+
+	Particle laser_4_up;
+	Particle laser_4_down;
+	Particle laser_4_up_back;
+	Particle laser_4_down_back;
+
+
+
 	Particle back_shoot_0;
 	Particle back_shoot_0_back;
 	
 	Particle back_shoot_2_diagonal_up;
 	Particle back_shoot_2_diagonal_down;
+
+	Particle back_shoot_3_back;
+	Particle back_shoot_3_diagonal_up;
+	Particle back_shoot_3_diagonal_down;
+
 
 	// For normal and power up 1
 	Particle helix_01_1;  // Particle that goes downwards

@@ -261,6 +261,78 @@ ModuleParticles::ModuleParticles()
 	laser_2_5.speed.y = 4;
 	laser_2_5.life = 1200;
 
+	// Laser 3 up
+	laser_3_up.anim.PushBack({ 76, 2, 16, 22 });
+	laser_3_up.anim.PushBack({ 76, 65, 16, 22 });
+	laser_3_up.anim.loop = true;
+	laser_3_up.anim.speed = 0.3f;
+	laser_3_up.speed.x = 5;
+	laser_3_up.speed.y = -4;
+	laser_3_up.life = 1200;
+
+	// Laser 3 down
+	laser_3_down.anim.PushBack({ 76, 32, 16, 22 });
+	laser_3_down.anim.PushBack({ 76, 95, 16, 22 });
+	laser_3_down.anim.loop = true;
+	laser_3_down.anim.speed = 0.3f;
+	laser_3_down.speed.x = 5;
+	laser_3_down.speed.y = 4;
+	laser_3_down.life = 1200;
+
+	// Laser 3 up back
+	laser_3_up_back.anim.PushBack({ 76, 32, 16, 22 });
+	laser_3_up_back.anim.PushBack({ 76, 95, 16, 22 });
+	laser_3_up_back.anim.loop = true;
+	laser_3_up_back.anim.speed = 0.3f;
+	laser_3_up_back.speed.x = -3;
+	laser_3_up_back.speed.y = -4;
+	laser_3_up_back.life = 1200;
+
+	// Laser 3 down back
+	laser_3_down_back.anim.PushBack({ 76, 2, 16, 22 });
+	laser_3_down_back.anim.PushBack({ 76, 65, 16, 22 });
+	laser_3_down_back.anim.loop = true;
+	laser_3_down_back.anim.speed = 0.3f;
+	laser_3_down_back.speed.x = -3;
+	laser_3_down_back.speed.y = 4;
+	laser_3_down_back.life = 1200;
+
+	// Laser 4 up
+	laser_4_up.anim.PushBack({ 94, 0, 31, 31 });
+	laser_4_up.anim.PushBack({ 94, 64, 31, 31 });
+	laser_4_up.anim.loop = true;
+	laser_4_up.anim.speed = 0.3f;
+	laser_4_up.speed.x = 6;
+	laser_4_up.speed.y = -5;
+	laser_4_up.life = 1200;
+
+	// Laser 4 down
+	laser_4_down.anim.PushBack({ 94, 32, 31, 31 });
+	laser_4_down.anim.PushBack({ 94, 96, 31, 31 });
+	laser_4_down.anim.loop = true;
+	laser_4_down.anim.speed = 0.3f;
+	laser_4_down.speed.x = 6;
+	laser_4_down.speed.y = 5;
+	laser_4_down.life = 1200;
+
+	// Laser 4 up back
+	laser_4_up_back.anim.PushBack({ 94, 32, 31, 31 });
+	laser_4_up_back.anim.PushBack({ 94, 96, 31, 31 });
+	laser_4_up_back.anim.loop = true;
+	laser_4_up_back.anim.speed = 0.2f;
+	laser_4_up_back.speed.x = -4;
+	laser_4_up_back.speed.y = -5;
+	laser_4_up_back.life = 1200;
+
+	// Laser 4 down back
+	laser_4_down_back.anim.PushBack({ 94, 0, 31, 31 });
+	laser_4_down_back.anim.PushBack({ 94, 64, 31, 31 });
+	laser_4_down_back.anim.loop = true;
+	laser_4_down_back.anim.speed = 0.2f;
+	laser_4_down_back.speed.x = -4;
+	laser_4_down_back.speed.y = 5;
+	laser_4_down_back.life = 1200;
+
 
 	//Disparo_trasero_0
 	back_shoot_0.anim.PushBack({ 6, 69, 10, 3});
@@ -277,7 +349,7 @@ ModuleParticles::ModuleParticles()
 	back_shoot_0_back.life = 1200;
 
 	// Back shoot 2 diagonal up
-	back_shoot_2_diagonal_up.anim.PushBack({ 5, 50, 11, 8 });
+	back_shoot_2_diagonal_up.anim.PushBack({ 54, 110, 10, 7 });
 	back_shoot_2_diagonal_up.anim.loop = false;
 	back_shoot_2_diagonal_up.anim.speed = 0.3f;
 	back_shoot_2_diagonal_up.speed.x = -4;
@@ -285,12 +357,35 @@ ModuleParticles::ModuleParticles()
 	back_shoot_2_diagonal_up.life = 1200;
 
 	// Back shoot 2 diagonal down
-	back_shoot_2_diagonal_down.anim.PushBack({ 5, 37, 11, 8 });
+	back_shoot_2_diagonal_down.anim.PushBack({ 54, 119, 10, 7 });
 	back_shoot_2_diagonal_down.anim.loop = false;
 	back_shoot_2_diagonal_down.anim.speed = 0.3f;
 	back_shoot_2_diagonal_down.speed.x = -4;
 	back_shoot_2_diagonal_down.speed.y = 3;
 	back_shoot_2_diagonal_down.life = 1200;
+
+	// Back shoot 3 back
+	back_shoot_3_back.anim.PushBack({ 3, 23, 15, 5 });
+	back_shoot_3_back.anim.loop = false;
+	back_shoot_3_back.anim.speed = 0.3f;
+	back_shoot_3_back.speed.x = -5;
+	back_shoot_3_back.life = 1200;
+
+	// Back shoot 3 diagonal up 
+	back_shoot_3_diagonal_up.anim.PushBack({ 25, 112, 15, 11 });
+	back_shoot_3_diagonal_up.anim.loop = false;
+	back_shoot_3_diagonal_up.anim.speed = 0.3f;
+	back_shoot_3_diagonal_up.speed.x = -4;
+	back_shoot_3_diagonal_up.speed.y = -3;
+	back_shoot_3_diagonal_up.life = 1200;
+
+	// Back shoot 3 diagonal down
+	back_shoot_3_diagonal_down.anim.PushBack({ 5, 112, 15, 11 });
+	back_shoot_3_diagonal_down.anim.loop = false;
+	back_shoot_3_diagonal_down.anim.speed = 0.3f;
+	back_shoot_3_diagonal_down.speed.x = -4;
+	back_shoot_3_diagonal_down.speed.y = 3;
+	back_shoot_3_diagonal_down.life = 1200;
 
 	/*normal & power-up 1*/
 	// Helix_01_1
@@ -549,10 +644,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, COLLID
 			if (collider_type != COLLIDER_NONE) {
 				p->collider = App->collision->AddCollider(p->anim.GetCurrentFrame(), collider_type, this);
 				p->collider->type_collider = particle.type_particle;
-				/*if(particle.tipeee == 1)
-					p->collider->tipee = 1;
-				if (particle.tipeee == 2)
-					p->collider->tipee = 2;*/
+				
 			}
 			active[i] = p;
 			break;
