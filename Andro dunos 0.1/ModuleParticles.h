@@ -128,11 +128,13 @@ public:
 	Particle helix_01_2;  // Particle that goes upwards
 	// For power up 1
 	Particle helix_01_3;  // Particle at the middle
-	// For power up 2
+	// For power up 2 and 3
 	Particle helix_02_1;  // Particle that goes downwards
 	Particle helix_02_2;  // Particle that goes upwards
 	Particle helix_02_3;  // Particle at the middle
-	// For power up 3
+	// For power up 3 (more horizontal speed)
+	Particle helix_03_1;  // downwards
+	Particle helix_03_2;  // upwards
 	//etc
 
 	Particle enemy15shot;
