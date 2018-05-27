@@ -6,6 +6,7 @@
 #include "Module_Player_2.h"
 #include "SDL\include\SDL.h"
 #include "ModuleParticles.h"
+#include "UI.h"
 #include "ModuleGameOver.h"
 #include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
@@ -262,14 +263,37 @@ update_status ModulePlayer2::Update()
 
 		case POWER_UPS::POWER_UP_BASIC:
 			power_up = POWER_UPS::POWER_UP_1;
+			App->UI->n_powerup2 = 2;
 			break;
 
 		case POWER_UPS::POWER_UP_1:
 			power_up = POWER_UPS::POWER_UP_2;
+			App->UI->n_powerup2 = 3;
 			break;
 
 		case POWER_UPS::POWER_UP_2:
+			power_up = POWER_UPS::POWER_UP_3;
+			App->UI->n_powerup2 = 4;
+			break;
+
+		case POWER_UPS::POWER_UP_3:
+			power_up = POWER_UPS::POWER_UP_4;
+			App->UI->n_powerup2 = 5;
+			break;
+
+		case POWER_UPS::POWER_UP_4:
+			power_up = POWER_UPS::POWER_UP_5;
+			App->UI->n_powerup2 = 6;
+			break;
+
+		case POWER_UPS::POWER_UP_5:
+			power_up = POWER_UPS::POWER_UP_6;
+			App->UI->n_powerup2 = 7;
+			break;
+
+		case POWER_UPS::POWER_UP_6:
 			power_up = POWER_UPS::POWER_UP_BASIC;
+			App->UI->n_powerup2 = 1;
 			break;
 		}
 	}

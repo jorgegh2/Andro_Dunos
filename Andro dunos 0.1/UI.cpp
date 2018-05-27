@@ -217,7 +217,8 @@ update_status ModuleUI::Update()
 			App->render->Blit(UI_helix, 171, 16, NULL, 0.0f, false);
 
 		// Numbers Player 2
-		//197 17
+		sprintf_s(powerup_text2, 9, "%7d", n_powerup2);
+		App->fonts->BlitText(159, 17, font_power_up, powerup_text2);
 		
 	}
 

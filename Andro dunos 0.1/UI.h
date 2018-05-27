@@ -58,8 +58,13 @@ public:
 
 	// Power-up numbers
 	int font_power_up = -1;
+	// player 1
 	char powerup_text[9];
 	uint n_powerup = 1;
+	//player 2
+	char powerup_text2[9];
+	uint n_powerup2 = 1;
+
 
 	// etc
 
