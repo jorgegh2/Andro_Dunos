@@ -423,10 +423,10 @@ ModuleParticles::ModuleParticles()
 	laser_6_down.speed.x = 6;
 	laser_6_down.speed.y = 5;
 	laser_6_down.life = 1200;
+	
+	// Laser 6 up back 
 
-	// Laser 6 up back
-
-	laser_6_up_back.anim.PushBack({ 205, 96, 47, 47 });
+	laser_6_up_back.anim.PushBack({ 205, 144, 47, 47 });
 	laser_6_up_back.anim.loop = true;
 	laser_6_up_back.anim.speed = 0.2f;
 	laser_6_up_back.speed.x = -4;
@@ -435,7 +435,7 @@ ModuleParticles::ModuleParticles()
 
 	// Laser 6 down back
 
-	laser_6_down_back.anim.PushBack({ 205, 144, 47, 47 });
+	laser_6_down_back.anim.PushBack({ 205, 96, 47, 47 });
 	laser_6_down_back.anim.loop = true;
 	laser_6_down_back.anim.speed = 0.2f;
 	laser_6_down_back.speed.x = -4;
