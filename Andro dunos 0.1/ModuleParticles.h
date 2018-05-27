@@ -123,7 +123,12 @@ public:
 
 
 	Particle back_shoot_0;
+	Particle back_shoot_0_up;
+	Particle back_shoot_0_down;
 	Particle back_shoot_0_back;
+	Particle back_shoot_0_5;
+
+	Particle back_shoot_1_5;
 	
 	Particle back_shoot_2_diagonal_up;
 	Particle back_shoot_2_diagonal_down;

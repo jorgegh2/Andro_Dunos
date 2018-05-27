@@ -482,7 +482,7 @@ ModuleParticles::ModuleParticles()
 	back_shoot_3_back.life = 1200;
 
 	// Back shoot 3 diagonal up 
-	back_shoot_3_diagonal_up.anim.PushBack({ 25, 112, 15, 11 });
+	back_shoot_3_diagonal_up.anim.PushBack({ 5, 50, 11, 8 });
 	back_shoot_3_diagonal_up.anim.loop = false;
 	back_shoot_3_diagonal_up.anim.speed = 0.3f;
 	back_shoot_3_diagonal_up.speed.x = -4;
@@ -490,12 +490,58 @@ ModuleParticles::ModuleParticles()
 	back_shoot_3_diagonal_up.life = 1200;
 
 	// Back shoot 3 diagonal down
-	back_shoot_3_diagonal_down.anim.PushBack({ 5, 112, 15, 11 });
+	back_shoot_3_diagonal_down.anim.PushBack({ 5, 37, 11, 8 });
 	back_shoot_3_diagonal_down.anim.loop = false;
 	back_shoot_3_diagonal_down.anim.speed = 0.3f;
 	back_shoot_3_diagonal_down.speed.x = -4;
 	back_shoot_3_diagonal_down.speed.y = 3;
 	back_shoot_3_diagonal_down.life = 1200;
+
+	//Disparo_trasero_0_up
+	back_shoot_0_up.anim.PushBack({ 6, 150, 10, 3 });
+	//back_shoot_0_up.anim.PushBack({ 6, 59, 10, 13 });
+	back_shoot_0_up.anim.PushBack({ 6, 61, 10, 11 });
+	back_shoot_0_up.anim.PushBack({ 6, 63, 10, 9 });
+	back_shoot_0_up.anim.PushBack({ 6, 65, 10, 7 });
+	back_shoot_0_up.anim.PushBack({ 6, 67, 10, 5 });
+	back_shoot_0_up.anim.PushBack({ 6, 69, 10, 3 });
+	back_shoot_0_up.anim.loop = false;
+	back_shoot_0_up.anim.speed = 0.3f;
+	back_shoot_0_up.speed.x = 5;
+	back_shoot_0_up.life = 1200;
+
+	//Disparo_trasero_0_down
+	back_shoot_0_down.anim.PushBack({ 6, 150, 10, 3 });
+	back_shoot_0_down.anim.PushBack({ 6, 69, 10, 3 });
+	back_shoot_0_down.anim.PushBack({ 6, 67, 10, 5 });
+	back_shoot_0_down.anim.PushBack({ 6, 65, 10, 7 });
+	back_shoot_0_down.anim.PushBack({ 6, 63, 10, 9 });
+	back_shoot_0_down.anim.PushBack({ 6, 61, 10, 11 });
+//	back_shoot_0_down.anim.PushBack({ 6, 59, 10, 13 });
+	back_shoot_0_down.anim.loop = false;
+	back_shoot_0_down.anim.speed = 0.3f;
+	back_shoot_0_down.speed.x = 5;
+	back_shoot_0_down.life = 1200;
+
+	//Disparo_trasero_0_5 (avanzado)
+	back_shoot_0_5.anim.PushBack({ 6, 150, 10, 3 });
+	back_shoot_0_5.anim.PushBack({ 4, 69, 12, 3 });
+	back_shoot_0_5.anim.PushBack({ 2, 69, 14, 3 });
+	back_shoot_0_5.anim.PushBack({ 0, 69, 16, 3 });
+	back_shoot_0_5.anim.loop = false;
+	back_shoot_0_5.anim.speed = 0.3f;
+	back_shoot_0_5.speed.x = 5;
+	back_shoot_0_5.life = 1200;
+
+	//Disparo_trasero_1_5 (avanzado)
+	back_shoot_1_5.anim.PushBack({ 6, 150, 15, 5 });
+	back_shoot_1_5.anim.PushBack({ 3, 8, 15, 5 });
+	back_shoot_1_5.anim.PushBack({ 1, 8, 16, 5 });
+	back_shoot_1_5.anim.PushBack({ 0, 8, 17, 5 });
+	back_shoot_1_5.anim.loop = false;
+	back_shoot_1_5.anim.speed = 0.3f;
+	back_shoot_1_5.speed.x = 5;
+	back_shoot_1_5.life = 1200;
 
 	/*normal & power-up 1*/
 	// Helix_01_1
