@@ -466,6 +466,29 @@ ModuleParticles::ModuleParticles()
 	helix_03_2.speed.y = -2;
 	helix_03_2.life = 1200;
 
+	/* Power-up 4*/
+	// Helix 04_1
+	helix_04_1.anim.PushBack({ 41, 8, 13, 8 });
+	helix_04_1.anim.PushBack({ 41, 22, 13, 8 });
+	helix_04_1.anim.PushBack({ 41, 38, 13, 8 });
+	helix_04_1.anim.PushBack({ 41, 49, 13, 12 });
+	helix_04_1.anim.loop = false;
+	helix_04_1.anim.speed = 0.3f;
+	helix_04_1.speed.x = 8;
+	helix_04_1.speed.y = 1;
+	helix_04_1.life = 1200;
+
+	// Helix 04_2
+	helix_04_2.anim.PushBack({ 41, 8, 13, 8 });
+	helix_04_2.anim.PushBack({ 41, 22, 13, 8 });
+	helix_04_2.anim.PushBack({ 41, 38, 13, 8 });
+	helix_04_2.anim.PushBack({ 41, 49, 13, 12 });
+	helix_04_2.anim.loop = false;
+	helix_04_2.anim.speed = 0.3f;
+	helix_04_2.speed.x = 8;
+	helix_04_2.speed.y = -1;
+	helix_04_2.life = 1200;
+
 
 	// Explosion ship
 	explosion.anim.PushBack({ 33, 19, 35, 35 });
