@@ -538,6 +538,14 @@ update_status ModulePlayer::Update()
 					break;
 
 
+				case CHANGE_WEAPON::HELIX:
+					App->particles->AddParticle(App->particles->helix_05_3, position.x + 26, position.y + 9, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->helix_05_1, position.x + 23, position.y + 13, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->helix_05_2, position.x + 23, position.y + 5, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->helix_06_1, position.x + 10, position.y + 13, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->helix_06_2, position.x + 10, position.y + 5, COLLIDER_PLAYER_SHOT);
+					App->audio->PlaySoundEffect(helix_sound);
+					break;
 
 				}
 			}

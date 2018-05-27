@@ -142,7 +142,9 @@ public:
 	Particle helix_05_1;  // downwards
 	Particle helix_05_2;  // upwards
 	Particle helix_05_3;  // middle
-	
+	// PU 6
+	Particle helix_06_1;  // downwards
+	Particle helix_06_2;  // upwards
 
 
 	Particle enemy15shot;
