@@ -135,9 +135,15 @@ public:
 	// For power up 3 (more horizontal speed)
 	Particle helix_03_1;  // downwards
 	Particle helix_03_2;  // upwards
-	// Same as 03_1 but with bigger bullete (last animation frame)
+	// PU 4 Same as 03_1 but with bigger bullete (last animation frame)
 	Particle helix_04_1;
 	Particle helix_04_2;
+	// PU 5
+	Particle helix_05_1;  // downwards
+	Particle helix_05_2;  // upwards
+	Particle helix_05_3;  // middle
+	
+
 
 	Particle enemy15shot;
 

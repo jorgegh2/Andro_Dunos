@@ -513,6 +513,16 @@ update_status ModulePlayer::Update()
 					App->particles->AddParticle(App->particles->basic_shoot_5_up, position.x + 20, position.y , COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(basic_attack_sound);
 					break;
+
+
+				case CHANGE_WEAPON::HELIX:
+					App->particles->AddParticle(App->particles->helix_05_3, position.x + 26, position.y + 9, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->helix_05_1, position.x + 23, position.y + 13, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->helix_05_2, position.x + 23, position.y + 5, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->helix_03_1, position.x + 10, position.y + 13, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->helix_03_2, position.x + 10, position.y + 5, COLLIDER_PLAYER_SHOT);
+					App->audio->PlaySoundEffect(helix_sound);
+					break;
 				}
 				break;
 
@@ -526,6 +536,9 @@ update_status ModulePlayer::Update()
 					App->particles->AddParticle(App->particles->basic_shoot_5_up, position.x + 20, position.y - 1, COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(basic_attack_sound);
 					break;
+
+
+
 				}
 			}
 		}

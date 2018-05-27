@@ -466,7 +466,7 @@ ModuleParticles::ModuleParticles()
 	helix_03_2.speed.y = -2;
 	helix_03_2.life = 1200;
 
-	/* Power-up 4*/
+	/* Power-up 4 */
 	// Helix 04_1
 	helix_04_1.anim.PushBack({ 41, 8, 13, 8 });
 	helix_04_1.anim.PushBack({ 41, 22, 13, 8 });
@@ -488,6 +488,43 @@ ModuleParticles::ModuleParticles()
 	helix_04_2.speed.x = 8;
 	helix_04_2.speed.y = -1;
 	helix_04_2.life = 1200;
+
+	/* Power up 5 */
+	// Helix 05_3
+	helix_05_3.anim.PushBack({ 41, 8, 13, 8 });
+	helix_05_3.anim.PushBack({ 41, 22, 13, 8 });
+	helix_05_3.anim.PushBack({ 41, 38, 13, 8 });
+	helix_05_2.anim.PushBack({ 41, 49, 13, 12 });
+	helix_05_3.anim.PushBack({ 41, 64, 13, 14 });
+	helix_05_3.anim.loop = false;
+	helix_05_3.anim.speed = 0.3f;
+	helix_05_3.speed.x = 8;
+	helix_05_3.speed.y = 0;
+	helix_05_3.life = 1200;
+
+	// Helix 05_1
+	helix_05_1.anim.PushBack({ 41, 8, 13, 8 });
+	helix_05_1.anim.PushBack({ 41, 22, 13, 8 });
+	helix_05_1.anim.PushBack({ 41, 38, 13, 8 });
+	helix_05_1.anim.PushBack({ 41, 49, 13, 12 });
+	helix_05_1.anim.PushBack({ 41, 64, 13, 14 });
+	helix_05_1.anim.loop = false;
+	helix_05_1.anim.speed = 0.3f;
+	helix_05_1.speed.x = 8;
+	helix_05_1.speed.y = 1;
+	helix_05_1.life = 1200;
+
+	// Helix 05_2
+	helix_05_2.anim.PushBack({ 41, 8, 13, 8 });
+	helix_05_2.anim.PushBack({ 41, 22, 13, 8 });
+	helix_05_2.anim.PushBack({ 41, 38, 13, 8 });
+	helix_05_2.anim.PushBack({ 41, 49, 13, 12 });
+	helix_05_2.anim.PushBack({ 41, 64, 13, 14 });
+	helix_05_2.anim.loop = false;
+	helix_05_2.anim.speed = 0.3f;
+	helix_05_2.speed.x = 8;
+	helix_05_2.speed.y = -1;
+	helix_05_2.life = 1200;
 
 
 	// Explosion ship
