@@ -455,7 +455,7 @@ ModuleParticles::ModuleParticles()
 	back_shoot_0_back.anim.PushBack({ 6, 84, 10, 3 });
 	back_shoot_0_back.anim.loop = false;
 	back_shoot_0_back.anim.speed = 0.3f;
-	back_shoot_0_back.speed.x = -5;
+	back_shoot_0_back.speed.x = -8;
 	back_shoot_0_back.life = 1200;
 
 	// Back shoot 2 diagonal up
@@ -478,7 +478,7 @@ ModuleParticles::ModuleParticles()
 	back_shoot_3_back.anim.PushBack({ 3, 23, 15, 5 });
 	back_shoot_3_back.anim.loop = false;
 	back_shoot_3_back.anim.speed = 0.3f;
-	back_shoot_3_back.speed.x = -5;
+	back_shoot_3_back.speed.x = -8;
 	back_shoot_3_back.life = 1200;
 
 	// Back shoot 3 diagonal up 
@@ -509,6 +509,8 @@ ModuleParticles::ModuleParticles()
 	back_shoot_0_up.anim.speed = 0.3f;
 	back_shoot_0_up.speed.x = 5;
 	back_shoot_0_up.life = 1200;
+	
+
 
 	//Disparo_trasero_0_down
 	back_shoot_0_down.anim.PushBack({ 6, 150, 10, 3 });
@@ -522,6 +524,7 @@ ModuleParticles::ModuleParticles()
 	back_shoot_0_down.anim.speed = 0.3f;
 	back_shoot_0_down.speed.x = 5;
 	back_shoot_0_down.life = 1200;
+	back_shoot_0_down.type_particle = 9;
 
 	//Disparo_trasero_0_5 (avanzado)
 	back_shoot_0_5.anim.PushBack({ 6, 150, 10, 3 });
@@ -532,16 +535,18 @@ ModuleParticles::ModuleParticles()
 	back_shoot_0_5.anim.speed = 0.3f;
 	back_shoot_0_5.speed.x = 5;
 	back_shoot_0_5.life = 1200;
+	back_shoot_0_5.type_particle = 10;
 
 	//Disparo_trasero_1_5 (avanzado)
 	back_shoot_1_5.anim.PushBack({ 6, 150, 15, 5 });
 	back_shoot_1_5.anim.PushBack({ 3, 8, 15, 5 });
-	back_shoot_1_5.anim.PushBack({ 1, 8, 16, 5 });
-	back_shoot_1_5.anim.PushBack({ 0, 8, 17, 5 });
+	back_shoot_1_5.anim.PushBack({ 1, 8, 17, 5 });
+	back_shoot_1_5.anim.PushBack({ 0, 8, 18, 5 });
 	back_shoot_1_5.anim.loop = false;
 	back_shoot_1_5.anim.speed = 0.3f;
 	back_shoot_1_5.speed.x = 5;
 	back_shoot_1_5.life = 1200;
+	back_shoot_1_5.type_particle = 11;
 
 	/*normal & power-up 1*/
 	// Helix_01_1
@@ -998,6 +1003,12 @@ bool Particle::Update()
 			collider->SetPos(position.x + 10, position.y + 1);
 		if (collider->type_collider == 8)
 			collider->SetPos(position.x, position.y + 12);
+		if (collider->type_collider == 9)
+			collider->SetPos(position.x, position.y + 8);
+		if (collider->type_collider == 10)
+			collider->SetPos(position.x + 6, position.y);
+		if (collider->type_collider == 11)
+			collider->SetPos(position.x + 3, position.y);
 
 		
 	}
