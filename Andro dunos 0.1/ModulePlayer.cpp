@@ -666,7 +666,7 @@ update_status ModulePlayer::Update()
 	
 
 
-	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false && App->players_menu->cr > 0)
+	if ((App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN || SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) && App->fade->IsFading() == false && App->players_menu->cr > 0)
 	{
 		App->player2->Enable();
 		App->players_menu->cr--;

@@ -277,7 +277,7 @@ update_status Level01::Update()
 		App->players_menu->cr++;
 	}
 
-
+	/*
 	// Player 2 spawn in-level
 	if (App->player2->IsEnabled() == false)
 		if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == 1 || SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_DPAD_LEFT))
@@ -285,6 +285,7 @@ update_status Level01::Update()
 			App->players_menu->cr--;
 			App->player2->Enable();
 		}
+		*/
 
 	// Move camera forward -----------------------------
 
