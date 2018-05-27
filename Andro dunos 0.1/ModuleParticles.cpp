@@ -32,14 +32,6 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_0_down.speed.x = 5;
 	basic_shoot_0_down.life = 1200;
 	basic_shoot_0_down.type_particle = 1;
-	
-
-	// Laser 0
-	laser_0.anim.PushBack({ 57, 16, 16, 3 });
-	laser_0.anim.loop = false;
-	laser_0.anim.speed = 0.3f;
-	laser_0.speed.x = 5;
-	laser_0.life = 1200;
 
 
 	// Basic_shoot 1
@@ -74,23 +66,6 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_1_down.speed.x = 5;
 	basic_shoot_1_down.life = 1200;
 	basic_shoot_1_down.type_particle = 2;
-
-	// Laser 1 up
-	laser_1.anim.PushBack({ 57, 35, 16, 18 });
-	laser_1.anim.loop = false;
-	laser_1.anim.speed = 0.3f;
-	laser_1.speed.x = 5;
-	laser_1.speed.y = -4;
-	laser_1.life = 1200;
-
-	// Laser 1 down
-	laser_1_5.anim.PushBack({ 57, 60, 16, 18 });
-	laser_1_5.anim.loop = false;
-	laser_1_5.anim.speed = 0.3f;
-	laser_1_5.speed.x = 5;
-	laser_1_5.speed.y = 4;
-	laser_1_5.life = 1200;
-
 
 	// Basic_shoot 2
 	basic_shoot_2.anim.PushBack({ 26, 63, 15, 6 });
@@ -245,6 +220,30 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_6_down.life = 1200;
 	basic_shoot_6_down.type_particle = 8;
 
+
+	// Laser 0
+	laser_0.anim.PushBack({ 57, 16, 16, 3 });
+	laser_0.anim.loop = false;
+	laser_0.anim.speed = 0.3f;
+	laser_0.speed.x = 5;
+	laser_0.life = 1200;
+
+	// Laser 1 up
+	laser_1.anim.PushBack({ 57, 35, 16, 18 });
+	laser_1.anim.loop = false;
+	laser_1.anim.speed = 0.3f;
+	laser_1.speed.x = 5;
+	laser_1.speed.y = -4;
+	laser_1.life = 1200;
+
+	// Laser 1 down
+	laser_1_5.anim.PushBack({ 57, 60, 16, 18 });
+	laser_1_5.anim.loop = false;
+	laser_1_5.anim.speed = 0.3f;
+	laser_1_5.speed.x = 5;
+	laser_1_5.speed.y = 4;
+	laser_1_5.life = 1200;
+
 	// Laser 2 up
 	laser_2.anim.PushBack({ 57, 60, 16, 18 });
 	laser_2.anim.loop = false;
@@ -298,8 +297,8 @@ ModuleParticles::ModuleParticles()
 	laser_3_down_back.life = 1200;
 
 	// Laser 4 up
-	laser_4_up.anim.PushBack({ 94, 0, 31, 31 });
-	laser_4_up.anim.PushBack({ 94, 64, 31, 31 });
+	laser_4_up.anim.PushBack({ 129, 0, 31, 31 });
+	laser_4_up.anim.PushBack({ 166, 0, 31, 31 });
 	laser_4_up.anim.loop = true;
 	laser_4_up.anim.speed = 0.3f;
 	laser_4_up.speed.x = 6;
@@ -307,8 +306,8 @@ ModuleParticles::ModuleParticles()
 	laser_4_up.life = 1200;
 
 	// Laser 4 down
-	laser_4_down.anim.PushBack({ 94, 32, 31, 31 });
-	laser_4_down.anim.PushBack({ 94, 96, 31, 31 });
+	laser_4_down.anim.PushBack({ 129, 32, 31, 31 });
+	laser_4_down.anim.PushBack({ 166, 32, 31, 31 });
 	laser_4_down.anim.loop = true;
 	laser_4_down.anim.speed = 0.3f;
 	laser_4_down.speed.x = 6;
@@ -316,8 +315,8 @@ ModuleParticles::ModuleParticles()
 	laser_4_down.life = 1200;
 
 	// Laser 4 up back
-	laser_4_up_back.anim.PushBack({ 94, 32, 31, 31 });
-	laser_4_up_back.anim.PushBack({ 94, 96, 31, 31 });
+	laser_4_up_back.anim.PushBack({ 129, 96, 31, 31 });
+	laser_4_up_back.anim.PushBack({ 166, 96, 31, 31 });
 	laser_4_up_back.anim.loop = true;
 	laser_4_up_back.anim.speed = 0.2f;
 	laser_4_up_back.speed.x = -4;
@@ -325,14 +324,125 @@ ModuleParticles::ModuleParticles()
 	laser_4_up_back.life = 1200;
 
 	// Laser 4 down back
-	laser_4_down_back.anim.PushBack({ 94, 0, 31, 31 });
-	laser_4_down_back.anim.PushBack({ 94, 64, 31, 31 });
+	laser_4_down_back.anim.PushBack({ 129, 64, 31, 31 });
+	laser_4_down_back.anim.PushBack({ 166, 64, 31, 31 });
 	laser_4_down_back.anim.loop = true;
 	laser_4_down_back.anim.speed = 0.2f;
 	laser_4_down_back.speed.x = -4;
 	laser_4_down_back.speed.y = 5;
 	laser_4_down_back.life = 1200;
 
+	// Laser 5 up
+	laser_5_up.anim.PushBack({ 94, 0, 31, 31 });
+	
+	laser_5_up.anim.loop = true;
+	laser_5_up.anim.speed = 0.3f;
+	laser_5_up.speed.x = 6;
+	laser_5_up.speed.y = -5;
+	laser_5_up.life = 1200;
+
+	// Laser 5 down
+	laser_5_down.anim.PushBack({ 94, 32, 31, 31 });
+	
+	laser_5_down.anim.loop = true;
+	laser_5_down.anim.speed = 0.3f;
+	laser_5_down.speed.x = 6;
+	laser_5_down.speed.y = 5;
+	laser_5_down.life = 1200;
+
+	// Laser 5 up back
+	
+	laser_5_up_back.anim.PushBack({ 94, 96, 31, 31 });
+	laser_5_up_back.anim.loop = true;
+	laser_5_up_back.anim.speed = 0.2f;
+	laser_5_up_back.speed.x = -4;
+	laser_5_up_back.speed.y = -5;
+	laser_5_up_back.life = 1200;
+
+	// Laser 5 down back
+
+	laser_5_down_back.anim.PushBack({ 94, 64, 31, 31 });
+	laser_5_down_back.anim.loop = true;
+	laser_5_down_back.anim.speed = 0.2f;
+	laser_5_down_back.speed.x = -4;
+	laser_5_down_back.speed.y = 5;
+	laser_5_down_back.life = 1200;
+
+	// Laser 5 up
+	laser_5_up.anim.PushBack({ 94, 0, 31, 31 });
+	
+	laser_5_up.anim.loop = true;
+	laser_5_up.anim.speed = 0.3f;
+	laser_5_up.speed.x = 6;
+	laser_5_up.speed.y = -5;
+	laser_5_up.life = 1200;
+
+	// Laser 5 down
+	laser_5_down.anim.PushBack({ 94, 32, 31, 31 });
+	
+	laser_5_down.anim.loop = true;
+	laser_5_down.anim.speed = 0.3f;
+	laser_5_down.speed.x = 6;
+	laser_5_down.speed.y = 5;
+	laser_5_down.life = 1200;
+
+	// Laser 5 up back
+	
+	laser_5_up_back.anim.PushBack({ 94, 96, 31, 31 });
+	laser_5_up_back.anim.loop = true;
+	laser_5_up_back.anim.speed = 0.2f;
+	laser_5_up_back.speed.x = -4;
+	laser_5_up_back.speed.y = -5;
+	laser_5_up_back.life = 1200;
+
+	// Laser 5 down back
+
+	laser_5_down_back.anim.PushBack({ 94, 64, 31, 31 });
+	laser_5_down_back.anim.loop = true;
+	laser_5_down_back.anim.speed = 0.2f;
+	laser_5_down_back.speed.x = -4;
+	laser_5_down_back.speed.y = 5;
+	laser_5_down_back.life = 1200;
+
+	
+
+	// Laser 6 up
+	laser_6_up.anim.PushBack({ 205, 0, 47, 47 });
+
+	laser_6_up.anim.loop = true;
+	laser_6_up.anim.speed = 0.3f;
+	laser_6_up.speed.x = 6;
+	laser_6_up.speed.y = -5;
+	laser_6_up.life = 1200;
+
+	// Laser 6 down
+	laser_6_down.anim.PushBack({ 205, 48, 47, 47 });
+
+	laser_6_down.anim.loop = true;
+	laser_6_down.anim.speed = 0.3f;
+	laser_6_down.speed.x = 6;
+	laser_6_down.speed.y = 5;
+	laser_6_down.life = 1200;
+
+	// Laser 6 up back
+
+	laser_6_up_back.anim.PushBack({ 205, 96, 47, 47 });
+	laser_6_up_back.anim.loop = true;
+	laser_6_up_back.anim.speed = 0.2f;
+	laser_6_up_back.speed.x = -4;
+	laser_6_up_back.speed.y = -5;
+	laser_6_up_back.life = 1200;
+
+	// Laser 6 down back
+
+	laser_6_down_back.anim.PushBack({ 205, 144, 47, 47 });
+	laser_6_down_back.anim.loop = true;
+	laser_6_down_back.anim.speed = 0.2f;
+	laser_6_down_back.speed.x = -4;
+	laser_6_down_back.speed.y = 5;
+	laser_6_down_back.life = 1200;
+
+	/*BACK_SHOT*/
 
 	//Disparo_trasero_0
 	back_shoot_0.anim.PushBack({ 6, 69, 10, 3});

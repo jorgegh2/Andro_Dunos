@@ -485,10 +485,10 @@ update_status ModulePlayer::Update()
 					break;
 
 				case CHANGE_WEAPON::LASER:
-					App->particles->AddParticle(App->particles->laser_4_up, position.x + 2, position.y - 2, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_4_down, position.x + 2, position.y + 7, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_4_up_back, position.x -5 , position.y - 2, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->laser_4_down_back, position.x-5, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_4_up, position.x + 2, position.y, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_4_down, position.x + 2, position.y + 9, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_4_up_back, position.x -5 , position.y, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_4_down_back, position.x-5, position.y + 9, COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(laser_sound);
 					break;
 
@@ -520,6 +520,14 @@ update_status ModulePlayer::Update()
 					App->particles->AddParticle(App->particles->basic_shoot_5_down, position.x + 20, position.y + 10, COLLIDER_PLAYER_SHOT);
 					App->particles->AddParticle(App->particles->basic_shoot_5_up, position.x + 20, position.y , COLLIDER_PLAYER_SHOT);
 					App->audio->PlaySoundEffect(basic_attack_sound);
+					break;
+
+				case CHANGE_WEAPON::LASER:
+					App->particles->AddParticle(App->particles->laser_5_up, position.x + 2, position.y - 2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_5_down, position.x + 2, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_5_up_back, position.x - 5, position.y - 2, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser_5_down_back, position.x - 5, position.y + 7, COLLIDER_PLAYER_SHOT);
+					App->audio->PlaySoundEffect(laser_sound);
 					break;
 
 

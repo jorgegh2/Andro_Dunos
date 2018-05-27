@@ -110,6 +110,16 @@ public:
 	Particle laser_4_up_back;
 	Particle laser_4_down_back;
 
+	Particle laser_5_up;
+	Particle laser_5_down;
+	Particle laser_5_up_back;
+	Particle laser_5_down_back;
+
+	Particle laser_6_up;
+	Particle laser_6_down;
+	Particle laser_6_up_back;
+	Particle laser_6_down_back;
+
 
 
 	Particle back_shoot_0;
