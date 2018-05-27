@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
+#include "ModulePlayersMenu.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "SDL\include\SDL.h"
@@ -284,30 +285,37 @@ update_status ModulePlayer::Update()
 
 			case POWER_UPS::POWER_UP_BASIC:
 				power_up = POWER_UPS::POWER_UP_1;
+				App->UI->n_powerup = 2;
 				break;
 
 			case POWER_UPS::POWER_UP_1:
 				power_up = POWER_UPS::POWER_UP_2;
+				App->UI->n_powerup = 3;
 				break;
 
 			case POWER_UPS::POWER_UP_2:
 				power_up = POWER_UPS::POWER_UP_3;
+				App->UI->n_powerup = 4;
 				break;
 
 			case POWER_UPS::POWER_UP_3:
 				power_up = POWER_UPS::POWER_UP_4;
+				App->UI->n_powerup = 5;
 				break;
 
 			case POWER_UPS::POWER_UP_4:
 				power_up = POWER_UPS::POWER_UP_5;
+				App->UI->n_powerup = 6;
 				break;
 
 			case POWER_UPS::POWER_UP_5:
 				power_up = POWER_UPS::POWER_UP_6;
+				App->UI->n_powerup = 7;
 				break;
 
 			case POWER_UPS::POWER_UP_6:
 				power_up = POWER_UPS::POWER_UP_BASIC;
+				App->UI->n_powerup = 1;
 				break;
 			}
 		}
@@ -623,10 +631,10 @@ update_status ModulePlayer::Update()
 	
 
 
-	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false)
+	if (App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN && App->fade->IsFading() == false && App->players_menu->cr > 0)
 	{
 		App->player2->Enable();
-
+		App->players_menu->cr--;
 	}
 
 

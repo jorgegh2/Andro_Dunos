@@ -16,21 +16,7 @@
 
 ModuleUI::ModuleUI()
 {
-	n_1.x = 41;
-	n_1.y = 62;
-	n_1.w = 2;
-	n_1.h = 5;
-
-	n_2.x = 46;
-	n_2.y = 62;
-	n_2.w = 4;
-	n_2.h = 5;
-
-	n_3.x = 52;
-	n_3.y = 62;
-	n_3.w = 4;
-	n_3.h = 5;
-
+	
 	rc.PushBack({ 0, 0, 86, 11 });
 	rc.PushBack({ 0, 11, 86, 11 });
 	rc.speed = 0.01f;
@@ -66,7 +52,7 @@ bool ModuleUI::Start() {
 	UI_helix = App->textures->Load("Images/HUD/ui_elements_helix.png");
 
 	// Numbers
-	power_up_numbers = App->textures->Load("Images/HUD/numbers_powerup.png");
+	font_power_up = App->fonts->Load("Images/HUD/numbers_powerup_corrected.png", "012345678", 1);
 
 	Life_texture1 = App->textures->Load("Images/HUD/Player_1_life.png");
 	Continue = App->textures->Load("Images/continue-fonts.png");
@@ -176,12 +162,8 @@ update_status ModuleUI::Update()
 		App->render->Blit(UI_helix, 5, 16, NULL, 0.0f, false);
 
 	// Numbers Player 1
-	if (App->player->power_up == 0)
-		App->render->Blit(power_up_numbers, 32, 17, &n_1, 0.0f, false);
-	else if (App->player->power_up == 1)
-		App->render->Blit(power_up_numbers, 31, 17, &n_2, 0.0f, false);
-	else if (App->player->power_up == 2)
-		App->render->Blit(power_up_numbers, 31, 17, &n_3, 0.0f, false);
+	sprintf_s(powerup_text, 9, "%7d", n_powerup);
+	App->fonts->BlitText(-7, 17, font_power_up, powerup_text);
 
 
 	// Lifes
@@ -235,12 +217,8 @@ update_status ModuleUI::Update()
 			App->render->Blit(UI_helix, 171, 16, NULL, 0.0f, false);
 
 		// Numbers Player 2
-		if (App->player2->power_up == 0)
-			App->render->Blit(power_up_numbers, 198, 17, &n_1, 0.0f, false);
-		else if (App->player2->power_up == 1)
-			App->render->Blit(power_up_numbers, 197, 17, &n_2, 0.0f, false);
-		else if (App->player2->power_up == 2)
-			App->render->Blit(power_up_numbers, 197, 17, &n_3, 0.0f, false);
+		//197 17
+		
 	}
 
 	return UPDATE_CONTINUE;
@@ -252,6 +230,7 @@ bool ModuleUI::CleanUp() {
 	App->fonts->UnLoad(Continue_Number);
 	App->fonts->UnLoad(font_credits);
 	App->fonts->UnLoad(font_high_score);
+	App->fonts->UnLoad(font_power_up);
 
 	App->textures->Unload(high_score);
 
@@ -262,7 +241,7 @@ bool ModuleUI::CleanUp() {
 
 	App->textures->Unload(red_insert_coin);
 	App->textures->Unload(red_2p_button);
-	App->textures->Unload(power_up_numbers);
+	
 
 	App->textures->Unload(graphics8); // credits
 

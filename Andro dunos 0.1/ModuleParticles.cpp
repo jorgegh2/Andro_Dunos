@@ -414,6 +414,7 @@ ModuleParticles::ModuleParticles()
 	helix_01_3.speed.x = 8;
 	helix_01_3.speed.y = 0;
 	helix_01_3.life = 1200;
+
 	/*power-up 2*/
 	// Helix 02_1
 	helix_02_1.anim.PushBack({ 41, 8, 13, 8 });

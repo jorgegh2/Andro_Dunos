@@ -55,11 +55,11 @@ public:
 	Animation* p2_button = nullptr;
 	Animation p2b;
 
-	SDL_Texture* power_up_numbers = nullptr; // all numbers(like a font) are stored here, from 0 to 8
 
-	SDL_Rect n_1;
-	SDL_Rect n_2;
-	SDL_Rect n_3;
+	// Power-up numbers
+	int font_power_up = -1;
+	char powerup_text[9];
+	uint n_powerup = 1;
 
 	// etc
 
