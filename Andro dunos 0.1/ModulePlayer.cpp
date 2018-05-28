@@ -148,14 +148,14 @@ update_status ModulePlayer::Update()
 			player_up = false;
 		}
 
-		if (SDL_GameControllerGetAxis(App->input->controller1, SDL_CONTROLLER_AXIS_LEFTY) > -5000 && SDL_GameControllerGetAxis(App->input->controller1, SDL_CONTROLLER_AXIS_LEFTY) < 5000 && player_up == false && player_down == false && player_idle == false)
+		/*if (SDL_GameControllerGetAxis(App->input->controller1, SDL_CONTROLLER_AXIS_LEFTY) > -5000 && SDL_GameControllerGetAxis(App->input->controller1, SDL_CONTROLLER_AXIS_LEFTY) < 5000 && player_up == false && player_down == false && player_idle == false)
 		{
 			player_idle = true;
 		}
 		if (SDL_GameControllerGetAxis(App->input->controller1, SDL_CONTROLLER_AXIS_LEFTY) > -5000 && SDL_GameControllerGetAxis(App->input->controller1, SDL_CONTROLLER_AXIS_LEFTY) < 5000)
 		{
 			player_idle = false;
-		}
+		}*/
 
 
 
@@ -173,6 +173,8 @@ update_status ModulePlayer::Update()
 		if ((App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || player_down == true) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
 		{
 			location.y += speed;
+			player_idle = true;
+			reverse = false;
 			if (current_animation != &down)
 			{
 				down.Reset();
@@ -181,31 +183,37 @@ update_status ModulePlayer::Update()
 
 		}
 
-		else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP || (player_idle == true && player_down == false))
+		else if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_UP || (player_idle == true && player_down == false && reverse == false))
 			if (current_animation != &downback)
 			{
 				downback.Reset();
 				current_animation = &downback;
-
+				player_idle = false;
+			
 			}
 
 		if ((App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || player_up == true) && position.y > App->render->camera.y / SCREEN_SIZE)
 		{
 			location.y -= speed;
+			player_idle = true;
+			reverse = true;
 			if (current_animation != &up)
 			{
 				up.Reset();
 				current_animation = &up;
-				anim_turbo = &turbo_up;
+				//anim_turbo = &turbo_up;
+
 			}
 		}
 
-		else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || (player_idle == true && player_up == false))
+		else if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_UP || (player_idle == true && player_up == false && reverse == true))
 			if (current_animation != &upback)
 			{
 				upback.Reset();
 				current_animation = &upback;
-				anim_turbo = &turbo_up;
+				//anim_turbo = &turbo_up;
+				player_idle = false;
+				       
 			}
 
 

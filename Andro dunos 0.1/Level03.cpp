@@ -156,11 +156,11 @@ update_status Level03::Update()
 	}
 
 	// Controllers input
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) && y_pressed == false)
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) && y_pressed == false)
 	{
 		y_pressed = true;
 	}
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == false)
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) == false)
 	{
 		y_pressed = false;
 	}

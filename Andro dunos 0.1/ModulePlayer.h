@@ -56,6 +56,8 @@ public:
 	uint Bullet_time_init = 0;
 	uint Bullet_delay;
 	bool Reset_time_bullets = true;
+
+	bool reverse = false;
 	
 
 	Collider* c_player = nullptr;
