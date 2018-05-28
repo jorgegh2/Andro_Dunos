@@ -20,6 +20,8 @@ public:
 
 	void OnCollision(Collider*, Collider*);
 
+	void PlayerSpawn();
+
 public:
 
 	SDL_Texture * graphics = nullptr;
@@ -44,8 +46,14 @@ public:
 
 	iPoint position;
 	iPoint location;
-	bool destroyed;
+	
+	bool destroyed = true;
+	bool god_mode = false;
 
+	uint life = 1;
+	uint time_final = 0;
+	uint time_init = 0;
+	bool time_finished = true;
 
 
 	bool reverse = false;

@@ -75,11 +75,9 @@ bool ModulePlayer2::Start()
 	player_death = App->audio->LoadSoundEffect("Music/Sounds_effects/Player_Death_Explosion.wav");
 	change_weapon_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type_CHANGE.wav");
 
-	destroyed = false;
-	position.x = 0;
-	position.y = 0;
-	location.x = 150;
-	location.y = 100;
+	PlayerSpawn();
+
+	//destroyed = false;
 
 	return ret;
 }
@@ -569,16 +567,58 @@ update_status ModulePlayer2::Update()
 		}
 	}
 
+	if (time_finished == false)
+	{
+		time_final = SDL_GetTicks() - time_init;
+		if (time_final <= 2000 && time_final >= 1000) {
+			location.x += 1;
+			position.x = App->render->camera.x / SCREEN_SIZE + location.x;
+			position.y = App->render->camera.y / SCREEN_SIZE + location.y;
+
+		}
+
+		else {
+			position.x = App->render->camera.x / SCREEN_SIZE + location.x;
+			position.y = App->render->camera.y / SCREEN_SIZE + location.y;
+
+
+		}
+
+		if (time_final > 2000) destroyed = false;
+		if (time_final >= 4000)
+		{
+			time_finished = true;
+			god_mode = false;
+
+		}
+
+		// Draw everything -------------------------------------- parpadeo
+		if (time_final % 100 <= 50) {
+			App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+			App->render->Blit(graphics, position.x - 12, position.y + 8, &(anim_turbo->GetCurrentFrame()));
+		}
+	}
+
+
+	else {
+
+
+		// Draw everything --------------------------------------
+		App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+		App->render->Blit(graphics, position.x - 12, position.y + 8, &(anim_turbo->GetCurrentFrame()));
+
+		position.x = App->render->camera.x / SCREEN_SIZE + location.x;
+		position.y = App->render->camera.y / SCREEN_SIZE + location.y;
+
+	}
+
+
 
 	if (!App->player->god_mode)
 	{
 		c_player2->SetPos(position.x, position.y);
 	}
-	// Draw everything --------------------------------------
-	if (destroyed == false) {
-		App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
-		App->render->Blit(graphics, position.x - 12, position.y + 8, &(anim_turbo->GetCurrentFrame()));
-	}
+
 	return UPDATE_CONTINUE;
 }
 
@@ -593,4 +633,17 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 		App->fade->FadeToBlack(App->level01, App->game_over, 1);
 		destroyed == true;
 	}
+}
+
+void ModulePlayer2::PlayerSpawn() {
+	time_init = SDL_GetTicks();
+	time_final = 0;
+	time_finished = false;
+	god_mode = true;
+	/*	position.x = App->render->camera.x / SCREEN_SIZE;
+	position.y = App->render->camera.y / SCREEN_SIZE;*/
+	location.x = -SHIP_WIDTH;
+	location.y = 50;
+	current_animation = &idle;
+
 }
