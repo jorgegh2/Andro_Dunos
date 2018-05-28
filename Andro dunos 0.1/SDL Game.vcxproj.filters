@@ -18,6 +18,9 @@
     <Filter Include="Modules\Enemies">
       <UniqueIdentifier>{adb0d877-2ddb-4d9e-9155-7fce91ae806e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Modules\Enemies\Lvl3_enemies">
+      <UniqueIdentifier>{0d30f63b-7e43-4585-a121-e4c0f5229f74}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -122,6 +125,9 @@
     <ClInclude Include="ModulePowerUp.h">
       <Filter>Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_20.h">
+      <Filter>Modules\Enemies\Lvl3_enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -213,6 +219,9 @@
     </ClCompile>
     <ClCompile Include="ModulePowerUp.cpp">
       <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_20.cpp">
+      <Filter>Modules\Enemies\Lvl3_enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

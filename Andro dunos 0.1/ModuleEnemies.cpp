@@ -11,6 +11,7 @@
 #include "Enemy_PowerUp.h"
 #include "UI.h"
 #include "ModulePowerUp.h"
+#include "Level03.h"
 
 #define SPAWN_MARGIN (60 * SCREEN_SIZE)
 
@@ -32,7 +33,7 @@ bool ModuleEnemies::Start()
 	enemy_3 = App->textures->Load("Images/Enemies/3.png");
 	enemy15 = App->textures->Load("Images/Enemies/15.png");
 	enemyPowerUp = App->textures->Load("Images/Enemies/POWER_UP.png");
-
+	enemy_20 = App->textures->Load("Images/Enemies/en_20.png");
 
 	return true;
 }
@@ -74,6 +75,9 @@ update_status ModuleEnemies::Update()
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr && enemies[i]->Type == 4) enemies[i]->Draw(enemyPowerUp);
 
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+		if (enemies[i] != nullptr && enemies[i]->Type == 5) enemies[i]->Draw(enemy_20);
+
 	return UPDATE_CONTINUE;
 }
 
@@ -113,6 +117,7 @@ bool ModuleEnemies::CleanUp()
 	App->textures->Unload(enemy_3);
 	App->textures->Unload(sprites);
 	App->textures->Unload(enemyPowerUp);
+	App->textures->Unload(enemy_20);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
@@ -169,6 +174,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::ENEMY_POWER_UP:
 			enemies[i] = new Enemy_Power_Up(info.x, info.y);
 			enemies[i]->Type = 4;
+			break;
+		case ENEMY_TYPES::ENEMY_20:
+			enemies[i] = new Enemy_20(info.x, info.y);
+			enemies[i]->Type = 5;
 			break;
 		}
 	}
