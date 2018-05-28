@@ -39,7 +39,7 @@ public:
 	Animation t2;
 
 	// Controller input
-	bool y_pressed = false;
+	bool l_shoulder_pressed = false;
 
 
 	int time_init = 0;

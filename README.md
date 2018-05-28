@@ -182,10 +182,10 @@ X: power-up
 
 B: change weapon
 
-Y: change scenes / 1 player mode
+Y: insert coin
 
-Dpad up arrow: 2 player mode (may not work, this has not been tested)
+START: 1 player mode
 
-Dpad down arrow: insert coin
+BACK: 2 player mode
 
 Dpad left arrow: spawn player 2 in-game

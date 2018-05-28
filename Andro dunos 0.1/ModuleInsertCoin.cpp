@@ -81,17 +81,17 @@ update_status ModuleInsertCoin::Update()
 
 
 	// Controller input
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) && dpad_down == false)
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) && y_pressed == false)
 	{
-		dpad_down = true;
+		y_pressed = true;
 	}
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == false)
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) == false)
 	{
-		dpad_down = false;
+		y_pressed = false;
 	}
 
 
-	if ((App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN || dpad_down == true) && App->fade->IsFading() == false)
+	if ((App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN || y_pressed == true) && App->fade->IsFading() == false)
 	{
 		//Mix_VolumeChunk(coin, MIX_MAX_VOLUME);
 		App->audio->PlaySoundEffect(coin);

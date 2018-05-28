@@ -36,7 +36,7 @@ public:
 	bool xstop;
 
 	// Controller input
-	bool y_pressed = false;
+	bool l_shoulder_pressed = false;
 	
 };
 

@@ -151,31 +151,31 @@ update_status ModulePlayersMenu::Update()
 
 
 	// Controller input
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_START) && start_pressed == false)
+	{
+		start_pressed = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_START) == false)
+	{
+		start_pressed = false;
+	}
+
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_BACK) && back_pressed == false)
+	{
+		back_pressed = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_BACK) == false)
+	{
+		back_pressed = false;
+	}
+
 	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) && y_pressed == false)
 	{
+		coin_inserted = true;
 		y_pressed = true;
 	}
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) == false)
-	{
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) == false) {
 		y_pressed = false;
-	}
-
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_UP) && dpad_up == false)
-	{
-		dpad_up = true;
-	}
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_UP) == false)
-	{
-		dpad_up = false;
-	}
-
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) && dpad_down == false) 
-	{
-		coin_inserted = true;
-		dpad_down = true;
-	}
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == false) {
-		dpad_down = false;
 	}
 
 
@@ -197,14 +197,14 @@ update_status ModulePlayersMenu::Update()
 		App->player2->Two_Players = false;
 	}
 
-	if (((App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN || y_pressed == true) && App->fade->IsFading() == false && cr >= 1))
+	if (((App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN || start_pressed == true) && App->fade->IsFading() == false && cr >= 1))
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
 		App->player2->Two_Players = false;
 		cr--;
 	}
 
-	if ((App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN || dpad_up  == true) && App->fade->IsFading() == false && cr > 1)
+	if ((App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN || back_pressed == true) && App->fade->IsFading() == false && cr > 1)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level01);
 		App->player2->Two_Players = true;

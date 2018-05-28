@@ -311,13 +311,13 @@ update_status Level01::Update()
 	
 
 	// Controllers input
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) && y_pressed == false)
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_LEFTSHOULDER) && l_shoulder_pressed == false)
 	{
-		y_pressed = true;
+		l_shoulder_pressed = true;
 	}
 	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) == false)
 	{
-		y_pressed = false;
+		l_shoulder_pressed = false;
 	}
 
 
@@ -437,7 +437,7 @@ update_status Level01::Update()
 	c_wall[72]->SetPos(8415 + (App->render->camera.x / SCREEN_SIZE) * 0.2f, 184 + (App->render->camera.y / SCREEN_SIZE) * 0.2f);
 	c_wall[73]->SetPos(8655 + (App->render->camera.x / SCREEN_SIZE) * 0.2f, 179 + (App->render->camera.y / SCREEN_SIZE) * 0.2f);
 
-	if (App->input->keyboard[SDL_SCANCODE_F8] == 1 || y_pressed == true || App->render->camera.x > 11257 * SCREEN_SIZE)
+	if (App->input->keyboard[SDL_SCANCODE_F8] == 1 || l_shoulder_pressed == true || App->render->camera.x > 11257 * SCREEN_SIZE)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->level03);
 		//App->player2->Two_Players = false;

@@ -36,7 +36,7 @@ public:
 
 	bool mus_change = 0;
 	// Controller input
-	bool y_pressed = false;
+	bool l_shoulder_pressed = false;
 	uint i;
 	float pos;
 	bool up;

@@ -31,7 +31,7 @@ public:
 	SDL_Rect i_coin;
 
 	// Controller input
-	bool dpad_down = false;  // insert coin
+	bool y_pressed = false;  // insert coin
 
 
 	int time_passed = 0;
