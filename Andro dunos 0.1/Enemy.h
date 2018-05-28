@@ -30,8 +30,8 @@ public:
 	const Collider* GetCollider() const;
 
 	virtual void Move() {};
-	virtual void Draw(SDL_Texture* sprites);
-	virtual void OnCollision(Collider* collider);
+	virtual void Draw(SDL_Texture* sprites, float speed = 1.0f, float col_speed = 0);
+	virtual void OnCollision(Collider* collider, int type);
 	
 };
 

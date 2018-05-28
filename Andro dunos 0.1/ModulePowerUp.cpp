@@ -181,7 +181,27 @@ update_status ModulePowerUp::Update()
 {
 	//power up conditions and movement
  	current_animation = &idle;
+	
 	App->render->Blit(PowerUpText, App->enemy->posXpowerUP, App->enemy->posYpowerUP, &(current_animation->GetCurrentFrame()));
+
+	if (position.y < App->render->camera.y / SCREEN_SIZE || position.x < App->render->camera.x / SCREEN_SIZE || position.x > App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.w || position.y > App->render->camera.y / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.h) {
+
+
+		if (condition == true) {
+			App->render->Blit(PowerUpText, App->enemy->posXpowerUP, App->enemy->posYpowerUP -= SpeedY, &(current_animation->GetCurrentFrame()));
+		}
+
+		if (App->enemy->posYpowerUP == 0) {
+			condition = false;
+		}
+
+		if (condition == false) {
+			App->render->Blit(PowerUpText, App->enemy->posXpowerUP, App->enemy->posYpowerUP += SpeedY, &(current_animation->GetCurrentFrame()));
+		}
+
+
+	}
+
 	c_power_up->SetPos(App->enemy->posXpowerUP, App->enemy->posYpowerUP);
 	
 	return UPDATE_CONTINUE;

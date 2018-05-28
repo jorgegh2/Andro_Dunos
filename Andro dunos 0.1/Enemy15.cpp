@@ -4,7 +4,7 @@
 #include "ModuleEnemies.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
-
+#include "ModuleRender.h"
 Enemy_15::Enemy_15(int x, int y) : Enemy(x, y)
 {
 
@@ -31,7 +31,7 @@ Enemy_15::Enemy_15(int x, int y) : Enemy(x, y)
 
 void Enemy_15::Move()
 {
-	position.x -= 0;
+	position.x = 700;
 }
 
 void Enemy_15::Shot()

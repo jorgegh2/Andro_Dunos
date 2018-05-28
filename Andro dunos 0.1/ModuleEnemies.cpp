@@ -12,8 +12,7 @@
 #include "UI.h"
 #include "ModulePowerUp.h"
 
-
-#define SPAWN_MARGIN 50
+#define SPAWN_MARGIN (60 * SCREEN_SIZE)
 
 ModuleEnemies::ModuleEnemies()
 {
@@ -70,7 +69,7 @@ update_status ModuleEnemies::Update()
 		if (enemies[i] != nullptr && enemies[i]->Type == 2) enemies[i]->Draw(enemy_3);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 3) enemies[i]->Draw(enemy15);
+		if (enemies[i] != nullptr && enemies[i]->Type == 3) enemies[i]->Draw(enemy15, 0.8f, (App->render->camera.x / SCREEN_SIZE) * 0.2f);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr && enemies[i]->Type == 4) enemies[i]->Draw(enemyPowerUp);
@@ -85,7 +84,15 @@ update_status ModuleEnemies::PostUpdate()
 	{
 		if (enemies[i] != nullptr)
 		{
-			if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
+			if (enemies[i]->Type == 3) {
+ 				if (enemies[i]->position.x * SCREEN_SIZE + (App->render->camera.x) * 0.2f < (App->render->camera.x) - SPAWN_MARGIN)
+				{
+					LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
+					delete enemies[i];
+					enemies[i] = nullptr;
+				}
+			}
+			else if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
 			{
 				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
 				delete enemies[i];
@@ -182,7 +189,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					//que cuando choque el jugador desaparezca TOTALMENTE power up
 				//}
 			}
-			enemies[i]->OnCollision(c2);
+			enemies[i]->OnCollision(c2, enemies[i]->Type);
 			delete enemies[i];
 			enemies[i] = nullptr;
 			break;
