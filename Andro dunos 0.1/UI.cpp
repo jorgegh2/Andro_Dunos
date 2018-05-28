@@ -218,6 +218,10 @@ update_status ModuleUI::Update()
 
 
 	// Lifes player 2
+	if (App->player2->life >= 2) App->render->Blit(Life_texture1, 285, 24, NULL, 0.0f, false);
+
+	if (App->player2->life == 3) App->render->Blit(Life_texture1, 276, 24, NULL, 0.0f, false);
+
 	if (App->player2->life <= 0)
 	{
 
