@@ -192,4 +192,4 @@ BACK: 2 player mode
 
 Dpad left arrow: spawn player 2 in-game
 
-Left shoulder button: Continue screen (to continue playing when death)
+Right shoulder button: Continue screen (to continue playing when death)
