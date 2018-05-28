@@ -21,20 +21,28 @@ const Collider* Enemy::GetCollider() const
 	return collider;
 }
 
-void Enemy::Draw(SDL_Texture* sprites)
+void Enemy::Draw(SDL_Texture* sprites, float speed, float col_speed)
 {
 	if (collider != nullptr)
-		collider->SetPos(position.x, position.y);
+		collider->SetPos(position.x + col_speed, position.y);
 
 	if (animation != nullptr)
-		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
+		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()), speed);
 }
 
-void Enemy::OnCollision(Collider* collider)
+void Enemy::OnCollision(Collider* collider, int type)
 {
-	App->particles->AddParticle(App->particles->enemy_explosion1, position.x, position.y);
-	App->particles->AddParticle(App->particles->enemy_explosion2, position.x + 10, position.y + 10);
-	App->particles->AddParticle(App->particles->enemy_explosion3, position.x, position.y);
-	App->audio->PlaySoundEffect(enemy_death);
+	if (type == 3) {
+		App->particles->AddParticle(App->particles->enemy_explosion1, position.x + (App->render->camera.x / SCREEN_SIZE) * 0.2f, position.y);
+		App->particles->AddParticle(App->particles->enemy_explosion2, position.x + 10 + (App->render->camera.x / SCREEN_SIZE) * 0.2f, position.y + 10);
+		App->particles->AddParticle(App->particles->enemy_explosion3, position.x + (App->render->camera.x / SCREEN_SIZE) * 0.2f, position.y);
+		App->audio->PlaySoundEffect(enemy_death);
+	}
+	else {
+		App->particles->AddParticle(App->particles->enemy_explosion1, position.x, position.y);
+		App->particles->AddParticle(App->particles->enemy_explosion2, position.x + 10, position.y + 10);
+		App->particles->AddParticle(App->particles->enemy_explosion3, position.x, position.y);
+		App->audio->PlaySoundEffect(enemy_death);
+	}
 
 }
