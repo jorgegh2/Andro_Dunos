@@ -46,6 +46,10 @@ public:
 	iPoint location;
 	bool destroyed;
 
+
+
+	bool reverse = false;
+
 	Collider* c_player2 = nullptr;
 
 	// Vars to check if the buttons are still pressed

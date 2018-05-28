@@ -156,6 +156,8 @@ update_status ModulePlayer2::Update()
 	if ((App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT || player_down == true) && position.y < App->render->camera.y / SCREEN_SIZE + SCREEN_HEIGHT - SHIP_HEIGHT)
 	{
 		location.y += speed;
+		player_idle = true;
+		reverse = false;
 		if (current_animation != &down)
 		{
 			down.Reset();
@@ -163,16 +165,19 @@ update_status ModulePlayer2::Update()
 		}
 	}
 
-	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_UP || (player_idle == true && player_down == false))
+	else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_UP || (player_idle == true && player_down == false && reverse == false))
 		if (current_animation != &downback)
 		{
 			downback.Reset();
 			current_animation = &downback;
+			player_idle = false;
 		}
 
 	if ((App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT || player_up == true) && position.y > App->render->camera.y / SCREEN_SIZE)
 	{
 		location.y -= speed;
+		player_idle = true;
+		reverse = true;
 		if (current_animation != &up)
 		{
 			up.Reset();
@@ -185,6 +190,7 @@ update_status ModulePlayer2::Update()
 		{
 			upback.Reset();
 			current_animation = &upback;
+			player_idle = false;
 		}
 
 	// Player 2 controls input
