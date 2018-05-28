@@ -173,6 +173,8 @@ God mode: F5
 
 Spawn player 2 in-game: BACKSPACE
 
+Continue screen (to continue playing when death): SPACEBAR
+
 
 _controller_ (needs to be remapped)(we are aware of an animation error of the ship that only occurs when playing with controller)
 
@@ -189,3 +191,5 @@ START: 1 player mode
 BACK: 2 player mode
 
 Dpad left arrow: spawn player 2 in-game
+
+Left shoulder button: Continue screen (to continue playing when death)
