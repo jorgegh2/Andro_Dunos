@@ -53,8 +53,8 @@ public:
 	SDL_Texture* enemy_3;
 	SDL_Texture* enemy15;
 	SDL_Texture* enemyPowerUp;
-	int posXpowerUP;
-	int posYpowerUP;
+	float posXpowerUP;
+	float posYpowerUP;
 
 };
 

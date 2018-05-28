@@ -186,9 +186,8 @@ update_status ModulePowerUp::Update()
 
 	if (position.y < App->render->camera.y / SCREEN_SIZE || position.x < App->render->camera.x / SCREEN_SIZE || position.x > App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.w || position.y > App->render->camera.y / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.h) {
 
-
 		if (condition == true) {
-			App->render->Blit(PowerUpText, App->enemy->posXpowerUP, App->enemy->posYpowerUP -= SpeedY, &(current_animation->GetCurrentFrame()));
+			App->render->Blit(PowerUpText, App->enemy->posXpowerUP += 0.6f, App->enemy->posYpowerUP -= 0.5f, &(current_animation->GetCurrentFrame()));
 		}
 
 		if (App->enemy->posYpowerUP == 0) {
@@ -196,7 +195,11 @@ update_status ModulePowerUp::Update()
 		}
 
 		if (condition == false) {
-			App->render->Blit(PowerUpText, App->enemy->posXpowerUP, App->enemy->posYpowerUP += SpeedY, &(current_animation->GetCurrentFrame()));
+			App->render->Blit(PowerUpText, App->enemy->posXpowerUP += 0.6f, App->enemy->posYpowerUP += 0.5f, &(current_animation->GetCurrentFrame()));
+		}
+
+		if (App->enemy->posYpowerUP == 208) {
+			condition = true;
 		}
 
 
