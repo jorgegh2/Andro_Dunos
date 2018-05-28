@@ -57,6 +57,14 @@ public:
 	uint time_final = 0;
 	uint time_init = 0;
 	bool time_finished = true;
+	int bordeY;
+	int varX;
+	int varY;
+
+	bool condition = true;
+
+	float SpeedX = 0.2;
+	float SpeedY = 1;
 
 	bool powerup = false;
 public:
