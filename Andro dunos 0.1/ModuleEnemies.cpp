@@ -12,6 +12,7 @@
 #include "UI.h"
 #include "ModulePowerUp.h"
 #include "Level03.h"
+#include "Enemy_20.h"
 
 #define SPAWN_MARGIN (60 * SCREEN_SIZE)
 

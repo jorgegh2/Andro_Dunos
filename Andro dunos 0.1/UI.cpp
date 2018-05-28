@@ -200,8 +200,8 @@ update_status ModuleUI::Update()
 		}
 
 		sprintf_s(Cuenta_atras, 10, "%7d", Cuenta_atras_number);
-		App->render->Blit(Continue, SCREEN_WIDTH / 10, SCREEN_HEIGHT / 4, NULL, 0.0f, false);
-		App->fonts->BlitText(10, SCREEN_HEIGHT / 4, Continue_Number, Cuenta_atras);
+		App->render->Blit(Continue, SCREEN_WIDTH / 10-2, SCREEN_HEIGHT / 4, NULL, 0.0f, false);
+		App->fonts->BlitText(-146, SCREEN_HEIGHT / 4 +60, Continue_Number, Cuenta_atras);
 
 	}
 
