@@ -75,6 +75,17 @@ update_status ModuleUI::Update()
 		App->render->Blit(red_2p_button, 160, 16, &(p2_button->GetCurrentFrame()), 0.0f, false);
 	}
 
+
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_RIGHTSHOULDER) == true && r_shoulder_pressed == false)
+	{
+		r_shoulder_pressed = true;
+	}
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_RIGHTSHOULDER) == false)
+	{
+		r_shoulder_pressed = false;
+	}
+
+
 	// P1
 	sprintf_s(score_text, 10, "%7d", score);
 	App->fonts->BlitText(30, 7, font_score, score_text);
@@ -176,7 +187,7 @@ update_status ModuleUI::Update()
 
 		time_dead = SDL_GetTicks() - time_dead_init;
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || r_shoulder_pressed == true)
 		{
 			App->player->life = 3;
 			App->player->Enable();
@@ -204,6 +215,43 @@ update_status ModuleUI::Update()
 		App->fonts->BlitText(-146, SCREEN_HEIGHT / 4 +60, Continue_Number, Cuenta_atras);
 
 	}
+
+
+	// Lifes player 2
+	if (App->player2->life <= 0)
+	{
+
+		time_dead = SDL_GetTicks() - time_dead_init;
+
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || r_shoulder_pressed == true)
+		{
+			App->player2->life = 3;
+			App->player2->Enable();
+
+			App->player2->PlayerSpawn();
+		}
+
+		else if (Cuenta_atras_number == 0)
+		{
+			App->fade->FadeToBlack(App->level01, App->game_over, 1);
+
+
+		}
+
+		if (time_dead >= 1000) {
+			time_dead = 0;
+			//para que cada segundo se reinicie y vuelva a contar un segundo
+			time_dead_init = SDL_GetTicks();
+			Cuenta_atras_number--;
+			App->player2->Disable();
+		}
+
+		sprintf_s(Cuenta_atras, 10, "%7d", Cuenta_atras_number);
+		App->render->Blit(Continue, SCREEN_WIDTH / 10 - 2, SCREEN_HEIGHT / 4, NULL, 0.0f, false);
+		App->fonts->BlitText(-146, SCREEN_HEIGHT / 4 + 60, Continue_Number, Cuenta_atras);
+
+	}
+
 
 	/* HUD PLAYER 2*/
 	if (App->player2->IsEnabled() == true) {

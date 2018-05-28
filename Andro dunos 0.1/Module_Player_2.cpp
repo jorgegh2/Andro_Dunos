@@ -13,6 +13,7 @@
 #include "Level01.h"
 #include "ModuleGameIntroduction.h"
 #include "ModuleAudio.h"
+#include "ModulePowerUp.h"
 #include "ModulePlayer.h"
 
 
@@ -76,6 +77,8 @@ bool ModulePlayer2::Start()
 	change_weapon_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Laser_Shot_Type_CHANGE.wav");
 
 	PlayerSpawn();
+
+	life = 3;
 
 	//destroyed = false;
 
@@ -624,14 +627,28 @@ update_status ModulePlayer2::Update()
 
 void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c_player2 != nullptr && c_player2 == c1 && App->fade->IsFading() == false)
+	if (c_player2 != nullptr && c_player2 == c1 && App->fade->IsFading() == false && c2 != App->power_up->c_power_up)
 	{
 		//code
-		App->audio->PlaySoundEffect(player_death);
-		App->particles->AddParticle(App->particles->explosion2, position.x, position.y);
-		App->player2->Disable();
-		App->fade->FadeToBlack(App->level01, App->game_over, 1);
-		destroyed == true;
+		if (!god_mode) {
+			App->audio->PlaySoundEffect(player_death);
+			App->particles->AddParticle(App->particles->explosion, position.x, position.y);
+			life--;
+			destroyed = true;
+			PlayerSpawn();
+			if (life <= 0) {
+				App->UI->time_dead = 0;
+				App->UI->Cuenta_atras_number = 9;
+				App->UI->time_dead_init = SDL_GetTicks();
+
+				/*App->player->Disable();
+				App->fade->FadeToBlack(App->level01, App->game_over, 1);*/
+			}
+		}
+	}
+	if (c_player2 != nullptr && c_player2 == c1 && App->fade->IsFading() == false && c2 == App->power_up->c_power_up)
+	{
+		App->power_up->Disable();
 	}
 }
 
