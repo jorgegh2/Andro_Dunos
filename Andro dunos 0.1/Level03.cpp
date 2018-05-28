@@ -76,12 +76,17 @@ bool Level03::Start()
 	App->player->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
+	App->enemy->Enable();
 	App->UI->Enable();
 	App->level01->Disable();
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
 	//Enemies Correct Coord.
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_20, 450, 80);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_20, 458, 80);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_20, 466, 80);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_20, 474, 80);
 
 
 	// Colliders ---
@@ -114,6 +119,7 @@ bool Level03::CleanUp()
 	App->player2->Disable();
 	App->collision->Disable();
 	App->particles->Disable();
+	App->enemy->Disable();
 
 	App->textures->Unload(background1);
 	App->textures->Unload(layout[0]);
