@@ -156,13 +156,13 @@ update_status Level03::Update()
 	}
 
 	// Controllers input
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) && y_pressed == false)
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_LEFTSHOULDER) && l_shoulder_pressed == false)
 	{
-		y_pressed = true;
+		l_shoulder_pressed = true;
 	}
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) == false)
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_LEFTSHOULDER) == false)
 	{
-		y_pressed = false;
+		l_shoulder_pressed = false;
 	}
 
 
@@ -212,7 +212,7 @@ update_status Level03::Update()
 	{
 		App->render->camera.x += 20 * SCREEN_SIZE;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_F8] == 1 || y_pressed == true)
+	if (App->input->keyboard[SDL_SCANCODE_F8] == 1 || l_shoulder_pressed == true)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->game_intro);
 		
