@@ -88,6 +88,14 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_20, 466, 80);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_20, 474, 80);
 
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 6500, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 6600, 130);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 6700, 160);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 6800, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 6900, 130);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 7000, 160);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 7100, 100);
+
 
 	// Colliders ---
 

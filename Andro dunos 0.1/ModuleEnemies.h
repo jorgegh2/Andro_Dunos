@@ -5,8 +5,9 @@
 #include "Enemy_01.h"
 #include "Enemy_3.h"
 #include "Enemy15.h"
+#include "Enemy.h"
 
-#define MAX_ENEMIES 100
+#define MAX_ENEMIES 150
 
 enum ENEMY_TYPES
 {
@@ -16,6 +17,7 @@ enum ENEMY_TYPES
 	ENEMY_15,
 	ENEMY_POWER_UP,
 	ENEMY_20,
+	ENEMY_23,
 };
 
 class Enemy;
@@ -55,6 +57,7 @@ public:
 	SDL_Texture* enemy15;
 	SDL_Texture* enemyPowerUp;
 	SDL_Texture* enemy_20;
+	SDL_Texture* enemy_23;
 	float posXpowerUP;
 	float posYpowerUP;
 
