@@ -66,7 +66,10 @@ public:
 	uint n_powerup2 = 1;
 
 
-	// etc
+	// Special attack bar
+	SDL_Texture* bar = nullptr;
+	SDL_Rect bar_1;
+
 
 	SDL_Texture* Life_texture1 = nullptr;
 	SDL_Texture* Continue = nullptr;

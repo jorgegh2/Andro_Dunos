@@ -27,6 +27,11 @@ ModuleUI::ModuleUI()
 	p2b.speed = 0.01f;
 	p2b.loop = true;
 
+	bar_1.x = 29;
+	bar_1.y = 28;
+	bar_1.w = 64;
+	bar_1.h = 6;
+
 }
 
 ModuleUI::~ModuleUI() {}
@@ -53,6 +58,9 @@ bool ModuleUI::Start() {
 
 	// Numbers
 	font_power_up = App->fonts->Load("Images/HUD/numbers_powerup_corrected.png", "012345678", 1);
+
+	// SA bar
+	bar = App->textures->Load("Images/HUD/pritesheet-charge-beam.png");
 
 	Life_texture1 = App->textures->Load("Images/HUD/Player_1_life.png");
 	Continue = App->textures->Load("Images/continue-fonts.png");
@@ -176,6 +184,8 @@ update_status ModuleUI::Update()
 	sprintf_s(powerup_text, 9, "%7d", n_powerup);
 	App->fonts->BlitText(-7, 17, font_power_up, powerup_text);
 
+	// Special attack bar p1
+	App->render->Blit(bar, 68, 24, &bar_1, 0.0f, false);
 
 	// Lifes
 	if (App->player->life >= 2) App->render->Blit(Life_texture1, 10, 24, NULL, 0.0f, false);
@@ -218,9 +228,9 @@ update_status ModuleUI::Update()
 
 
 	// Lifes player 2
-	if (App->player2->life >= 2) App->render->Blit(Life_texture1, 285, 24, NULL, 0.0f, false);
+	if (App->player2->life >= 2) App->render->Blit(Life_texture1, 177, 24, NULL, 0.0f, false);
 
-	if (App->player2->life == 3) App->render->Blit(Life_texture1, 276, 24, NULL, 0.0f, false);
+	if (App->player2->life == 3) App->render->Blit(Life_texture1, 186, 24, NULL, 0.0f, false);
 
 	if (App->player2->life <= 0)
 	{
@@ -271,7 +281,11 @@ update_status ModuleUI::Update()
 		// Numbers Player 2
 		sprintf_s(powerup_text2, 9, "%7d", n_powerup2);
 		App->fonts->BlitText(159, 17, font_power_up, powerup_text2);
-		
+
+
+		// Special attack bar p2
+		App->render->Blit(bar, 234, 24, &bar_1, 0.0f, false);
+
 	}
 
 	return UPDATE_CONTINUE;
@@ -291,6 +305,8 @@ bool ModuleUI::CleanUp() {
 	App->textures->Unload(UI_laser);
 	App->textures->Unload(UI_backshoot);
 	App->textures->Unload(UI_helix);
+
+	App->textures->Unload(bar);
 
 	App->textures->Unload(red_insert_coin);
 	App->textures->Unload(red_2p_button);
