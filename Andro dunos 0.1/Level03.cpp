@@ -88,6 +88,20 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_20, 466, 80);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_20, 474, 80);
 
+
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1600, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1700, 130);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1800, 150);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1900, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2000, 130);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2100, 70);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2200, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2300, 90);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2400, 70);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2500, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2600, 60);
+
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 6500, 100);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 6600, 130);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 6700, 160);
