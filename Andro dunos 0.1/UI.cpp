@@ -221,13 +221,16 @@ update_status ModuleUI::Update()
 		}
 
 		sprintf_s(Cuenta_atras, 10, "%7d", Cuenta_atras_number);
-		App->render->Blit(Continue, SCREEN_WIDTH / 10-2, SCREEN_HEIGHT / 4, NULL, 0.0f, false);
-		App->fonts->BlitText(-146, SCREEN_HEIGHT / 4 +60, Continue_Number, Cuenta_atras);
+		App->render->Blit(Continue, SCREEN_WIDTH / 10 - 2, SCREEN_HEIGHT / 4, NULL, 0.0f, false);
+		App->fonts->BlitText(-146, SCREEN_HEIGHT / 4 + 60, Continue_Number, Cuenta_atras);
 
 	}
 
 
 	// Lifes player 2
+	if (App->player2->IsEnabled())
+	{
+	
 	if (App->player2->life >= 2) App->render->Blit(Life_texture1, 177, 24, NULL, 0.0f, false);
 
 	if (App->player2->life == 3) App->render->Blit(Life_texture1, 186, 24, NULL, 0.0f, false);
@@ -265,7 +268,7 @@ update_status ModuleUI::Update()
 		App->fonts->BlitText(-146, SCREEN_HEIGHT / 4 + 60, Continue_Number, Cuenta_atras);
 
 	}
-
+	}
 
 	/* HUD PLAYER 2*/
 	if (App->player2->IsEnabled() == true) {

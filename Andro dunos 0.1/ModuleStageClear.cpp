@@ -88,6 +88,8 @@ bool ModuleStageClear::Start()
 		App->player2->c_player2->SetPos(-100, -100);
 
 	if (App->level03->IsEnabled() == true)
+		App->level03->Disable();
+	if (App->level01->IsEnabled() == true)
 		App->level01->Disable();
 	if (App->game_over->IsEnabled() == true)
 		App->game_over->Disable();
