@@ -57,7 +57,7 @@ Application::~Application()
 bool Application::Init()
 {
 	bool ret = true;
-
+	
 	App->player->Disable();
 	App->player2->Disable();
 	App->level01->Disable();
