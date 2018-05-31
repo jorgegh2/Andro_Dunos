@@ -165,6 +165,20 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 3450, 80);
 
 
+	// here goes the big snake with collider in the head (enemy 26)
+
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 3550, 70);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 3600, 60);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 3650, 90);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 3700, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 3750, 100);
+
+
+	// 14 en 27
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_27, 3900, 100);
+
+
 	/*
 
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1600, 100);
