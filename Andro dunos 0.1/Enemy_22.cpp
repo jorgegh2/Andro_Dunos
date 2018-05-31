@@ -10,7 +10,12 @@ Enemy_22::Enemy_22(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 105, 24, 44, 43 });
 	fly.PushBack({ 160, 25, 44, 43 });
 	fly.PushBack({ 208, 26, 44, 43 });
-
+	fly.PushBack({ 266, 30, 44, 43 });
+	fly.PushBack({ 319, 27, 44, 43 });
+	fly.PushBack({ 374, 31, 44, 43 });
+	fly.PushBack({ 430, 21, 44, 43 });
+	fly.PushBack({ 42, 71, 44, 43 });
+	fly.PushBack({ 104, 73, 44, 43 });
 	fly.loop = true;
 
 	animation = &fly;

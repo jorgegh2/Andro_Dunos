@@ -105,7 +105,7 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_20, 902, 80);
 
 
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_POWER_UP, 1000, 80);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_POWER_UP, 950, 120);
 
 
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_21, 1000, 70);
@@ -120,11 +120,34 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 1780, 90);
 
 
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1900, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1925, 130);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1950, 70);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1975, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2000, 90);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2025, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2050, 130);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2075, 70);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2100, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2125, 90);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2150, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2175, 90);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2200, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2225, 130);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2250, 70);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2275, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2300, 90);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2325, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2350, 130);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2375, 70);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2400, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2425, 90);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2450, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2475, 130);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2500, 70);
+
 
 	/*
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_24, 1000, 80);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_24, 1100, 80);
-
 
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1600, 100);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1700, 130);
