@@ -147,6 +147,13 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 2500, 70);
 
 
+
+	// 24
+
+	// 4 25
+	//App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 2700, 70);
+
+
 	/*
 
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1600, 100);
