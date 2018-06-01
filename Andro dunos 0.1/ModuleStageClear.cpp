@@ -4,6 +4,8 @@
 #include "ModuleRender.h"
 #include "ModuleGameIntroduction.h"
 #include "ModuleStageClear.h"
+#include "ModuleCollision.h"
+#include "ModuleEnemies.h"
 #include "ModulePlayer.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
@@ -87,6 +89,9 @@ bool ModuleStageClear::Start()
 	if (App->player2->IsEnabled() == true)
 		App->player2->c_player2->SetPos(-100, -100);
 
+	App->collision->Disable();
+	App->enemy->Disable();
+
 	if (App->level03->IsEnabled() == true)
 		App->level03->Disable();
 	if (App->level01->IsEnabled() == true)
@@ -143,11 +148,11 @@ update_status ModuleStageClear::Update()
 
 
 	// Controller input
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) && y_pressed == false)
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) && y_pressed == false)
 	{
 		y_pressed = true;
 	}
-	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == false)
+	if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_Y) == false)
 	{
 		y_pressed = false;
 	}

@@ -84,7 +84,7 @@ bool Level01::Start()
 		App->player2->Enable();
 	App->player->Enable();
 	App->particles->Enable();
-//	App->collision->Enable();
+	App->collision->Enable();
 	App->enemy->Enable();
 	App->UI->Enable();
 

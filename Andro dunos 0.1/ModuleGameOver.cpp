@@ -3,10 +3,12 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleGameIntroduction.h"
+#include "ModuleEnemies.h"
 #include "ModuleGameOver.h"
 #include "ModulePlayer.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleCollision.h"
 #include "Level01.h"
 #include "Level03.h"
 #include "ModuleStageClear.h"
@@ -46,6 +48,9 @@ bool ModuleGameOver::Start()
 	// We don't want the player in the screen
 	if (App->player->IsEnabled() == true)
 		App->player->Disable();
+
+	App->collision->Disable();
+	App->enemy->Disable();
 
 	// Disable modules for debug mode
 	if (App->game_intro->IsEnabled() == true)
