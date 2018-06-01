@@ -19,6 +19,7 @@
 #include "Enemy_22.h"
 #include "Enemy_25.h"
 #include "Enemy_27.h"
+#include "Level01.h"
 
 #define SPAWN_MARGIN (60 * SCREEN_SIZE)
 
@@ -77,13 +78,13 @@ update_status ModuleEnemies::Update()
 		if (enemies[i] != nullptr) enemies[i]->Move();
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 1) enemies[i]->Draw(sprites);
+		if (enemies[i] != nullptr && enemies[i]->Type == 1 && App->level01->IsEnabled()) enemies[i]->Draw(sprites);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 2) enemies[i]->Draw(enemy_3);
+		if (enemies[i] != nullptr && enemies[i]->Type == 2 && App->level01->IsEnabled()) enemies[i]->Draw(enemy_3);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 3) enemies[i]->Draw(enemy15, 0.8f, (App->render->camera.x / SCREEN_SIZE) * 0.2f);
+		if (enemies[i] != nullptr && enemies[i]->Type == 3 && App->level01->IsEnabled()) enemies[i]->Draw(enemy15, 0.8f, (App->render->camera.x / SCREEN_SIZE) * 0.2f);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr && enemies[i]->Type == 4) enemies[i]->Draw(enemyPowerUp);
