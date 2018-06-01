@@ -19,6 +19,7 @@
 #include "Enemy_22.h"
 #include "Enemy_25.h"
 #include "Enemy_27.h"
+#include "Enemy_28.h"
 #include "Level01.h"
 
 #define SPAWN_MARGIN (60 * SCREEN_SIZE)
@@ -48,6 +49,7 @@ bool ModuleEnemies::Start()
 	enemy_22 = App->textures->Load("Images/Enemies/en_22.png");
 	enemy_25 = App->textures->Load("Images/Enemies/en_25.png");
 	enemy_27 = App->textures->Load("Images/Enemies/en_27.png");
+	enemy_28 = App->textures->Load("Images/Enemies/en_28.png");
 
 	return true;
 }
@@ -110,6 +112,9 @@ update_status ModuleEnemies::Update()
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr && enemies[i]->Type == 11) enemies[i]->Draw(enemy_27);
 
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+		if (enemies[i] != nullptr && enemies[i]->Type == 12) enemies[i]->Draw(enemy_28);
+
 
 	return UPDATE_CONTINUE;
 }
@@ -157,6 +162,7 @@ bool ModuleEnemies::CleanUp()
 	App->textures->Unload(enemy_22);
 	App->textures->Unload(enemy_25);
 	App->textures->Unload(enemy_27);
+	App->textures->Unload(enemy_28);
 
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
@@ -242,6 +248,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::ENEMY_27:
 			enemies[i] = new Enemy_27(info.x, info.y);
 			enemies[i]->Type = 11;
+			break;
+		case ENEMY_TYPES::ENEMY_28:
+			enemies[i] = new Enemy_28(info.x, info.y);
+			enemies[i]->Type = 12;
 			break;
 		}
 	}

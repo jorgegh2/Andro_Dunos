@@ -23,6 +23,7 @@ enum ENEMY_TYPES
 	ENEMY_22,
 	ENEMY_25,
 	ENEMY_27,
+	ENEMY_28,
 };
 
 class Enemy;
@@ -69,6 +70,7 @@ public:
 	SDL_Texture* enemy_22;
 	SDL_Texture* enemy_25;
 	SDL_Texture* enemy_27;
+	SDL_Texture* enemy_28;
 	
 	float posXpowerUP;
 	float posYpowerUP;

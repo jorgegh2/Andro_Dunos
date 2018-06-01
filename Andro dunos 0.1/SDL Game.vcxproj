@@ -14,7 +14,7 @@
     <ProjectGuid>{746CC4C3-787F-4B0E-AA66-E388FE3FF4F6}</ProjectGuid>
     <RootNamespace>SDLGame</RootNamespace>
     <ProjectName>Andro_Dunos0.1</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -84,6 +84,7 @@
     <ClInclude Include="Enemy_24.h" />
     <ClInclude Include="Enemy_25.h" />
     <ClInclude Include="Enemy_27.h" />
+    <ClInclude Include="Enemy_28.h" />
     <ClInclude Include="Enemy_3.h" />
     <ClInclude Include="Enemy_PowerUp.h" />
     <ClInclude Include="Globals.h" />
@@ -126,6 +127,7 @@
     <ClCompile Include="Enemy_24.cpp" />
     <ClCompile Include="Enemy_25.cpp" />
     <ClCompile Include="Enemy_27.cpp" />
+    <ClCompile Include="Enemy_28.cpp" />
     <ClCompile Include="Enemy_3.cpp" />
     <ClCompile Include="Enemy_PowerUp.cpp" />
     <ClCompile Include="Globals.cpp" />
