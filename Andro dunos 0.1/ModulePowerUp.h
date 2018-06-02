@@ -50,9 +50,9 @@ public:
 	Animation YellowToGreen;
 	Animation GreenToBlue;
 
-
-
-
+	int random_init = -1;
+	bool ToShine = false;
+	
 
 	Animation* current_animation = nullptr;
 
@@ -82,7 +82,11 @@ public:
 	uint life = 1;
 	uint time_final = 0;
 	uint time_init = 0;
-	bool time_finished = true;
+	bool time_animation_finished = false;
+	bool short_time = true;
+	bool time_shine = false;
+	bool init = true;
+
 	int bordeY;
 	int varX;
 	int varY;
@@ -94,7 +98,27 @@ public:
 
 	bool powerup = false;
 public:
+	enum Power_Up_State {
+		None = 0,
+		ST_Red,
+		ST_RedShine,
+		ST_RedOpen,
+		ST_Blue,
+		ST_BlueShine,
+		ST_BlueOpen,
+		ST_Green,
+		ST_GreenShine,
+		ST_GreenOpen,
+		ST_Yellow,
+		ST_YellowShine,
+		ST_YellowOpen,
 
+		//changes
+		ST_BlueToRed,
+		ST_RedToYellow,
+		ST_YellowToGreen,
+		ST_GreenToBlue
+	}State = Power_Up_State::None;
 };
 
 #endif // __ModulePlayer_H__

@@ -19,6 +19,7 @@
 #include "Enemy.h"
 #include "ModuleEnemies.h"
 #include "Enemy_PowerUp.h"
+#include <time.h>
 
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
@@ -26,101 +27,6 @@
 ModulePowerUp::ModulePowerUp()
 {
 	PowerUpText = NULL;
-
-	// Correct Animation
-
-	//RED
-
-	Red.PushBack({ 2, 2, 16, 16 });
-
-	RedShine.PushBack({ 21, 2, 16, 16 });
-	RedShine.PushBack({ 39, 2, 16, 16 });
-	RedShine.PushBack({ 57, 2, 16, 16 });
-
-	RedOpen.PushBack({ 111, 2, 16, 16 });
-	RedOpen.PushBack({ 93, 2, 16, 16 });
-	RedOpen.PushBack({ 75, 2, 16, 16 });
-
-	//BLUE
-
-	Blue.PushBack({ 2, 20, 16, 16 });
-
-	BlueShine.PushBack({ 21, 20, 16, 16 });
-	BlueShine.PushBack({ 39, 20, 16, 16 });
-	BlueShine.PushBack({ 57, 20, 16, 16 });
-
-	BlueOpen.PushBack({ 111, 20, 16, 16 });
-	BlueOpen.PushBack({ 93, 20, 16, 16 });
-	BlueOpen.PushBack({ 75, 20, 16, 16 });
-
-	//GREEN
-
-	Green.PushBack({ 2, 38, 16, 16 });
-
-	GreenShine.PushBack({ 21, 38, 16, 16 });
-	GreenShine.PushBack({ 39, 38, 16, 16 });
-	GreenShine.PushBack({ 57, 38, 16, 16 });
-
-	GreenOpen.PushBack({ 111, 38, 16, 16 });
-	GreenOpen.PushBack({ 93, 38, 16, 16 });
-	GreenOpen.PushBack({ 75, 38, 16, 16 });
-
-	//YELLOW
-
-	Yellow.PushBack({ 2, 56, 16, 16 });
-
-	YellowShine.PushBack({ 21, 56, 16, 16 });
-	YellowShine.PushBack({ 39, 56, 16, 16 });
-	YellowShine.PushBack({ 57, 56, 16, 16 });
-
-	YellowOpen.PushBack({ 111, 56, 16, 16 });
-	YellowOpen.PushBack({ 93, 56, 16, 16 });
-	YellowOpen.PushBack({ 75, 56, 16, 16 });
-
-
-
-	//CHANGES
-	//Blue to red
-
-	BlueToRed.PushBack({ 75, 20, 16, 16 });
-	BlueToRed.PushBack({ 93, 20, 16, 16 });
-	BlueToRed.PushBack({ 111, 20, 16, 16 });
-	BlueToRed.PushBack({ 111, 2, 16, 16 });
-	BlueToRed.PushBack({ 93, 2, 16, 16 });
-	BlueToRed.PushBack({ 75, 2, 16, 16 });
-
-
-	//Red to yellow
-
-	RedToYellow.PushBack({ 75, 2, 16, 16 });
-	RedToYellow.PushBack({ 93, 2, 16, 16 });
-	RedToYellow.PushBack({ 111, 2, 16, 16 });
-	RedToYellow.PushBack({ 111, 56, 16, 16 });
-	RedToYellow.PushBack({ 93, 56, 16, 16 });
-	RedToYellow.PushBack({ 75, 56, 16, 16 });
-
-	//Yellow to green
-
-	YellowToGreen.PushBack({ 75, 56, 16, 16 });
-	YellowToGreen.PushBack({ 93, 56, 16, 16 });
-	YellowToGreen.PushBack({ 111, 56, 16, 16 });
-	YellowToGreen.PushBack({ 111, 38, 16, 16 });
-	YellowToGreen.PushBack({ 93, 38, 16, 16 });
-	YellowToGreen.PushBack({ 75, 38, 16, 16 });
-
-	//Green to blue
-
-	GreenToBlue.PushBack({ 75, 38, 16, 16 });
-	GreenToBlue.PushBack({ 93, 38, 16, 16 });
-	GreenToBlue.PushBack({ 111, 38, 16, 16 });
-	GreenToBlue.PushBack({ 111, 20, 16, 16 });
-	GreenToBlue.PushBack({ 93, 20, 16, 16 });
-	GreenToBlue.PushBack({ 75, 20, 16, 16 });
-
-
-
-	idle.loop = false;
-	idle.speed = 0.1f;
 
 
 
@@ -172,21 +78,27 @@ ModulePowerUp::ModulePowerUp()
 	turbo_down.loop = true;
 	turbo_down.speed = 0.8f;
 	*/
-
+	//current_animation = &Red;
 }
 
 ModulePowerUp::~ModulePowerUp()
 {}
 
 // Load assets
+
 bool ModulePowerUp::Start()
 {
+	
 	LOG("Loading player textures");
 	bool ret = true;
 	PowerUpText = App->textures->Load("Images/power_ups.png");
 
 	power_up_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Power_Up_Picked.wav");
-	c_power_up = App->collision->AddCollider({ position.x, position.y, 16, 16 }, COLLIDER_POWER_UP, this); //Mirar esto
+	c_power_up = App->collision->AddCollider({ position.x, position.y, 16, 16 }, COLLIDER_POWER_UP, this); 
+	
+	time_init = SDL_GetTicks();
+	
+	//Mirar esto
 
 
 
@@ -203,6 +115,126 @@ bool ModulePowerUp::Start()
 																										   PlayerSpawn();
 
 																										   life = 3;*/
+
+																										   // Correct Animation
+
+																										   //RED
+
+	Red.PushBack({ 2, 2, 16, 16 });
+
+	RedShine.PushBack({ 21, 2, 16, 16 });
+	RedShine.PushBack({ 39, 2, 16, 16 });
+	RedShine.PushBack({ 57, 2, 16, 16 });
+	RedShine.loop = false;
+	RedShine.speed = 0.2;
+
+	RedOpen.PushBack({ 111, 2, 16, 16 });
+	RedOpen.PushBack({ 93, 2, 16, 16 });
+	RedOpen.PushBack({ 75, 2, 16, 16 });
+	RedOpen.loop = false;
+	RedOpen.speed = 0.2;
+
+	//BLUE
+
+	Blue.PushBack({ 2, 20, 16, 16 });
+
+	BlueShine.PushBack({ 21, 20, 16, 16 });
+	BlueShine.PushBack({ 39, 20, 16, 16 });
+	BlueShine.PushBack({ 57, 20, 16, 16 });
+	BlueShine.loop = false;
+	BlueShine.speed = 0.2;
+
+	BlueOpen.PushBack({ 111, 20, 16, 16 });
+	BlueOpen.PushBack({ 93, 20, 16, 16 });
+	BlueOpen.PushBack({ 75, 20, 16, 16 });
+	BlueOpen.loop = false;
+	BlueOpen.speed = 0.2;
+
+	//GREEN
+
+	Green.PushBack({ 2, 38, 16, 16 });
+
+	GreenShine.PushBack({ 21, 38, 16, 16 });
+	GreenShine.PushBack({ 39, 38, 16, 16 });
+	GreenShine.PushBack({ 57, 38, 16, 16 });
+	GreenShine.loop = false;
+	GreenShine.speed = 0.2;
+
+	GreenOpen.PushBack({ 111, 38, 16, 16 });
+	GreenOpen.PushBack({ 93, 38, 16, 16 });
+	GreenOpen.PushBack({ 75, 38, 16, 16 });
+	GreenOpen.loop = false;
+	GreenOpen.speed = 0.2;
+
+	//YELLOW
+
+	Yellow.PushBack({ 2, 56, 16, 16 });
+
+	YellowShine.PushBack({ 21, 56, 16, 16 });
+	YellowShine.PushBack({ 39, 56, 16, 16 });
+	YellowShine.PushBack({ 57, 56, 16, 16 });
+	YellowShine.loop = false;
+	YellowShine.speed = 0.2;
+
+	YellowOpen.PushBack({ 111, 56, 16, 16 });
+	YellowOpen.PushBack({ 93, 56, 16, 16 });
+	YellowOpen.PushBack({ 75, 56, 16, 16 });
+	YellowOpen.loop = false;
+	YellowOpen.speed = 0.2;
+
+
+
+	//CHANGES
+	//Blue to red
+
+	BlueToRed.PushBack({ 75, 20, 16, 16 });
+	BlueToRed.PushBack({ 93, 20, 16, 16 });
+	BlueToRed.PushBack({ 111, 20, 16, 16 });
+	BlueToRed.PushBack({ 111, 2, 16, 16 });
+	BlueToRed.PushBack({ 93, 2, 16, 16 });
+	BlueToRed.PushBack({ 75, 2, 16, 16 });
+	BlueToRed.loop = false;
+	BlueToRed.speed = 0.2;
+
+	//Red to yellow
+
+	RedToYellow.PushBack({ 75, 2, 16, 16 });
+	RedToYellow.PushBack({ 93, 2, 16, 16 });
+	RedToYellow.PushBack({ 111, 2, 16, 16 });
+	RedToYellow.PushBack({ 111, 56, 16, 16 });
+	RedToYellow.PushBack({ 93, 56, 16, 16 });
+	RedToYellow.PushBack({ 75, 56, 16, 16 });
+	RedToYellow.loop = false;
+	RedToYellow.speed = 0.2;
+
+	//Yellow to green
+
+	YellowToGreen.PushBack({ 75, 56, 16, 16 });
+	YellowToGreen.PushBack({ 93, 56, 16, 16 });
+	YellowToGreen.PushBack({ 111, 56, 16, 16 });
+	YellowToGreen.PushBack({ 111, 38, 16, 16 });
+	YellowToGreen.PushBack({ 93, 38, 16, 16 });
+	YellowToGreen.PushBack({ 75, 38, 16, 16 });
+	YellowToGreen.loop = false;
+	YellowToGreen.speed = 0.2;
+
+	//Green to blue
+
+	GreenToBlue.PushBack({ 75, 38, 16, 16 });
+	GreenToBlue.PushBack({ 93, 38, 16, 16 });
+	GreenToBlue.PushBack({ 111, 38, 16, 16 });
+	GreenToBlue.PushBack({ 111, 20, 16, 16 });
+	GreenToBlue.PushBack({ 93, 20, 16, 16 });
+	GreenToBlue.PushBack({ 75, 20, 16, 16 });
+	GreenToBlue.loop = false;
+	GreenToBlue.speed = 0.2;
+
+
+
+	idle.loop = false;
+	idle.speed = 0.1f;
+
+
 	return ret;
 }
 
@@ -239,34 +271,241 @@ bool ModulePowerUp::CleanUp()
 update_status ModulePowerUp::Update()
 {
 	//power up conditions and movement
-	current_animation = &idle;
+	if (init == true) {
+		switch (random_init) {
+		case 1:
+			current_animation = &BlueOpen;
+			State = Power_Up_State::ST_BlueOpen;
+			init = false;
+			break;
 
-	App->render->Blit(PowerUpText, App->enemy->posXpowerUP, App->enemy->posYpowerUP, &(current_animation->GetCurrentFrame()));
+		case 2:
+			current_animation = &RedOpen;
+			State = Power_Up_State::ST_RedOpen;
+			init = false;
+			break;
 
-	if (position.y < App->render->camera.y / SCREEN_SIZE || position.x < App->render->camera.x / SCREEN_SIZE || position.x > App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.w || position.y > App->render->camera.y / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.h) {
+		case 3:
+			current_animation = &YellowOpen;
+			State = Power_Up_State::ST_YellowOpen;
+			init = false;
+			break;
 
+		case 4:
+			current_animation = &GreenOpen;
+			State = Power_Up_State::ST_GreenOpen;
+			init = false;
+			break;
 
-		if (condition == true) {
-			App->render->Blit(PowerUpText, App->enemy->posXpowerUP += 0.6f, App->enemy->posYpowerUP -= 0.5f, &(current_animation->GetCurrentFrame()));
 		}
+	}
+	
 
-		if (App->enemy->posYpowerUP == 0) {
-			condition = false;
+	
+
+	if (time_animation_finished == true) {
+		switch (State) {
+
+		case ST_Blue:
+			Blue.Reset();
+			if (ToShine == false) {
+				State = ST_BlueToRed;
+				current_animation = &BlueToRed;
+				ToShine = true;
+			}
+			else {
+				State = ST_BlueShine;
+				current_animation = &BlueShine;
+				ToShine = false;
+			}
+			break;
+
+		case ST_BlueShine:
+			BlueShine.Reset();
+			State = ST_Blue;
+			current_animation = &Blue;
+			break;
+
+		case ST_BlueToRed:
+			BlueToRed.Reset();
+			State = ST_Red;
+			current_animation = &Red;
+			break;
+
+		case ST_Red:
+			Red.Reset();
+			if (ToShine == false) {
+				State = ST_RedToYellow;
+				current_animation = &RedToYellow;
+				ToShine = true;
+			}
+			else {
+				State = ST_RedShine;
+				current_animation = &RedShine;
+				ToShine = false;
+			}
+			break;
+
+		case ST_RedShine:
+			RedShine.Reset();
+			State = ST_Red;
+			current_animation = &Red;
+			break;
+
+		case ST_RedToYellow:
+			RedToYellow.Reset();
+			State = ST_Yellow;
+			current_animation = &Yellow;
+			break;
+
+		case ST_Yellow:
+			Yellow.Reset();
+			if (ToShine == false) {
+				State = ST_YellowToGreen;
+				current_animation = &YellowToGreen;
+				ToShine = true;
+			}
+			else {
+				State = ST_YellowShine;
+				current_animation = &YellowShine;
+				ToShine = false;
+			}
+			break;
+
+		case ST_YellowShine:
+			YellowShine.Reset();
+			State = ST_Yellow;
+			current_animation = &Yellow;
+			break;
+
+		case ST_YellowToGreen:
+			YellowToGreen.Reset();
+			State = ST_Green;
+			current_animation = &Green;
+			break;
+
+		case ST_Green:
+			Green.Reset();
+			if (ToShine == false) {
+				State = ST_GreenToBlue;
+				current_animation = &GreenToBlue;
+				ToShine = true;
+			}
+			else {
+				State = ST_GreenShine;
+				current_animation = &GreenShine;
+				ToShine = false;
+			}
+			break;
+
+		case ST_GreenShine:
+			GreenShine.Reset();
+			State = ST_Green;
+			current_animation = &Green;
+			break;
+
+		case ST_GreenToBlue:
+			GreenToBlue.Reset();
+			State = ST_Blue;
+			current_animation = &Blue;
+			break;
+
+		case ST_BlueOpen:
+			BlueOpen.Reset();
+			State = ST_Blue;
+			current_animation = &Blue;
+			break;
+
+		case ST_RedOpen:
+			RedOpen.Reset();
+			State = ST_Red;
+			current_animation = &Red;
+			break;
+
+		case ST_YellowOpen:
+			YellowOpen.Reset();
+			State = ST_Yellow;
+			current_animation = &Yellow;
+			break;
+
+		case ST_GreenOpen:
+			GreenOpen.Reset();
+			State = ST_Green;
+			current_animation = &Green;
+			break;
+
 		}
-
-		if (condition == false) {
-			App->render->Blit(PowerUpText, App->enemy->posXpowerUP += 0.6f, App->enemy->posYpowerUP += 0.5f, &(current_animation->GetCurrentFrame()));
-		}
-
-		if (App->enemy->posYpowerUP == 208) {
-			condition = true;
-		}
-
-
+		time_animation_finished = false;
 	}
 
-	c_power_up->SetPos(App->enemy->posXpowerUP, App->enemy->posYpowerUP);
+	else {
+		time_final = SDL_GetTicks() - time_init;
+		if (short_time == true)
+		{
+			if (time_shine == true) {
+				if (time_final >= 200) {
+					time_animation_finished = true;
+					time_init = SDL_GetTicks();
+					time_final = 0;
+					short_time = false;
+					time_shine = false;
+				}
+			}
+			else {
+				if (time_final >= 100) {
+					time_animation_finished = true;
+					time_init = SDL_GetTicks();
+					time_final = 0;
+					short_time = false;
+					time_shine = true;
 
+				}
+			}
+
+			
+
+		}
+		else
+		{
+			if (time_final >= 2000) {
+				time_animation_finished = true;
+				time_final = 0;
+				time_init = SDL_GetTicks();
+				short_time = true;
+			}
+		}
+	}
+
+
+
+
+
+	 if (current_animation != nullptr) {
+
+		if (position.y < App->render->camera.y / SCREEN_SIZE || position.x < App->render->camera.x / SCREEN_SIZE || position.x > App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.w || position.y > App->render->camera.y / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.h) {
+
+
+			if (condition == true) {
+				App->render->Blit(PowerUpText, App->enemy->posXpowerUP += 0.6f, App->enemy->posYpowerUP -= 0.5f, &(current_animation->GetCurrentFrame()));
+			}
+
+			if (App->enemy->posYpowerUP == 0) {
+				condition = false;
+			}
+
+			if (condition == false) {
+				App->render->Blit(PowerUpText, App->enemy->posXpowerUP += 0.6f, App->enemy->posYpowerUP += 0.5f, &(current_animation->GetCurrentFrame()));
+			}
+
+			if (App->enemy->posYpowerUP == 208) {
+				condition = true;
+			}
+
+
+		}
+		App->render->Blit(PowerUpText, App->enemy->posXpowerUP, App->enemy->posYpowerUP, &(current_animation->GetCurrentFrame()));
+		c_power_up->SetPos(App->enemy->posXpowerUP, App->enemy->posYpowerUP);
+	}
 	return UPDATE_CONTINUE;
 }
 
