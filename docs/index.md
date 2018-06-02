@@ -52,3 +52,9 @@ Marti Torras' Github account and responsability:
 
 [**CITM**](https://www.citm.upc.edu/) Terrassa 2018. Degree in videogame design and developement.
 
+## The game
+
+Check out a gameplay where we showcase the debugging tools for our project:
+[![AD_D](https://img.youtube.com/vi/jhKzc7DnEBU/0.jpg)](https://www.youtube.com/watch?v=jhKzc7DnEBU)
+
+Download our last release [HERE](https://github.com/jorgegh2/Andro_Dunos/releases)
