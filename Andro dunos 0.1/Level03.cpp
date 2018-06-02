@@ -316,26 +316,38 @@ bool Level03::Start()
 
 
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 9100, 70);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 9200, 80);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 9150, 80);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 9200, 60);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 9300, 90);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 9250, 90);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_25, 9300, 80);
 
 
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_POWER_UP, 9500, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_POWER_UP, 9350, 100);
 
 
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9600, 160);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9700, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9400, 160);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9450, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9500, 180);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9550, 160);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9600, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9650, 180);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9700, 160);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9750, 140);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9800, 180);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9900, 160);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 10000, 140);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 10100, 180);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 10200, 160);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 10300, 140);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 10400, 180);
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 10500, 160);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_34, 9850, 160);
 
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_35, 10000, 200);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_35, 10075, 200);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_35, 10150, 200);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_35, 10225, 200);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_35, 10300, 200);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_35, 10375, 200);
+
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 10600, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 10700, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 10800, 110);
 
 
 	// Colliders ---
@@ -485,26 +497,8 @@ update_status Level03::Update()
 
 
 	// Move camera forward -----------------------------
-	if (App->render->camera.x <= 10500 * SCREEN_SIZE) {
+	if (App->render->camera.x <= 11000 * SCREEN_SIZE) {
 		App->render->camera.x += 1 * SCREEN_SIZE; //speed in x axes
-	}
-	else if (App->render->camera.x <= 10550 * SCREEN_SIZE) {
-		App->render->camera.x += 0.75 * SCREEN_SIZE;
-	}
-	else if (App->render->camera.x <= 10590 * SCREEN_SIZE) {
-		App->render->camera.x += 0.5 * SCREEN_SIZE;
-	}
-	else if (App->render->camera.x <= 10621 * SCREEN_SIZE) {
-		App->render->camera.x += 0.4 * SCREEN_SIZE;
-	}
-	else if (App->render->camera.x <= 10643 * SCREEN_SIZE) {
-		App->render->camera.x += 0.3 * SCREEN_SIZE;
-	}
-	else if (App->render->camera.x <= 10655 * SCREEN_SIZE) {
-		App->render->camera.x += 0.2 * SCREEN_SIZE;
-	}
-	else if (App->render->camera.x <= 10663 * SCREEN_SIZE) {
-		App->render->camera.x += 0.1 * SCREEN_SIZE;
 	}
 
 	// Controllers input
