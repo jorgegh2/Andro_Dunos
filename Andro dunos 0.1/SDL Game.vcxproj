@@ -88,6 +88,7 @@
     <ClInclude Include="Enemy_29.h" />
     <ClInclude Include="Enemy_3.h" />
     <ClInclude Include="Enemy_30.h" />
+    <ClInclude Include="Enemy_31.h" />
     <ClInclude Include="Enemy_PowerUp.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Level01.h" />
@@ -133,6 +134,7 @@
     <ClCompile Include="Enemy_29.cpp" />
     <ClCompile Include="Enemy_3.cpp" />
     <ClCompile Include="Enemy_30.cpp" />
+    <ClCompile Include="Enemy_31.cpp" />
     <ClCompile Include="Enemy_PowerUp.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Level01.cpp" />
