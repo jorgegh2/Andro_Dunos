@@ -495,8 +495,26 @@ update_status Level03::Update()
 
 
 	// Move camera forward -----------------------------
-	if (App->render->camera.x <= 11000 * SCREEN_SIZE) {
+	if (App->render->camera.x <= 10500 * SCREEN_SIZE) {
 		App->render->camera.x += 1 * SCREEN_SIZE; //speed in x axes
+	}
+	else if (App->render->camera.x <= 10550 * SCREEN_SIZE) {
+		App->render->camera.x += 0.75 * SCREEN_SIZE;
+	}
+	else if (App->render->camera.x <= 10590 * SCREEN_SIZE) {
+		App->render->camera.x += 0.5 * SCREEN_SIZE;
+	}
+	else if (App->render->camera.x <= 10621 * SCREEN_SIZE) {
+		App->render->camera.x += 0.4 * SCREEN_SIZE;
+	}
+	else if (App->render->camera.x <= 10643 * SCREEN_SIZE) {
+		App->render->camera.x += 0.3 * SCREEN_SIZE;
+	}
+	else if (App->render->camera.x <= 10655 * SCREEN_SIZE) {
+		App->render->camera.x += 0.2 * SCREEN_SIZE;
+	}
+	else if (App->render->camera.x <= 10663 * SCREEN_SIZE) {
+		App->render->camera.x += 0.1 * SCREEN_SIZE;
 	}
 
 	// Controllers input
