@@ -1,6 +1,8 @@
 #include "Application.h"
 #include "Globals.h"
 #include "MemLeaks.h"
+#include<time.h>
+#include "ModulePowerUp.h"
 
 #include "SDL/include/SDL.h"
 #pragma comment( lib, "SDL/libx86/SDL2.lib" )
@@ -19,6 +21,7 @@ Application* App = nullptr;
 
 int main(int argc, char* argv[])
 {
+
 	ReportMemoryLeaks();
 
 	int main_return = EXIT_FAILURE;
@@ -54,6 +57,12 @@ int main(int argc, char* argv[])
 			case MAIN_UPDATE:
 			{
 				int update_return = App->Update();
+
+				if (App->power_up->IsEnabled() == true && App->power_up->State == App->power_up->Power_Up_State::None) {
+					srand(time(NULL));
+
+					App->power_up->random_init = rand() % 4 + 1;
+				}
 
 				if (update_return == UPDATE_ERROR)
 				{
