@@ -152,6 +152,9 @@
     <ClInclude Include="Enemy_29.h">
       <Filter>Modules\Enemies\Lvl3_enemies</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_30.h">
+      <Filter>Modules\Enemies\Lvl3_enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -269,6 +272,9 @@
       <Filter>Modules\Enemies\Lvl3_enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_29.cpp">
+      <Filter>Modules\Enemies\Lvl3_enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_30.cpp">
       <Filter>Modules\Enemies\Lvl3_enemies</Filter>
     </ClCompile>
   </ItemGroup>

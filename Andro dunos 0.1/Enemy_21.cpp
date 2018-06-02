@@ -5,10 +5,7 @@
 
 Enemy_21::Enemy_21(int x, int y) : Enemy(x, y)
 {
-<<<<<<< HEAD
 
-=======
->>>>>>> 3dc8f8738923f8323b30a9ef96df37cc8dbf8c7d
 	//fly.speed = 0.1f;
 	fly.PushBack({ 164, 111, 44, 26 });  //1
 	fly.PushBack({ 106, 51, 44, 26 });	//2
@@ -16,11 +13,7 @@ Enemy_21::Enemy_21(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 164, 51, 44, 26 }); //4
 	fly.PushBack({ 106, 111, 44, 26 });//5
 	fly.PushBack({ 48, 51, 44, 26 }); //6
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> 3dc8f8738923f8323b30a9ef96df37cc8dbf8c7d
 	//when its hurt
 	//fly.PushBack({ 56, 171, 44, 26 });
 	//fly.PushBack({ 110, 111, 44, 26 });
