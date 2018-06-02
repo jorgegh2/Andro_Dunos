@@ -20,7 +20,7 @@ public:
 	bool CleanUp();
 
 	void OnCollision(Collider*, Collider*);
-	
+
 
 
 public:
@@ -28,6 +28,32 @@ public:
 	SDL_Texture * PowerUpText = nullptr;
 
 	Animation idle;
+
+	Animation Red;
+	Animation RedShine;
+	Animation RedOpen;
+
+	Animation Blue;
+	Animation BlueShine;
+	Animation BlueOpen;
+
+	Animation Green;
+	Animation GreenShine;
+	Animation GreenOpen;
+
+	Animation Yellow;
+	Animation YellowShine;
+	Animation YellowOpen;
+
+	Animation BlueToRed;
+	Animation RedToYellow;
+	Animation YellowToGreen;
+	Animation GreenToBlue;
+
+
+
+
+
 	Animation* current_animation = nullptr;
 
 	Mix_Chunk* power_up_sound = nullptr;
