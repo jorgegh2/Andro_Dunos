@@ -302,10 +302,20 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					//que cuando choque el jugador desaparezca TOTALMENTE power up
 				//}
 			}
-			enemies[i]->OnCollision(c2, enemies[i]->Type);
-			delete enemies[i];
-			enemies[i] = nullptr;
-			break;
+			
+			if (enemies[i]->HP > 1)	
+		    {
+				enemies[i]->HP--;
+				break;					
+			}
+			else	
+			{
+				enemies[i]->OnCollision(c2, enemies[i]->Type);
+				delete enemies[i];
+				enemies[i] = nullptr;
+				break;
+			}
+			
 		}
 	}
 

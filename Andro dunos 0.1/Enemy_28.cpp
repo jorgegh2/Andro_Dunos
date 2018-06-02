@@ -17,6 +17,8 @@ Enemy_28::Enemy_28(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 406, 357, 32, 23 });
 	fly.loop = true;
 
+	HP = 5;
+
 	animation = &fly;
 
 	collider = App->collision->AddCollider({ 0, 0, 32, 23 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemy);

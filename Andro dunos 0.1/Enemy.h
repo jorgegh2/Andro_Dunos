@@ -21,6 +21,8 @@ public:
 	iPoint position;
 	Mix_Chunk* enemy_death = nullptr;
 
+	int HP = 1;
+
 	int Type;
 
 public:

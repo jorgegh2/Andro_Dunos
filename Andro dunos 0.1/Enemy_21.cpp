@@ -21,6 +21,8 @@ Enemy_21::Enemy_21(int x, int y) : Enemy(x, y)
 	fly.speed = 0.2f;
 	fly.loop = true;
 
+	HP = 4;
+
 	animation = &fly;
 
 	collider = App->collision->AddCollider({ 0, 0, 44, 26 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemy);
