@@ -199,6 +199,18 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_28, 4740, 150);
 
 
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_29, 4800, 60);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_29, 4840, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_29, 4880, 60);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_29, 4920, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_29, 4960, 60);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_29, 5000, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_29, 5040, 60);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_29, 5080, 120);
+
+
+
+
 
 
 	/*

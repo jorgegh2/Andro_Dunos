@@ -20,6 +20,7 @@
 #include "Enemy_25.h"
 #include "Enemy_27.h"
 #include "Enemy_28.h"
+#include "Enemy_29.h"
 #include "Level01.h"
 
 #define SPAWN_MARGIN (60 * SCREEN_SIZE)
@@ -50,6 +51,7 @@ bool ModuleEnemies::Start()
 	enemy_25 = App->textures->Load("Images/Enemies/en_25.png");
 	enemy_27 = App->textures->Load("Images/Enemies/en_27.png");
 	enemy_28 = App->textures->Load("Images/Enemies/en_28.png");
+	enemy_29 = App->textures->Load("Images/Enemies/en_29_wave_version2.png"); // sprite modified for wave version
 
 	return true;
 }
@@ -115,6 +117,9 @@ update_status ModuleEnemies::Update()
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr && enemies[i]->Type == 12) enemies[i]->Draw(enemy_28);
 
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+		if (enemies[i] != nullptr && enemies[i]->Type == 13) enemies[i]->Draw(enemy_29);
+
 
 	return UPDATE_CONTINUE;
 }
@@ -162,6 +167,7 @@ bool ModuleEnemies::CleanUp()
 	App->textures->Unload(enemy_22);
 	App->textures->Unload(enemy_25);
 	App->textures->Unload(enemy_27);
+	App->textures->Unload(enemy_28);
 	App->textures->Unload(enemy_28);
 
 
@@ -252,6 +258,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::ENEMY_28:
 			enemies[i] = new Enemy_28(info.x, info.y);
 			enemies[i]->Type = 12;
+			break;
+		case ENEMY_TYPES::ENEMY_29:
+			enemies[i] = new Enemy_29(info.x, info.y);
+			enemies[i]->Type = 13;
 			break;
 		}
 	}
