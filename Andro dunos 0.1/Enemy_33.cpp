@@ -11,7 +11,7 @@ Enemy_33::Enemy_33(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 73, 72, 30, 25 });
 	fly.loop = true;
 
-	HP = 5;
+	HP = 4;
 
 	animation = &fly;
 

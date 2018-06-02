@@ -267,11 +267,28 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_31, 7100, 100);
 
 
-	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_POWER_UP, 7100, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_POWER_UP, 7200, 100);
 
 
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_33, 7300, 100);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_33, 7400, 140);
+
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_32, 7500, 60);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_32, 7525, 60);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_32, 7550, 60);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_32, 7575, 60);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_32, 7600, 60);
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_32, 7550, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_32, 7575, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_32, 7600, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_32, 7625, 120);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_32, 7650, 120);
+
+
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_33, 7750, 140);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_33, 7850, 100);
 
 
 	/*
