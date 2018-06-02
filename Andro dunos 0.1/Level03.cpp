@@ -270,6 +270,10 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_POWER_UP, 7100, 100);
 
 
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_33, 7300, 100);
+	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_33, 7400, 140);
+
+
 	/*
 
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_23, 1600, 100);
