@@ -277,6 +277,85 @@ bool Level03::Start()
 
 
 	// Colliders ---
+	//bot moving
+	c[0] = App->collision->AddCollider({ 377, 210, 50, 45 }, COLLIDER_WALL, nullptr);
+	c[1] = App->collision->AddCollider({ 412, 194, 50, 45 }, COLLIDER_WALL, nullptr);
+	c[2] = App->collision->AddCollider({ 436, 187, 150, 45 }, COLLIDER_WALL, nullptr);
+	c[3] = App->collision->AddCollider({ 575, 176, 40, 20 }, COLLIDER_WALL, nullptr);
+	c[4] = App->collision->AddCollider({ 600, 173, 264, 20 }, COLLIDER_WALL, nullptr);
+	c[5] = App->collision->AddCollider({ 860, 188, 300, 20 }, COLLIDER_WALL, nullptr);
+	c[6] = App->collision->AddCollider({ 1157, 200, 23, 20 }, COLLIDER_WALL, nullptr);
+	c[7] = App->collision->AddCollider({ 1172, 220, 100, 20 }, COLLIDER_WALL, nullptr);
+	c[8] = App->collision->AddCollider({ 1255, 210, 20, 20 }, COLLIDER_WALL, nullptr);
+	c[9] = App->collision->AddCollider({ 1275, 190, 300, 20 }, COLLIDER_WALL, nullptr);
+	c[10] = App->collision->AddCollider({ 1550, 177, 30, 20 }, COLLIDER_WALL, nullptr);
+	c[11] = App->collision->AddCollider({ 1575, 170, 180, 20 }, COLLIDER_WALL, nullptr);
+	c[12] = App->collision->AddCollider({ 1720, 157, 180, 20 }, COLLIDER_WALL, nullptr);
+	c[13] = App->collision->AddCollider({ 1875, 145, 40, 20 }, COLLIDER_WALL, nullptr);
+	c[14] = App->collision->AddCollider({ 1900, 140, 140, 20 }, COLLIDER_WALL, nullptr);
+	c[15] = App->collision->AddCollider({ 2040, 130, 40, 20 }, COLLIDER_WALL, nullptr);
+	c[16] = App->collision->AddCollider({ 2060, 122, 140, 20 }, COLLIDER_WALL, nullptr);
+	c[17] = App->collision->AddCollider({ 2200, 112, 32, 20 }, COLLIDER_WALL, nullptr);
+	c[18] = App->collision->AddCollider({ 2230, 120, 20, 20 }, COLLIDER_WALL, nullptr);
+	c[19] = App->collision->AddCollider({ 2250, 137, 80, 20 }, COLLIDER_WALL, nullptr);
+	c[20] = App->collision->AddCollider({ 2330, 127, 30, 20 }, COLLIDER_WALL, nullptr);
+	c[21] = App->collision->AddCollider({ 2347, 107, 5, 20 }, COLLIDER_WALL, nullptr);
+	c[22] = App->collision->AddCollider({ 2350, 125, 170, 20 }, COLLIDER_WALL, nullptr);
+	c[23] = App->collision->AddCollider({ 2500, 140, 170, 20 }, COLLIDER_WALL, nullptr);
+	c[24] = App->collision->AddCollider({ 2670, 154, 170, 20 }, COLLIDER_WALL, nullptr);
+	c[25] = App->collision->AddCollider({ 2830, 173, 300, 20 }, COLLIDER_WALL, nullptr);
+	c[26] = App->collision->AddCollider({ 3130, 190, 1470, 20 }, COLLIDER_WALL, nullptr);
+	c[27] = App->collision->AddCollider({ 4600, 200, 20, 20 }, COLLIDER_WALL, nullptr);
+	c[28] = App->collision->AddCollider({ 4620, 220, 20, 20 }, COLLIDER_WALL, nullptr);
+	c[29] = App->collision->AddCollider({ 344, 0, 40, 28 }, COLLIDER_WALL, nullptr);
+	//top moving
+	c[30] = App->collision->AddCollider({ 375, 0, 40, 40 }, COLLIDER_WALL, nullptr);
+	c[31] = App->collision->AddCollider({ 397, 0, 400, 50 }, COLLIDER_WALL, nullptr);
+	c[32] = App->collision->AddCollider({ 790, 0, 955, 35 }, COLLIDER_WALL, nullptr);
+	c[33] = App->collision->AddCollider({ 1740, 0, 20, 25 }, COLLIDER_WALL, nullptr);
+	c[34] = App->collision->AddCollider({ 1760, 0, 18, 15 }, COLLIDER_WALL, nullptr);
+	c[35] = App->collision->AddCollider({ 1778, 0, 70, 05 }, COLLIDER_WALL, nullptr);
+	c[36] = App->collision->AddCollider({ 1840, 0, 30, 20 }, COLLIDER_WALL, nullptr);
+	c[37] = App->collision->AddCollider({ 1860, 0, 300, 38 }, COLLIDER_WALL, nullptr);
+	c[38] = App->collision->AddCollider({ 2140, 0, 160, 50 }, COLLIDER_WALL, nullptr);
+	c[39] = App->collision->AddCollider({ 2300, 0, 155, 37 }, COLLIDER_WALL, nullptr);
+	c[40] = App->collision->AddCollider({ 2455, 0, 2010, 20 }, COLLIDER_WALL, nullptr);
+	c[41] = App->collision->AddCollider({ 4460, 0, 150, 36 }, COLLIDER_WALL, nullptr);
+	c[42] = App->collision->AddCollider({ 4600, 0, 20, 26 }, COLLIDER_WALL, nullptr);
+	c[43] = App->collision->AddCollider({ 4620, 0, 65, 18 }, COLLIDER_WALL, nullptr);
+	c[44] = App->collision->AddCollider({ 4673, 0, 20, 70 }, COLLIDER_WALL, nullptr);
+	c[45] = App->collision->AddCollider({ 4660, 65, 60, 33 }, COLLIDER_WALL, nullptr);
+	c[46] = App->collision->AddCollider({ 4648, 78, 12, 18 }, COLLIDER_WALL, nullptr);
+	c[47] = App->collision->AddCollider({ 4720, 65, 165, 20 }, COLLIDER_WALL, nullptr);
+	c[48] = App->collision->AddCollider({ 4885, 52, 157, 16 }, COLLIDER_WALL, nullptr);
+	c[49] = App->collision->AddCollider({ 5042, 40, 40, 14 }, COLLIDER_WALL, nullptr);
+	c[50] = App->collision->AddCollider({ 5080, 27, 22, 14 }, COLLIDER_WALL, nullptr);
+	c[51] = App->collision->AddCollider({ 5100, 10, 25, 18 }, COLLIDER_WALL, nullptr);
+	c[52] = App->collision->AddCollider({ 5124, 0, 60, 22 }, COLLIDER_WALL, nullptr);
+	c[53] = App->collision->AddCollider({ 5180, 0, 25, 30 }, COLLIDER_WALL, nullptr);
+	c[54] = App->collision->AddCollider({ 5200, 0, 8, 50 }, COLLIDER_WALL, nullptr);
+	c[55] = App->collision->AddCollider({ 5208, 0, 294, 36 }, COLLIDER_WALL, nullptr);
+	c[56] = App->collision->AddCollider({ 5500, 0, 167, 21 }, COLLIDER_WALL, nullptr);
+	c[57] = App->collision->AddCollider({ 5663, 0, 22, 9 }, COLLIDER_WALL, nullptr);
+	//bot not moving
+	c[58] = App->collision->AddCollider({ 6087, 198, 20, 30 }, COLLIDER_WALL, nullptr);
+	c[59] = App->collision->AddCollider({ 6098, 191, 1560, 30 }, COLLIDER_WALL, nullptr);
+	c[60] = App->collision->AddCollider({ 6249, 160, 42, 40 }, COLLIDER_WALL, nullptr);
+	c[61] = App->collision->AddCollider({ 6263, 149, 10, 11 }, COLLIDER_WALL, nullptr);
+	c[62] = App->collision->AddCollider({ 6377, 160, 42, 40 }, COLLIDER_WALL, nullptr);
+	c[63] = App->collision->AddCollider({ 6391, 149, 10, 11 }, COLLIDER_WALL, nullptr);
+	c[64] = App->collision->AddCollider({ 6762, 160, 42, 40 }, COLLIDER_WALL, nullptr);
+	c[65] = App->collision->AddCollider({ 6775, 149, 10, 11 }, COLLIDER_WALL, nullptr);
+	c[66] = App->collision->AddCollider({ 7272, 160, 42, 40 }, COLLIDER_WALL, nullptr);
+	c[67] = App->collision->AddCollider({ 7285, 149, 10, 11 }, COLLIDER_WALL, nullptr);
+	c[68] = App->collision->AddCollider({ 7658, 215, 50, 11 }, COLLIDER_WALL, nullptr);
+	c[69] = App->collision->AddCollider({ 7694, 199, 620, 20 }, COLLIDER_WALL, nullptr);
+	//top not moving
+	c[70] = App->collision->AddCollider({ 6247, 0, 20, 8 }, COLLIDER_WALL, nullptr);
+	c[71] = App->collision->AddCollider({ 6265, 0, 780, 18 }, COLLIDER_WALL, nullptr);
+	c[72] = App->collision->AddCollider({ 6407, 0, 45, 45 }, COLLIDER_WALL, nullptr);
+	c[73] = App->collision->AddCollider({ 6423, 0, 10, 58 }, COLLIDER_WALL, nullptr);
+
 
 
 	background1 = App->textures->Load("Images/Level03/Standard_background_Level 3.png");
@@ -401,6 +480,86 @@ update_status Level03::Update()
 	if (!App->render->Blit(layout[1], 6080, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[2], 6987, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	//colliders
+	//bot moving
+	c[0]->SetPos(377 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 210 + pos);
+	c[1]->SetPos(412 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 194 + pos);
+	c[2]->SetPos(436 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 187 + pos);
+	c[3]->SetPos(575 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 176 + pos);
+	c[4]->SetPos(600 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 173 + pos);
+	c[5]->SetPos(860 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 188 + pos);
+	c[6]->SetPos(1157 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 200 + pos);
+	c[7]->SetPos(1172 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 220 + pos);
+	c[8]->SetPos(1255 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 210 + pos);
+	c[9]->SetPos(1275 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 190 + pos);
+	c[10]->SetPos(1550 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 177 + pos);
+	c[11]->SetPos(1575 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 170 + pos);
+	c[12]->SetPos(1720 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 157 + pos);
+	c[13]->SetPos(1875 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 145 + pos);
+	c[14]->SetPos(1900 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 140 + pos);
+	c[15]->SetPos(2040 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 130 + pos);
+	c[16]->SetPos(2060 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 122 + pos);
+	c[17]->SetPos(2200 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 112 + pos);
+	c[18]->SetPos(2230 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 120 + pos);
+	c[19]->SetPos(2250 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 137 + pos);
+	c[20]->SetPos(2330 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 127 + pos);
+	c[21]->SetPos(2347 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 107 + pos);
+	c[22]->SetPos(2350 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 125 + pos);
+	c[23]->SetPos(2500 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 140 + pos);
+	c[24]->SetPos(2670 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 154 + pos);
+	c[25]->SetPos(2830 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 173 + pos);
+	c[26]->SetPos(3130 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 190 + pos);
+	c[27]->SetPos(4600 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 200 + pos);
+	c[28]->SetPos(4620 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 220 + pos);
+	//top moving
+	c[29]->SetPos(344 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[30]->SetPos(375 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[31]->SetPos(397 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[32]->SetPos(790 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[33]->SetPos(1740 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[34]->SetPos(1760 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[35]->SetPos(1778 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[36]->SetPos(1840 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[37]->SetPos(1860 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[38]->SetPos(2140 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[39]->SetPos(2300 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[40]->SetPos(2455 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[41]->SetPos(4460 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[42]->SetPos(4600 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[43]->SetPos(4620 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[44]->SetPos(4673 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[45]->SetPos(4660 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 65 - pos);
+	c[46]->SetPos(4648 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 78 - pos);
+	c[47]->SetPos(4720 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 65 - pos);
+	c[48]->SetPos(4885 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 52 - pos);
+	c[49]->SetPos(5042 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 40 - pos);
+	c[50]->SetPos(5080 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 27 - pos);
+	c[51]->SetPos(5100 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 10 - pos);
+	c[52]->SetPos(5124 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[53]->SetPos(5180 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[54]->SetPos(5200 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[55]->SetPos(5208 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[56]->SetPos(5500 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	c[57]->SetPos(5663 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0 - pos);
+	//bot not moving
+	c[58]->SetPos(6087 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 198);
+	c[59]->SetPos(6098 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 191);
+	c[60]->SetPos(6249 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 160);
+	c[61]->SetPos(6263 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 149);
+	c[62]->SetPos(6377 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 160);
+	c[63]->SetPos(6391 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 149);
+	c[64]->SetPos(6762 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 160);
+	c[65]->SetPos(6776 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 149);
+	c[66]->SetPos(7272 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 160);
+	c[67]->SetPos(7286 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 149);
+	c[68]->SetPos(7658 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 215);
+	c[69]->SetPos(7694 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 199);
+	//top not moving
+	c[70]->SetPos(6247 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0);
+	c[71]->SetPos(6265 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0);
+	c[72]->SetPos(6407 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0);
+	c[73]->SetPos(6423 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 0);
+
+
 	if (App->input->keyboard[SDL_SCANCODE_4] == KEY_STATE::KEY_REPEAT)
 	{
 		App->render->camera.x += 20 * SCREEN_SIZE;

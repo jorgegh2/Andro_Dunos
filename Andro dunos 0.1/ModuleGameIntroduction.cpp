@@ -251,6 +251,8 @@ update_status ModuleGameIntroduction::Update()
 	{
 		App->render->camera.x = App->render->camera.y = 0;
 		App->fade->FadeToBlack(this, (Module*)App->visco_games);
+		//App->fade->FadeToBlack(this, (Module*)App->level03);
+
 	}
 	/*
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN) {

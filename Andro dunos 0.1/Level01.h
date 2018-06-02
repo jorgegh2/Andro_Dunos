@@ -29,7 +29,7 @@ public:
 	SDL_Texture* mars;
 	SDL_Texture* stars;
 	Mix_Music* music_level01 = nullptr;
-	Collider* c_wall[80];
+	Collider* c_wall[74];
 	SDL_Rect moon;
 	SDL_Rect star[8];
 	uint i[8];

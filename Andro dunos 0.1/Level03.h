@@ -33,6 +33,7 @@ public:
 	Animation bot_layout2;
 	Animation bot_layout3;
 	Animation* current = nullptr;
+	Collider* c[74];
 
 	bool mus_change = 0;
 	// Controller input
