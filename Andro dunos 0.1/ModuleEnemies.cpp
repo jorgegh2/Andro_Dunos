@@ -389,6 +389,15 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			else if (enemies[i]->Type == 23) {
 				App->stage_clear->Enable();
 			}
+			else if (enemies[i]->Type == 20) {
+				App->stage_clear->Enable();
+			}
+			else if (enemies[i]->Type == 21) {
+				App->stage_clear->Enable();
+			}
+			else if (enemies[i]->Type == 22) {
+				App->stage_clear->Enable();
+			}
 			else	
 			{
 				enemies[i]->OnCollision(c2, enemies[i]->Type);

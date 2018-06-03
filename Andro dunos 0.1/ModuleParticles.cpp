@@ -19,7 +19,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_0_up.anim.PushBack({ 24, 39, 11, 4 });
 	basic_shoot_0_up.anim.loop = false;
 	basic_shoot_0_up.anim.speed = 0.3f;
-	basic_shoot_0_up.speed.x = 5;
+	basic_shoot_0_up.speed.x = 8;
 	basic_shoot_0_up.life = 1200;
 	
 
@@ -29,7 +29,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_0_down.anim.PushBack({ 24, 37, 11, 6 });
 	basic_shoot_0_down.anim.loop = false;
 	basic_shoot_0_down.anim.speed = 0.3f;
-	basic_shoot_0_down.speed.x = 5;
+	basic_shoot_0_down.speed.x = 8;
 	basic_shoot_0_down.life = 1200;
 	basic_shoot_0_down.type_particle = 1;
 
@@ -41,7 +41,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_1.anim.PushBack({ 24, 39, 11, 4 });
 	basic_shoot_1.anim.loop = false;
 	basic_shoot_1.anim.speed = 0.3f;
-	basic_shoot_1.speed.x = 5;
+	basic_shoot_1.speed.x = 8;
 	basic_shoot_1.life = 1200;
 	
 
@@ -52,7 +52,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_1_up.anim.PushBack({ 24, 39, 11, 4 });
 	basic_shoot_1_up.anim.loop = false;
 	basic_shoot_1_up.anim.speed = 0.3f;
-	basic_shoot_1_up.speed.x = 5;
+	basic_shoot_1_up.speed.x = 8;
 	basic_shoot_1_up.life = 1200;
 	
 
@@ -63,7 +63,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_1_down.anim.PushBack({ 24, 35, 11, 8 });
 	basic_shoot_1_down.anim.loop = false;
 	basic_shoot_1_down.anim.speed = 0.3f;
-	basic_shoot_1_down.speed.x = 5;
+	basic_shoot_1_down.speed.x = 8;
 	basic_shoot_1_down.life = 1200;
 	basic_shoot_1_down.type_particle = 2;
 
@@ -76,7 +76,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_2.anim.PushBack({ 16, 63, 21, 6 });
 	basic_shoot_2.anim.loop = false;
 	basic_shoot_2.anim.speed = 0.3f;
-	basic_shoot_2.speed.x = 5;
+	basic_shoot_2.speed.x = 8;
 	basic_shoot_2.life = 1200;
 	basic_shoot_2.type_particle = 3;
 
@@ -89,7 +89,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_2_up.anim.PushBack({ 24, 39, 11, 4 });
 	basic_shoot_2_up.anim.loop = false;
 	basic_shoot_2_up.anim.speed = 0.3f;
-	basic_shoot_2_up.speed.x = 5;
+	basic_shoot_2_up.speed.x = 8;
 	basic_shoot_2_up.life = 1200;
 
 	// Basic_shoot 2_down
@@ -101,7 +101,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_2_down.anim.PushBack({ 24, 31, 11, 12 });
 	basic_shoot_2_down.anim.loop = false;
 	basic_shoot_2_down.anim.speed = 0.3f;
-	basic_shoot_2_down.speed.x = 5;
+	basic_shoot_2_down.speed.x = 8;
 	basic_shoot_2_down.life = 1200;
 	basic_shoot_2_down.type_particle = 4;
 
@@ -116,7 +116,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_3_up.anim.PushBack({ 22, 63, 15, 6 });
 	basic_shoot_3_up.anim.loop = false;
 	basic_shoot_3_up.anim.speed = 0.3f;
-	basic_shoot_3_up.speed.x = 5;
+	basic_shoot_3_up.speed.x = 8;
 	basic_shoot_3_up.life = 1200;
 	
 
@@ -130,7 +130,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_3_down.anim.PushBack({ 22, 54, 15, 15 });
 	basic_shoot_3_down.anim.loop = false;
 	basic_shoot_3_down.anim.speed = 0.3f;
-	basic_shoot_3_down.speed.x = 5;
+	basic_shoot_3_down.speed.x = 8;
 	basic_shoot_3_down.life = 1200;
 	basic_shoot_3_down.type_particle = 5;
 
@@ -143,7 +143,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_4_up.anim.PushBack({ 14, 62, 23, 7 });
 	basic_shoot_4_up.anim.loop = false;
 	basic_shoot_4_up.anim.speed = 0.3f;
-	basic_shoot_4_up.speed.x = 5;
+	basic_shoot_4_up.speed.x = 8;
 	basic_shoot_4_up.life = 1200;
 	basic_shoot_4_up.type_particle = 6;
 
@@ -156,7 +156,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_4_down.anim.PushBack({ 14, 62, 23, 7 });
 	basic_shoot_4_down.anim.loop = false;
 	basic_shoot_4_down.anim.speed = 0.3f;
-	basic_shoot_4_down.speed.x = 5;
+	basic_shoot_4_down.speed.x = 8;
 	basic_shoot_4_down.life = 1200;
 	basic_shoot_4_down.type_particle = 6;
 	
@@ -171,7 +171,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_5_up.anim.PushBack({ 11, 95, 26, 11 });
 	basic_shoot_5_up.anim.loop = false;
 	basic_shoot_5_up.anim.speed = 0.3f;
-	basic_shoot_5_up.speed.x = 5;
+	basic_shoot_5_up.speed.x = 8;
 	basic_shoot_5_up.life = 1200;
 	basic_shoot_5_up.type_particle = 7;
 
@@ -187,7 +187,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_5_down.anim.PushBack({ 11, 95, 26, 11 });
 	basic_shoot_5_down.anim.loop = false;
 	basic_shoot_5_down.anim.speed = 0.3f;
-	basic_shoot_5_down.speed.x = 5;
+	basic_shoot_5_down.speed.x = 8;
 	basic_shoot_5_down.life = 1200;
 	basic_shoot_5_down.type_particle = 7;
 
@@ -202,7 +202,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_6_up.anim.PushBack({ 21, 96, 16, 10 });
 	basic_shoot_6_up.anim.loop = false;
 	basic_shoot_6_up.anim.speed = 0.3f;
-	basic_shoot_6_up.speed.x = 5;
+	basic_shoot_6_up.speed.x = 8;
 	basic_shoot_6_up.life = 1200;
 
 	//Basic_shoot 6_down
@@ -216,7 +216,7 @@ ModuleParticles::ModuleParticles()
 	basic_shoot_6_down.anim.PushBack({ 21, 84, 16, 22 });
 	basic_shoot_6_down.anim.loop = false;
 	basic_shoot_6_down.anim.speed = 0.3f;
-	basic_shoot_6_down.speed.x = 5;
+	basic_shoot_6_down.speed.x = 8;
 	basic_shoot_6_down.life = 1200;
 	basic_shoot_6_down.type_particle = 8;
 
@@ -225,39 +225,39 @@ ModuleParticles::ModuleParticles()
 	laser_0.anim.PushBack({ 57, 16, 16, 3 });
 	laser_0.anim.loop = false;
 	laser_0.anim.speed = 0.3f;
-	laser_0.speed.x = 5;
+	laser_0.speed.x = 8;
 	laser_0.life = 1200;
 
 	// Laser 1 up
 	laser_1.anim.PushBack({ 57, 35, 16, 18 });
 	laser_1.anim.loop = false;
 	laser_1.anim.speed = 0.3f;
-	laser_1.speed.x = 5;
-	laser_1.speed.y = -4;
+	laser_1.speed.x = 8;
+	laser_1.speed.y = -7;
 	laser_1.life = 1200;
 
 	// Laser 1 down
 	laser_1_5.anim.PushBack({ 57, 60, 16, 18 });
 	laser_1_5.anim.loop = false;
 	laser_1_5.anim.speed = 0.3f;
-	laser_1_5.speed.x = 5;
-	laser_1_5.speed.y = 4;
+	laser_1_5.speed.x = 8;
+	laser_1_5.speed.y = 7;
 	laser_1_5.life = 1200;
 
 	// Laser 2 up
 	laser_2.anim.PushBack({ 57, 60, 16, 18 });
 	laser_2.anim.loop = false;
 	laser_2.anim.speed = 0.3f;
-	laser_2.speed.x = -3;
-	laser_2.speed.y = -4;
+	laser_2.speed.x = -6;
+	laser_2.speed.y = -7;
 	laser_2.life = 1200;
 
 	// Laser 2 down
 	laser_2_5.anim.PushBack({ 57, 35, 16, 18 });
 	laser_2_5.anim.loop = false;
 	laser_2_5.anim.speed = 0.3f;
-	laser_2_5.speed.x = -3;
-	laser_2_5.speed.y = 4;
+	laser_2_5.speed.x = -6;
+	laser_2_5.speed.y = 7;
 	laser_2_5.life = 1200;
 
 	// Laser 3 up
@@ -265,8 +265,8 @@ ModuleParticles::ModuleParticles()
 	laser_3_up.anim.PushBack({ 76, 65, 16, 22 });
 	laser_3_up.anim.loop = true;
 	laser_3_up.anim.speed = 0.3f;
-	laser_3_up.speed.x = 5;
-	laser_3_up.speed.y = -4;
+	laser_3_up.speed.x = 8;
+	laser_3_up.speed.y = -7;
 	laser_3_up.life = 1200;
 
 	// Laser 3 down
@@ -274,8 +274,8 @@ ModuleParticles::ModuleParticles()
 	laser_3_down.anim.PushBack({ 76, 95, 16, 22 });
 	laser_3_down.anim.loop = true;
 	laser_3_down.anim.speed = 0.3f;
-	laser_3_down.speed.x = 5;
-	laser_3_down.speed.y = 4;
+	laser_3_down.speed.x = 8;
+	laser_3_down.speed.y = 7;
 	laser_3_down.life = 1200;
 
 	// Laser 3 up back
@@ -283,8 +283,8 @@ ModuleParticles::ModuleParticles()
 	laser_3_up_back.anim.PushBack({ 76, 95, 16, 22 });
 	laser_3_up_back.anim.loop = true;
 	laser_3_up_back.anim.speed = 0.3f;
-	laser_3_up_back.speed.x = -3;
-	laser_3_up_back.speed.y = -4;
+	laser_3_up_back.speed.x = -6;
+	laser_3_up_back.speed.y = -7;
 	laser_3_up_back.life = 1200;
 
 	// Laser 3 down back
@@ -292,8 +292,8 @@ ModuleParticles::ModuleParticles()
 	laser_3_down_back.anim.PushBack({ 76, 65, 16, 22 });
 	laser_3_down_back.anim.loop = true;
 	laser_3_down_back.anim.speed = 0.3f;
-	laser_3_down_back.speed.x = -3;
-	laser_3_down_back.speed.y = 4;
+	laser_3_down_back.speed.x = -6;
+	laser_3_down_back.speed.y = 7;
 	laser_3_down_back.life = 1200;
 
 	// Laser 4 up
@@ -301,8 +301,8 @@ ModuleParticles::ModuleParticles()
 	laser_4_up.anim.PushBack({ 166, 0, 31, 31 });
 	laser_4_up.anim.loop = true;
 	laser_4_up.anim.speed = 0.3f;
-	laser_4_up.speed.x = 6;
-	laser_4_up.speed.y = -5;
+	laser_4_up.speed.x = 8;
+	laser_4_up.speed.y = -7;
 	laser_4_up.life = 1200;
 
 	// Laser 4 down
@@ -310,8 +310,8 @@ ModuleParticles::ModuleParticles()
 	laser_4_down.anim.PushBack({ 166, 32, 31, 31 });
 	laser_4_down.anim.loop = true;
 	laser_4_down.anim.speed = 0.3f;
-	laser_4_down.speed.x = 6;
-	laser_4_down.speed.y = 5;
+	laser_4_down.speed.x = 8;
+	laser_4_down.speed.y = 7;
 	laser_4_down.life = 1200;
 
 	// Laser 4 up back
@@ -319,8 +319,8 @@ ModuleParticles::ModuleParticles()
 	laser_4_up_back.anim.PushBack({ 166, 96, 31, 31 });
 	laser_4_up_back.anim.loop = true;
 	laser_4_up_back.anim.speed = 0.2f;
-	laser_4_up_back.speed.x = -4;
-	laser_4_up_back.speed.y = -5;
+	laser_4_up_back.speed.x = -6;
+	laser_4_up_back.speed.y = -7;
 	laser_4_up_back.life = 1200;
 
 	// Laser 4 down back
@@ -328,8 +328,8 @@ ModuleParticles::ModuleParticles()
 	laser_4_down_back.anim.PushBack({ 166, 64, 31, 31 });
 	laser_4_down_back.anim.loop = true;
 	laser_4_down_back.anim.speed = 0.2f;
-	laser_4_down_back.speed.x = -4;
-	laser_4_down_back.speed.y = 5;
+	laser_4_down_back.speed.x = -6;
+	laser_4_down_back.speed.y = 7;
 	laser_4_down_back.life = 1200;
 
 	// Laser 5 up
@@ -337,8 +337,8 @@ ModuleParticles::ModuleParticles()
 	
 	laser_5_up.anim.loop = true;
 	laser_5_up.anim.speed = 0.3f;
-	laser_5_up.speed.x = 6;
-	laser_5_up.speed.y = -5;
+	laser_5_up.speed.x = 8;
+	laser_5_up.speed.y = -7;
 	laser_5_up.life = 1200;
 
 	// Laser 5 down
@@ -346,8 +346,8 @@ ModuleParticles::ModuleParticles()
 	
 	laser_5_down.anim.loop = true;
 	laser_5_down.anim.speed = 0.3f;
-	laser_5_down.speed.x = 6;
-	laser_5_down.speed.y = 5;
+	laser_5_down.speed.x = 8;
+	laser_5_down.speed.y = 7;
 	laser_5_down.life = 1200;
 
 	// Laser 5 up back
@@ -355,8 +355,8 @@ ModuleParticles::ModuleParticles()
 	laser_5_up_back.anim.PushBack({ 94, 96, 31, 31 });
 	laser_5_up_back.anim.loop = true;
 	laser_5_up_back.anim.speed = 0.2f;
-	laser_5_up_back.speed.x = -4;
-	laser_5_up_back.speed.y = -5;
+	laser_5_up_back.speed.x = -6;
+	laser_5_up_back.speed.y = -7;
 	laser_5_up_back.life = 1200;
 
 	// Laser 5 down back
@@ -364,8 +364,8 @@ ModuleParticles::ModuleParticles()
 	laser_5_down_back.anim.PushBack({ 94, 64, 31, 31 });
 	laser_5_down_back.anim.loop = true;
 	laser_5_down_back.anim.speed = 0.2f;
-	laser_5_down_back.speed.x = -4;
-	laser_5_down_back.speed.y = 5;
+	laser_5_down_back.speed.x = -6;
+	laser_5_down_back.speed.y = 7;
 	laser_5_down_back.life = 1200;
 
 	// Laser 5 up
@@ -373,8 +373,8 @@ ModuleParticles::ModuleParticles()
 	
 	laser_5_up.anim.loop = true;
 	laser_5_up.anim.speed = 0.3f;
-	laser_5_up.speed.x = 6;
-	laser_5_up.speed.y = -5;
+	laser_5_up.speed.x = 8;
+	laser_5_up.speed.y = -7;
 	laser_5_up.life = 1200;
 
 	// Laser 5 down
@@ -382,8 +382,8 @@ ModuleParticles::ModuleParticles()
 	
 	laser_5_down.anim.loop = true;
 	laser_5_down.anim.speed = 0.3f;
-	laser_5_down.speed.x = 6;
-	laser_5_down.speed.y = 5;
+	laser_5_down.speed.x = 8;
+	laser_5_down.speed.y = 7;
 	laser_5_down.life = 1200;
 
 	// Laser 5 up back
@@ -391,8 +391,8 @@ ModuleParticles::ModuleParticles()
 	laser_5_up_back.anim.PushBack({ 94, 96, 31, 31 });
 	laser_5_up_back.anim.loop = true;
 	laser_5_up_back.anim.speed = 0.2f;
-	laser_5_up_back.speed.x = -4;
-	laser_5_up_back.speed.y = -5;
+	laser_5_up_back.speed.x = -6;
+	laser_5_up_back.speed.y = -7;
 	laser_5_up_back.life = 1200;
 
 	// Laser 5 down back
@@ -400,8 +400,8 @@ ModuleParticles::ModuleParticles()
 	laser_5_down_back.anim.PushBack({ 94, 64, 31, 31 });
 	laser_5_down_back.anim.loop = true;
 	laser_5_down_back.anim.speed = 0.2f;
-	laser_5_down_back.speed.x = -4;
-	laser_5_down_back.speed.y = 5;
+	laser_5_down_back.speed.x = -6;
+	laser_5_down_back.speed.y = 7;
 	laser_5_down_back.life = 1200;
 
 	
@@ -411,8 +411,8 @@ ModuleParticles::ModuleParticles()
 
 	laser_6_up.anim.loop = true;
 	laser_6_up.anim.speed = 0.3f;
-	laser_6_up.speed.x = 6;
-	laser_6_up.speed.y = -5;
+	laser_6_up.speed.x = 8;
+	laser_6_up.speed.y = -7;
 	laser_6_up.life = 1200;
 
 	// Laser 6 down
@@ -420,8 +420,8 @@ ModuleParticles::ModuleParticles()
 
 	laser_6_down.anim.loop = true;
 	laser_6_down.anim.speed = 0.3f;
-	laser_6_down.speed.x = 6;
-	laser_6_down.speed.y = 5;
+	laser_6_down.speed.x = 8;
+	laser_6_down.speed.y = 7;
 	laser_6_down.life = 1200;
 	
 	// Laser 6 up back 
@@ -429,8 +429,8 @@ ModuleParticles::ModuleParticles()
 	laser_6_up_back.anim.PushBack({ 205, 144, 47, 47 });
 	laser_6_up_back.anim.loop = true;
 	laser_6_up_back.anim.speed = 0.2f;
-	laser_6_up_back.speed.x = -4;
-	laser_6_up_back.speed.y = -5;
+	laser_6_up_back.speed.x = -6;
+	laser_6_up_back.speed.y = -7;
 	laser_6_up_back.life = 1200;
 
 	// Laser 6 down back
@@ -438,8 +438,8 @@ ModuleParticles::ModuleParticles()
 	laser_6_down_back.anim.PushBack({ 205, 96, 47, 47 });
 	laser_6_down_back.anim.loop = true;
 	laser_6_down_back.anim.speed = 0.2f;
-	laser_6_down_back.speed.x = -4;
-	laser_6_down_back.speed.y = 5;
+	laser_6_down_back.speed.x = -6;
+	laser_6_down_back.speed.y = 7;
 	laser_6_down_back.life = 1200;
 
 	/*BACK_SHOT*/
@@ -448,7 +448,7 @@ ModuleParticles::ModuleParticles()
 	back_shoot_0.anim.PushBack({ 6, 69, 10, 3});
 	back_shoot_0.anim.loop = false;
 	back_shoot_0.anim.speed = 0.3f;
-	back_shoot_0.speed.x = 5;
+	back_shoot_0.speed.x = 8;
 	back_shoot_0.life = 1200;
 
 	//Disparo_trasero_0_back
@@ -507,7 +507,7 @@ ModuleParticles::ModuleParticles()
 	back_shoot_0_up.anim.PushBack({ 6, 69, 10, 3 });
 	back_shoot_0_up.anim.loop = false;
 	back_shoot_0_up.anim.speed = 0.3f;
-	back_shoot_0_up.speed.x = 5;
+	back_shoot_0_up.speed.x = 8;
 	back_shoot_0_up.life = 1200;
 	
 
@@ -522,7 +522,7 @@ ModuleParticles::ModuleParticles()
 //	back_shoot_0_down.anim.PushBack({ 6, 59, 10, 13 });
 	back_shoot_0_down.anim.loop = false;
 	back_shoot_0_down.anim.speed = 0.3f;
-	back_shoot_0_down.speed.x = 5;
+	back_shoot_0_down.speed.x = 8;
 	back_shoot_0_down.life = 1200;
 	back_shoot_0_down.type_particle = 9;
 
@@ -533,7 +533,7 @@ ModuleParticles::ModuleParticles()
 	back_shoot_0_5.anim.PushBack({ 0, 69, 16, 3 });
 	back_shoot_0_5.anim.loop = false;
 	back_shoot_0_5.anim.speed = 0.3f;
-	back_shoot_0_5.speed.x = 5;
+	back_shoot_0_5.speed.x = 8;
 	back_shoot_0_5.life = 1200;
 	back_shoot_0_5.type_particle = 10;
 
@@ -544,7 +544,7 @@ ModuleParticles::ModuleParticles()
 	back_shoot_1_5.anim.PushBack({ 0, 8, 18, 5 });
 	back_shoot_1_5.anim.loop = false;
 	back_shoot_1_5.anim.speed = 0.3f;
-	back_shoot_1_5.speed.x = 5;
+	back_shoot_1_5.speed.x = 8;
 	back_shoot_1_5.life = 1200;
 	back_shoot_1_5.type_particle = 11;
 

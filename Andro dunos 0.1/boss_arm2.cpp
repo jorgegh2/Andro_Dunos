@@ -10,7 +10,7 @@ Boss_arm2::Boss_arm2(int x, int y) : Enemy(x, y)
 
 	fly.PushBack({ 27, 53, 17, 18 });
 
-	HP = 100;
+	HP = 99999;
 
 	animation = &fly;
 

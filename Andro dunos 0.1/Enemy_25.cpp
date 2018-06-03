@@ -10,6 +10,7 @@ Enemy_25::Enemy_25(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 50, 55, 29, 9 });
 	fly.PushBack({ 93, 55, 29, 9 });
 	fly.loop = true;
+	fly.speed = 0.3f;
 
 	HP = 2;
 

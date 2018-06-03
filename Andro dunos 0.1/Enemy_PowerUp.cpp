@@ -3,6 +3,7 @@
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
 #include "SDL\include\SDL_timer.h"
+#include "ModuleRender.h"
 
 Enemy_Power_Up::Enemy_Power_Up(int x, int y) : Enemy(x, y)
 {
@@ -102,13 +103,23 @@ void Enemy_Power_Up::Move()
 
 		case ST_Fly:
 			animation = &fly;
-			position.x -= 0.2;
+			position.x += 0.3;
 			time_final = SDL_GetTicks() - time_init;
-			if (time_final >= 1500 && loop < 5) {
-				En_State = ST_giroAbajo;
-				time_final = 0;
-				time_init = SDL_GetTicks();
-				loop++;
+			if (loop == 0) {
+				if (time_final >= 3800 && loop < 5) {
+					En_State = ST_giroAbajo;
+					time_final = 0;
+					time_init = SDL_GetTicks();
+					loop++;
+				}
+			}
+			else {
+				if (time_final >= 1800 && loop < 5) {
+					En_State = ST_giroAbajo;
+					time_final = 0;
+					time_init = SDL_GetTicks();
+					loop++;
+				}
 			}
 			break;
 
@@ -116,12 +127,12 @@ void Enemy_Power_Up::Move()
 			animation = &giro1Abajo;
 			time_final = SDL_GetTicks() - time_init;
 			if (short_time == true) {
-				position.x -= 0; //cambiar por el movimiento por el de la camara para que parezca que esta quieto
+				position.x += 1; //cambiar por el movimiento por el de la camara para que parezca que esta quieto
 				if (time_final >= 200)//timepo de giro {
 					short_time = false;
 			}
 			else {
-				position.x -= 0.1;//cambiar por el movimiento diagonal
+				position.x += 0.2;//cambiar por el movimiento diagonal
 				position.y += 0.5;
 			}
 
@@ -137,13 +148,13 @@ void Enemy_Power_Up::Move()
 			animation = &giro1Arriba;
 			time_final = SDL_GetTicks() - time_init;
 			if (short_time == true) {
-				position.x -= 0; //cambiar por el movimiento por el de la camara para que parezca que esta quieto
+				position.x += 1; //cambiar por el movimiento por el de la camara para que parezca que esta quieto
 				if (time_final >= 200)//timepo de giro {
 					short_time = false;
 			}
 			else
 			{
-				position.x += 0.1; //cambiar por el movimiento diagonal
+				position.x += 0.2; //cambiar por el movimiento diagonal
 				position.y -= 0.5;
 			}
 
@@ -156,9 +167,9 @@ void Enemy_Power_Up::Move()
 
 		case ST_Recula:
 			animation = &Recula;
-			position.x += 2;
+			position.x += 2.15;
 			time_final = SDL_GetTicks() - time_init;
-			if (time_final >= 2000) {
+			if (time_final >= 2300) {
 				En_State = ST_Fly;
 				time_final = 0;
 				time_init = SDL_GetTicks();
