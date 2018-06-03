@@ -174,9 +174,9 @@ Player 2 move: ARROW KEYS.
 
 Player 2 shot: RIGHT CTRL
 
-Player 2 power-up: RIGHT SHIFT
+Player 2 power-up: P
 
-Player 2 change weapon: P
+Player 2 change weapon: RIGHT SHIFT
 
 
 Insert Coin: F1
