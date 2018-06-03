@@ -2,6 +2,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleCollision.h"
+#include <iostream>
 
 ModuleCollision::ModuleCollision()
 {
@@ -137,8 +138,8 @@ update_status ModuleCollision::Update()
 {
 
 	DebugDraw();
-
-	return UPDATE_CONTINUE;
+	 
+ 	return UPDATE_CONTINUE;
 }
 
 void ModuleCollision::DebugDraw()
@@ -155,7 +156,7 @@ void ModuleCollision::DebugDraw()
 		if (colliders[i] == nullptr)
 			continue;
 
-		switch (colliders[i]->type)
+      		switch (colliders[i]->type)
 		{
 		case COLLIDER_NONE: // white
 			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);

@@ -5,7 +5,7 @@
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
-
+#include <iostream>
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles()
@@ -931,6 +931,8 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		{
 			//code
 			//App->particles->AddParticle(App->particles->explosion, active[i]->position.x, active[i]->position.y);
+			
+			//active[i]->collider->to_delete = true;
 
 			delete active[i];
 			active[i] = nullptr;
@@ -956,7 +958,7 @@ Particle::Particle(const Particle& p) :
 Particle::~Particle()
 {
 	if (collider != nullptr)
-		collider->to_delete = true;
+  		collider->to_delete = true;
 }
 
 bool Particle::Update()
