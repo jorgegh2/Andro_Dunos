@@ -349,6 +349,9 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 10700, 100);
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 10800, 110);
 
+	//boss
+	App->enemy->AddEnemy(ENEMY_TYPES::BOSS, 10800, 30);
+
 
 	// Colliders ---
 	//bot moving
@@ -438,6 +441,7 @@ bool Level03::Start()
 	layout[0] = App->textures->Load("Images/Level03/top_layout1.png");
 	layout[3] = App->textures->Load("Images/Level03/bot_layout1.png");
 	finalbackground = App->textures->Load("Images/Level03/final_background.png");
+	wall = App->textures->Load("Images/Level03/wall.png");
 
 	music_level03 = App->audio->LoadMusic("Music/Songs/09_Stage_3-Alien-Intro.ogg");
 	music_level03v2 = App->audio->LoadMusic("Music/Songs/09_Stage_3-Alien-Loop.ogg");
@@ -467,6 +471,7 @@ bool Level03::CleanUp()
 	App->textures->Unload(layout[2]);
 	App->textures->Unload(layout[3]);
 	App->textures->Unload(finalbackground);
+	App->textures->Unload(wall);
 	App->audio->UnloadMusic(music_level03);
 	App->audio->UnloadMusic(music_level03v2);
 	App->UI->Disable();
@@ -497,8 +502,26 @@ update_status Level03::Update()
 
 
 	// Move camera forward -----------------------------
-	if (App->render->camera.x <= 11000 * SCREEN_SIZE) {
+	if (App->render->camera.x <= 10517 * SCREEN_SIZE) {
 		App->render->camera.x += 1 * SCREEN_SIZE; //speed in x axes
+	}
+	else if (App->render->camera.x <= 10567 * SCREEN_SIZE) {
+		App->render->camera.x += 0.75 * SCREEN_SIZE;
+	}
+	else if (App->render->camera.x <= 10607 * SCREEN_SIZE) {
+		App->render->camera.x += 0.5 * SCREEN_SIZE;
+	}
+	else if (App->render->camera.x <= 10642 * SCREEN_SIZE) {
+		App->render->camera.x += 0.4 * SCREEN_SIZE;
+	}
+	else if (App->render->camera.x <= 10665 * SCREEN_SIZE) {
+		App->render->camera.x += 0.3 * SCREEN_SIZE;	
+	}
+	else if (App->render->camera.x <= 10676 * SCREEN_SIZE) {
+		App->render->camera.x += 0.2 * SCREEN_SIZE;	
+	}
+	else if (App->render->camera.x <= 10683 * SCREEN_SIZE) {
+		App->render->camera.x += 0.1 * SCREEN_SIZE;
 	}
 
 	// Controllers input
@@ -551,8 +574,11 @@ update_status Level03::Update()
 	current = &bot_layout3;
 	if (!App->render->Blit(layout[3], SCREEN_WIDTH + 30 + 2834, 179 + pos, &(current->GetCurrentFrame()), 0.74f)) return update_status::UPDATE_ERROR;
 
+	if (!App->render->Blit(wall, 8237, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
+
 	if (!App->render->Blit(layout[1], 6080, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
 	if (!App->render->Blit(layout[2], 6987, 0, nullptr, 0.75f)) return update_status::UPDATE_ERROR;
+	
 	//colliders
 	//bot moving
 	c[0]->SetPos(377 + (App->render->camera.x / SCREEN_SIZE) * 0.25f, 210 + pos);

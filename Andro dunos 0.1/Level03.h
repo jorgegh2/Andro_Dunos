@@ -23,6 +23,7 @@ public:
 	SDL_Texture* background1;
 	SDL_Texture* layout[4];
 	SDL_Texture* finalbackground;
+	SDL_Texture* wall;;
 	Mix_Music* music_level03 = nullptr;
 	Mix_Music* music_level03v2 = nullptr;
 	Animation top_layout1;
