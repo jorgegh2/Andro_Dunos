@@ -31,6 +31,9 @@ enum ENEMY_TYPES
 	ENEMY_32, // actually is the ENEMY_31...
 	ENEMY_34,
 	ENEMY_35,
+	BOSS_ARM,
+	BOSS_ARM2,
+	BOSS_ARM_3,
 	BOSS,
 };
 
@@ -87,6 +90,7 @@ public:
 	SDL_Texture* enemy_34;
 	SDL_Texture* enemy_35;
 	SDL_Texture* boss;
+	SDL_Texture* boss_arm;
 	
 	float posXpowerUP;
 	float posYpowerUP;

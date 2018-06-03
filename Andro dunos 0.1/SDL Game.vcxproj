@@ -76,6 +76,8 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="boss.h" />
     <ClInclude Include="boss_arm.h" />
+    <ClInclude Include="boss_arm2.h" />
+    <ClInclude Include="boss_arm3.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy15.h" />
     <ClInclude Include="Enemy_01.h" />
@@ -128,6 +130,8 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="boss.cpp" />
     <ClCompile Include="boss_arm.cpp" />
+    <ClCompile Include="boss_arm2.cpp" />
+    <ClCompile Include="boss_arm3.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy15.cpp" />
     <ClCompile Include="Enemy_01.cpp" />

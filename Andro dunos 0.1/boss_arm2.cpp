@@ -1,11 +1,11 @@
 #include "Application.h"
-#include "boss_arm.h"
+#include "boss_arm2.h"
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
 #include <cmath>
 
-Boss_arm::Boss_arm(int x, int y) : Enemy(x, y)
+Boss_arm2::Boss_arm2(int x, int y) : Enemy(x, y)
 {
 
 	fly.PushBack({ 27, 53, 17, 18 });
@@ -19,7 +19,7 @@ Boss_arm::Boss_arm(int x, int y) : Enemy(x, y)
 	original_x = x;
 }
 
-void Boss_arm::Move()
+void Boss_arm2::Move()
 {
 	if (i < 230) ++i;
 	else {
@@ -52,22 +52,22 @@ void Boss_arm::Move()
 				posy -= 4 * vals;
 			}
 		}
-		else if(aux < 35) ++aux;
+		else if (aux < 35) ++aux;
 		else if (sqrt(posx * posx + posy * posy) < 250 && !done) {
 			if (val2 > 0) {
-				posx += 7 * vals2;
-				posy += 7 * vals;
+				posx += 6 * vals2;
+				posy += 6 * vals;
 			}
 			else {
-				posx -= 7 * vals2;
-				posy -= 7 * vals;
+				posx -= 6 * vals2;
+				posy -= 6 * vals;
 			}
 		}
 		else if (aux < 80) {
 			if (aux == 36) done = true;
 			++aux;
 		}
-		else if (sqrt(posx * posx + posy * posy) >= 10){
+		else if (sqrt(posx * posx + posy * posy) >= 10) {
 			if (val2 > 0) {
 				posx -= 4 * vals2;
 				posy -= 4 * vals;

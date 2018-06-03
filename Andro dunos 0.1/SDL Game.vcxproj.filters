@@ -176,6 +176,12 @@
     <ClInclude Include="boss_arm.h">
       <Filter>Modules\Enemies\Lvl3_enemies</Filter>
     </ClInclude>
+    <ClInclude Include="boss_arm2.h">
+      <Filter>Modules\Enemies\Lvl3_enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="boss_arm3.h">
+      <Filter>Modules\Enemies\Lvl3_enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -317,6 +323,12 @@
       <Filter>Modules\Enemies\Lvl3_enemies</Filter>
     </ClCompile>
     <ClCompile Include="boss_arm.cpp">
+      <Filter>Modules\Enemies\Lvl3_enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="boss_arm2.cpp">
+      <Filter>Modules\Enemies\Lvl3_enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="boss_arm3.cpp">
       <Filter>Modules\Enemies\Lvl3_enemies</Filter>
     </ClCompile>
   </ItemGroup>

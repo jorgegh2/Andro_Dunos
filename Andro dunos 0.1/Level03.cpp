@@ -350,8 +350,11 @@ bool Level03::Start()
 	App->enemy->AddEnemy(ENEMY_TYPES::ENEMY_22, 10800, 110);
 
 	//boss
+	
+	App->enemy->AddEnemy(ENEMY_TYPES::BOSS_ARM, 10850, 105);
+	App->enemy->AddEnemy(ENEMY_TYPES::BOSS_ARM2, 10850, 105);
+	App->enemy->AddEnemy(ENEMY_TYPES::BOSS_ARM_3, 10850, 105);
 	App->enemy->AddEnemy(ENEMY_TYPES::BOSS, 10800, 30);
-
 
 	// Colliders ---
 	//bot moving

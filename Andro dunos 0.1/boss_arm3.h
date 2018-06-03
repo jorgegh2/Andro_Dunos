@@ -1,16 +1,16 @@
-#ifndef __boss_arm_H__
-#define __boss_arm_H__
+#ifndef __boss_arm3_H__
+#define __boss_arm3_H__
 
 #include "Enemy.h"
 
-class Boss_arm : public Enemy
+class Arm_3 : public Enemy
 {
 private:
 
 	int original_y = 0;
 	int original_x = 0;
 	Animation fly;
-	int i = -50;
+	int i = -150;
 	float posx = 0, posy = 0;
 	uint aux = 0;
 	float vals, vals2, val1, val2;
@@ -18,9 +18,9 @@ private:
 	bool cases;
 public:
 
-	Boss_arm(int x, int y);
+	Arm_3(int x, int y);
 
 	void Move();
 };
 
-#endif // __boss_arm_H__
+#endif // __boss_arm3_H__

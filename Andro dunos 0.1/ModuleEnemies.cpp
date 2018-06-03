@@ -27,7 +27,11 @@
 #include "Enemy_32.h"
 #include "Enemy_34.h"
 #include "Enemy_35.h"
+#include "boss_arm.h"
 #include "boss.h"
+#include "boss_arm.h"
+#include "boss_arm2.h"
+#include "boss_arm3.h"
 #include "Level01.h"
 
 #define SPAWN_MARGIN (60 * SCREEN_SIZE)
@@ -66,6 +70,7 @@ bool ModuleEnemies::Start()
 	enemy_34 = App->textures->Load("Images/Enemies/en_34.png");
 	enemy_35 = App->textures->Load("Images/Enemies/en_35.png");
 	boss = App->textures->Load("Images/Enemies/boss.png");
+	boss_arm = App->textures->Load("Images/Enemies/boss_arm.png");
 
 	return true;
 }
@@ -153,7 +158,16 @@ update_status ModuleEnemies::Update()
 		if (enemies[i] != nullptr && enemies[i]->Type == 19) enemies[i]->Draw(enemy_35);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 20) enemies[i]->Draw(boss);
+		if (enemies[i] != nullptr && enemies[i]->Type == 20) enemies[i]->Draw(boss_arm);
+
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+		if (enemies[i] != nullptr && enemies[i]->Type == 21) enemies[i]->Draw(boss_arm);
+
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+		if (enemies[i] != nullptr && enemies[i]->Type == 22) enemies[i]->Draw(boss_arm);
+
+	for (uint i = 0; i < MAX_ENEMIES; ++i)
+		if (enemies[i] != nullptr && enemies[i]->Type == 23) enemies[i]->Draw(boss);
 
 	return UPDATE_CONTINUE;
 }
@@ -173,6 +187,7 @@ update_status ModuleEnemies::PostUpdate()
 					enemies[i] = nullptr;
 				}
 			}
+			else if (enemies[i]->Type == 20 || enemies[i]->Type == 21 || enemies[i]->Type == 22);
 			else if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
 			{
 				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
@@ -210,6 +225,7 @@ bool ModuleEnemies::CleanUp()
 	App->textures->Unload(enemy_34);
 	App->textures->Unload(enemy_35);
 	App->textures->Unload(boss);
+	App->textures->Unload(boss_arm);
 
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
@@ -328,9 +344,21 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new Enemy_34(info.x, info.y);
 			enemies[i]->Type = 19;
 			break;
+		case ENEMY_TYPES::BOSS_ARM:
+			enemies[i] = new Boss_arm(info.x, info.y);
+			enemies[i]->Type = 20;
+			break;
+		case ENEMY_TYPES::BOSS_ARM2:
+			enemies[i] = new Boss_arm2(info.x, info.y);
+			enemies[i]->Type = 21;
+			break;
+		case ENEMY_TYPES::BOSS_ARM_3:
+			enemies[i] = new Arm_3(info.x, info.y);
+			enemies[i]->Type = 22;
+			break;
 		case ENEMY_TYPES::BOSS:
 			enemies[i] = new Boss(info.x, info.y);
-			enemies[i]->Type = 20;
+			enemies[i]->Type = 23;
 			break;
 		}
 	}
