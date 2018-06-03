@@ -57,4 +57,4 @@ Marti Torras' Github account and responsability:
 Check out a gameplay where we showcase the debugging tools for our project:
 [![AD_D](https://img.youtube.com/vi/jhKzc7DnEBU/0.jpg)](https://www.youtube.com/watch?v=jhKzc7DnEBU)
 
-Download our last release [HERE](https://github.com/jorgegh2/Andro_Dunos/releases)
+Download our last release [HERE](https://github.com/jorgegh2/Andro_Dunos/releases/tag/1.0.4)
