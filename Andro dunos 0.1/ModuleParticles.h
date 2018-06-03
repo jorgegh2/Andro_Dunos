@@ -29,7 +29,7 @@ struct Particle
 
 	Particle();
 	Particle(const Particle& p);
-	~Particle();
+	virtual ~Particle();
 	bool Update();
 	enum TYPE_PARTICLE {
 		SHOOT = 0,
