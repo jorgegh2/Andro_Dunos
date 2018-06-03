@@ -111,64 +111,64 @@ update_status ModuleEnemies::Update()
 		if (enemies[i] != nullptr && enemies[i]->Type == 3 && App->level01->IsEnabled()) enemies[i]->Draw(enemy15, 0.8f, (App->render->camera.x / SCREEN_SIZE) * 0.2f);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 4) enemies[i]->Draw(enemyPowerUp);
+		if (enemies[i] != nullptr && enemies[i]->Type == 4 && App->level03->IsEnabled()) enemies[i]->Draw(enemyPowerUp);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 5) enemies[i]->Draw(enemy_20);
+		if (enemies[i] != nullptr && enemies[i]->Type == 5 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_20);
 	
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 6) enemies[i]->Draw(enemy_23);
+		if (enemies[i] != nullptr && enemies[i]->Type == 6 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_23);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 7) enemies[i]->Draw(enemy_24);
+		if (enemies[i] != nullptr && enemies[i]->Type == 7 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_24);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 8) enemies[i]->Draw(enemy_21);
+		if (enemies[i] != nullptr && enemies[i]->Type == 8 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_21);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 9) enemies[i]->Draw(enemy_22);
+		if (enemies[i] != nullptr && enemies[i]->Type == 9 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_22);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 10) enemies[i]->Draw(enemy_25);
+		if (enemies[i] != nullptr && enemies[i]->Type == 10 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_25);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 11) enemies[i]->Draw(enemy_27);
+		if (enemies[i] != nullptr && enemies[i]->Type == 11 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_27);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 12) enemies[i]->Draw(enemy_28);
+		if (enemies[i] != nullptr && enemies[i]->Type == 12 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_28);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 13) enemies[i]->Draw(enemy_29);
+		if (enemies[i] != nullptr && enemies[i]->Type == 13 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_29);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 14) enemies[i]->Draw(enemy_30);
+		if (enemies[i] != nullptr && enemies[i]->Type == 14 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_30);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 15) enemies[i]->Draw(enemy_31);
+		if (enemies[i] != nullptr && enemies[i]->Type == 15 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_31);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 16) enemies[i]->Draw(enemy_33);
+		if (enemies[i] != nullptr && enemies[i]->Type == 16 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_33);
 	
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 17) enemies[i]->Draw(enemy_32);
+		if (enemies[i] != nullptr && enemies[i]->Type == 17 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_32);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 18) enemies[i]->Draw(enemy_34);
+		if (enemies[i] != nullptr && enemies[i]->Type == 18 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_34);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 19) enemies[i]->Draw(enemy_35);
+		if (enemies[i] != nullptr && enemies[i]->Type == 19 && App->level03->IsEnabled()) enemies[i]->Draw(enemy_35);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 20) enemies[i]->Draw(boss_arm);
+		if (enemies[i] != nullptr && enemies[i]->Type == 20 && App->level03->IsEnabled()) enemies[i]->Draw(boss_arm);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 21) enemies[i]->Draw(boss_arm);
+		if (enemies[i] != nullptr && enemies[i]->Type == 21 && App->level03->IsEnabled()) enemies[i]->Draw(boss_arm);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 22) enemies[i]->Draw(boss_arm);
+		if (enemies[i] != nullptr && enemies[i]->Type == 22 && App->level03->IsEnabled()) enemies[i]->Draw(boss_arm);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr && enemies[i]->Type == 23) enemies[i]->Draw(boss);
+		if (enemies[i] != nullptr && enemies[i]->Type == 23 && App->level03->IsEnabled()) enemies[i]->Draw(boss);
 
 	return UPDATE_CONTINUE;
 }
