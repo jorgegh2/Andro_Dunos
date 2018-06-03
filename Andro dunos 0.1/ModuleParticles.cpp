@@ -958,9 +958,8 @@ Particle::Particle(const Particle& p) :
 Particle::~Particle()
 {
 	if (collider != nullptr) {
-		if (collider->to_delete == false) {
-			collider->to_delete = true;
-		}
+		
+		collider->to_delete = true;
 
 	}
 }
