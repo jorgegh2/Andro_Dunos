@@ -18,7 +18,7 @@ protected:
 	
 
 public:
-	iPoint position;
+	fPoint position;
 	Mix_Chunk* enemy_death = nullptr;
 
 	int HP = 1;
