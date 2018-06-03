@@ -10,6 +10,9 @@ private:
 	bool going_up = true;
 	int original_y = 0;
 	Animation fly;
+	Animation giro1Abajo;
+	Animation giro1Arriba;
+	Animation Recula;
 
 public:
 
