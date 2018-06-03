@@ -121,7 +121,7 @@ void Enemy_Power_Up::Move()
 					short_time = false;
 			}
 			else {
-				position.x += 0.8;//cambiar por el movimiento diagonal
+				position.x -= 0.1;//cambiar por el movimiento diagonal
 				position.y += 0.5;
 			}
 
@@ -143,7 +143,7 @@ void Enemy_Power_Up::Move()
 			}
 			else
 			{
-				position.x += 0.8; //cambiar por el movimiento diagonal
+				position.x += 0.1; //cambiar por el movimiento diagonal
 				position.y -= 0.5;
 			}
 
