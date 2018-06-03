@@ -201,6 +201,7 @@ update_status ModuleUI::Update()
 		{
 			App->player->life = 3;
 			App->player->Enable();
+			App->player->power_up = App->player->POWER_UP_2;
 
 			App->player->PlayerSpawn();
 		}
@@ -244,6 +245,7 @@ update_status ModuleUI::Update()
 		{
 			App->player2->life = 3;
 			App->player2->Enable();
+			App->player2->power_up = App->player2->POWER_UP_2;
 
 			App->player2->PlayerSpawn();
 		}

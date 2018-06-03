@@ -91,7 +91,10 @@ public:
 	int varX;
 	int varY;
 
-	bool condition = true;
+	bool loop = true;
+
+	bool conditionY = true;
+	bool conditionX = false;
 
 	float SpeedX = 0.2;
 	float SpeedY = 1;

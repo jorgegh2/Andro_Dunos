@@ -70,6 +70,7 @@ public:
 	bool shoot = false; // so that the player does not shot forever
 	bool change = false; // so that the player does not change weapons forever
 	bool powerup = false;
+	bool powerup_desincrement = false;
 
 	bool player_up = false;
 	bool player_down = false;

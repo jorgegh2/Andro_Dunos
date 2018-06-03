@@ -321,9 +321,51 @@ update_status ModulePlayer::Update()
 				App->UI->n_powerup = 7;
 				break;
 
-			case POWER_UPS::POWER_UP_6:
+			/*case POWER_UPS::POWER_UP_6:
 				power_up = POWER_UPS::POWER_UP_BASIC;
 				App->UI->n_powerup = 1;
+				break;*/
+			}
+		}
+		//cunado muere el jugador el power up se desincrementa
+		if (powerup_desincrement == true)
+		{
+			powerup_desincrement = false;
+			switch (power_up) {
+
+			/*case POWER_UPS::POWER_UP_BASIC:
+				power_up = POWER_UPS::POWER_UP_1;
+				App->UI->n_powerup = 2;
+				break;*/
+
+			case POWER_UPS::POWER_UP_1:
+				power_up = POWER_UPS::POWER_UP_BASIC;
+				App->UI->n_powerup = 1;
+				break;
+
+			case POWER_UPS::POWER_UP_2:
+				power_up = POWER_UPS::POWER_UP_1;
+				App->UI->n_powerup = 2;
+				break;
+
+			case POWER_UPS::POWER_UP_3:
+				power_up = POWER_UPS::POWER_UP_2;
+				App->UI->n_powerup = 3;
+				break;
+
+			case POWER_UPS::POWER_UP_4:
+				power_up = POWER_UPS::POWER_UP_3;
+				App->UI->n_powerup = 4;
+				break;
+
+			case POWER_UPS::POWER_UP_5:
+				power_up = POWER_UPS::POWER_UP_4;
+				App->UI->n_powerup = 5;
+				break;
+
+			case POWER_UPS::POWER_UP_6:
+				power_up = POWER_UPS::POWER_UP_5;
+				App->UI->n_powerup = 6;
 				break;
 			}
 		}
@@ -695,6 +737,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			App->particles->AddParticle(App->particles->explosion, position.x, position.y);
 			life--;
 			destroyed = true;
+			powerup_desincrement = true;
 			PlayerSpawn();
 			if (life <= 0) {
 				App->UI->time_dead = 0;

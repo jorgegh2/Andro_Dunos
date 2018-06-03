@@ -95,7 +95,7 @@ bool ModulePowerUp::Start()
 
 	power_up_sound = App->audio->LoadSoundEffect("Music/Sounds_effects/Power_Up_Picked.wav");
 	c_power_up = App->collision->AddCollider({ position.x, position.y, 16, 16 }, COLLIDER_POWER_UP, this); 
-	
+	loop = true;
 	time_init = SDL_GetTicks();
 	
 	//Mirar esto
@@ -241,7 +241,15 @@ bool ModulePowerUp::Start()
 void ModulePowerUp::OnCollision(Collider* c1, Collider* c2) {
 
 	if (c_power_up != nullptr && c_power_up == c1 && App->fade->IsFading() == false && c2 == App->player->c_player) {
-		c_power_up->SetPos(-100, -100);
+		c_power_up->SetPos(-200, -200);
+		App->player->powerup = true;
+		Disable();
+	}
+
+	else if (c_power_up != nullptr && c_power_up == c1 && App->fade->IsFading() == false && c2 == App->player2->c_player2) {
+		c_power_up->SetPos(-200, -200);
+		App->player2->powerup = true;
+		Disable();
 	}
 
 }
@@ -443,7 +451,7 @@ update_status ModulePowerUp::Update()
 		if (short_time == true)
 		{
 			if (time_shine == true) {
-				if (time_final >= 200) {
+				if (time_final >= 400) {
 					time_animation_finished = true;
 					time_init = SDL_GetTicks();
 					time_final = 0;
@@ -480,29 +488,53 @@ update_status ModulePowerUp::Update()
 
 
 
-	 if (current_animation != nullptr) {
+	if (current_animation != nullptr) {
 
-		if (position.y < App->render->camera.y / SCREEN_SIZE || position.x < App->render->camera.x / SCREEN_SIZE || position.x > App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.w || position.y > App->render->camera.y / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.h) {
+		//if (position.y < App->render->camera.y / SCREEN_SIZE || position.x < App->render->camera.x / SCREEN_SIZE || position.x > App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.w || position.y > App->render->camera.y / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.h) {
 
 
-			if (condition == true) {
-				App->render->Blit(PowerUpText, App->enemy->posXpowerUP += 0.6f, App->enemy->posYpowerUP -= 0.5f, &(current_animation->GetCurrentFrame()));
-			}
+		if (conditionY == true) {
+			//App->render->Blit(PowerUpText, App->enemy->posXpowerUP += 0.6f, App->enemy->posYpowerUP -= 0.5f, &(current_animation->GetCurrentFrame()));
+			App->enemy->posYpowerUP -= 0.5f;
+			App->enemy->posXpowerUP += 0.6f;
+		}
+
+		else {
+			//App->render->Blit(PowerUpText, App->enemy->posXpowerUP += 0.6f, App->enemy->posYpowerUP += 0.5f, &(current_animation->GetCurrentFrame()));
+			App->enemy->posYpowerUP += 0.5f;
+			App->enemy->posXpowerUP += 0.6f;
+		}
 
 			if (App->enemy->posYpowerUP == 0) {
-				condition = false;
+				conditionY = false;
 			}
 
-			if (condition == false) {
-				App->render->Blit(PowerUpText, App->enemy->posXpowerUP += 0.6f, App->enemy->posYpowerUP += 0.5f, &(current_animation->GetCurrentFrame()));
+			else if (App->enemy->posYpowerUP == 208) {
+				conditionY = true;
 			}
 
-			if (App->enemy->posYpowerUP == 208) {
-				condition = true;
+			if (App->enemy->posXpowerUP <= App->render->camera.x / SCREEN_SIZE){
+				if (loop) {
+					conditionX = true;
+					loop = false;
+				}
+				else {
+					if (App->enemy->posXpowerUP <= App->render->camera.x / SCREEN_SIZE - c_power_up->rect.w)
+						Disable();
+				}
 			}
+			else if (App->enemy->posXpowerUP >= App->render->camera.x / SCREEN_SIZE + SCREEN_WIDTH - c_power_up->rect.w) {
+				conditionX = false;
+			}
+			if (conditionX == true)
+				App->enemy->posXpowerUP += 1;
+			//else
+				//App->enemy->posXpowerUP -= 0.6;
+
+			
 
 
-		}
+		//}
 		App->render->Blit(PowerUpText, App->enemy->posXpowerUP, App->enemy->posYpowerUP, &(current_animation->GetCurrentFrame()));
 		c_power_up->SetPos(App->enemy->posXpowerUP, App->enemy->posYpowerUP);
 	}

@@ -617,10 +617,10 @@ update_status ModulePlayer2::Update()
 
 
 
-	if (!App->player->god_mode)
+	/*if (!App->player->god_mode)
 	{
 		c_player2->SetPos(position.x, position.y);
-	}
+	}*/
 
 	return UPDATE_CONTINUE;
 }
