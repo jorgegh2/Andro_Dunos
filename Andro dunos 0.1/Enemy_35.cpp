@@ -21,7 +21,7 @@ Enemy_35::Enemy_35(int x, int y) : Enemy(x, y)
 
 	animation = &fly;
 
-	collider = App->collision->AddCollider({ 0, 0, 14, 14 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemy);
+	collider = App->collision->AddCollider({ 0, 0, 15, 15 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemy);
 
 	//original_y = y;
 }
