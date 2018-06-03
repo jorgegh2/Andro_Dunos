@@ -113,9 +113,10 @@ update_status ModuleUI::Update()
 	}
 
 	// Highscore
-	highscore = score + score2;
+	if(App->HighScore < score + score2)
+		App->HighScore = score + score2;
 	App->render->Blit(high_score, 101, 7, NULL, 0.0f, false);
-	sprintf_s(high_score_text, 10, "%7d", highscore);
+	sprintf_s(high_score_text, 10, "%7d", App->HighScore);
 	App->fonts->BlitText(122, 7, font_high_score, high_score_text);
 	/*
 	if (highscore < 10)
@@ -199,6 +200,7 @@ update_status ModuleUI::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || r_shoulder_pressed == true)
 		{
+			score = 0;
 			App->player->life = 3;
 			App->player->Enable();
 			App->player->power_up = App->player->POWER_UP_2;
@@ -243,6 +245,7 @@ update_status ModuleUI::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || r_shoulder_pressed == true)
 		{
+			score2 = 0;
 			App->player2->life = 3;
 			App->player2->Enable();
 			App->player2->power_up = App->player2->POWER_UP_2;

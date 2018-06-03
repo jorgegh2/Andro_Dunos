@@ -158,7 +158,7 @@ update_status ModuleStageClear::Update()
 	}
 
 
-	if ((App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN || y_pressed == true) && App->fade->IsFading() == false)
+	if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN || y_pressed == true) && App->fade->IsFading() == false)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->game_intro);
 	}

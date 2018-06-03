@@ -77,7 +77,7 @@ bool Level03::Start()
 	App->particles->Enable();
 	App->collision->Enable();
 	App->enemy->Enable();
-	App->UI->Enable();
+	//App->UI->Enable();
 	App->level01->Disable();
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;

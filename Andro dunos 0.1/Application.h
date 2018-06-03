@@ -65,6 +65,7 @@ public:
 	bool Init();
 	update_status Update();
 	bool CleanUp();
+	uint HighScore = 0;
 
 };
 

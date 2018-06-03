@@ -93,7 +93,7 @@ update_status ModuleViscoGames::Update()
 
 	// problem with the camera maybe...
 
-	if ((App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN || l_shoulder_pressed == true) && App->fade->IsFading() == false)
+	if ((App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN || l_shoulder_pressed == true) && App->fade->IsFading() == false)
 	{
 	App->fade->FadeToBlack(this, (Module*)App->insert_coin);
 	}

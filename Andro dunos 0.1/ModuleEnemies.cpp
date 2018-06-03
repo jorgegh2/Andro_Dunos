@@ -400,11 +400,11 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 
-
+/*
 	if (c2->type == COLLIDER_PLAYER_SHOT)
 		App->UI->score += 100;
 	
 	if (c2->type == COLLIDER_PLAYER_SHOT_2)
 		App->UI->score2 += 100;
-
+		*/
 }

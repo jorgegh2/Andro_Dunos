@@ -262,7 +262,7 @@ bool Level01::CleanUp()
 	App->textures->Unload(end_under);
 
 	App->audio->UnloadMusic(music_level01);
-	App->UI->Disable();
+	//App->UI->Disable();
 
 	return true;
 }
