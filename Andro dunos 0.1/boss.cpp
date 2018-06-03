@@ -52,7 +52,7 @@ Boss::Boss(int x, int y) : Enemy(x, y)
 	fly.speed = 0.14f;
 	fly.loop = true;
 
-	HP = 50;
+	HP = 100;
 
 	animation = &fly;
 

@@ -33,6 +33,7 @@
 #include "boss_arm2.h"
 #include "boss_arm3.h"
 #include "Level01.h"
+#include "ModuleStageClear.h"
 
 #define SPAWN_MARGIN (60 * SCREEN_SIZE)
 
@@ -384,6 +385,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		    {
 				enemies[i]->HP--;
 				break;					
+			}
+			else if (enemies[i]->Type == 23) {
+				App->stage_clear->Enable();
 			}
 			else	
 			{
