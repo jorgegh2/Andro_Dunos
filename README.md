@@ -174,7 +174,7 @@ Player 2 move: ARROW KEYS.
 
 Player 2 shot: RIGHT CTRL
 
-Player 2 power-up: O
+Player 2 power-up: RIGHT SHIFT
 
 Player 2 change weapon: P
 
@@ -191,7 +191,9 @@ Instant Stage Clear: F6
 
 Instant Game Over: F7
 
-Change Scene: F8
+Change Scene: SPACEBAR
+
+Change between levels: SPACEBAR
 
 God mode: F5
 
@@ -200,11 +202,9 @@ Spawn player 2 in-game: BACKSPACE
 Continue screen (to continue playing when death): SPACEBAR
 
 
-_controller_ (needs to be remapped)(we are aware of an animation error of the ship that only occurs when playing with controller)
+_controller_
 
 A: shot
-
-X: power-up
 
 B: change weapon
 
