@@ -193,7 +193,7 @@ Instant Game Over: F7
 
 Change Scene: SPACEBAR
 
-Change between levels: SPACEBAR
+Change between levels: F8
 
 God mode: F5
 
