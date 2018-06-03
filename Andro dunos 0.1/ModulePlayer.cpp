@@ -225,11 +225,11 @@ update_status ModulePlayer::Update()
 			shoot = true;
 			a_pressed = true;
 		}
-		if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_X) && x_pressed == false)
+		/*if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_X) && x_pressed == false)
 		{
 			powerup = true;
 			x_pressed = true;
-		}
+		}*/
 		if (SDL_GameControllerGetButton(App->input->controller1, SDL_CONTROLLER_BUTTON_B) && b_pressed == false)
 		{
 			change = true;
@@ -716,7 +716,7 @@ update_status ModulePlayer::Update()
 	
 
 
-	if ((App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN || SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_DPAD_LEFT)) && App->fade->IsFading() == false && App->players_menu->cr > 0)
+	if ((App->input->keyboard[SDL_SCANCODE_BACKSPACE] == KEY_DOWN || SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_A)) && App->fade->IsFading() == false && App->players_menu->cr > 0)
 	{
 		App->player2->Enable();
 		App->players_menu->cr--;
