@@ -214,6 +214,6 @@ START: 1 player mode
 
 BACK: 2 player mode
 
-Dpad left arrow: spawn player 2 in-game
+A: spawn player 2 in-game
 
 Right shoulder button: Continue screen (to continue playing when death)
