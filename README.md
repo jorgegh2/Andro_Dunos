@@ -53,6 +53,30 @@ CITM Terrassa 2018. Degree in videogame design and developement.
 
 ## Changelist
 
+### Version 1.0.0
+
+· Player 1 is exactly player 2
+
+· Level 3 layout is correct
+
+· Level 3 colliders added
+
+· UI in-game fully done
+
+· Power-up animation working correctly
+
+· Updated controls for a better experience
+
+· Added level 3 enemies
+
+· Added level 3 boss
+
+· Spaceship animation with controllers corrected
+
+· Colliders of the weapons corrected
+
+· Lots of corrections
+
 ### Version 0.7.0
 
 · Controllers fixed
