@@ -26,6 +26,8 @@ public:
 	SDL_Texture* wall;;
 	Mix_Music* music_level03 = nullptr;
 	Mix_Music* music_level03v2 = nullptr;
+	Mix_Music* boss_intro = nullptr;
+	Mix_Music* boss_loop = nullptr;
 	Animation top_layout1;
 	Animation top_layout2;
 	Animation top_layout3;
@@ -36,7 +38,9 @@ public:
 	Animation* current = nullptr;
 	Collider* c[74];
 
-	bool mus_change = 0;
+	bool mus_change = false;
+	bool mus_change2 = false;
+	bool mus_change3 = false;
 	// Controller input
 	bool l_shoulder_pressed = false;
 	uint i;

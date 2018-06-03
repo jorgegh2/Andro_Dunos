@@ -445,6 +445,8 @@ bool Level03::Start()
 
 	music_level03 = App->audio->LoadMusic("Music/Songs/09_Stage_3-Alien-Intro.ogg");
 	music_level03v2 = App->audio->LoadMusic("Music/Songs/09_Stage_3-Alien-Loop.ogg");
+	boss_intro = App->audio->LoadMusic("Music/Songs/10_Boss_3-Intro.ogg");
+	boss_loop = App->audio->LoadMusic("Music/Songs/10_Boss_3-Loop.ogg");
 	App->audio->PlayMusic(music_level03);
 
 	i = 0;
@@ -474,6 +476,8 @@ bool Level03::CleanUp()
 	App->textures->Unload(wall);
 	App->audio->UnloadMusic(music_level03);
 	App->audio->UnloadMusic(music_level03v2);
+	App->audio->UnloadMusic(boss_intro);
+	App->audio->UnloadMusic(boss_loop);
 	App->UI->Disable();
 
 	return true;
@@ -520,7 +524,7 @@ update_status Level03::Update()
 	else if (App->render->camera.x <= 10676 * SCREEN_SIZE) {
 		App->render->camera.x += 0.2 * SCREEN_SIZE;	
 	}
-	else if (App->render->camera.x <= 10683 * SCREEN_SIZE) {
+	else if (App->render->camera.x <= 10682 * SCREEN_SIZE) {
 		App->render->camera.x += 0.1 * SCREEN_SIZE;
 	}
 
@@ -536,17 +540,29 @@ update_status Level03::Update()
 
 
 	// Music
-	if (App->render->camera.x >= 1055 * SCREEN_SIZE && mus_change == false) {
+	if (App->render->camera.x >= 1055 * SCREEN_SIZE && !mus_change) {
 		App->audio->StopMusic();
 		App->audio->PlayMusic(music_level03v2);
 		mus_change = true;
 	}
+	if (App->render->camera.x >= 10450 * SCREEN_SIZE && !mus_change2) {
+		App->audio->StopMusic();
+		App->audio->PlayMusic(boss_intro);
+		mus_change2 = true;
+	}
+	if (App->render->camera.x >= 10650 * SCREEN_SIZE && !mus_change3) {
+		App->audio->StopMusic();
+		App->audio->PlayMusic(boss_loop);
+		mus_change3 = true;
+	}
+	//up and down
 	if (pos >= 32 && up) up = false;
 	else if (pos <= 0 && !up) up = true;
 	if (up)
 		pos += 0.125;
 	else if (!up)
 		pos -= 0.125;
+
 	// Draw everything --------------------------------------
 	for (int i = 0; i < 10; ++i) if (!App->render->Blit(background1, 400 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;
 	for (int i = 0; i < 18; ++i) if (!App->render->Blit(finalbackground, 3005 + 80 * i, 0, NULL, 0.38f)) return update_status::UPDATE_ERROR;

@@ -10,7 +10,10 @@ private:
 	int original_y = 0;
 	int original_x = 0;
 	Animation fly;
-
+	int i = 0;
+	bool start = false;
+	bool down = true;
+	float mov = 0;
 public:
 
 	Boss(int x, int y);
