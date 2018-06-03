@@ -181,7 +181,7 @@ Player 2 change weapon: RIGHT SHIFT
 
 Insert Coin: F1
 
-1 player mode: F8
+1 player mode: SPACEBAR
 
 2 player mode: F2
 
