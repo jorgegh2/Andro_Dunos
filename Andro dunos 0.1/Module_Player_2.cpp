@@ -202,11 +202,11 @@ update_status ModulePlayer2::Update()
 		shoot = true;
 		a_pressed = true;
 	}
-	if (SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_X) && x_pressed == false)
+	/*if (SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_X) && x_pressed == false)
 	{
 		powerup = true;
 		x_pressed = true;
-	}
+	}*/
 	if (SDL_GameControllerGetButton(App->input->controller2, SDL_CONTROLLER_BUTTON_B) && b_pressed == false)
 	{
 		change = true;
@@ -230,7 +230,7 @@ update_status ModulePlayer2::Update()
 
 	// Change player 2 weapon
 
-	if (App->input->keyboard[SDL_SCANCODE_O] == KEY_STATE::KEY_DOWN || change == true)
+	if (App->input->keyboard[SDL_SCANCODE_RSHIFT] == KEY_STATE::KEY_DOWN || change == true)
 	{
 		change = false;
 		switch (change_weapon) {
