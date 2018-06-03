@@ -20,19 +20,19 @@ Enemy_Power_Up::Enemy_Power_Up(int x, int y) : Enemy(x, y)
 
 	fly.PushBack({ 4,0,18,26 }); //initial
 	fly.loop = false;
-	fly.speed = 0.2f;
+	fly.speed = 0.5f;
 
 	giro1Abajo.PushBack({55, 0, 18, 25});
 	giro1Abajo.PushBack({ 82, 0, 18, 25 }); //mover hacia adelante
 	giro1Abajo.loop = false;
-	giro1Abajo.speed = 0.2f;
+	giro1Abajo.speed = 0.5f;
 
 	giro1Arriba.PushBack({134, 0, 18, 26});
 	giro1Arriba.PushBack({ 160, 0, 18, 26 });
 	giro1Arriba.PushBack({ 186, 0, 18, 26 });
 	giro1Arriba.PushBack({ 212, 0, 18, 26 }); //movimiento diagonal
 	giro1Arriba.loop = false;
-	giro1Arriba.speed = 0.2f;
+	giro1Arriba.speed = 0.5f;
 	
 	Recula.PushBack({ 212, 0, 18, 26 });
 	Recula.PushBack({ 263, 2, 21, 21 });
@@ -50,7 +50,7 @@ Enemy_Power_Up::Enemy_Power_Up(int x, int y) : Enemy(x, y)
 	Recula.PushBack({ 30, 52, 18, 26 });
 	Recula.PushBack({ 56, 52, 18, 26 }); //movimiento hacia la derecha*/
 	Recula.loop = false;
-	Recula.speed = 0.2f;
+	Recula.speed = 0.5f;
 
 
 
